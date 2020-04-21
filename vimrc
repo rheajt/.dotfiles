@@ -1,4 +1,6 @@
-" vim-plug dir
+" """"""""""""""""""""""""""""""""""
+" PLUGINS
+" """""""""""""""""""""""""""""""""" 
 call plug#begin('~/.vim/plugged')
 
 Plug 'rking/ag.vim'
@@ -11,23 +13,45 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'cocopon/iceberg.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
-" end plugins
 
-" custom settings
+""""""""""""""""""""""""""""""""""""
+" MY SETTINGS
+" """"""""""""""""""""""""""""""""""
 syntax on
-set number
-inoremap jj <Esc>
 colorscheme iceberg
+
+set noerrorbells
+set number
 set encoding=UTF-8
-set tabstop=2
+set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
+set smartindent
 set mouse=a
 set cursorline
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+set noshowmode
 
-" ctrl-p settings
+inoremap jj <Esc>
+let mapleader = ' '
+
+" AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
+let g:ag_working_path_mode="r"
+
+"""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP SETTINGS
+"""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -39,23 +63,25 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
   \ 'node_modules': '\node_modules\'
   \ }
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
+" """"""""""""""""""""""""""""""""""""""""""
+let NERDTreeShowHidden=1
+let g:NERDTreeIgnore = ['^node_modules$']
+
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeGitStatusWithFlags = 1
+"vmap <C-/> <plug>NERDCommenterToggle
+"nmap <C-/> <plug>NERDCommenterToggle
 
-" AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
-let g:ag_working_path_mode="r"
-
-" hide mode since it is covered by lightline
-set noshowmode
-
+""""""""""""""""""""""""""""""""""""""""""""
 " CoC Settings
+""""""""""""""""""""""""""""""""""""""""""""
 set hidden          " textEdit might fail if hidden is not set
 set nobackup        " causes some issues
 set nowritebackup   " see above
@@ -63,7 +89,7 @@ set cmdheight=2     " more space for displaying messages
 set updatetime=300  " update from server
 set shortmess+=c    " don't pass messages
 set signcolumn=yes  " always show
-let g:coc_node_path = '/home/rheajt/.nvm/versions/node/v12.16.2/bin/node'  " current node location
+let g:coc_node_path = substitute(system('nvm which node'), '\n', '', '')  " current node location
 
 " coc config
 let g:coc_global_extensions = [
@@ -73,6 +99,7 @@ let g:coc_global_extensions = [
  \ 'coc-prettier', 
  \ 'coc-json', 
  \ ]
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -118,7 +145,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
@@ -150,9 +177,10 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <tab> <Plug>(coc-range-select)
+xmap <silent> <tab> <Plug>(coc-range-select)
+xmap <silent> <S-tab> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -164,7 +192,20 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+  let g:lightline = {
+	\ 'colorscheme': 'wombat',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+	\ }
+
+  " Use auocmd to force lightline update.
+  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Using CocList
 " Show all diagnostics

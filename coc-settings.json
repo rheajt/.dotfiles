@@ -2,6 +2,7 @@
 	"suggest.noselect": false,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": false,
+  "prettier.singleQuote": true,
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
 		"typescript",
