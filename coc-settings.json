@@ -1,15 +1,17 @@
 {
-	"suggest.noselect": false,
-	"prettier.tabWidth": 2,
-	"prettier.useTabs": false,
+  "suggest.noselect": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
   "prettier.singleQuote": true,
-	"coc.preferences.formatOnSaveFiletypes": [
-		"javascript",
-		"typescript",
-		"typescriptreact",
-		"json",
-		"javascriptreact",
-		"typescript.tsx",
-		"graphql"
-	]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.timout": 300
 }

@@ -1,7 +1,7 @@
 " """"""""""""""""""""""""""""""""""
 " PLUGINS
-" """""""""""""""""""""""""""""""""" 
-call plug#begin('~/.vim/plugged')
+" """"""""""""""""""""""""""""""""""
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -12,17 +12,18 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'cocopon/iceberg.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
+Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
 " MY SETTINGS
 " """"""""""""""""""""""""""""""""""
+let mapleader = ' '
+set noshowmode
 syntax on
-colorscheme iceberg
+colorscheme gruvbox
 
 set noerrorbells
 set number
@@ -39,15 +40,11 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-set noshowmode
 
 inoremap jj <Esc>
-let mapleader = ' '
 
 " AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
-let g:ag_working_path_mode="r"
+"let g:ag_working_path_mode="r"
 
 """""""""""""""""""""""""""""""""""""""""""""
 " CtrlP SETTINGS
@@ -72,12 +69,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " NERDTree
 " """"""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', '.git']
 
-nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <silent> <expr> <C-n> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeGitStatusWithFlags = 1
-"vmap <C-/> <plug>NERDCommenterToggle
-"nmap <C-/> <plug>NERDCommenterToggle
 
 """"""""""""""""""""""""""""""""""""""""""""
 " CoC Settings
@@ -89,15 +84,14 @@ set cmdheight=2     " more space for displaying messages
 set updatetime=300  " update from server
 set shortmess+=c    " don't pass messages
 set signcolumn=yes  " always show
-let g:coc_node_path = substitute(system('nvm which node'), '\n', '', '')  " current node location
+let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin/node'  " current node location
 
 " coc config
 let g:coc_global_extensions = [
  \ 'coc-snippets',
- \ 'coc-pairs',
  \ 'coc-tsserver',
- \ 'coc-prettier', 
- \ 'coc-json', 
+ \ 'coc-prettier',
+ \ 'coc-json',
  \ ]
 
 
@@ -192,20 +186,30 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-  let g:lightline = {
-	\ 'colorscheme': 'wombat',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\   'cocstatus': 'coc#status'
-	\ },
-	\ }
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status',
+\   'fileformat': 'LightlineFileformat',
+\   'filetype': 'LightlineFiletype',
+\ },
+\ }
 
-  " Use auocmd to force lightline update.
-  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+function! LightlineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Using CocList
 " Show all diagnostics
