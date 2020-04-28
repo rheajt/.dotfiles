@@ -41,10 +41,22 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
+"""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 inoremap jj <Esc>
 
+"""""""""""""""""""""""""""""""""""""""""""""
 " AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
-"let g:ag_working_path_mode="r"
+"""""""""""""""""""""""""""""""""""""""""""""
+let g:ag_working_path_mode="r"
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""
 " CtrlP SETTINGS
@@ -73,6 +85,7 @@ let g:NERDTreeIgnore = ['^node_modules$', '.git']
 
 nnoremap <silent> <expr> <C-n> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeGitStatusWithFlags = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""""
 " CoC Settings
@@ -83,7 +96,7 @@ set nowritebackup   " see above
 set cmdheight=2     " more space for displaying messages
 set updatetime=300  " update from server
 set shortmess+=c    " don't pass messages
-set signcolumn=yes  " always show
+"set signcolumn=yes  " always show
 let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin/node'  " current node location
 
 " coc config
@@ -92,6 +105,7 @@ let g:coc_global_extensions = [
  \ 'coc-tsserver',
  \ 'coc-prettier',
  \ 'coc-json',
+ \ 'coc-css',
  \ ]
 
 
