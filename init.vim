@@ -12,8 +12,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+" THEMES
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -23,7 +25,7 @@ call plug#end()
 let mapleader = ' '
 set noshowmode
 syntax on
-colorscheme gruvbox
+colorscheme onedark
 
 set noerrorbells
 set number
@@ -96,7 +98,7 @@ set nowritebackup   " see above
 set cmdheight=2     " more space for displaying messages
 set updatetime=300  " update from server
 set shortmess+=c    " don't pass messages
-"set signcolumn=yes  " always show
+set signcolumn=yes  " always show
 let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin/node'  " current node location
 
 " coc config
@@ -202,7 +204,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:lightline = {
-\ 'colorscheme': 'wombat',
+\ 'colorscheme': 'onedark',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
