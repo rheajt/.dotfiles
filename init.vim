@@ -3,6 +3,8 @@
 " """"""""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
@@ -54,6 +56,13 @@ nnoremap <C-l> <C-w>l
 inoremap jj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""
+" FZF Keymaps
+" """""""""""""""""""""""""""""""""""""""""""
+map <C-f> <Esc><Esc>:Files!<CR>
+inoremap <C-f> <Esc><Esc>:BLines!<CR>
+map <C-g> <Esc><Esc>:BCommits!<CR>
+
+" """""""""""""""""""""""""""""""""""""""""""
 " AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
 """""""""""""""""""""""""""""""""""""""""""""
 let g:ag_working_path_mode="r"
@@ -81,7 +90,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 """"""""""""""""""""""""""""""""""""""""""""
 " NERDTree
-" """"""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$', '.git']
 
