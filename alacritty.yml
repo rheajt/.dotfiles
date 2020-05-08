@@ -1,8 +1,8 @@
 # Window configuration
 window:
   dimensions:
-    columns: 160
-    lines: 46
+    columns: 0
+    lines: 0
   padding:
     x: 10
     y: 10
@@ -16,11 +16,11 @@ history: 10000
 # Font configuration
 font:
   normal:
-    family: 'FiraCode Nerd Font'
+    family: 'SpaceMono NF'
 
 # change for windows
 shell:
-  program: wsl
+  program: wsl.exe
   args:
     - '~'
 

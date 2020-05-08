@@ -8,9 +8,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'itchyny/lightline.vim'
+
+"Status bars
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
@@ -19,7 +24,6 @@ Plug 'lilydjwg/colorizer'
 
 " THEMES
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -28,10 +32,14 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""
 let mapleader = ' '
 syntax on
-colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_sign_column='bg0'
+
+colorscheme gruvbox
 
 set termguicolors
+set background=dark
+let g:airline#extensions#tabline#enabled=1
 set noshowmode                                " Hide the current mode because it is in lightline
 set nohlsearch
 set noerrorbells
@@ -59,6 +67,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
+
+nmap <Leader>w :bd<CR>
+nmap <Leader>l :bnext<CR>
+nmap <Leader>h :bprevious<CR>
 
 inoremap jj <Esc>
 
