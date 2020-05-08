@@ -1,6 +1,6 @@
-" """"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
 " PLUGINS
-" """"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -15,6 +15,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
+Plug 'lilydjwg/colorizer'
+
 " THEMES
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -23,12 +25,15 @@ call plug#end()
 
 """"""""""""""""""""""""""""""""""""
 " MY SETTINGS
-" """"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""
 let mapleader = ' '
-set noshowmode
 syntax on
-colorscheme onedark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
+set termguicolors
+set noshowmode                                " Hide the current mode because it is in lightline
+set nohlsearch
 set noerrorbells
 set number
 set encoding=UTF-8
@@ -43,7 +48,8 @@ set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
-set incsearch
+set incsearch                                " Set the incremental search to on
+set pastetoggle=<F2>
 
 """""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
@@ -52,13 +58,14 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <C-s> :w<CR>
 
 inoremap jj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""
 " FZF Keymaps
 " """""""""""""""""""""""""""""""""""""""""""
-map <C-f> <Esc><Esc>:Files!<CR>
+map <C-f> <Esc><Esc>:GFiles!<CR>
 inoremap <C-f> <Esc><Esc>:BLines!<CR>
 map <C-g> <Esc><Esc>:BCommits!<CR>
 
@@ -117,6 +124,8 @@ let g:coc_global_extensions = [
  \ 'coc-prettier',
  \ 'coc-json',
  \ 'coc-css',
+ \ 'coc-html',
+ \ 'coc-emmet',
  \ ]
 
 
