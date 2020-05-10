@@ -1,3 +1,8 @@
+### Blogs
 https://jordanrhea.com/rss.xml "~jordanrhea.com blog" "blog"
+https://tanaikech.github.io/index.xml "~Tanaike Tech" "blog"
+https://www.labnol.org/rss.xml "~Digital Inspiration" "blog"
+
+### Sub-reddits
 https://reddit.com/r/webdev.rss "~/r/webdev" "reddit"
 https://reddit.com/r/linux.rss "~/r/linux" "reddit"
