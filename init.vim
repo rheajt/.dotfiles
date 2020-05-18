@@ -8,11 +8,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "Status bars
-"Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -39,7 +38,11 @@ colorscheme gruvbox
 
 set termguicolors
 set background=dark
+
 let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+let g:airline_theme='wombat'
+
 set noshowmode                                " Hide the current mode because it is in lightline
 set nohlsearch
 set noerrorbells
