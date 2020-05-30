@@ -130,7 +130,7 @@ set cmdheight=2     " more space for displaying messages
 set updatetime=300  " update from server
 set shortmess+=c    " don't pass messages
 set signcolumn=yes  " always show
-let g:coc_node_path = '~/.nvm/versions/node/v12.16.3/bin/node'  " current node location
+" let g:coc_node_path = '~/.nvm/versions/node/v12.16.3/bin/node'  " current node location
 
 " coc config
 let g:coc_global_extensions = [
