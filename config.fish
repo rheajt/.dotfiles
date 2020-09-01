@@ -1,5 +1,5 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-nvm use default
+#nvm use default
 
 set -g theme_display_vi yes
 set -g theme_display_date no
@@ -14,7 +14,7 @@ set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
 # aliases
-alias vim='nvim'
+# alias vim='nvim'
 
 # abbreviations
 if status --is-interactive
@@ -31,6 +31,8 @@ if status --is-interactive
   abbr --add --global dfs '~/Projects/.dotfiles'
   abbr --add --global gas '~/Projects/scripts'
   abbr --add --global apps '~/Projects/apps'
+  abbr --add --global teams '~/Projects/teams'
+  abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
   ### vim the dotfiles
   abbr --add --global vdfs 'vim ~/Projects/.dotfiles'
