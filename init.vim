@@ -124,6 +124,7 @@ set signcolumn=yes  " always show
 
 " coc config
 let g:coc_global_extensions = [
+ \ 'coc-eslint',
  \ 'coc-snippets',
  \ 'coc-tsserver',
  \ 'coc-prettier',
