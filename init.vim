@@ -1,12 +1,10 @@
 """""""""""""""""""""""""""""""""""
 " PLUGINS
 """""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -46,7 +44,7 @@ let g:airline_theme='wombat'
 set noshowmode                                " Hide the current mode because it is in lightline
 set nohlsearch
 set noerrorbells
-set number
+set relativenumber number
 set encoding=UTF-8
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -80,35 +78,26 @@ inoremap jj <Esc>
 """""""""""""""""""""""""""""""""""""""""""""
 " FZF Keymaps
 " """""""""""""""""""""""""""""""""""""""""""
-map <C-f> <Esc><Esc>:GFiles!<CR>
-inoremap <C-f> <Esc><Esc>:BLines!<CR>
-map <C-g> <Esc><Esc>:BCommits!<CR>
+nmap <silent> <C-P> :Files<CR>
+nmap <C-f> <Esc><Esc>:GFiles!<CR>
+"inoremap <C-f> <Esc><Esc>:BLines!<CR>
+"map <C-g> <Esc><Esc>:BCommits!<CR>
+"nnoremap <C-g> :Rg<Cr>
 
-" """""""""""""""""""""""""""""""""""""""""""
-" AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
-"""""""""""""""""""""""""""""""""""""""""""""
-let g:ag_working_path_mode="r"
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat -p --color always {}']}, <bang>0)
 
-"""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP SETTINGS
-"""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['package.json']
-let g:ctrlp_switch_buffer = 'et'
-
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'node_modules': '\node_modules\'
-  \ }
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      \   'options': ['--preview', 'batcat -p --color always {}']
+      \   <bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""
 " NERDTree
@@ -119,6 +108,7 @@ let g:NERDTreeIgnore = ['^node_modules$', '.git']
 nnoremap <silent> <expr> <C-n> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeGitStatusWithFlags = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""
 " CoC Settings

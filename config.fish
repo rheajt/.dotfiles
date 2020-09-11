@@ -28,7 +28,7 @@ if status --is-interactive
   abbr --add --global tns 'tmux new -s'
 
   ### folders
-  abbr --add --global dfs '~/Projects/.dotfiles'
+  abbr --add --global dfs '~/Projects/dotfiles'
   abbr --add --global gas '~/Projects/scripts'
   abbr --add --global apps '~/Projects/apps'
   abbr --add --global teams '~/Projects/teams'
@@ -42,4 +42,7 @@ if status --is-interactive
   abbr --add --global xs 'expressvpn status'
   abbr --add --global xr 'expressvpn disconnect; expressvpn connect'
 
+  ## helpers
+  abbr --add --global v 'nvim'
 end
+

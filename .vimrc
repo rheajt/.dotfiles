@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -84,11 +83,8 @@ map <C-f> <Esc><Esc>:GFiles!<CR>
 inoremap <C-f> <Esc><Esc>:BLines!<CR>
 map <C-g> <Esc><Esc>:BCommits!<CR>
 
-" """""""""""""""""""""""""""""""""""""""""""
-" AG The_silver_searcher  https://github.com/rking/ag.vim#keyboard-shortcuts
-"""""""""""""""""""""""""""""""""""""""""""""
-let g:ag_working_path_mode="r"
-
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'batcat'"
 
 
 """""""""""""""""""""""""""""""""""""""""""""
