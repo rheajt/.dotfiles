@@ -1,36 +1,38 @@
 {
-  "prettier.tabWidth": 2,
-  "prettier.useTabs": false,
-  "prettier.singleQuote": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "scss",
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx",
-    "graphql"
-  ],
-  "coc.preferences.hoverTarget": "float",
-  "suggest.floatEnable": true,
-  "suggest.autoTrigger": "always",
-  "suggest.noselect": false,
-  "suggest.timeout": 500,
-  "html.autoClosingTags": true,
-  "html.filetypes": [
-    "html",
-    "jsx"
-  ],
-  "coc.preferences.previewAutoClose": true,
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact",
-    "javascript.jsx": "javascriptreact",
-    "typescript.tsx": "typescriptreact"
-  },
-  "emmet.showSuggestionsAsSnippets": true,
-  "emmet.showAbbreviationSuggestions": true
+    "diagnostic.enableSign": true,
+    "diagnostic.enableHighlightLineNumber": false,
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.checkCurrentLine": true,
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": false,
+    "prettier.singleQuote": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "scss",
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "javascriptreact",
+        "typescript.tsx",
+        "graphql"
+    ],
+    "coc.preferences.hoverTarget": "float",
+    "suggest.floatEnable": true,
+    "suggest.autoTrigger": "always",
+    "suggest.noselect": false,
+    "suggest.timeout": 500,
+    "html.autoClosingTags": true,
+    "html.filetypes": ["html", "jsx"],
+    "coc.preferences.previewAutoClose": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact",
+        "javascript.jsx": "javascriptreact",
+        "typescript.tsx": "typescriptreact"
+    },
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.showAbbreviationSuggestions": true
 }
-

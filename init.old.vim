@@ -51,7 +51,7 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set mouse=a
-set cursorline
+"set cursorline
 set smartcase
 set noswapfile
 set nobackup

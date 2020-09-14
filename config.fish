@@ -13,6 +13,9 @@ set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
+set -g FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
+set -g FZF_FIND_FILE_COMMAND "rg -l --hidden --ignore .git . \$dir 2> /dev/null"
+
 # aliases
 # alias vim='nvim'
 
