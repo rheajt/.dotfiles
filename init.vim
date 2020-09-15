@@ -9,10 +9,12 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-let mapleader = ' '
 syntax on
+
+let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
+let g:airline#extensions#tabline#enabled = 1
 
 colorscheme gruvbox
 set background=dark
@@ -65,23 +67,13 @@ nmap <Leader>h :bprevious<CR>
 
 inoremap jj <Esc>
 
-nmap <silent> <C-P> :Files<CR>
-nmap <C-f> <Esc><Esc>:GFiles!<CR>
+nmap <silent> <C-P> :GFiles<CR>
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 
-autocmd! FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-command! -bang -nargs=? -complete=dir Files
+command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat -p --color always {}']}, <bang>0)
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   'options': ['--preview', 'batcat -p --color always {}']
-  \   <bang>0)
 
 """""
 " CoC
@@ -94,7 +86,7 @@ else
   set signcolumn=yes
 endif
 
-e tab for trigger completion with characters ahead and navigate.
+" Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
@@ -136,7 +128,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

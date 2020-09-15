@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""
 " PLUGINS
 """""""""""""""""""""""""""""""""""
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -41,6 +41,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='wombat'
 
+set guicursor="n-c-v:block-nCursor,i-ci:ver10-iCursor-blinkwait300-blinkon200-blinkoff150"
 set noshowmode                                " Hide the current mode because it is in lightline
 set nohlsearch
 set noerrorbells
