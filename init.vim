@@ -51,8 +51,9 @@ set shortmess+=c
 set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+autocmd FileType netrw setl bufhidden=wipe
 
-let g:netrw_browse_split = 2
+let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
@@ -65,11 +66,17 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
 
+" close left
+nmap <Leader>cl :wincmd h<CR> :q<CR>
+
 nnoremap <Leader>x :bp<cr>:bd #<cr>
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprevious<CR>
 
 inoremap jj <Esc>
+
+nnoremap <leader>n :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nmap <silent> <C-P> :GFiles<CR>
 
