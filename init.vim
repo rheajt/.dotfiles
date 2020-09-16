@@ -51,31 +51,52 @@ set shortmess+=c
 set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-autocmd FileType netrw setl bufhidden=wipe
-
+""""
+"netrw
+""""
 let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+let g:netrw_altv = 1
 
-"""""""""""""""""""""""""""""""""""""""""""
-" Key mappings
-"""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType netrw setl bufhidden=delete
+
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+" Add your own mapping. For example:
+noremap <silent> <C-n> :call ToggleNetrw()<CR>
+
+""""
+" misc keybinds
+""""
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
 
-" close left
-nmap <Leader>cl :wincmd h<CR> :q<CR>
-
-nnoremap <Leader>x :bp<cr>:bd #<cr>
+nnoremap <Leader>x :bp<cr>:bd #<cr> 
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprevious<CR>
 
 inoremap jj <Esc>
 
-nnoremap <leader>n :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nmap <silent> <C-P> :GFiles<CR>
@@ -88,6 +109,8 @@ command! -bang -nargs=? -complete=dir GFiles
 
 """""
 " CoC
+"""""
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
