@@ -25,6 +25,9 @@ if status --is-interactive
   ### git commands
   abbr --add --global gs 'git status'
   abbr --add --global gc 'git add -A; git commit -am'
+  abbr --add --global gp 'git push'
+  abbr --add --global gb 'git checkout -b'
+  abbr --add --global gm 'git merge'
 
   ### tmux abbreviations
   abbr --add --global tas 'tmux attach-session -t'
@@ -48,5 +51,6 @@ if status --is-interactive
 
   ## helpers
   abbr --add --global v 'nvim'
+  abbr --add --global bat 'batcat'
 end
 
