@@ -13,10 +13,9 @@ set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
-set -g EDITOR = 'nvim'
+set -g EDITOR 'nvim'
 
 set -g FZF_DEFAULT_COMMAND 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
-#set -g FZF_DEFAULT_COMMAND "rg --files --hidden --follow --no-ignore-vcs"
 set -g FZF_FIND_FILE_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
 set -g FZF_CD_OPTS '--height 40% --layout=reverse --border'
 
@@ -51,6 +50,11 @@ if status --is-interactive
 
   ## helpers
   abbr --add --global v 'nvim'
-  abbr --add --global bat 'batcat'
+  #abbr --add --global bat 'batcat'
+  abbr --add --global sc 'source ~/.config/fish/config.fish'
 end
 
+function bc
+  cat $argv | clip.exe
+  batcat $argv
+end
