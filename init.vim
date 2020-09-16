@@ -52,7 +52,11 @@ set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
-"""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
+"""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
 """""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-h> <C-w>h
@@ -129,7 +133,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 "nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> gh <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

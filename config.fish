@@ -15,9 +15,10 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR = 'nvim'
 
+set -g FZF_DEFAULT_COMMAND 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
+#set -g FZF_DEFAULT_COMMAND "rg --files --hidden --follow --no-ignore-vcs"
 set -g FZF_FIND_FILE_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
 set -g FZF_CD_OPTS '--height 40% --layout=reverse --border'
-set -g FZF_DEFAULT_COMMAND "rg -l --hidden --ignore-file ~/.gitignore ."
 
 # abbreviations
 if status --is-interactive
