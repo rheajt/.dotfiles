@@ -1,7 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
@@ -16,7 +17,10 @@ syntax on
 let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
-let g:airline#extensions#tabline#enabled = 1
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 colorscheme gruvbox
 set background=dark
@@ -52,7 +56,6 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 """"
 "netrw
