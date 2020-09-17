@@ -4,9 +4,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround'
 call plug#end()
 
 syntax on
@@ -40,6 +42,7 @@ set pastetoggle=<F2>
 set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
+set hidden
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -54,7 +57,7 @@ set colorcolumn=80
 """"
 "netrw
 """"
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
@@ -100,6 +103,8 @@ inoremap jj <Esc>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nmap <silent> <C-P> :GFiles<CR>
+nmap <leader>b :Buff<CR>
+nmap <silent> <C-F> :Rg<CR>
 
 "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
@@ -160,9 +165,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 " Use K to show documentation in preview window.
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -248,3 +251,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" tsconfig should be jsonc
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
