@@ -50,11 +50,16 @@ if status --is-interactive
 
   ## helpers
   abbr --add --global v 'nvim'
-  #abbr --add --global bat 'batcat'
+  abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
 end
 
-function bc
+function batclip
   cat $argv | clip.exe
   batcat $argv
 end
+
+function fish_user_key_bindings
+  bind -M insert jj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
+end
+
