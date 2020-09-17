@@ -98,7 +98,7 @@ nnoremap <Leader>x :bp<cr>:bd #<cr>
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprevious<CR>
 
-inoremap jj <Esc>
+inoremap jk <Esc>
 
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
