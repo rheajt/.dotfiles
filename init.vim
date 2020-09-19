@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-"Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -10,6 +10,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
+
 call plug#end()
 
 syntax on
@@ -19,8 +20,8 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
+\ 'colorscheme': 'wombat',
+\ }
 
 colorscheme gruvbox
 set background=dark
@@ -31,8 +32,8 @@ set noshowmode
 set noerrorbells
 set relativenumber number
 set encoding=UTF-8
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set mouse=a
@@ -43,10 +44,10 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch 
 set pastetoggle=<F2>
-set scrolloff=8
+set scrolloff=5
 set noshowmode
 set completeopt=menuone,noinsert,noselect
-set hidden
+"set hidden
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -60,8 +61,8 @@ set colorcolumn=80
 """"
 "netrw
 """"
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
@@ -86,8 +87,8 @@ function! ToggleNetrw()
     endif
 endfunction
 
-" Add your own mapping. For example:
 noremap <silent> <C-n> :call ToggleNetrw()<CR>
+nnoremap <silent> <leader>n :wincmd h<CR> :q<CR>
 
 """"
 " misc keybinds
