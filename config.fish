@@ -15,9 +15,10 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
 
-set -g FZF_FIND_FILE_COMMAND 'ag -g ""'
-set -g FZF_FIND_FILE_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
-set -g FZF_CD_OPTS '--height 40% --layout=reverse --border'
+set -g FZF_FIND_FILE_COMMAND 'ag -g "!{.git,node_modules}"'
+#set -g FZF_CD_COMMAND 'ag -g "!{node_modules,.git}"'
+#set -g FZF_FIND_FILE_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
+#set -g FZF_CD_OPTS '--height 40% --layout=reverse --border'
 
 # abbreviations
 if status --is-interactive

@@ -7,7 +7,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 
@@ -18,10 +18,6 @@ syntax on
 let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
-
-let g:lightline = {
-\ 'colorscheme': 'wombat',
-\ }
 
 colorscheme gruvbox
 set background=dark
@@ -51,10 +47,7 @@ set completeopt=menuone,noinsert,noselect
 
 " Give more space for displaying messages.
 set cmdheight=2
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=50
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 set colorcolumn=80
 
@@ -71,24 +64,28 @@ autocmd FileType netrw setl bufhidden=delete
 
 let g:NetrwIsOpen=0
 
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
+"function! ToggleNetrw()
+    "if g:NetrwIsOpen
+        "let i = bufnr("$")
+        "while (i >= 1)
+            "if (getbufvar(i, "&filetype") == "netrw")
+                "silent exe "bwipeout " . i 
+            "endif
+            "let i-=1
+        "endwhile
+        "let g:NetrwIsOpen=0
+    "else
+        "let g:NetrwIsOpen=1
+        "silent Lexplore
+    "endif
+"endfunction
 
-noremap <silent> <C-n> :call ToggleNetrw()<CR>
-nnoremap <silent> <leader>n :wincmd h<CR> :q<CR>
+"noremap <silent> <C-n> :call ToggleNetrw()<CR>
+nnoremap <silent> <C-n> :Ex<CR>
+nnoremap <silent> <leader>nh :wincmd h<CR> :q<CR>
+nnoremap <silent> <leader>nj :wincmd j<CR> :q<CR>
+nnoremap <silent> <leader>nk :wincmd k<CR> :q<CR>
+nnoremap <silent> <leader>nl :wincmd l<CR> :q<CR>
 
 """"
 " misc keybinds
@@ -259,3 +256,20 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " tsconfig should be jsonc
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'component_function': {
+\   'filename': 'LightlineFilename',
+\ }
+\ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
