@@ -18,14 +18,12 @@
         "typescript.tsx",
         "graphql"
     ],
-    "coc.preferences.hoverTarget": "float",
     "suggest.floatEnable": true,
     "suggest.autoTrigger": "always",
     "suggest.noselect": false,
     "suggest.timeout": 500,
     "html.autoClosingTags": true,
     "html.filetypes": ["html", "jsx"],
-    "coc.preferences.previewAutoClose": true,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "typescript": "typescriptreact",
@@ -33,5 +31,8 @@
         "typescript.tsx": "typescriptreact"
     },
     "emmet.showSuggestionsAsSnippets": true,
-    "emmet.showAbbreviationSuggestions": true
+    "emmet.showAbbreviationSuggestions": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.previewAutoClose": true,
+    "coc.preferences.hoverTarget": "float"
 }

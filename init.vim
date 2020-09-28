@@ -8,6 +8,7 @@ Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 call plug#end()
@@ -57,7 +58,7 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
 
-nnoremap <silent> <C-n> :Ex<CR>
+nnoremap <silent> <C-n> :Lex<CR>
 nnoremap <silent> <leader>nh :wincmd h<CR> :q<CR>
 nnoremap <silent> <leader>nj :wincmd j<CR> :q<CR>
 nnoremap <silent> <leader>nk :wincmd k<CR> :q<CR>
@@ -121,10 +122,15 @@ endif
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
+"nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gd :call CocAction('jumpDefinition')<CR>
+"nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gy :call CocAction('jumpTypeDefinition')<CR>
+"nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gi :call CocAction('jumpImplementation')<CR>
+"nnoremap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gr :call CocAction('jumpReferences')<CR>
+
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -202,7 +208,6 @@ let g:lightline = {
 	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
 	\ },
 	\ 'component_function': {
-	\   'cocstatus': 'coc#status',
     \   'filename': 'LightlineFilename',
 	\ },
 	\ }
