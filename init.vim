@@ -10,7 +10,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
-Plug 'mhinz/vim-startify'
 call plug#end()
 
 syntax on
@@ -90,7 +89,7 @@ nmap <silent> <C-F> :Rg<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 
 command! -bang -nargs=? -complete=dir GFiles
-  \ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat -p --color always {}']}, <bang>0)
+  \ call fzf#vim#files(<q-args>, {'options': ['--preview', 'bat -p --color always {}']}, <bang>0)
 
 """""
 " CoC

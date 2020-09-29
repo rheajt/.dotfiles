@@ -15,10 +15,8 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
 
-set -g FZF_FIND_FILE_COMMAND 'ag -l --hidden -g "!{.git,node_modules,.nvm}" . \$dir 2> /dev/null'
-#set -g FZF_CD_COMMAND 'ag -g "!{node_modules,.git}"'
-set -g FZF_FIND_FILE_OPTS '--height 40% --layout=reverse --border --preview "batcat {}"'
-#set -g FZF_CD_OPTS '--height 40% --layout=reverse --border'
+alias bat=batcat
+alias fd=fdfind
 
 # abbreviations
 if status --is-interactive
@@ -51,7 +49,7 @@ if status --is-interactive
 
   ## helpers
   abbr --add --global v 'nvim'
-  abbr --add --global bat 'batcat'
+  #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
 end
 
