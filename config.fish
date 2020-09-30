@@ -1,6 +1,10 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
 #nvm use default
-set PATH $PATH:/usr/local/go/bin
+set -g GOROOT '/usr/local/go'
+set -g GOPATH '/home/rheajt/Projects/go'
+set -g GOBIN '/home/rheajt/go/bin'
+
+set -g PATH $PATH $GOROOT'/bin' $GOBIN $GOPATH'/bin'
 
 set -g theme_display_vi yes
 set -g theme_display_date no

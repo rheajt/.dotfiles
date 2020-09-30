@@ -3,6 +3,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
@@ -17,6 +18,8 @@ syntax on
 let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
+
+let g:go_def_mapping_enabled = 0
 
 colorscheme gruvbox
 set background=dark

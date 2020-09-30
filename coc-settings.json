@@ -34,5 +34,12 @@
     "emmet.showAbbreviationSuggestions": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.previewAutoClose": true,
-    "coc.preferences.hoverTarget": "float"
+    "coc.preferences.hoverTarget": "float",
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
+        }
+    }
 }
