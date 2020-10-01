@@ -204,25 +204,13 @@ autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 " lightline
 let g:lightline = {
-	\ 'colorscheme': 'wombat',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-    \   'filename': 'LightlineFilename',
-	\ },
-	\ }
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ }
 
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
 
