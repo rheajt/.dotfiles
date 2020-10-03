@@ -23,7 +23,7 @@
     "suggest.noselect": false,
     "suggest.timeout": 500,
     "html.autoClosingTags": true,
-    "html.filetypes": ["html", "jsx"],
+    "html.filetypes": ["html", "jsx", "tsx"],
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "typescript": "typescriptreact",

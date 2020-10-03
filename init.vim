@@ -18,6 +18,8 @@ syntax on
 let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
+let g:NERDDefaultAlign = 'start'
+let g:NERDRemoveExtraSpaces = 1
 
 let g:go_def_mapping_enabled = 0
 
@@ -209,7 +211,18 @@ let g:lightline = {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
 \ },
+\ 'component_function': {
+\   'filename': 'LightlineAbsolutePath',
 \ }
+\ }
+
+function! LightlineAbsolutePath()
+    return expand('%:p:h')
+endfunction
+
+function! LightlineRelativePath()
+    return expand('%')
+endfunction
 
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
