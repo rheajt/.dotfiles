@@ -42,7 +42,7 @@ if status --is-interactive
   abbr --add --global gas '~/Projects/scripts'
   abbr --add --global apps '~/Projects/apps'
   abbr --add --global teams '~/Projects/teams'
-  abbr --add --global wu 'cd "/mnt/c/Users/jordan rhea"'
+  abbr --add --global wh 'cd "/mnt/c/Users/jordan rhea"'
   abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
   ### vim the dotfiles
