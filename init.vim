@@ -11,6 +11,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 syntax on
@@ -56,17 +57,46 @@ set signcolumn=yes
 """"
 "netrw
 """"
-let g:netrw_liststyle = 0
-let g:netrw_browse_split = 2
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-let g:netrw_altv = 1
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
 
-nnoremap <silent> <C-n> :Lex<CR>
-nnoremap <silent> <leader>nh :wincmd h<CR> :q<CR>
-nnoremap <silent> <leader>nj :wincmd j<CR> :q<CR>
-nnoremap <silent> <leader>nk :wincmd k<CR> :q<CR>
-nnoremap <silent> <leader>nl :wincmd l<CR> :q<CR>
+" Use preset argument to open it
+"nmap <space>ed :CocCommand explorer --preset .vim<CR>
+nmap <space>n :CocCommand explorer --preset floatingRightside<CR>
+
+" List all presets
+nmap <space>el :CocList explPresets
 
 """"
 " misc keybinds
@@ -212,7 +242,7 @@ let g:lightline = {
 \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
 \ },
 \ 'component_function': {
-\   'filename': 'LightlineAbsolutePath',
+\   'filename': 'LightlineRelativePath',
 \ }
 \ }
 
@@ -227,3 +257,11 @@ endfunction
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
