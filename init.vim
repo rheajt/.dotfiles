@@ -12,6 +12,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
+Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 syntax on
