@@ -47,7 +47,7 @@ if status --is-interactive
   abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
   ### vim the dotfiles
-  abbr --add --global vdfs 'nvim ~/Projects/.dotfiles'
+  abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
 
   ## expressvpn
   abbr --add --global xc 'expressvpn connect'
