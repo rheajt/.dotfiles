@@ -47,6 +47,7 @@ if status --is-interactive
   abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
   abbr --add --global nff "new_fish_func"
+  abbr --add --global sgp "setup_gas_project"
 
   ### vim the dotfiles
   abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
