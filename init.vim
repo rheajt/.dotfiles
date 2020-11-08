@@ -3,7 +3,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
@@ -12,9 +12,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
-Plug 'vuciv/vim-bujo'
-
-Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 syntax on
@@ -116,7 +113,6 @@ nnoremap <C-s> :w<CR>
 nnoremap <leader>x :bp<cr>:bd #<cr> 
 nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprevious<CR>
-
 
 nnoremap <silent><leader>cc :call NERDComment(1, 'toggle')<CR>
 

@@ -42,7 +42,7 @@
             "filetypes": ["go"]
         }
     },
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "i": false, // cancel default mapkey
 
     "gk": "expandablePrev",

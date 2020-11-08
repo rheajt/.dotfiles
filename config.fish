@@ -46,6 +46,8 @@ if status --is-interactive
   abbr --add --global wh 'cd "/mnt/c/Users/jordan rhea"'
   abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
+  abbr --add --global nff "new_fish_func"
+
   ### vim the dotfiles
   abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
 
@@ -69,3 +71,4 @@ function fish_user_key_bindings
   bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 end
 
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) 
