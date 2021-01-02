@@ -3,13 +3,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
-"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
 call plug#end()
@@ -25,6 +23,7 @@ let g:NERDRemoveExtraSpaces = 1
 let g:go_def_mapping_enabled = 0
 
 colorscheme gruvbox
+set fileformat=unix
 set background=dark
 set termguicolors
 set nohlsearch
