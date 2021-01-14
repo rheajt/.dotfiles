@@ -1,10 +1,5 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-#nvm use default
-set -g GOROOT '/usr/local/go'
-set -g GOPATH '/home/rheajt/Projects/go'
-set -g GOBIN '/home/rheajt/go/bin'
-
-set -g PATH $PATH $GOROOT'/bin' $GOBIN $GOPATH'/bin'
+nvm use default
 
 set -g theme_display_vi yes
 set -g theme_display_date no
@@ -22,7 +17,6 @@ set -g EDITOR 'nvim'
 
 alias bat=batcat
 alias fd=fdfind
-alias open=explorer.exe
 
 # abbreviations
 if status --is-interactive
@@ -43,8 +37,6 @@ if status --is-interactive
   abbr --add --global gas '~/Projects/scripts'
   abbr --add --global apps '~/Projects/apps'
   abbr --add --global teams '~/Projects/teams'
-  abbr --add --global wh 'cd "/mnt/c/Users/jordan rhea"'
-  abbr --add --global onedrive 'cd "/mnt/c/Users/jordan rhea/OneDrive - Keystone Academy"'
 
   abbr --add --global nff "new_fish_func"
   abbr --add --global sgp "setup_gas_project"
@@ -52,14 +44,8 @@ if status --is-interactive
   ### vim the dotfiles
   abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
 
-  ## expressvpn
-  abbr --add --global xc 'expressvpn connect'
-  abbr --add --global xs 'expressvpn status'
-  abbr --add --global xr 'expressvpn disconnect; expressvpn connect'
-
   ## helpers
   abbr --add --global v 'nvim'
-  #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
 end
 
@@ -72,4 +58,3 @@ function fish_user_key_bindings
   bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 end
 
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) 

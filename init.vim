@@ -54,7 +54,7 @@ set colorcolumn=80
 set signcolumn=yes
 
 """"
-"netrw
+"coc-explorer
 """"
 let g:coc_explorer_global_presets = {
 \   '.vim': {
@@ -230,7 +230,8 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " tsconfig.json
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+"autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " lightline
 let g:lightline = {
