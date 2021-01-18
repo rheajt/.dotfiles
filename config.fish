@@ -15,9 +15,6 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
 
-alias bat=batcat
-alias fd=fdfind
-
 # abbreviations
 if status --is-interactive
   ### git commands
