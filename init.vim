@@ -6,10 +6,13 @@ Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
-Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
+Plug 'kyazdani42/nvim-web-devicons' " lua
+Plug 'ryanoasis/vim-devicons' " vimscript
+
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 syntax on
