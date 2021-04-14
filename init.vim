@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -92,7 +94,7 @@ let g:coc_explorer_global_presets = {
 
 " Use preset argument to open it
 "nmap <space>ed :CocCommand explorer --preset .vim<CR>
-nmap <space>n :CocCommand explorer --preset floatingRightside<CR>
+"nmap <space>n :CocCommand explorer --preset floatingRightside<CR>
 
 " List all presets
 nmap <space>el :CocList explPresets
@@ -108,21 +110,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
+nnoremap <C-_> :call NERDComment(1, 'toggle')<CR>
 
 nnoremap <leader>x :bp<cr>:bd #<cr> 
 nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprevious<CR>
 
-nnoremap <silent><leader>cc :call NERDComment(1, 'toggle')<CR>
+"nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
 
-nmap <silent> <C-P> :GFiles<CR>
-nmap <leader>b :Buff<CR>
-nmap <silent> <C-F> :Rg<CR>
+nnoremap <leader>n <cmd>lua require('telescope.builtin').file_browser()<cr>
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
-
-command! -bang -nargs=? -complete=dir GFiles
-  \ call fzf#vim#files(<q-args>, {'options': ['--preview', 'bat -p --color always {}']}, <bang>0)
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 """""
 " CoC
