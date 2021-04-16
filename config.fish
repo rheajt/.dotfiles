@@ -1,5 +1,6 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-#nvm use default
+nvm use default
+
 set -g LC_CTYPE en_US.UTF-8
 set -g LC_ALL en_US.UTF-8
 
