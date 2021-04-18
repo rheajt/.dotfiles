@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
@@ -12,8 +11,8 @@ Plug 'lilydjwg/colorizer'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
+
 Plug 'kyazdani42/nvim-web-devicons' " lua
-Plug 'ryanoasis/vim-devicons' " vimscript
 
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
@@ -132,8 +131,16 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 lua << EOF
+local actions = require('telescope.actions')
+
 require('telescope').setup{
-defaults = {
+  defaults = {
+    mappings = {
+        n = {
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous
+        }
+    },
     vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -169,7 +176,7 @@ defaults = {
     results_height = 1,
     results_width = 0.8,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = {"─", "│", "─", "│", "┌", "┐", "┘", "└"},
     color_devicons = true,
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,

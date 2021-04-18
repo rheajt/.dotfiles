@@ -1,8 +1,8 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
 nvm use default
 
-set -g LC_CTYPE en_US.UTF-8
-set -g LC_ALL en_US.UTF-8
+#set -g LC_CTYPE en_US.UTF-8
+#set -g LC_ALL en_US.UTF-8
 
 set -g theme_display_vi yes
 set -g theme_display_date no
