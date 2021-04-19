@@ -2,16 +2,18 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
-Plug 'itchyny/lightline.vim'
+Plug 'glepnir/galaxyline.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-rooter'
 call plug#end()
 
 syntax on
@@ -19,8 +21,8 @@ syntax on
 let mapleader = ' '
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
-let g:NERDDefaultAlign = 'start'
-let g:NERDRemoveExtraSpaces = 1
+"let g:NERDDefaultAlign = 'start'
+"let g:NERDRemoveExtraSpaces = 1
 
 let g:go_def_mapping_enabled = 0
 
@@ -38,14 +40,12 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set mouse=a
-set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
 set undofile
 set incsearch 
 set pastetoggle=<F2>
-set scrolloff=5
+set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set hidden 
@@ -55,53 +55,9 @@ set shortmess+=c
 set colorcolumn=80
 set signcolumn=yes
 
-""""
-"netrw
-""""
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
-
-" Use preset argument to open it
-"nmap <space>ed :CocCommand explorer --preset .vim<CR>
-"nmap <space>n :CocCommand explorer --preset floatingRightside<CR>
-
-" List all presets
-nmap <space>el :CocList explPresets
-
-""""
+"""""""""""""""
 " misc keybinds
-""""
+"""""""""""""""
 inoremap jk <Esc>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
@@ -127,7 +83,212 @@ nnoremap <leader>fr <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
+"""""""" LSP """""""""""
+nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<cr>
+nnoremap <silent>gD <cmd>lua vim.lsp.buf.declaration()<cr>
+nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<cr>
+nnoremap <silent>gi <cmd>lua vim.lsp.buf.implementation()<cr>
+nnoremap <silent>gh <cmd>lua vim.lsp.buf.signature_help()<cr>
+
+nnoremap <silent>g{ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent>g} <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+
+nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<cr>
+
+autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+
 lua << EOF
+local gl = require('galaxyline')
+local gls = gl.section
+gl.short_line_list = {'LuaTree','vista','dbui'}
+
+local colors = {
+  bg = '#282c34',
+  yellow = '#fabd2f',
+  cyan = '#008080',
+  darkblue = '#081633',
+  green = '#afd700',
+  orange = '#FF8800',
+  purple = '#5d4d7a',
+  magenta = '#d16d9e',
+  grey = '#c0c0c0',
+  blue = '#0087d7',
+  red = '#ec5f67'
+}
+
+local buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+    return true
+  end
+  return false
+end
+
+gls.left[1] = {
+  FirstElement = {
+    provider = function() return '▋' end,
+    highlight = {colors.blue,colors.yellow}
+  },
+}
+gls.left[2] = {
+  ViMode = {
+    provider = function()
+      local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',v= 'VISUAL',V= 'VISUAL LINE', [''] = 'VISUAL BLOCK'}
+      return alias[vim.fn.mode()]
+    end,
+    separator = '',
+    separator_highlight = {colors.purple,function()
+      if not buffer_not_empty() then
+        return colors.purple
+      end
+      return colors.darkblue
+    end},
+    highlight = {colors.darkblue,colors.purple,'bold'},
+  },
+}
+gls.left[3] ={
+  FileIcon = {
+    provider = 'FileIcon',
+    condition = buffer_not_empty,
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.darkblue},
+  },
+}
+gls.left[4] = {
+  FileName = {
+    provider = {'FileName','FileSize'},
+    condition = buffer_not_empty,
+    separator = '',
+    separator_highlight = {colors.purple,colors.darkblue},
+    highlight = {colors.magenta,colors.darkblue}
+  }
+}
+
+gls.left[5] = {
+  GitIcon = {
+    provider = function() return '  ' end,
+    condition = buffer_not_empty,
+    highlight = {colors.orange,colors.purple},
+  }
+}
+gls.left[6] = {
+  GitBranch = {
+    provider = 'GitBranch',
+    condition = buffer_not_empty,
+    highlight = {colors.grey,colors.purple},
+  }
+}
+
+local checkwidth = function()
+  local squeeze_width  = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
+end
+
+gls.left[7] = {
+  DiffAdd = {
+    provider = 'DiffAdd',
+    condition = checkwidth,
+    icon = ' ',
+    highlight = {colors.green,colors.purple},
+  }
+}
+gls.left[8] = {
+  DiffModified = {
+    provider = 'DiffModified',
+    condition = checkwidth,
+    icon = ' ',
+    highlight = {colors.orange,colors.purple},
+  }
+}
+gls.left[9] = {
+  DiffRemove = {
+    provider = 'DiffRemove',
+    condition = checkwidth,
+    icon = ' ',
+    highlight = {colors.red,colors.purple},
+  }
+}
+gls.left[10] = {
+  LeftEnd = {
+    provider = function() return '' end,
+    separator = '',
+    separator_highlight = {colors.purple,colors.bg},
+    highlight = {colors.purple,colors.purple}
+  }
+}
+gls.left[11] = {
+  DiagnosticError = {
+    provider = 'DiagnosticError',
+    icon = '  ',
+    highlight = {colors.red,colors.bg}
+  }
+}
+gls.left[12] = {
+  Space = {
+    provider = function () return ' ' end
+  }
+}
+gls.left[13] = {
+  DiagnosticWarn = {
+    provider = 'DiagnosticWarn',
+    icon = '  ',
+    highlight = {colors.blue,colors.bg},
+  }
+}
+gls.right[1]= {
+  FileFormat = {
+    provider = 'FileFormat',
+    separator = '',
+    separator_highlight = {colors.bg,colors.purple},
+    highlight = {colors.grey,colors.purple},
+  }
+}
+gls.right[2] = {
+  LineInfo = {
+    provider = 'LineColumn',
+    separator = ' | ',
+    separator_highlight = {colors.darkblue,colors.purple},
+    highlight = {colors.grey,colors.purple},
+  },
+}
+gls.right[3] = {
+  PerCent = {
+    provider = 'LinePercent',
+    separator = '',
+    separator_highlight = {colors.darkblue,colors.purple},
+    highlight = {colors.grey,colors.darkblue},
+  }
+}
+gls.right[4] = {
+  ScrollBar = {
+    provider = 'ScrollBar',
+    highlight = {colors.yellow,colors.purple},
+  }
+}
+
+gls.short_line_left[1] = {
+  BufferType = {
+    provider = 'FileTypeName',
+    separator = '',
+    separator_highlight = {colors.purple,colors.bg},
+    highlight = {colors.grey,colors.purple}
+  }
+}
+
+
+gls.short_line_right[1] = {
+  BufferIcon = {
+    provider= 'BufferIcon',
+    separator = '',
+    separator_highlight = {colors.purple,colors.bg},
+    highlight = {colors.grey,colors.purple}
+  }
+}
+
+
+
 require('telescope').setup{
 defaults = {
     vimgrep_arguments = {
@@ -172,146 +333,30 @@ defaults = {
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
-    -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
 EOF
 
-"""""
-" CoC
-"""""
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+lua require('lspconfig').tsserver.setup{on_attach=require('completion').on_attach}
+lua require('lspconfig').html.setup{}
+lua require('lspconfig').cssls.setup{}
+lua require('lspconfig').pyright.setup{}
+lua require('lspconfig').jsonls.setup{on_attach=require('completion').on_attach}
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+autocmd BufEnter * lua require'completion'.on_attach()
 
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-"nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gd :call CocAction('jumpDefinition')<CR>
-"nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gy :call CocAction('jumpTypeDefinition')<CR>
-"nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gi :call CocAction('jumpImplementation')<CR>
-"nnoremap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gr :call CocAction('jumpReferences')<CR>
-
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup format_group
-  autocmd!
-  autocmd FileType javascript,typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
-
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " tsconfig.json
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
-" lightline
-let g:lightline = {
-\ 'colorscheme': 'wombat',
-\ 'active': {
-\   'left': [ [ 'mode', 'paste' ],
-\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-\ },
-\ 'component_function': {
-\   'filename': 'LightlineRelativePath',
-\ }
-\ }
-
-function! LightlineAbsolutePath()
-    return expand('%:p:h')
-endfunction
-
-function! LightlineRelativePath()
-    return expand('%')
-endfunction
-
-" Use autocmd to force lightline update.
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+
 if executable(s:clip)
     augroup WSLYank
         autocmd!
