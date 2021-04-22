@@ -102,7 +102,8 @@ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
 lua << EOF
 require('lualine').setup{
-    options = {theme = 'gruvbox'}
+    options = {theme = 'gruvbox'},
+    extenstions = {'nvim-tree'}
 }
 
 require('telescope').setup{
