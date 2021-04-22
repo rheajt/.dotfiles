@@ -7,8 +7,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
-Plug 'glepnir/galaxyline.nvim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -18,14 +19,10 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 call plug#end()
 
-lua require('galaxy')
-
 syntax on
 
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
-"let g:NERDDefaultAlign = 'start'
-"let g:NERDRemoveExtraSpaces = 1
 
 let g:go_def_mapping_enabled = 0
 
@@ -69,14 +66,26 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-s> :w<CR>
+
 nnoremap <C-_> :call NERDComment(1, 'toggle')<CR>
 
 nnoremap <leader>x :bp<cr>:bd #<cr> 
 nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprevious<CR>
 
-"nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
+nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
+nnoremap <leader>sf <cmd>lua vim.lsp.buf.formatting()<CR>
 
+"""""""" TELESCOPE """"""""
+nnoremap <leader>n :NvimTreeToggle<cr>
+nnoremap <leader>tr :NvimTreeRefresh<cr>
+nnoremap <leader>tf :NvimTreeFindFile<cr>
+
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 """""""" LSP """""""""""
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<cr>
@@ -92,6 +101,61 @@ nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<cr>
 
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+
+lua << EOF
+require('lualine').setup{
+    options = {theme = 'gruvbox'},
+    extenstions = {'nvim-tree'}
+}
+
+require('telescope').setup{
+defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_position = "bottom",
+    prompt_prefix = "$ ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_defaults = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    shorten_path = true,
+    winblend = 0,
+    width = 0.75,
+    preview_cutoff = 120,
+    results_height = 1,
+    results_width = 0.8,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  }
+}
+EOF
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
