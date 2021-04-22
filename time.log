@@ -1,0 +1,82 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.026  000.026: --- NVIM STARTING ---
+001.371  001.345: locale set
+007.953  006.582: inits 1
+008.009  000.056: window checked
+008.023  000.015: parsing arguments
+008.559  000.536: expanding arguments
+008.681  000.122: inits 2
+009.381  000.700: init highlight
+009.383  000.003: waiting for UI
+013.970  004.587: done waiting for UI
+013.990  000.019: initialized screen early for UI
+023.215  006.603  006.603: sourcing /Users/jordan.rhea/.local/share/nvim/site/autoload/plug.vim
+036.585  000.074  000.074: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/filetype.vim
+059.456  000.616  000.616: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/ftdetect/polyglot.vim
+060.478  000.575  000.575: sourcing /Users/jordan.rhea/.config/nvim/plugged/jsonc.vim/ftdetect/jsonc.vim
+061.399  024.255  023.065: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/filetype.vim
+062.022  000.035  000.035: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/ftdetect/polyglot.vim
+062.460  000.139  000.139: sourcing /Users/jordan.rhea/.config/nvim/plugged/jsonc.vim/ftdetect/jsonc.vim
+083.961  049.676  025.172: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/autoload/polyglot/init.vim
+083.997  050.678  001.002: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/filetype.vim
+084.460  000.072  000.072: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/filetype.vim
+085.598  000.498  000.498: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/ftplugin.vim
+086.739  000.529  000.529: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/indent.vim
+089.523  000.480  000.480: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+089.972  001.847  001.367: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/synload.vim
+090.079  002.808  000.961: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syntax.vim
+091.702  001.332  001.332: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/nosyntax.vim
+092.465  000.153  000.153: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+092.837  000.867  000.713: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/synload.vim
+092.914  002.693  000.494: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syntax.vim
+094.442  000.176  000.176: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+095.508  000.176  000.176: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+105.198  012.096  011.744: sourcing /Users/jordan.rhea/.config/nvim/plugged/gruvbox/colors/gruvbox.vim
+106.311  000.257  000.257: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+107.775  000.244  000.244: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/syntax/syncolor.vim
+115.437  009.995  009.494: sourcing /Users/jordan.rhea/.config/nvim/plugged/gruvbox/colors/gruvbox.vim
+219.494  203.857  117.885: sourcing /Users/jordan.rhea/.config/nvim/init.vim
+219.517  001.671: sourcing vimrc file(s)
+227.997  007.033  007.033: sourcing /Users/jordan.rhea/.config/nvim/plugged/plenary.nvim/plugin/plenary.vim
+230.252  001.642  001.642: sourcing /Users/jordan.rhea/.config/nvim/plugged/telescope.nvim/plugin/telescope.vim
+231.273  000.415  000.415: sourcing /Users/jordan.rhea/.config/nvim/plugged/nvim-lspconfig/plugin/lspconfig.vim
+232.470  000.773  000.773: sourcing /Users/jordan.rhea/.config/nvim/plugged/completion-nvim/plugin/completion.vim
+233.280  000.309  000.309: sourcing /Users/jordan.rhea/.config/nvim/plugged/nvim-web-devicons/plugin/nvim-web-devicons.vim
+234.095  000.511  000.511: sourcing /Users/jordan.rhea/.config/nvim/plugged/nvim-tree.lua/plugin/tree.vim
+241.065  006.498  006.498: sourcing /Users/jordan.rhea/.config/nvim/plugged/nerdcommenter/plugin/NERD_commenter.vim
+243.675  001.420  001.420: sourcing /Users/jordan.rhea/.config/nvim/plugged/colorizer/autoload/colorizer.vim
+244.371  002.805  001.385: sourcing /Users/jordan.rhea/.config/nvim/plugged/colorizer/plugin/colorizer.vim
+245.681  000.827  000.827: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-surround/plugin/surround.vim
+248.153  001.968  001.968: sourcing /Users/jordan.rhea/.config/nvim/plugged/vim-polyglot/plugin/polyglot.vim
+250.041  000.827  000.827: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/gzip.vim
+250.697  000.430  000.430: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/health.vim
+251.525  000.705  000.705: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/man.vim
+255.218  000.987  000.987: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+255.296  003.614  002.627: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/matchit.vim
+256.313  000.906  000.906: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/matchparen.vim
+256.848  000.434  000.434: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/netrwPlugin.vim
+257.602  000.618  000.618: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/rplugin.vim
+258.370  000.637  000.637: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/shada.vim
+258.920  000.419  000.419: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/spellfile.vim
+259.745  000.703  000.703: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/tarPlugin.vim
+260.741  000.860  000.860: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/tohtml.vim
+261.309  000.424  000.424: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/tutor.vim
+262.138  000.682  000.682: sourcing /usr/local/Cellar/neovim/HEAD-66f9dd3_2/share/nvim/runtime/plugin/zipPlugin.vim
+262.201  008.644: loading plugins
+262.442  000.241: loading packages
+262.698  000.256: loading after plugins
+262.708  000.010: inits 3
+268.442  005.734: reading ShaDa
+269.111  000.669: opening buffers
+288.736  019.625: BufEnter autocommands
+288.742  000.006: editing files in windows
+288.815  000.073: VimEnter autocommands
+288.818  000.002: UIEnter autocommands
+288.819  000.002: before starting main loop
+289.990  001.171: first screen update
+289.993  000.003: --- NVIM STARTED ---

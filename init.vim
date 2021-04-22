@@ -73,7 +73,7 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprevious<CR>
 
 nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
-
+nnoremap <leader>sf <cmd>lua vim.lsp.buf.formatting()<CR>
 """""""" TELESCOPE """"""""
 nnoremap <leader>n :NvimTreeToggle<cr>
 nnoremap <leader>tr :NvimTreeRefresh<cr>
