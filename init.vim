@@ -23,8 +23,9 @@ syntax on
 
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_sign_column='bg0'
-
 let g:go_def_mapping_enabled = 0
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
+let g:nvim_tree_side = 'right'
 
 colorscheme gruvbox
 set fileformat=unix
@@ -74,7 +75,7 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprevious<CR>
 
 nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
-nnoremap <leader>sf <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>fb <cmd>lua vim.lsp.buf.formatting()<CR>
 
 """""""" TELESCOPE """"""""
 nnoremap <leader>n :NvimTreeToggle<cr>
@@ -82,10 +83,10 @@ nnoremap <leader>tr :NvimTreeRefresh<cr>
 nnoremap <leader>tf :NvimTreeFindFile<cr>
 
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>fr <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>ob <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>ht <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 """""""" LSP """""""""""
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<cr>
