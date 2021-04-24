@@ -1,10 +1,9 @@
 """""""" TELESCOPE """"""""
-nnoremap <leader>n <cmd>lua require('telescope.builtin').file_browser()<cr>
-
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>fr <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>ob <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>ht <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 lua << EOF
 local actions = require('telescope.actions')
@@ -58,7 +57,6 @@ require('telescope').setup{
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,
     use_less = true,
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new
