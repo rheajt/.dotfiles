@@ -54,7 +54,7 @@ require('telescope').setup{
     results_height = 1,
     results_width = 0.8,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = {'─', '│', '─', '│', "┌", "┐", "┘", "└"},
     color_devicons = true,
     use_less = true,
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,

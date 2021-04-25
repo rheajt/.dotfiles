@@ -1,3 +1,10 @@
-" what
-lua require'lualine'.setup{ options = {theme = 'gruvbox'}, extensions = {'nvim-tree'} }
-
+lua << EOF
+require'lualine'.setup{ 
+    options = {
+        theme = 'gruvbox'
+    }, 
+    extensions = {
+        'nvim-tree'
+    }
+}
+EOF

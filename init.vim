@@ -10,19 +10,23 @@ Plug 'nvim-lua/completion-nvim'
 
 " TREESITTER
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " LUALINE
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
-"NVIM TREE
+" NVIM TREE
 Plug 'kyazdani42/nvim-tree.lua'
 
+" THEME
+Plug 'gruvbox-community/gruvbox'
+
 " MISC
+Plug 'windwp/nvim-autopairs'
 Plug 'preservim/nerdcommenter'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
-Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 call plug#end()
 
