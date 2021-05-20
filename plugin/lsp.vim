@@ -24,16 +24,25 @@ require('lspconfig').html.setup{on_attach=require('completion').on_attach}
 require('lspconfig').cssls.setup{on_attach=require('completion').on_attach}
 require('lspconfig').pyright.setup{on_attach=require('completion').on_attach}
 require('lspconfig').jsonls.setup{on_attach=require('completion').on_attach}
+require('lspconfig').emmet_ls.setup{on_attach=require('completion').on_attach}
 
-require('lspconfig/configs').emmet_ls = {
-  default_config = {
-    cmd = {'emmet-ls', '--stdio'},
-    filetypes = {'html', 'css', 'jsx', 'tsx'},
-    root_dir = require'lspconfig'.util.root_pattern(".git", vim.fn.getcwd()),
-  }
-}
+local lspconfig = require'lspconfig'
+local configs = require'lspconfig/configs'    
 
-require('lspconfig').emmet_ls.setup{
-  on_attach = on_attach;
-}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not lspconfig.emmet_ls then    
+  configs.emmet_ls = {    
+    default_config = {    
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function(fname)    
+        return vim.loop.cwd()
+      end;    
+      settings = {};    
+    };    
+  }    
+end    
+lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 EOF
