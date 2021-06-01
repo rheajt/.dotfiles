@@ -8,16 +8,16 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
-" TREESITTER
-Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-Plug 'nvim-treesitter/playground'
-
 " LUALINE
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " NVIM TREE
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " THEME
 Plug 'gruvbox-community/gruvbox'
