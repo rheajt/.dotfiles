@@ -11,6 +11,7 @@ nnoremap <silent>g{ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent>g} <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>gb <cmd>lua vim.lsp.buf.formatting()<CR>
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -25,15 +26,23 @@ require('lspconfig').cssls.setup{on_attach=require('completion').on_attach}
 require('lspconfig').pyright.setup{on_attach=require('completion').on_attach}
 require('lspconfig').jsonls.setup{on_attach=require('completion').on_attach}
 
-require('lspconfig/configs').emmet_ls = {
-  default_config = {
-    cmd = {'emmet-ls', '--stdio'},
-    filetypes = {'html', 'css', 'jsx', 'tsx'},
-    root_dir = require'lspconfig'.util.root_pattern(".git", vim.fn.getcwd()),
-  }
-}
+local lspconfig = require'lspconfig'
+local configs = require'lspconfig/configs'    
 
-require('lspconfig').emmet_ls.setup{
-  on_attach = on_attach;
-}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not lspconfig.emmet_ls then    
+  configs.emmet_ls = {    
+    default_config = {    
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function(fname)    
+        return vim.loop.cwd()
+      end;    
+      settings = {};    
+    };    
+  }    
+end    
+lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 EOF

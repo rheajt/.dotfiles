@@ -50,6 +50,8 @@ if status --is-interactive
   abbr --add --global v 'nvim'
   #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
+
+  abbr --add --global nus 'nvm use sp-dev'
 end
 
 function batclip
