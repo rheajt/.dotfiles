@@ -1,1 +1,1 @@
-lua require'nvim-treesitter.configs'.setup{highlight = {enable = true}}
+lua require('nvim-treesitter.configs').setup{highlight = {enable = true}}

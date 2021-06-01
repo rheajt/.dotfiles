@@ -10,13 +10,17 @@ nnoremap <silent>gh <cmd>lua vim.lsp.buf.signature_help()<cr>
 nnoremap <silent>g{ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent>g} <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <silent>gb <cmd>lua vim.lsp.buf.formatting()<CR>
+
+"code action
 nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<cr>
-nnoremap <leader>gb <cmd>lua vim.lsp.buf.formatting()<CR>
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+"auto format 
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
+
 autocmd BufEnter * lua require'completion'.on_attach()
 
 lua << EOF
