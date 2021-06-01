@@ -86,7 +86,6 @@ nnoremap <leader>h :bprevious<CR>
 nnoremap <C-_> :call NERDComment(1, 'toggle')<CR>
 "nnoremap <leader>cc :call NERDComment(1, 'toggle')<CR>
 
-nnoremap <leader>fb <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " tsconfig.json
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc

@@ -11,6 +11,7 @@ nnoremap <silent>g{ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent>g} <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>gb <cmd>lua vim.lsp.buf.formatting()<CR>
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
