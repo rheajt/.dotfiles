@@ -24,29 +24,11 @@ autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufEnter * lua require'completion'.on_attach()
 
 lua << EOF
+
 require('lspconfig').tsserver.setup{on_attach=require('completion').on_attach}
 require('lspconfig').html.setup{on_attach=require('completion').on_attach}
 require('lspconfig').cssls.setup{on_attach=require('completion').on_attach}
 require('lspconfig').pyright.setup{on_attach=require('completion').on_attach}
 require('lspconfig').jsonls.setup{on_attach=require('completion').on_attach}
 
-local lspconfig = require'lspconfig'
-local configs = require'lspconfig/configs'    
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-if not lspconfig.emmet_ls then    
-  configs.emmet_ls = {    
-    default_config = {    
-      cmd = {'emmet-ls', '--stdio'};
-      filetypes = {'html', 'css'};
-      root_dir = function(fname)    
-        return vim.loop.cwd()
-      end;    
-      settings = {};    
-    };    
-  }    
-end    
-lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 EOF

@@ -7,6 +7,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'norcalli/snippets.nvim'
 
 " LUALINE
 Plug 'hoob3rt/lualine.nvim'
@@ -28,6 +29,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 syntax on
@@ -50,7 +52,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-set smartindent
+"set smartindent
 set mouse=a
 set noswapfile
 set nobackup
