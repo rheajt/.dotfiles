@@ -1,5 +1,6 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
 #nvm use default
+echo "Using NodeJS " & node -v
 
 #set -g LC_CTYPE en_US.UTF-8
 #set -g LC_ALL en_US.UTF-8
@@ -18,7 +19,11 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
 
+fish_add_path /usr/local/go/bin
+
 alias fd=fdfind
+alias bat=batcat
+alias open=explorer.exe
 
 # abbreviations
 if status --is-interactive
