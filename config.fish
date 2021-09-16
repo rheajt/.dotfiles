@@ -1,10 +1,6 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-#nvm use default
-echo "Using NodeJS " & node -v
 
-#set -g LC_CTYPE en_US.UTF-8
-#set -g LC_ALL en_US.UTF-8
-
+set -g DISPLAY 0
 set -g theme_display_vi yes
 set -g theme_display_date no
 set -g theme_display_cmd_duration yes
@@ -53,6 +49,7 @@ if status --is-interactive
 
   ## helpers
   abbr --add --global v 'nvim'
+  abbr --add --global l 'lvim'
   #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
 
