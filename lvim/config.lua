@@ -1,7 +1,7 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.cmd("set relativenumber")
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
+-- vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set smartindent")
 
