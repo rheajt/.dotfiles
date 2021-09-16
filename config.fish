@@ -1,5 +1,8 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
 
+# dangerous specific
+set dangerous_colors 000000 333333 666666 ffffff ffff00 ff6600 ff0000 ff0033 3300ff 0000ff 00ffff 00ff00
+
 set -g DISPLAY 0
 set -g theme_display_vi yes
 set -g theme_display_date no
