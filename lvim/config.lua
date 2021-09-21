@@ -1,7 +1,6 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.cmd("set relativenumber")
 vim.cmd("set expandtab")
--- vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set smartindent")
 
@@ -21,7 +20,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
-lvim.builtin.lualine.options.padding.left = 0
+
+-- lvim.builtin.lualine.options.padding.left = 0
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 lvim.builtin.telescope.on_config_done = function()
