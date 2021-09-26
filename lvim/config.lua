@@ -91,6 +91,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   end
 -- end
 
+lvim.lang.typescript.formatters = {
+    { exe = "prettier"}
+}
+
+lvim.lang.typescriptreact.formatters = {
+    { exe = "prettier"}
+}
 -- set a formatter if you want to override the default lsp one (if it exists)
 -- lvim.lang.python.formatters = {
 --   {
