@@ -20,9 +20,11 @@ set -g EDITOR 'nvim'
 
 fish_add_path /usr/local/go/bin
 
-alias fd=fdfind
-alias bat=batcat
-alias open=explorer.exe
+if [ "$LC_TERMINAL" != "iTerm2" ]
+    alias fd=fdfind
+    alias bat=batcat
+    alias open=explorer.exe
+end
 
 # abbreviations
 if status --is-interactive
