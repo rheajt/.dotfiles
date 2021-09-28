@@ -9,6 +9,7 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 lvim.lsp.diagnostics.virtual_text = false
+vim.cmd("set scrolloff=8")
 
 vim.g.tokyonight_style="night"
 
