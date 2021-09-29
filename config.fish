@@ -35,9 +35,9 @@ if status --is-interactive
   abbr --add --global tns 'tmux new -s'
 
   ### folders
-  abbr --add --global dfs '~/Projects/dotfiles'
-  abbr --add --global apps '~/Projects/apps'
-  abbr --add --global teams '~/Projects/teams'
+  abbr --add --global dfs '~/projects/dotfiles'
+  abbr --add --global apps '~/projects/apps'
+  abbr --add --global teams '~/projects/teams'
   abbr --add --global onedrive 'cd "~/OneDrive - Keystone Academy"'
 
   abbr --add --global nff "new_fish_func"
@@ -47,11 +47,9 @@ if status --is-interactive
   abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
 
   ## helpers
-  abbr --add --global v 'nvim'
+  abbr --add --global v 'lvim'
   #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
-
-  abbr --add --global nus 'nvm use sp-dev'
 end
 
 function batclip
