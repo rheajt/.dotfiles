@@ -7,10 +7,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-
-" TREESITTER
-Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-Plug 'nvim-treesitter/playground'
+Plug 'norcalli/snippets.nvim'
 
 " LUALINE
 Plug 'hoob3rt/lualine.nvim'
@@ -18,6 +15,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " NVIM TREE
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " THEME
 Plug 'gruvbox-community/gruvbox'
@@ -28,6 +29,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'neoclide/jsonc.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 syntax on
@@ -49,6 +51,7 @@ set encoding=UTF-8
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
 set smartindent
 set mouse=a
 set noswapfile

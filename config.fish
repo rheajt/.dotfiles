@@ -1,9 +1,9 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-#nvm use default
 
-#set -g LC_CTYPE en_US.UTF-8
-#set -g LC_ALL en_US.UTF-8
+# dangerous specific
+set dangerous_colors 000000 333333 666666 ffffff ffff00 ff6600 ff0000 ff0033 3300ff 0000ff 00ffff 00ff00
 
+set -g DISPLAY 0
 set -g theme_display_vi yes
 set -g theme_display_date no
 set -g theme_display_cmd_duration yes
@@ -18,7 +18,11 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
 
-alias fd=fdfind
+if [ "$LC_TERMINAL" != "iTerm2" ]
+    alias fd=fdfind
+    alias bat=batcat
+    alias open=explorer.exe
+end
 
 # abbreviations
 if status --is-interactive
@@ -47,7 +51,8 @@ if status --is-interactive
   abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
 
   ## helpers
-  abbr --add --global v 'lvim'
+  abbr --add --global v 'nvim'
+  abbr --add --global l 'lvim'
   #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
 end
