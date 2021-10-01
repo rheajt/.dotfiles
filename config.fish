@@ -1,4 +1,5 @@
 # https://fishshell.com/docs/current/tutorial.html#tutorial
+fzf_key_bindings
 
 # dangerous specific
 set dangerous_colors 000000 333333 666666 ffffff ffff00 ff6600 ff0000 ff0033 3300ff 0000ff 00ffff 00ff00
@@ -17,8 +18,6 @@ set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
 set -g EDITOR 'nvim'
-
-fish_add_path /usr/local/go/bin
 
 if [ "$LC_TERMINAL" != "iTerm2" ]
     alias fd=fdfind
@@ -41,9 +40,9 @@ if status --is-interactive
   abbr --add --global tns 'tmux new -s'
 
   ### folders
-  abbr --add --global dfs '~/Projects/dotfiles'
-  abbr --add --global apps '~/Projects/apps'
-  abbr --add --global teams '~/Projects/teams'
+  abbr --add --global dfs '~/projects/dotfiles'
+  abbr --add --global apps '~/projects/apps'
+  abbr --add --global teams '~/projects/teams'
   abbr --add --global onedrive 'cd "~/OneDrive - Keystone Academy"'
 
   abbr --add --global nff "new_fish_func"
@@ -57,8 +56,6 @@ if status --is-interactive
   abbr --add --global l 'lvim'
   #abbr --add --global bat 'batcat'
   abbr --add --global sc 'source ~/.config/fish/config.fish'
-
-  abbr --add --global nus 'nvm use sp-dev'
 end
 
 function batclip
