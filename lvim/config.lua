@@ -1,14 +1,16 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.cmd("set relativenumber")
+
+vim.cmd("set smartindent")
 vim.cmd("set expandtab")
 vim.cmd("set shiftwidth=4")
-vim.cmd("set smartindent")
 
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 lvim.lsp.diagnostics.virtual_text = false
+
 vim.cmd("set scrolloff=8")
 
 vim.g.tokyonight_style="night"
