@@ -8,11 +8,11 @@ vim.cmd("set shiftwidth=4")
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "tokyonight"
 lvim.lsp.diagnostics.virtual_text = false
 
 vim.cmd("set scrolloff=8")
 
+lvim.colorscheme = "tokyonight"
 vim.g.tokyonight_style="night"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
