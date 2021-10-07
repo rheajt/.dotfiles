@@ -101,6 +101,10 @@ lvim.lang.typescript.formatters = {
 lvim.lang.typescriptreact.formatters = {
     { exe = "prettier"}
 }
+
+lvim.lang.json.formatters = {
+    { exe = 'prettier'}
+}
 -- set a formatter if you want to override the default lsp one (if it exists)
 -- lvim.lang.python.formatters = {
 --   {
