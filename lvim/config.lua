@@ -1,16 +1,18 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.cmd("set relativenumber")
+
+vim.cmd("set smartindent")
 vim.cmd("set expandtab")
 vim.cmd("set shiftwidth=4")
-vim.cmd("set smartindent")
 
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "tokyonight"
 lvim.lsp.diagnostics.virtual_text = false
+
 vim.cmd("set scrolloff=8")
 
+lvim.colorscheme = "tokyonight"
 vim.g.tokyonight_style="night"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -98,6 +100,10 @@ lvim.lang.typescript.formatters = {
 
 lvim.lang.typescriptreact.formatters = {
     { exe = "prettier"}
+}
+
+lvim.lang.json.formatters = {
+    { exe = 'prettier'}
 }
 -- set a formatter if you want to override the default lsp one (if it exists)
 -- lvim.lang.python.formatters = {
