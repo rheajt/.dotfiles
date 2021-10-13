@@ -1,4 +1,3 @@
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.cmd("set relativenumber")
 
 vim.cmd("set smartindent")
