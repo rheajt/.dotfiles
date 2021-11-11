@@ -17,7 +17,7 @@ set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
-set -g EDITOR 'lvim'
+set -g EDITOR 'nvim'
 
 if [ "$LC_TERMINAL" != "iTerm2" ]
     alias fd=fdfind
@@ -40,6 +40,7 @@ if status --is-interactive
   abbr --add --global tns 'tmux new -s'
 
   ### folders
+  abbr --add --global pj '~/projects'
   abbr --add --global dfs '~/projects/dotfiles'
   abbr --add --global apps '~/projects/apps'
   abbr --add --global teams '~/projects/teams'
