@@ -1,8 +1,10 @@
 vim.cmd("set relativenumber")
 
-vim.cmd("set smartindent")
-vim.cmd("set expandtab")
+-- vim.cmd("set smartindent")
+-- vim.cmd("set expandtab")
 vim.cmd("set shiftwidth=4")
+
+lvim.builtin.autopairs.active = false
 
 -- general
 lvim.format_on_save = true
@@ -23,17 +25,18 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 lvim.builtin.telescope.on_config_done = function()
   local actions = require "telescope.actions"
   -- for input mode
-  lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
-  lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
-  lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
-  lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
+  lvim.builtin.telescope.mappings.i["<C-j>"] = actions.move_selection_next
+  lvim.builtin.telescope.mappings.i["<C-k>"] = actions.move_selection_previous
+  lvim.builtin.telescope.mappings.i["<C-n>"] = actions.cycle_history_next
+  lvim.builtin.telescope.mappings.i["<C-p>"] = actions.cycle_history_prev
   -- for normal mode
-  lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
-  lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
+  lvim.builtin.telescope.mappings.n["<C-j>"] = actions.move_selection_next
+  lvim.builtin.telescope.mappings.n["<C-k>"] = actions.move_selection_previous
 end
 
 lvim.builtin.lualine.options.theme = "tokyonight"
@@ -101,6 +104,10 @@ lvim.lang.typescriptreact.formatters = {
 
 lvim.lang.json.formatters = {
     { exe = 'prettier'}
+}
+
+lvim.lang.jsonc.formatters = {
+    { exe = 'prettier' }
 }
 -- set a formatter if you want to override the default lsp one (if it exists)
 -- lvim.lang.python.formatters = {
