@@ -49,7 +49,7 @@ if status --is-interactive
   abbr --add --global sgp "setup_gas_project"
 
   ### vim the dotfiles
-  abbr --add --global vdfs 'nvim ~/Projects/dotfiles'
+  abbr --add --global vdfs 'nvim ~/projects/dotfiles'
 
   ## helpers
   abbr --add --global v 'nvim'
