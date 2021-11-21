@@ -26,6 +26,48 @@ packer.init {
 return require("packer").startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function() require'nvimtree' end
+    }
+
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true},
+      config = function()
+          require'lualine'.setup {
+              options = {
+                icons_enabled = true,
+                theme = 'gruvbox_dark',
+                component_separators = { left = '', right = ''},
+                section_separators = { left = '', right = ''},
+                disabled_filetypes = {},
+                always_divide_middle = true,
+              },
+              sections = {
+                lualine_a = {'mode'},
+                lualine_b = {'branch', 'diff',
+                              {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+                lualine_c = {'filename'},
+                lualine_x = {'encoding', 'fileformat', 'filetype'},
+                lualine_y = {'progress'},
+                lualine_z = {'location'}
+              },
+              inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {'filename'},
+                lualine_x = {'location'},
+                lualine_y = {},
+                lualine_z = {}
+              },
+              tabline = {},
+              extensions = {}
+            }
+            end
+    }
+
     -- Nvim Comment
     use {
         'terrortylor/nvim-comment',
@@ -35,6 +77,8 @@ return require("packer").startup(function(use)
             })
         end,
     }
+
+    use "L3MON4D3/LuaSnip"
 
     -- Telescope
     use {
@@ -47,6 +91,7 @@ return require("packer").startup(function(use)
 
     -- LSP
     use { "neovim/nvim-lspconfig" }
+
     use {
         "kabouzeid/nvim-lspinstall",
         config = function()
@@ -62,13 +107,19 @@ return require("packer").startup(function(use)
     }
 
     -- Autocomplete
-      use {
-        "hrsh7th/nvim-compe",
-        -- event = "InsertEnter",
+    use {
+        "hrsh7th/nvim-cmp",
         config = function()
-          require("completer").config()
+            require'completer'
         end,
-      }
+    }
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "saadparwaiz1/cmp_luasnip"
+
+    use "onsails/lspkind-nvim"
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
