@@ -1,9 +1,8 @@
+require "plugins"
 -- settings contains basic nvim settings
 require "settings"
 -- all keymaps
 require "keymaps"
--- plugins
-require "plugins"
 
 -- function _G.howdy()
 --     local settings = require'lang-server-settings'
