@@ -1,11 +1,9 @@
-set_keymap = vim.api.nvim_set_keymap
+local set_keymap = vim.api.nvim_set_keymap
 
-set_keymap('n', '<leader><Enter>', ':so ~/.config/nvim/init.lua<CR>', {
-	noremap = true
-})
+set_keymap('n', '<leader><E>', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
 -- close buffer
-set_keymap("n", "<leader>x", ":bd<CR>", {silent = true })
+set_keymap("n", "<leader>c", ":bd<CR>", {silent = true })
 
 -- better window movement
 set_keymap("n", "<C-h>", "<C-w>h", { silent = true })
@@ -48,8 +46,6 @@ set_keymap("n", "qp", ":cprev<CR>", { noremap = true, silent = true })
 --Buffers
 set_keymap("n", "<S-h>", ":bprev<CR>", { noremap = true, silent = true })
 set_keymap("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
-
-
 
 -- TREE
 set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true})

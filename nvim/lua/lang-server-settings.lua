@@ -1,6 +1,6 @@
 local S = {}
 
-S.lua =  {
+S.sumneko_lua =  {
     settings = {
         Lua = {
             diagnostics = {
