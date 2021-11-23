@@ -60,7 +60,7 @@ if status --is-interactive
 end
 
 function batclip
-  cat $argv | xclip.exe
+  cat $argv | win32yank.exe
   batcat $argv
 end
 
