@@ -67,6 +67,7 @@ set_keymap("n", "<leader>fg", ":lua require'telescope.builtin'.live_grep(require
 set_keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({}))<CR>", {})
 set_keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({}))<CR>", {})
 set_keymap("n", "<leader>fd", ":lua require('telescope.builtin').lsp_document_diagnostics(require('telescope.themes').get_dropdown({}))<CR>", {})
+set_keymap("n", "<leader>fs", ":Telescope npm scripts<CR>", {})
 
 -- LSP
 set_keymap("n", "rn", ":lua vim.lsp.buf.rename()<CR>", {})

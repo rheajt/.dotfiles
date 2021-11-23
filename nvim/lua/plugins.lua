@@ -94,7 +94,10 @@ return require("packer").startup(function(use)
     use { "elianiva/telescope-npm.nvim" }
 
     -- LSP
-    use { "neovim/nvim-lspconfig", 'williamboman/nvim-lsp-installer', }
+    use { "neovim/nvim-lspconfig" } 
+    use { 'williamboman/nvim-lsp-installer', 
+        config = function () require'lsp-startup' end,
+    }
 
     -- use {
     --     "kabouzeid/nvim-lspinstall",
