@@ -1,6 +1,6 @@
 local set_keymap = vim.api.nvim_set_keymap
 
-set_keymap('n', '<leader><Enter>', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
+set_keymap('n', '<leader><Enter>', ':source ~/.config/nvim/init.lua<CR>', { noremap = true })
 
 -- close buffer
 set_keymap("n", "<leader>c", ":bd<CR>", {silent = true })

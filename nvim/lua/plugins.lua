@@ -80,7 +80,7 @@ return require("packer").startup(function(use)
         end,
     }
 
-    use "L3MON4D3/LuaSnip"
+    use {"L3MON4D3/LuaSnip"}
 
     -- Telescope
     use {
@@ -91,31 +91,21 @@ return require("packer").startup(function(use)
       end,
     }
 
+    use { "elianiva/telescope-npm.nvim" }
+
     -- LSP
-    use { "neovim/nvim-lspconfig" }
+    use { "neovim/nvim-lspconfig", 'williamboman/nvim-lsp-installer', }
 
-    use {
-        "kabouzeid/nvim-lspinstall",
-        config = function()
-            -- local settings = require('lang-server-settings')
-            -- local servers = require('lspinstall').installed_servers()
-            -- for _, server in pairs(servers) do
-            --     require'lspconfig'[server].setup{
-            --        -- settings[server]
-            --     }
-
-            local settings = require'lang-server-settings'
-            local servers = require'lspinstall'.installed_servers()
-
-            for _, server in pairs(servers) do
-                require'lspconfig'[server].setup{}
-
-                if(settings[server]) then
-                    print(server)
-                end
-            end
-        end,
-    }
+    -- use {
+    --     "kabouzeid/nvim-lspinstall",
+    --     requires = "neovim/nvim-lspconfig",
+    --     config = function()
+    --         local servers = require'lspinstall'.installed_servers()
+    --         for _, server in pairs(servers) do
+    --             require'lspconfig'[server].setup{}
+    --         end
+    --     end,
+    -- }
 
     -- Autocomplete
     use {
