@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
               tabline = {},
               extensions = {}
             }
-            end
+        end
     }
 
     -- Nvim Comment
@@ -97,13 +97,22 @@ return require("packer").startup(function(use)
     use {
         "kabouzeid/nvim-lspinstall",
         config = function()
-            require('lspinstall').setup()
-            local settings = require('lang-server-settings')
-            local servers = require('lspinstall').installed_servers()
+            -- local settings = require('lang-server-settings')
+            -- local servers = require('lspinstall').installed_servers()
+            -- for _, server in pairs(servers) do
+            --     require'lspconfig'[server].setup{
+            --        -- settings[server]
+            --     }
+
+            local settings = require'lang-server-settings'
+            local servers = require'lspinstall'.installed_servers()
+
             for _, server in pairs(servers) do
-                require'lspconfig'[server].setup{
-                   settings[server]
-                }
+                require'lspconfig'[server].setup{}
+
+                if(settings[server]) then
+                    print(server)
+                end
             end
         end,
     }

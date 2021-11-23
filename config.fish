@@ -17,7 +17,7 @@ set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
-set -g EDITOR 'lvim'
+set -g EDITOR 'nvim'
 
 if [ "$LC_TERMINAL" != "iTerm2" ]
     alias fd=fdfind
@@ -59,7 +59,7 @@ if status --is-interactive
 end
 
 function batclip
-  cat $argv | xclip.exe
+  cat $argv | win32yank.exe
   batcat $argv
 end
 
