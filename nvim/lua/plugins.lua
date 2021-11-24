@@ -50,7 +50,7 @@ return require("packer").startup(function(use)
               sections = {
                 lualine_a = {'mode'},
                 lualine_b = {'branch', 'diff',
-                              {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+                              {'diagnostics', sources={'nvim_lsp'}}},
                 lualine_c = {'filename'},
                 lualine_x = {'encoding', 'fileformat', 'filetype'},
                 lualine_y = {'progress'},
@@ -59,8 +59,8 @@ return require("packer").startup(function(use)
               inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = {'filename'},
-                lualine_x = {'location'},
+                -- lualine_c = {'filename'},
+                -- lualine_x = {'location'},
                 lualine_y = {},
                 lualine_z = {}
               },
@@ -83,6 +83,7 @@ return require("packer").startup(function(use)
     use {"L3MON4D3/LuaSnip"}
 
     -- Telescope
+    use "nvim-lua/plenary.nvim"
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -96,7 +97,7 @@ return require("packer").startup(function(use)
     -- LSP
     use { "neovim/nvim-lspconfig" } 
     use { 'williamboman/nvim-lsp-installer', 
-        config = function () require'lsp-startup' end,
+        -- config = function () require'lsp-startup' end,
     }
 
     -- use {
