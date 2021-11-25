@@ -1,5 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
@@ -12,18 +12,22 @@ lsp_installer.on_server_ready(function(server)
     -- end
 
     if server.name == "efm" then
-        print(server.name)
-        opts.root_dir = require'lspconfig/util'.root_pattern('package.json', '.eslintrc', '.git')
+        -- print(server.name)
+        opts.root_dir = require('lspconfig/util').root_pattern('package.json', '.eslintrc', '.git')
     end
 
     if server.name == "jsonls" then
-        print(server.name)
+        -- print(server.name)
         opts.settings = {
             Json = {
                 schemas = {
                    {
                        fileMatch = { "package.json" };
                        url = "https://json.schemastore.org/package.json"
+                   },
+                   {
+                       fileMatch = { "tsconfig.json" };
+                       url = "https://json.schemastore.org/tsconfig.json"
                    }
                }
            }

@@ -18,7 +18,7 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.g.smarttab = true
-
+vim.go.cmdheight = 2
 vim.g.showmode = false
 
 vim.o.hlsearch = false
