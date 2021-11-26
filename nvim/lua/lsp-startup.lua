@@ -13,7 +13,7 @@ lsp_installer.on_server_ready(function(server)
 
     if server.name == "efm" then
         -- print(server.name)
-        opts.root_dir = require('lspconfig/util').root_pattern('package.json', '.eslintrc', '.git')
+        opts.root_dir = vim.lsp.buf.list_workspace_folders()
     end
 
     if server.name == "jsonls" then

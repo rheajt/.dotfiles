@@ -44,6 +44,7 @@ if status --is-interactive
   abbr --add --global dfs '~/projects/dotfiles'
   abbr --add --global apps '~/projects/apps'
   abbr --add --global teams '~/projects/teams'
+  abbr --add --global share '~/projects/sharepoint'
   abbr --add --global onedrive 'cd "~/OneDrive - Keystone Academy"'
 
   abbr --add --global nff "new_fish_func"
