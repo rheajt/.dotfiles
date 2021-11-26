@@ -70,6 +70,8 @@ return require("packer").startup(function(use)
         end
     }
 
+    use "mattn/emmet-vim"
+
     -- Nvim Comment
     use {
         'terrortylor/nvim-comment',
@@ -80,7 +82,7 @@ return require("packer").startup(function(use)
         end,
     }
 
-    use {"L3MON4D3/LuaSnip"}
+    use "L3MON4D3/LuaSnip"
 
     -- Telescope
     use "nvim-lua/plenary.nvim"
@@ -92,24 +94,11 @@ return require("packer").startup(function(use)
       end,
     }
 
-    use { "elianiva/telescope-npm.nvim" }
+    use "elianiva/telescope-npm.nvim"
 
     -- LSP
-    use { "neovim/nvim-lspconfig" } 
-    use { 'williamboman/nvim-lsp-installer', 
-        -- config = function () require'lsp-startup' end,
-    }
-
-    -- use {
-    --     "kabouzeid/nvim-lspinstall",
-    --     requires = "neovim/nvim-lspconfig",
-    --     config = function()
-    --         local servers = require'lspinstall'.installed_servers()
-    --         for _, server in pairs(servers) do
-    --             require'lspconfig'[server].setup{}
-    --         end
-    --     end,
-    -- }
+    use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
 
     -- Autocomplete
     use {
@@ -123,13 +112,12 @@ return require("packer").startup(function(use)
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-nvim-lsp"
     use "saadparwaiz1/cmp_luasnip"
-
     use "onsails/lspkind-nvim"
 
     -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter" }
+    use "nvim-treesitter/nvim-treesitter"
 
     -- Colorscheme
-	use { 'gruvbox-community/gruvbox' }
+	use 'gruvbox-community/gruvbox'
 end)
 

@@ -10,10 +10,22 @@ lsp_installer.on_server_ready(function(server)
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
     -- end
+    -- if server.name == "efm" then
+    --     opts.root_dir = function()
+    --         return vim.lsp.buf.list_workspace_folders()
+    --     end
+    -- end
 
-    if server.name == "efm" then
-        -- print(server.name)
-        opts.root_dir = vim.lsp.buf.list_workspace_folders()
+    if server.name == "sumneko_lua" then
+        print(server.name)
+        opts.settings = {
+            Lua = {
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+              },
+          },
+        }
     end
 
     if server.name == "jsonls" then
@@ -28,9 +40,9 @@ lsp_installer.on_server_ready(function(server)
                    {
                        fileMatch = { "tsconfig.json" };
                        url = "https://json.schemastore.org/tsconfig.json"
-                   }
-               }
-           }
+                   },
+               },
+           },
        }
     end
 
