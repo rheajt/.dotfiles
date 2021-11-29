@@ -71,6 +71,7 @@ return require("packer").startup(function(use)
     }
 
     use "mattn/emmet-vim"
+    use "norcalli/nvim-colorizer.lua"
 
     -- Nvim Comment
     use {

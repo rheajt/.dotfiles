@@ -1,3 +1,4 @@
+require 'colorizer'.setup()
 local lsp_installer = require("nvim-lsp-installer")
 -- local lspconfig = require('lspconfig')
 
@@ -17,7 +18,6 @@ lsp_installer.on_server_ready(function(server)
     -- end
 
     if server.name == "sumneko_lua" then
-        print(server.name)
         opts.settings = {
             Lua = {
               diagnostics = {
