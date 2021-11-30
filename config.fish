@@ -38,6 +38,8 @@ if status --is-interactive
   abbr --add --global tas 'tmux attach-session -t'
   abbr --add --global tds 'tmux detach'
   abbr --add --global tns 'tmux new -s'
+  abbr --add --global tl 'tmux ls'
+  abbr --add --global tks 'tmux kill-session -t'
 
   ### folders
   abbr --add --global pj '~/projects'
