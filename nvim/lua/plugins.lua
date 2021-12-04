@@ -34,6 +34,8 @@ return require("packer").startup(function(use)
         end
     }
 
+    use 'mhartington/formatter.nvim'
+
     use {
       'nvim-lualine/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -83,8 +85,6 @@ return require("packer").startup(function(use)
         end,
     }
 
-    use "L3MON4D3/LuaSnip"
-
     -- Telescope
     use "nvim-lua/plenary.nvim"
     use {
@@ -112,7 +112,6 @@ return require("packer").startup(function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-nvim-lsp"
-    use "saadparwaiz1/cmp_luasnip"
     use "onsails/lspkind-nvim"
 
     -- Treesitter
