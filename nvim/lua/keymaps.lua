@@ -18,6 +18,10 @@ set_keymap("n", "<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %
 -- close buffer
 set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
 
+-- center on scroll
+set_keymap("n", "<C-d>", "<C-D>zz", { noremap = true })
+set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+
 -- better window movement
 set_keymap("n", "<C-h>", "<C-w>h", { silent = true })
 set_keymap("n", "<C-j>", "<C-w>j", { silent = true })
