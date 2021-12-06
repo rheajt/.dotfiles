@@ -1,4 +1,5 @@
 --settings file
+vim.o.colorcolumn = "100"
 vim.g.mapleader = " "
 vim.o.termguicolors = true
 vim.cmd("colorscheme gruvbox")

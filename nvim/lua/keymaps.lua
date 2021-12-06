@@ -1,5 +1,7 @@
 local set_keymap = vim.api.nvim_set_keymap
 
+set_keymap("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true, noremap = true })
+
 -- theprimeagen power maps
 set_keymap("n", "Y", "y$", { noremap = true })
 set_keymap("n", "n", "nzzzv", { noremap = true })
