@@ -126,7 +126,7 @@ set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.formatting_sync()<CR>", {})
 set_keymap(
 	"n",
 	"<leader>la",
-	":lua require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown({}))<CR>",
+	":lua require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_cursor({}))<CR>",
 	{}
 )
 set_keymap(
