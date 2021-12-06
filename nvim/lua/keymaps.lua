@@ -89,7 +89,20 @@ set_keymap(
 	":lua require('telescope.builtin').lsp_document_diagnostics(require('telescope.themes').get_dropdown({}))<CR>",
 	{}
 )
-set_keymap("n", "<leader>fs", ":Telescope npm scripts<CR>", {})
+
+set_keymap(
+	"n",
+	"<leader>fs",
+	":lua require'telescope'.extensions.npm.scripts(require('telescope.themes').get_dropdown({}))<CR>",
+	{}
+)
+set_keymap(
+	"n",
+	"<leader>fp",
+	":lua require'telescope'.extensions.npm.packages(require('telescope.themes').get_dropdown({}))<CR>",
+	{}
+)
+
 set_keymap("n", "<leader>t", ":sp<CR>:terminal<CR>", { silent = true })
 
 -- LSP
