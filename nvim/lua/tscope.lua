@@ -9,6 +9,7 @@ return require("telescope").setup({
 		live_grep = { theme = "ivy" },
 		buffers = { theme = "ivy" },
 		help_tags = { theme = "ivy" },
+		treesitter = { theme = "ivy" },
 	},
 	defaults = {
 		vimgrep_arguments = {

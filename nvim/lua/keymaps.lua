@@ -85,6 +85,7 @@ set_keymap("n", "<leader>ff", ":lua require'telescope.builtin'.find_files()<cr>"
 set_keymap("n", "<leader>fg", ":lua require'telescope.builtin'.live_grep()<CR>", {})
 set_keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", {})
 set_keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", {})
+set_keymap("n", "<leader>ft", ":lua require'telescope.builtin'.treesitter()<CR>", {})
 set_keymap(
 	"n",
 	"<leader>fd",
@@ -105,7 +106,7 @@ set_keymap(
 	{}
 )
 
-set_keymap("n", "<leader>t", ":sp<CR>:terminal<CR>", { silent = true })
+set_keymap("n", "<leader>t", ":vs<CR>:terminal<CR>", { silent = true })
 
 -- LSP
 set_keymap("n", "rn", ":lua vim.lsp.buf.rename()<CR>", {})
