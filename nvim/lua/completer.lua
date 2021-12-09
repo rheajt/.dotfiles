@@ -8,18 +8,23 @@ vim.opt.completeopt = "menuone,noselect"
 
 -- nvim-cmp setup
 cmp.setup({
-	-- snippet = {
-	--   expand = function(args)
-	--     require'luasnip'.lsp_expand(args.body)
-	--   end
-	-- },
+	snippet = {
+		expand = function(args)
+			local luasnip = require("luasnip")
+			if not luasnip then
+				return
+			end
+			luasnip.lsp_expand(args.body)
+		end,
+	},
 	formatting = {
 		format = require("lspkind").cmp_format({
 			with_text = false,
 			maxwidth = 50,
 			menu = {
-				buffer = "[buf}",
+				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
+				luasnip = "[SNIP]",
 			},
 		}),
 	},
@@ -38,7 +43,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		-- { name = "luasnip"},
+		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "buffer", keyword_length = 5 },
 	},
