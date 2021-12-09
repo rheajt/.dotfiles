@@ -176,42 +176,6 @@ ls.snippets = {
 			insert_node(0),
 			text_node({ "", "}" }),
 		}),
-		snippet_node("class", {
-			-- Choice: Switch between two different Nodes, first parameter is its position, second a list of nodes.
-			choice_node(1, {
-				text_node("public "),
-				text_node("private "),
-			}),
-			text_node("class "),
-			insert_node(2),
-			text_node(" "),
-			choice_node(3, {
-				text_node("{"),
-				-- sn: Nested Snippet. Instead of a trigger, it has a position, just like insert-nodes. !!! These don't expect a 0-node!!!!
-				-- Inside Choices, Nodes don't need a position as the choice node is the one being jumped to.
-				snip_node(nil, {
-					text_node("extends "),
-					insert_node(1),
-					text_node(" {"),
-				}),
-				snip_node(nil, {
-					text_node("implements "),
-					insert_node(1),
-					text_node(" {"),
-				}),
-			}),
-			text_node({ "", "\t" }),
-			insert_node(0),
-			text_node({ "", "}" }),
-		}),
-		-- Use a dynamic_node to interpolate the output of a
-		-- function (see date_input above) into the initial
-		-- value of an insert_node.
-		snippet_node("novel", {
-			text_node("It was a dark and stormy night on "),
-			dynamic_node(1, date_input, {}, "%A, %B %d of %Y"),
-			text_node(" and the clocks were striking thirteen."),
-		}),
 		-- Parsing snippets: First parameter: Snippet-Trigger, Second: Snippet body.
 		-- Placeholders are parsed into choices with 1. the placeholder text(as a snippet) and 2. an empty string.
 		-- This means they are not SELECTed like in other editors/Snippet engines.
@@ -223,222 +187,177 @@ ls.snippets = {
 		-- When regTrig is set, trig is treated like a pattern, this snippet will expand after any number.
 		ls.parser.parse_snippet({ trig = "%d", regTrig = true }, "A Number!!"),
 		-- Using the condition, it's possible to allow expansion only in specific cases.
-		snippet_node("cond", {
-			text_node("will only expand in c-style comments"),
-		}, {
-			condition = function(line_to_cursor, matched_trigger, captures)
-				-- optional whitespace followed by //
-				return line_to_cursor:match("%s*//")
-			end,
-		}),
+		-- snippet_node("cond", {
+		-- 	text_node("will only expand in c-style comments"),
+		-- }, {
+		-- 	condition = function(line_to_cursor, matched_trigger, captures)
+		-- 		-- optional whitespace followed by //
+		-- 		return line_to_cursor:match("%s*//")
+		-- 	end,
+		-- }),
 		-- there's some built-in conditions in "luasnip.extras.expand_conditions".
-		snippet_node("cond2", {
-			text_node("will only expand at the beginning of the line"),
-		}, {
-			condition = conds.line_begin,
-		}),
+		-- snippet_node("cond2", {
+		-- 	text_node("will only expand at the beginning of the line"),
+		-- }, {
+		-- 	condition = conds.line_begin,
+		-- }),
 		-- The last entry of args passed to the user-function is the surrounding snippet.
-		snippet_node(
-			{ trig = "a%d", regTrig = true },
-			func_node(function(_, snip)
-				return "Triggered with " .. snip.trigger .. "."
-			end, {})
-		),
+		-- snippet_node(
+		-- 	{ trig = "a%d", regTrig = true },
+		-- 	func_node(function(_, snip)
+		-- 		return "Triggered with " .. snip.trigger .. "."
+		-- 	end, {})
+		-- ),
 		-- It's possible to use capture-groups inside regex-triggers.
-		snippet_node(
-			{ trig = "b(%d)", regTrig = true },
-			func_node(function(_, snip)
-				return "Captured Text: " .. snip.captures[1] .. "."
-			end, {})
-		),
-		snippet_node({ trig = "c(%d+)", regTrig = true }, {
-			text_node("will only expand for even numbers"),
-		}, {
-			condition = function(line_to_cursor, matched_trigger, captures)
-				return tonumber(captures[1]) % 2 == 0
-			end,
-		}),
+		-- snippet_node(
+		-- 	{ trig = "b(%d)", regTrig = true },
+		-- 	func_node(function(_, snip)
+		-- 		return "Captured Text: " .. snip.captures[1] .. "."
+		-- 	end, {})
+		-- ),
+		-- snippet_node({ trig = "c(%d+)", regTrig = true }, {
+		-- 	text_node("will only expand for even numbers"),
+		-- }, {
+		-- 	condition = function(line_to_cursor, matched_trigger, captures)
+		-- 		return tonumber(captures[1]) % 2 == 0
+		-- 	end,
+		-- }),
 		-- Use a function to execute any shell command and print its text.
-		snippet_node("bash", func_node(bash, {}, "ls")),
+		-- snippet_node("bash", func_node(bash, {}, "ls")),
 		-- Short version for applying String transformations using function nodes.
-		snippet_node("transform", {
-			insert_node(1, "initial text"),
-			text_node({ "", "" }),
-			-- lambda nodes accept an l._1,2,3,4,5, which in turn accept any string transformations.
-			-- This list will be applied in order to the first node given in the second argument.
-			l(l._1:match("[^i]*$"):gsub("i", "o"):gsub(" ", "_"):upper(), 1),
-		}),
-		snippet_node("transform2", {
-			insert_node(1, "initial text"),
-			text_node("::"),
-			insert_node(2, "replacement for e"),
-			text_node({ "", "" }),
-			-- Lambdas can also apply transforms USING the text of other nodes:
-			l(l._1:gsub("e", l._2), { 1, 2 }),
-		}),
-		snippet_node({ trig = "trafo(%d+)", regTrig = true }, {
-			-- env-variables and captures can also be used:
-			l(l.CAPTURE1:gsub("1", l.TM_FILENAME), {}),
-		}),
+		-- snippet_node("transform", {
+		-- 	insert_node(1, "initial text"),
+		-- 	text_node({ "", "" }),
+		-- 	-- lambda nodes accept an l._1,2,3,4,5, which in turn accept any string transformations.
+		-- 	-- This list will be applied in order to the first node given in the second argument.
+		-- 	l(l._1:match("[^i]*$"):gsub("i", "o"):gsub(" ", "_"):upper(), 1),
+		-- }),
+		-- snippet_node("transform2", {
+		-- 	insert_node(1, "initial text"),
+		-- 	text_node("::"),
+		-- 	insert_node(2, "replacement for e"),
+		-- 	text_node({ "", "" }),
+		-- 	-- Lambdas can also apply transforms USING the text of other nodes:
+		-- 	l(l._1:gsub("e", l._2), { 1, 2 }),
+		-- }),
+		-- snippet_node({ trig = "trafo(%d+)", regTrig = true }, {
+		-- 	-- env-variables and captures can also be used:
+		-- 	l(l.CAPTURE1:gsub("1", l.TM_FILENAME), {}),
+		-- }),
 		-- Set store_selection_keys = "<Tab>" (for example) in your
 		-- luasnip.config.setup() call to access TM_SELECTED_TEXT. In
 		-- this case, select a URL, hit Tab, then expand this snippet.
-		snippet_node("link_url", {
-			text_node('<a href="'),
-			func_node(function(_, snip)
-				return snip.env.TM_SELECTED_TEXT[1] or {}
-			end, {}),
-			text_node('">'),
-			insert_node(1),
-			text_node("</a>"),
-			insert_node(0),
-		}),
+		-- snippet_node("link_url", {
+		-- 	text_node('<a href="'),
+		-- 	func_node(function(_, snip)
+		-- 		return snip.env.TM_SELECTED_TEXT[1] or {}
+		-- 	end, {}),
+		-- 	text_node('">'),
+		-- 	insert_node(1),
+		-- 	text_node("</a>"),
+		-- 	insert_node(0),
+		-- }),
 		-- Shorthand for repeating the text in a given node.
-		snippet_node("repeat", { insert_node(1, "text"), text_node({ "", "" }), r(1) }),
+		-- snippet_node("repeat", { insert_node(1, "text"), text_node({ "", "" }), r(1) }),
 		-- Directly insert the ouput from a function evaluated at runtime.
-		snippet_node("part", p(os.date, "%Y")),
+		-- snippet_node("part", p(os.date, "%Y")),
 		-- use matchNodes to insert text based on a pattern/function/lambda-evaluation.
-		snippet_node("mat", {
-			insert_node(1, { "sample_text" }),
-			text_node(": "),
-			m(1, "%d", "contains a number", "no number :("),
-		}),
+		-- snippet_node("mat", {
+		-- 	insert_node(1, { "sample_text" }),
+		-- 	text_node(": "),
+		-- 	m(1, "%d", "contains a number", "no number :("),
+		-- }),
 		-- The inserted text defaults to the first capture group/the entire
 		-- match if there are none
-		snippet_node("mat2", {
-			insert_node(1, { "sample_text" }),
-			text_node(": "),
-			m(1, "[abc][abc][abc]"),
-		}),
+		-- snippet_node("mat2", {
+		-- 	insert_node(1, { "sample_text" }),
+		-- 	text_node(": "),
+		-- 	m(1, "[abc][abc][abc]"),
+		-- }),
 		-- It is even possible to apply gsubs' or other transformations
 		-- before matching.
-		snippet_node("mat3", {
-			insert_node(1, { "sample_text" }),
-			text_node(": "),
-			m(1, l._1:gsub("[123]", ""):match("%d"), "contains a number that isn't 1, 2 or 3!"),
-		}),
+		-- snippet_node("mat3", {
+		-- 	insert_node(1, { "sample_text" }),
+		-- 	text_node(": "),
+		-- 	m(1, l._1:gsub("[123]", ""):match("%d"), "contains a number that isn't 1, 2 or 3!"),
+		-- }),
 		-- `match` also accepts a function, which in turn accepts a string
 		-- (text in node, \n-concatted) and returns any non-nil value to match.
 		-- If that value is a string, it is used for the default-inserted text.
-		snippet_node("mat4", {
-			insert_node(1, { "sample_text" }),
-			text_node(": "),
-			m(1, function(text)
-				return (#text % 2 == 0 and text) or nil
-			end),
-		}),
+		-- snippet_node("mat4", {
+		-- 	insert_node(1, { "sample_text" }),
+		-- 	text_node(": "),
+		-- 	m(1, function(text)
+		-- 		return (#text % 2 == 0 and text) or nil
+		-- 	end),
+		-- }),
 		-- The nonempty-node inserts text depending on whether the arg-node is
 		-- empty.
-		snippet_node("nempty", {
-			insert_node(1, "sample_text"),
-			n(1, "i(1) is not empty!"),
-		}),
+		-- snippet_node("nempty", {
+		-- 	insert_node(1, "sample_text"),
+		-- 	n(1, "i(1) is not empty!"),
+		-- }),
 		-- dynamic lambdas work exactly like regular lambdas, except that they
 		-- don't return a textNode, but a dynamicNode containing one insertNode.
 		-- This makes it easier to dynamically set preset-text for insertNodes.
-		snippet_node("dl1", {
-			insert_node(1, "sample_text"),
-			text_node({ ":", "" }),
-			dl(2, l._1, 1),
-		}),
+		-- snippet_node("dl1", {
+		-- 	insert_node(1, "sample_text"),
+		-- 	text_node({ ":", "" }),
+		-- 	dl(2, l._1, 1),
+		-- }),
 		-- Obviously, it's also possible to apply transformations, just like lambdas.
-		snippet_node("dl2", {
-			insert_node(1, "sample_text"),
-			insert_node(2, "sample_text_2"),
-			text_node({ "", "" }),
-			dl(3, l._1:gsub("\n", " linebreak ") .. l._2, { 1, 2 }),
-		}),
+		-- snippet_node("dl2", {
+		-- 	insert_node(1, "sample_text"),
+		-- 	insert_node(2, "sample_text_2"),
+		-- 	text_node({ "", "" }),
+		-- 	dl(3, l._1:gsub("\n", " linebreak ") .. l._2, { 1, 2 }),
+		-- }),
 		-- Alternative printf-like notation for defining snippets. It uses format
 		-- string with placeholders similar to the ones used with Python's .format().
-		snippet_node(
-			"fmt1",
-			fmt("To {title} {} {}.", {
-				insert_node(2, "Name"),
-				insert_node(3, "Surname"),
-				title = choice_node(1, { text_node("Mr."), text_node("Ms.") }),
-			})
-		),
+		-- snippet_node(
+		-- 	"fmt1",
+		-- 	fmt("To {title} {} {}.", {
+		-- 		insert_node(2, "Name"),
+		-- 		insert_node(3, "Surname"),
+		-- 		title = choice_node(1, { text_node("Mr."), text_node("Ms.") }),
+		-- 	})
+		-- ),
 		-- To escape delimiters use double them, e.g. `{}` -> `{{}}`.
 		-- Multi-line format strings by default have empty first/last line removed.
 		-- Indent common to all lines is also removed. Use the third `opts` argument
 		-- to control this behaviour.
-		snippet_node(
-			"fmt2",
-			fmt(
-				[[
-			foo({1}, {3}) {{
-				return {2} * {4}
-			}}
-			]],
-				{
-					insert_node(1, "x"),
-					r(1),
-					insert_node(2, "y"),
-					r(2),
-				}
-			)
-		),
+		-- snippet_node(
+		-- 	"fmt2",
+		-- 	fmt(
+		-- 		[[
+		-- 	foo({1}, {3}) {{
+		-- 		return {2} * {4}
+		-- 	}}
+		-- 	]],
+		-- 		{
+		-- 			insert_node(1, "x"),
+		-- 			r(1),
+		-- 			insert_node(2, "y"),
+		-- 			r(2),
+		-- 		}
+		-- 	)
+		-- ),
 		-- Empty placeholders are numbered automatically starting from 1 or the last
 		-- value of a numbered placeholder. Named placeholders do not affect numbering.
-		snippet_node(
-			"fmt3",
-			fmt("{} {a} {} {1} {}", {
-				text_node("1"),
-				text_node("2"),
-				a = text_node("A"),
-			})
-		),
+		-- snippet_node(
+		-- 	"fmt3",
+		-- 	fmt("{} {a} {} {1} {}", {
+		-- 		text_node("1"),
+		-- 		text_node("2"),
+		-- 		a = text_node("A"),
+		-- 	})
+		-- ),
 		-- The delimiters can be changed from the default `{}` to something else.
-		snippet_node("fmt4", fmt("foo() { return []; }", insert_node(1, "x"), { delimiters = "[]" })),
+		-- snippet_node("fmt4", fmt("foo() { return []; }", insert_node(1, "x"), { delimiters = "[]" })),
 		-- `fmta` is a convenient wrapper that uses `<>` instead of `{}`.
-		snippet_node("fmt5", fmta("foo() { return <>; }", insert_node(1, "x"))),
+		-- snippet_node("fmt5", fmta("foo() { return <>; }", insert_node(1, "x"))),
 		-- By default all args must be used. Use strict=false to disable the check
-		snippet_node("fmt6", fmt("use {} only", { text_node("this"), text_node("not this") }, { strict = false })),
-	},
-	java = {
-		-- Very long example for a java class.
-		snippet_node("fn", {
-			dynamic_node(6, jdocsnip, { 2, 4, 5 }),
-			text_node({ "", "" }),
-			choice_node(1, {
-				text_node("public "),
-				text_node("private "),
-			}),
-			choice_node(2, {
-				text_node("void"),
-				text_node("String"),
-				text_node("char"),
-				text_node("int"),
-				text_node("double"),
-				text_node("boolean"),
-				insert_node(nil, ""),
-			}),
-			text_node(" "),
-			insert_node(3, "myFunc"),
-			text_node("("),
-			insert_node(4),
-			text_node(")"),
-			choice_node(5, {
-				text_node(""),
-				snip_node(nil, {
-					text_node({ "", " throws " }),
-					insert_node(1),
-				}),
-			}),
-			text_node({ " {", "\t" }),
-			insert_node(0),
-			text_node({ "", "}" }),
-		}),
-	},
-	tex = {
-		-- rec_ls is self-referencing. That makes this snippet 'infinite' eg. have as many
-		-- \item as necessary by utilizing a choiceNode.
-		snippet_node("ls", {
-			text_node({ "\\begin{itemize}", "\t\\item " }),
-			insert_node(1),
-			dynamic_node(2, rec_ls, {}),
-			text_node({ "", "\\end{itemize}" }),
-		}),
+		-- snippet_node("fmt6", fmt("use {} only", { text_node("this"), text_node("not this") }, { strict = false })),
 	},
 }
 
