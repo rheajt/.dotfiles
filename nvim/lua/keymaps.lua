@@ -89,7 +89,7 @@ set_keymap("n", "<leader>ft", ":lua require'telescope.builtin'.treesitter()<CR>"
 set_keymap(
 	"n",
 	"<leader>fd",
-	":lua require('telescope.builtin').lsp_document_diagnostics(require('telescope.themes').get_dropdown({}))<CR>",
+	":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown({}))<CR>",
 	{}
 )
 
