@@ -7,8 +7,11 @@ https://www.sherweb.com/blog/feed/ "sherweb" "blog"
 https://cdn.hackernoon.com/feed "hackernoon" "blog"
 
 ### Sub-reddits
-https://reddit.com/r/webdev.rss "~/r/webdev" "reddit"
-https://reddit.com/r/linux.rss "~/r/linux" "reddit"
-https://reddit.com/r/movies.rss "~/r/movies" "reddit"
+https://reddit.com/r/webdev.rss "r/webdev" "reddit"
+https://reddit.com/r/linux.rss "r/linux" "reddit"
+https://reddit.com/r/movies.rss "r/movies" "reddit"
+https://www.reddit.com/r/GoogleAppsScript.rss "r/googleappsscript" "reddit"
+https://www.reddit.com/r/sheets.rss "r/sheets" "reddit"
+https://www.reddit.com/r/googlesheets.rss "r/googlesheets" "reddit"
 
 
