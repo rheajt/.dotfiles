@@ -1,14 +1,32 @@
 return require("formatter").setup({
 	filetype = {
-        json = {
-            function()
-                return {
+		scss = {
+			function()
+				return {
 					exe = "prettierd",
 					args = { vim.api.nvim_buf_get_name(0) },
 					stdin = true,
-                }
-            end,
-        },
+				}
+			end,
+		},
+		css = {
+			function()
+				return {
+					exe = "prettierd",
+					args = { vim.api.nvim_buf_get_name(0) },
+					stdin = true,
+				}
+			end,
+		},
+		json = {
+			function()
+				return {
+					exe = "prettierd",
+					args = { vim.api.nvim_buf_get_name(0) },
+					stdin = true,
+				}
+			end,
+		},
 		typescriptreact = {
 			function()
 				return {
