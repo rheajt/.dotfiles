@@ -23,6 +23,10 @@ packer.init({
 	},
 })
 
+local function config(filename)
+	require(filename)
+end
+
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim")
@@ -31,17 +35,13 @@ return require("packer").startup(function(use)
 
 	use({
 		"kyazdani42/nvim-tree.lua",
-		config = function()
-			require("nvimtree")
-		end,
+		config = config("config.nvim-tree"),
 	})
 
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = function()
-			require("line")
-		end,
+		config = config("config.lualine"),
 	})
 
 	use("mhartington/formatter.nvim")
