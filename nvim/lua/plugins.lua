@@ -48,21 +48,16 @@ return require("packer").startup(function(use)
 
 	use({
 		"terrortylor/nvim-comment",
-		config = function()
-			require("nvim_comment").setup({
-				comment_empty = false,
-			})
-		end,
+		config = config("config.nvim-comment"),
 	})
 
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("tscope")
-		end,
+		config = config("config.telescope"),
 	})
 
+	-- Telescope extensions
 	use("elianiva/telescope-npm.nvim")
 
 	-- LSP
@@ -70,19 +65,17 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
-	-- Autocomplete
+	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require("completer")
-		end,
+		config = config("config.nvim-cmp"),
 	})
+
+	-- Snippets
 	use({
 		"L3MON4D3/LuaSnip",
 		after = "nvim-cmp",
-		config = function()
-			require("snippets")
-		end,
+		config = function() require("snippets") end,
 	})
 
 	use("rafamadriz/friendly-snippets")
