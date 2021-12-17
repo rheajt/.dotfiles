@@ -33,23 +33,8 @@ return require("packer").startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
 
-	use({
-		"kyazdani42/nvim-tree.lua",
-		config = config("config.nvim-tree"),
-	})
-
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = config("config.lualine"),
-	})
-
-	use("mhartington/formatter.nvim")
-
-	use({
-		"terrortylor/nvim-comment",
-		config = config("config.nvim-comment"),
-	})
+	-- Treesitter
+	use("nvim-treesitter/nvim-treesitter")
 
 	-- Telescope
 	use({
@@ -65,6 +50,26 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
+	-- Tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		config = config("config.nvim-tree"),
+	})
+
+	-- Status Line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = config("config.lualine"),
+	})
+
+	-- use("mhartington/formatter.nvim")
+
+	use({
+		"terrortylor/nvim-comment",
+		config = config("config.nvim-comment"),
+	})
+
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
@@ -75,7 +80,9 @@ return require("packer").startup(function(use)
 	use({
 		"L3MON4D3/LuaSnip",
 		after = "nvim-cmp",
-		config = function() require("snippets") end,
+		config = function()
+			require("snippets")
+		end,
 	})
 
 	use("rafamadriz/friendly-snippets")
@@ -87,8 +94,11 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	use("onsails/lspkind-nvim")
 
-	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
+	-- Null-ls
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = config("config.null-ls"),
+	})
 
 	-- Colorscheme
 	use("gruvbox-community/gruvbox")

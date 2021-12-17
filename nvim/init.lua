@@ -3,7 +3,7 @@ require("plugins")
 require("keymaps")
 require("lsp-startup")
 require("lsp-emmet")
-require("format")
+-- require("format")
 
 -- local lspconfig = require("lspconfig")
 -- local configs = require("lspconfig.configs")
