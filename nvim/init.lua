@@ -1,8 +1,8 @@
-require("settings")
 require("plugins")
+require("settings")
 require("keymaps")
 require("lsp-startup")
-require("lsp-emmet")
+-- require("lsp-emmet")
 -- require("format")
 
 -- local lspconfig = require("lspconfig")

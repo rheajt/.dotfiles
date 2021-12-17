@@ -29,6 +29,19 @@ end
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
+	
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+		      'nvim-lua/popup.nvim',
+		      'nvim-lua/plenary.nvim',
+	    },
+		config = function()
+			require('config.telescope')
+		end
+	})
+	
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
@@ -36,11 +49,6 @@ return require("packer").startup(function(use)
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
 
-	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		config = config("config.telescope"),
-	})
 
 	-- Telescope extensions
 	use("elianiva/telescope-npm.nvim")
@@ -53,27 +61,38 @@ return require("packer").startup(function(use)
 	-- Tree
 	use({
 		"kyazdani42/nvim-tree.lua",
-		config = config("config.nvim-tree"),
+		config = function()
+			require'config.nvim-tree'
+		end
 	})
 
 	-- Status Line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = config("config.lualine"),
+		--config = config("config.lualine"),
+		config = function()
+			require'config.lualine'
+		end
 	})
 
 	-- use("mhartington/formatter.nvim")
 
 	use({
 		"terrortylor/nvim-comment",
-		config = config("config.nvim-comment"),
+		--config = config("config.nvim-comment"),
+		config = function()
+			require'config.nvim-comment'
+		end
 	})
 
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		config = config("config.nvim-cmp"),
+		--config = config("config.nvim-cmp"),
+		config = function()
+			require('config.nvim-cmp')
+		end
 	})
 
 	-- Snippets
@@ -97,7 +116,10 @@ return require("packer").startup(function(use)
 	-- Null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		config = config("config.null-ls"),
+		--config = config("config.null-ls"),
+		config = function()
+			require'config.null-ls'
+		end
 	})
 
 	-- Trouble
