@@ -14,7 +14,6 @@ if not packer_ok then
 end
 
 packer.init({
-	-- package_root = require("packer.util").join_paths(vim.fn.stdpath "data", "lvim", "pack"),
 	git = { clone_timeout = 300 },
 	display = {
 		open_fn = function()
@@ -23,32 +22,27 @@ packer.init({
 	},
 })
 
-local function config(filename)
-	require(filename)
-end
-
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	
+
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
-		      'nvim-lua/popup.nvim',
-		      'nvim-lua/plenary.nvim',
-	    },
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+		},
 		config = function()
-			require('config.telescope')
-		end
+			require("config.telescope")
+		end,
 	})
-	
+
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
-
 
 	-- Telescope extensions
 	use("elianiva/telescope-npm.nvim")
@@ -62,8 +56,8 @@ return require("packer").startup(function(use)
 	use({
 		"kyazdani42/nvim-tree.lua",
 		config = function()
-			require'config.nvim-tree'
-		end
+			require("config.nvim-tree")
+		end,
 	})
 
 	-- Status Line
@@ -72,8 +66,32 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		--config = config("config.lualine"),
 		config = function()
-			require'config.lualine'
-		end
+			require("config.lualine")
+		end,
+	})
+
+	-- buffer line
+	use({
+		"akinsho/bufferline.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("bufferline").setup({
+				options = {
+					numbers = "ordinal",
+					diagnostics = "nvim_lsp",
+					offsets = {
+						{
+							filetype = "NvimTree",
+							text = function()
+								return vim.fn.getcwd()
+							end,
+							highlight = "Directory",
+							text_align = "left",
+						},
+					},
+				},
+			})
+		end,
 	})
 
 	-- use("mhartington/formatter.nvim")
@@ -82,8 +100,8 @@ return require("packer").startup(function(use)
 		"terrortylor/nvim-comment",
 		--config = config("config.nvim-comment"),
 		config = function()
-			require'config.nvim-comment'
-		end
+			require("config.nvim-comment")
+		end,
 	})
 
 	-- Cmp
@@ -91,8 +109,8 @@ return require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		--config = config("config.nvim-cmp"),
 		config = function()
-			require('config.nvim-cmp')
-		end
+			require("config.nvim-cmp")
+		end,
 	})
 
 	-- Snippets
@@ -118,8 +136,8 @@ return require("packer").startup(function(use)
 		"jose-elias-alvarez/null-ls.nvim",
 		--config = config("config.null-ls"),
 		config = function()
-			require'config.null-ls'
-		end
+			require("config.null-ls")
+		end,
 	})
 
 	-- Trouble

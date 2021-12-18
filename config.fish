@@ -1,3 +1,4 @@
+# Fish config
 # https://fishshell.com/docs/current/tutorial.html#tutorial
 fzf_key_bindings
 
