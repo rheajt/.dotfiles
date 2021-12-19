@@ -42,7 +42,12 @@ return require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("config.treesitter")
+		end,
+	})
 
 	-- Telescope extensions
 	use("elianiva/telescope-npm.nvim")
@@ -154,7 +159,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- Colorscheme
-	use("evanleck/vim-svelte")
+	-- use("evanleck/vim-svelte")
 	-- use("gruvbox-community/gruvbox")
 	use("rafamadriz/themes.nvim")
 end)
