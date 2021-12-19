@@ -1,9 +1,12 @@
-require("null-ls").setup({
+local nls = require("null-ls")
+
+nls.setup({
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.prettier,
-		require("null-ls").builtins.diagnostics.eslint,
-		require("null-ls").builtins.completion.spell,
+		nls.builtins.formatting.stylua,
+		nls.builtins.formatting.prettier,
+		nls.builtins.diagnostics.tsc,
+		nls.builtins.completion.luasnip,
+		nls.builtins.code_actions.refactoring,
 	},
 
 	-- you can reuse a shared lspconfig on_attach callback here

@@ -154,5 +154,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- Colorscheme
-	use("gruvbox-community/gruvbox")
+	use("evanleck/vim-svelte")
+	-- use("gruvbox-community/gruvbox")
+	use("rafamadriz/themes.nvim")
 end)
