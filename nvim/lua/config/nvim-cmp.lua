@@ -1,6 +1,7 @@
 local present, cmp = pcall(require, "cmp")
 
 if not present then
+	print("hello world")
 	return
 end
 
@@ -25,6 +26,7 @@ cmp.setup({
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
 				luasnip = "[SNIP]",
+				path = "[Path]",
 			},
 		}),
 	},
@@ -47,8 +49,11 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "buffer", keyword_length = 5 },
 	},
+	documentation = {
+		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+	},
 	experimental = {
 		native_menu = false,
-		-- ghost_menu = true,
+		ghost_menu = true,
 	},
 })

@@ -7,17 +7,18 @@ local insert_node = ls.insert_node
 local func_node = ls.function_node
 local choice_node = ls.choice_node
 local dynamic_node = ls.dynamic_node
-local l = require("luasnip.extras").lambda
-local r = require("luasnip.extras").rep
-local p = require("luasnip.extras").partial
-local m = require("luasnip.extras").match
-local n = require("luasnip.extras").nonempty
-local dl = require("luasnip.extras").dynamic_lambda
-local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
+-- local l = require("luasnip.extras").lambda
+-- local r = require("luasnip.extras").rep
+-- local p = require("luasnip.extras").partial
+-- local m = require("luasnip.extras").match
+-- local n = require("luasnip.extras").nonempty
+-- local dl = require("luasnip.extras").dynamic_lambda
+-- local fmt = require("luasnip.extras.fmt").fmt
+-- local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
-local conds = require("luasnip.extras.expand_conditions")
+-- local conds = require("luasnip.extras.expand_conditions")
 
+require("luasnip/loaders/from_vscode").lazy_load()
 -- Every unspecified option will be set to the default.
 ls.config.set_config({
 	history = true,
@@ -132,21 +133,21 @@ local function jdocsnip(args, _, old_state)
 end
 
 -- Make sure to not pass an invalid command, as io.popen() may write over nvim-text.
-local function bash(_, _, command)
-	local file = io.popen(command, "r")
-	local res = {}
-	for line in file:lines() do
-		table.insert(res, line)
-	end
-	return res
-end
+-- local function bash(_, _, command)
+-- 	local file = io.popen(command, "r")
+-- 	local res = {}
+-- 	for line in file:lines() do
+-- 		table.insert(res, line)
+-- 	end
+-- 	return res
+-- end
 
 -- Returns a snippet_node wrapped around an insert_node whose initial
 -- text value is set to the current date in the desired format.
-local date_input = function(args, state, fmt)
-	local fmt = fmt or "%Y-%m-%d"
-	return snip_node(nil, insert_node(1, os.date(fmt)))
-end
+-- local date_input = function(args, state, fmt)
+-- 	local fmt = fmt or "%Y-%m-%d"
+-- 	return snip_node(nil, insert_node(1, os.date(fmt)))
+-- end
 
 ls.snippets = {
 	-- When trying to expand a snippet, luasnip first searches the tables for
