@@ -23,10 +23,11 @@ cmp.setup({
 			with_text = false,
 			maxwidth = 50,
 			menu = {
-				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
+				nvim_lua = "[LUA]",
 				luasnip = "[SNIP]",
 				path = "[Path]",
+				buffer = "[buf]",
 			},
 		}),
 	},
@@ -44,9 +45,9 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "path" },
-		{ name = "luasnip" },
 		{ name = "nvim_lua" },
+		{ name = "luasnip" },
+		{ name = "path" },
 		{ name = "buffer", keyword_length = 5 },
 	},
 	documentation = {
