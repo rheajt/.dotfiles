@@ -52,10 +52,10 @@ lsp_installer.on_server_ready(function(server)
 			ts_utils.setup_client(client)
 
 			-- no default maps, so you may want to define some here
-			local opts = { silent = true }
-			vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-			vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
-			vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
+			local nOpts = { silent = true }
+			vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", nOpts)
+			vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", nOpts)
+			vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", nOpts)
 		end
 	end
 
@@ -71,21 +71,9 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "jsonls" then
-		-- print(server.name)
-		opts.settings = {
-			Json = {
-				schemas = {
-					{
-						fileMatch = { "package.json" },
-						url = "https://json.schemastore.org/package.json",
-					},
-					{
-						fileMatch = { "tsconfig.json" },
-						url = "https://json.schemastore.org/tsconfig.json",
-					},
-				},
-			},
-		}
+		local jsonls_opts = require("config.lsp.jsonls")
+		print(jsonls_opts)
+		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.
