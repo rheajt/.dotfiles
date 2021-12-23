@@ -23,13 +23,4 @@ vim.o.showtabline = 2
 vim.o.hlsearch = false
 vim.o.scrolloff = 8
 vim.o.shell = "/bin/bash"
-
--- vim.api.nvim_exec(
--- 	[[
--- augroup FormatAutogroup
---   autocmd!
---   autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx,*.lua FormatWrite
--- augroup END
--- ]],
--- 	true
--- )
+vim.opt.showtabline = 0

@@ -75,29 +75,29 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- buffer line
-	use({
-		"akinsho/bufferline.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					numbers = "ordinal",
-					diagnostics = "nvim_lsp",
-					offsets = {
-						{
-							filetype = "NvimTree",
-							text = function()
-								return vim.fn.getcwd()
-							end,
-							highlight = "Directory",
-							text_align = "left",
-						},
-					},
-				},
-			})
-		end,
-	})
+	-- TODO: remove buffer line
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	requires = "kyazdani42/nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("bufferline").setup({
+	-- 			options = {
+	-- 				numbers = "ordinal",
+	-- 				diagnostics = "nvim_lsp",
+	-- 				offsets = {
+	-- 					{
+	-- 						filetype = "NvimTree",
+	-- 						text = function()
+	-- 							return vim.fn.getcwd()
+	-- 						end,
+	-- 						highlight = "Directory",
+	-- 						text_align = "left",
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- })
 
 	-- use("mhartington/formatter.nvim")
 

@@ -17,8 +17,8 @@ set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 
 set_keymap("n", "<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>", { noremap = true })
 
--- close buffer
-set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
+-- TODO remove: close buffer
+-- set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
 
 -- center on scroll
 set_keymap("n", "<C-d>", "<C-D>zz", { noremap = true })
