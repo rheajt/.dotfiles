@@ -24,6 +24,7 @@ vim.o.hlsearch = false
 vim.o.scrolloff = 8
 vim.o.shell = "/bin/bash"
 
+vim.opt.showtabline = 0
 -- vim.api.nvim_exec(
 -- 	[[
 -- augroup FormatAutogroup
