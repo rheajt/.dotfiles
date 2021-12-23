@@ -73,6 +73,7 @@ lsp_installer.on_server_ready(function(server)
 	if server.name == "jsonls" then
 		local jsonls_opts = require("config.lsp.jsonls")
 		-- TODO: remove print(jsonls_opts)
+		-- print(jsonls_opts)
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
