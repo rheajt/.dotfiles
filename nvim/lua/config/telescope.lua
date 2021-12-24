@@ -4,7 +4,7 @@
 -- end
 local actions = require("telescope.actions")
 
-return require("telescope").setup({
+require("telescope").setup({
 	pickers = {
 		find_files = { theme = "ivy" },
 		live_grep = { theme = "ivy" },
@@ -60,3 +60,5 @@ return require("telescope").setup({
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 	},
 })
+
+require("telescope").load_extension("fzf")

@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 			require("config.telescope")
 		end,
 	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
@@ -158,8 +159,8 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
 	-- Colorscheme
-	-- use("evanleck/vim-svelte")
-	-- use("gruvbox-community/gruvbox")
 	use("rafamadriz/themes.nvim")
+	use("rebelot/kanagawa.nvim")
 end)

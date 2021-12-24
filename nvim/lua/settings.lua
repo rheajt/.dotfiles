@@ -6,7 +6,9 @@ vim.g.gruvbox_contrast_dark = "hard"
 vim.g.gruvbox_italic_keyword = true
 vim.g.gruvbox_italic_function = true
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme kanagawa")
+
+-- vim.cmd("colorscheme gruvbox")
 -- vim.g.gruvbox_sign_column = "bg0"
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.wo.number = true
