@@ -2,6 +2,7 @@
 -- if not status_ok then
 --   return
 -- end
+local actions = require("telescope.actions")
 
 return require("telescope").setup({
 	pickers = {
@@ -12,6 +13,14 @@ return require("telescope").setup({
 		treesitter = { theme = "ivy" },
 	},
 	defaults = {
+		mappings = {
+			i = {
+				["<C-x>"] = actions.select_vertical,
+			},
+			n = {
+				["<C-x>"] = actions.select_vertical,
+			},
+		},
 		vimgrep_arguments = {
 			"rg",
 			"--color=never",
