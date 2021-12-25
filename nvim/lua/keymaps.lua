@@ -61,6 +61,7 @@ set_keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", { noremap = true, silent = true })
 -- QuickFix
 set_keymap("n", "qn", ":cnext<CR>", { noremap = true, silent = true })
 set_keymap("n", "qp", ":cprev<CR>", { noremap = true, silent = true })
+set_keymap("n", "qq", ":ccl<CR>", { noremap = true, silent = true })
 
 --Buffers
 set_keymap("n", "<S-h>", ":bprev<CR>", { noremap = true, silent = true })
@@ -72,13 +73,9 @@ set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = t
 -- Better nav for omnicomplete
 set_keymap("i", "<C-j>", "\\<C-n>", { noremap = true, silent = true })
 set_keymap("i", "<C-k>", "\\<C-p>", { noremap = true, silent = true })
--- vim.cmd 'inoremap <expr> <c-j> ("\\<C-n>")'
--- vim.cmd 'inoremap <expr> <c-k> ("\\<C-p>")'
 
 set_keymap("v", "p", "0p", { noremap = true })
 set_keymap("v", "p", "0P", { noremap = true })
--- vim.cmd 'vnoremap p "0p'
--- vim.cmd 'vnoremap P "0P'
 
 -- TELESCOPE
 set_keymap("n", "<leader>ff", ":lua require'telescope.builtin'.find_files()<cr>", {})
