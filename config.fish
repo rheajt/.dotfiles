@@ -46,7 +46,10 @@ if status --is-interactive
   abbr --add --global pj '~/projects'
   abbr --add --global dfs '~/projects/dotfiles'
   abbr --add --global apps '~/projects/apps'
-  abbr --add --global teams '~/projects/teams'
+  abbr --add --global blog '~/projects/apps/rheajt.github.io'
+  abbr --add --global gas '~/projects/scripts'
+  abbr --add --global sp '~/projects/sharepoint'
+
   abbr --add --global share '~/projects/sharepoint'
   abbr --add --global onedrive 'cd "~/OneDrive - Keystone Academy"'
 
