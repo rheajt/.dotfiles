@@ -1,28 +1,29 @@
---settings file
-vim.o.colorcolumn = "100"
 vim.g.mapleader = " "
-vim.o.termguicolors = true
-vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_italic_keyword = true
-vim.g.gruvbox_italic_function = true
-
 vim.cmd("colorscheme kanagawa")
 
--- vim.cmd("colorscheme gruvbox")
--- vim.g.gruvbox_sign_column = "bg0"
--- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.wo.signcolumn = "yes"
-vim.o.mouse = "a"
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.g.smarttab = true
-vim.go.cmdheight = 2
-vim.o.showmode = false
-vim.o.showtabline = 2
-vim.o.hlsearch = false
-vim.o.scrolloff = 8
-vim.o.shell = "/bin/bash"
+--settings file
+vim.opt.colorcolumn = "100"
+vim.opt.fileencoding = "utf-8"
+vim.opt.termguicolors = true
+
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.mouse = "a"
+
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
+vim.opt.cmdheight = 2
+
+vim.opt.showmode = false
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.scrolloff = 8
+vim.opt.shell = "/bin/bash"
+
 vim.opt.showtabline = 0
+vim.opt.splitbelow = true
+vim.opt.splitright = true
