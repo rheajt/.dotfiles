@@ -39,12 +39,12 @@ lsp_installer.on_server_ready(function(server)
 				filter_out_diagnostics_by_code = {},
 
 				-- inlay hints
-				auto_inlay_hints = true,
-				inlay_hints_highlight = "Comment",
+				auto_inlay_hints = false,
+				-- inlay_hints_highlight = "Comment",
 
 				-- update imports on file move
-				update_imports_on_move = false,
-				require_confirmation_on_move = false,
+				update_imports_on_move = true,
+				require_confirmation_on_move = true,
 				watch_dir = nil,
 			})
 

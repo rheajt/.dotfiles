@@ -140,7 +140,6 @@ return require("packer").startup(function(use)
 	-- Null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		--config = config("config.null-ls"),
 		config = function()
 			require("config.null-ls")
 		end,

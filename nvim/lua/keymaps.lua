@@ -127,7 +127,7 @@ set_keymap("n", "gl", ":lua vim.diagnostic.open_float()<CR>", {})
 set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 set_keymap("v", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 
-set_keymap("n", "<leader>lf", ":FormatWrite<CR>", {})
+set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.formatting_sync()<CR>", {})
 set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.formatting_sync()<CR>", {})
 
 -- set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", {})
