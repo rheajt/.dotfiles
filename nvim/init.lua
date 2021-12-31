@@ -1,5 +1,5 @@
 require("settings")
 require("keymaps")
 require("plugins")
-require("lsp-startup")
-require("lsp-emmet")
+
+require("config.lsp")

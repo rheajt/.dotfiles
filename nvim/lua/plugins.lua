@@ -24,6 +24,9 @@ packer.init({
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
+	use("kyazdani42/nvim-web-devicons")
 
 	-- Telescope
 	use({
@@ -37,10 +40,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
-	use("kyazdani42/nvim-web-devicons")
+	use("elianiva/telescope-npm.nvim")
 
 	-- Treesitter
 	use({
@@ -49,9 +49,6 @@ return require("packer").startup(function(use)
 			require("config.treesitter")
 		end,
 	})
-
-	-- Telescope extensions
-	use("elianiva/telescope-npm.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -70,41 +67,13 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		--config = config("config.lualine"),
 		config = function()
 			require("config.lualine")
 		end,
 	})
 
-	-- TODO: remove buffer line
-	-- use({
-	-- 	"akinsho/bufferline.nvim",
-	-- 	requires = "kyazdani42/nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("bufferline").setup({
-	-- 			options = {
-	-- 				numbers = "ordinal",
-	-- 				diagnostics = "nvim_lsp",
-	-- 				offsets = {
-	-- 					{
-	-- 						filetype = "NvimTree",
-	-- 						text = function()
-	-- 							return vim.fn.getcwd()
-	-- 						end,
-	-- 						highlight = "Directory",
-	-- 						text_align = "left",
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- })
-
-	-- use("mhartington/formatter.nvim")
-
 	use({
 		"terrortylor/nvim-comment",
-		--config = config("config.nvim-comment"),
 		config = function()
 			require("config.nvim-comment")
 		end,
@@ -113,7 +82,6 @@ return require("packer").startup(function(use)
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		--config = config("config.nvim-cmp"),
 		config = function()
 			require("config.nvim-cmp")
 		end,
@@ -127,8 +95,6 @@ return require("packer").startup(function(use)
 			require("snippets")
 		end,
 	})
-
-	use("rafamadriz/friendly-snippets")
 
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")

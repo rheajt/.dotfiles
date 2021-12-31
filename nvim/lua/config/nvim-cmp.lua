@@ -25,7 +25,7 @@ cmp.setup({
 			menu = {
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[LUA]",
-				luasnip = "[SNIP]",
+				luasnip = "[Snippets]",
 				path = "[Path]",
 				buffer = "[buf]",
 			},
