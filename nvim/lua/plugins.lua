@@ -72,6 +72,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Nvim Comment
 	use({
 		"terrortylor/nvim-comment",
 		config = function()
@@ -82,26 +83,26 @@ return require("packer").startup(function(use)
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require("config.nvim-cmp")
-		end,
+		requires = {
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "onsails/lspkind-nvim" },
+		},
 	})
 
 	-- Snippets
 	use({
 		"L3MON4D3/LuaSnip",
-		after = "nvim-cmp",
+		requires = {
+			"rafamadriz/friendly-snippets",
+		},
 		config = function()
 			require("snippets")
 		end,
 	})
-
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("saadparwaiz1/cmp_luasnip")
-	use("onsails/lspkind-nvim")
 
 	-- Null-ls
 	use({
@@ -112,16 +113,11 @@ return require("packer").startup(function(use)
 	})
 
 	-- Trouble
-	-- Lua
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("config.trouble")
 		end,
 	})
 
