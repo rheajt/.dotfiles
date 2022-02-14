@@ -121,6 +121,17 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- git signs
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+
 	-- Colorscheme
 	use("rafamadriz/themes.nvim")
 	use("rebelot/kanagawa.nvim")
