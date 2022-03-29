@@ -26,6 +26,8 @@ if [ "$LC_TERMINAL" != "iTerm2" ]
     alias open=explorer.exe
 end
 
+alias python=python3
+
 # abbreviations
 if status --is-interactive
   ### git commands
