@@ -1,5 +1,7 @@
 local set_keymap = vim.api.nvim_set_keymap
 
+local sOpts = { silent = true }
+
 set_keymap("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true, noremap = true })
 
 -- theprimeagen power maps
@@ -25,8 +27,8 @@ set_keymap("n", "<C-d>", "<C-D>zz", { noremap = true })
 set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 
 -- better window movement
-set_keymap("n", "<C-h>", "<C-w>h", { silent = true })
-set_keymap("n", "<C-j>", "<C-w>j", { silent = true })
+set_keymap("n", "<C-h>", "<C-w>h", sOpts)
+set_keymap("n", "<C-j>", "<C-w>j", sOpts)
 set_keymap("n", "<C-k>", "<C-w>k", { silent = true })
 set_keymap("n", "<C-l>", "<C-w>l", { silent = true })
 
@@ -145,8 +147,13 @@ set_keymap(
 )
 
 -- NVIM COMMENT
-set_keymap("n", "<leader>/", "gcc", { silent = true })
-set_keymap("v", "<leader>/", "gc", { silent = true })
+set_keymap("n", "<leader>/", "gcc", sOpts)
+set_keymap("v", "<leader>/", "gc", sOpts)
 
 -- Toggle the QuickFix window
 set_keymap("", "<C-q>", ":call QuickFixToggle()<CR>", { noremap = true, silent = true })
+
+-- TSLsp keymaps
+set_keymap("n", "ts", ":TSLspOrganize<CR>", sOpts)
+set_keymap("n", "tr", ":TSLspRenameFile<CR>", sOpts)
+set_keymap("n", "ti", ":TSLspImportAll<CR>", sOpts)

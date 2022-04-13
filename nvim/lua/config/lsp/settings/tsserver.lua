@@ -45,9 +45,6 @@ opts.on_attach = function(client, bufnr)
 
 	-- no default maps, so you may want to define some here
 	local nOpts = { silent = true }
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", nOpts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", nOpts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", nOpts)
 end
 
 return opts
