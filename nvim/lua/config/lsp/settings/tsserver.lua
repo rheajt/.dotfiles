@@ -42,9 +42,6 @@ opts.on_attach = function(client, bufnr)
 
 	-- required to fix code action ranges and filter diagnostics
 	ts_utils.setup_client(client)
-
-	-- no default maps, so you may want to define some here
-	local nOpts = { silent = true }
 end
 
 return opts
