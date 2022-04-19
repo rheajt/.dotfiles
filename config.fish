@@ -52,6 +52,7 @@ if status --is-interactive
   abbr --add --global blog '~/projects/apps/rheajt.github.io'
   abbr --add --global gas '~/projects/scripts'
   abbr --add --global sp '~/projects/sharepoint'
+  abbr --add --global gosrc '~/go/src'
 
   abbr --add --global share '~/projects/sharepoint'
   abbr --add --global onedrive 'cd "~/OneDrive - Keystone Academy"'
