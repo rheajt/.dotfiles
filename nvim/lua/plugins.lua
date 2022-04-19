@@ -83,15 +83,17 @@ return require("packer").startup(function(use)
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		requires = {
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "onsails/lspkind-nvim" },
-		},
+		-- config = function()
+		-- 	require("config.nvim-cmp")
+		-- end,
 	})
+	use({ "hrsh7th/cmp-buffer" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "saadparwaiz1/cmp_luasnip" })
+	use({ "onsails/lspkind-nvim" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
 
 	-- Snippets
 	use({
