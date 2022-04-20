@@ -1,7 +1,7 @@
 local lsp_installer = require("nvim-lsp-installer")
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-
 if not status_ok then
+    print("no cmp_nvim_lsp")
 	return
 end
 

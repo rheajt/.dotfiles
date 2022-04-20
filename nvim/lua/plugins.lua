@@ -31,10 +31,6 @@ return require("packer").startup(function(use)
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-		},
 		config = function()
 			require("config.telescope")
 		end,
@@ -107,12 +103,12 @@ return require("packer").startup(function(use)
 	})
 
 	-- Null-ls
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("config.null-ls")
-		end,
-	})
+	-- use({
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	config = function()
+	-- 		require("config.null-ls")
+	-- 	end,
+	-- })
 
 	-- Trouble
 	use({
