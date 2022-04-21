@@ -2,6 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
 if not status_ok then
+	print("not ok")
 	return
 end
 
@@ -34,6 +35,7 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "gopls" then
+        print("hello go")
 		local go_opts = require("config.lsp.settings.gopls")
 		opts = vim.tbl_deep_extend("force", go_opts, opts)
 	end
