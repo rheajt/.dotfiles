@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
-	use("jose-elias-alvarez/nvim-lsp-ts-utils")
+	-- use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
 	-- Tree
 	use({
@@ -79,9 +79,10 @@ return require("packer").startup(function(use)
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		-- config = function()
-		-- 	require("config.nvim-cmp")
-		-- end,
+		config = function()
+			-- require("config.nvim-cmp")
+              -- Setup nvim-cmp.
+		end,
 	})
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
@@ -89,7 +90,6 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "saadparwaiz1/cmp_luasnip" })
 	use({ "onsails/lspkind-nvim" })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
 
 	-- Snippets
 	use({
@@ -102,18 +102,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Null-ls
-	-- use({
-	-- 	"jose-elias-alvarez/null-ls.nvim",
-	-- 	config = function()
-	-- 		require("config.null-ls")
-	-- 	end,
-	-- })
-
 	-- Trouble
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.trouble")
 		end,
@@ -122,9 +113,6 @@ return require("packer").startup(function(use)
 	-- git signs
 	use({
 		"lewis6991/gitsigns.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
 		config = function()
 			require("gitsigns").setup()
 		end,
