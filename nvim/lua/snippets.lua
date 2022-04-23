@@ -5,16 +5,12 @@ if not ok then
 	return
 end
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 ls.snippets = {
-	all = {
-		ls.parser.parse_snippet("clg", "console.log({${1:text}});"),
-
-		-- When wordTrig is set to false, snippets may also expand inside other words.
-		-- ls.parser.parse_snippet({ trig = "te", wordTrig = false }, "${1:cond} ? ${2:true} : ${3:false}"),
-
-		-- When regTrig is set, trig is treated like a pattern, this snippet will expand after any number.
-		-- ls.parser.parse_snippet({ trig = "%d", regTrig = true }, "A Number!!"),
+	all = {},
+	go = {
+		ls.parser.parse_snippet("fn", "func ${1:name}() {${0}}"),
+		ls.parser.parse_snippet("clg", "fmt.Println(${1})"),
 	},
 }
-
-print("these snippets are loaded")
