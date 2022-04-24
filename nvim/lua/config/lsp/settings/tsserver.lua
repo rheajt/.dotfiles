@@ -3,8 +3,8 @@ local opts = {}
 -- opts.init_options = require("nvim-lsp-ts-utils").init_options
 opts.on_attach = function(client, bufnr)
 	-- turn off  formatting for tsserver
-	-- client.resolved_capabilities.document_formatting = false
-	-- client.resolved_capabilities.document_range_formatting = false
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
 
 	-- local ts_utils = require("nvim-lsp-ts-utils")
 

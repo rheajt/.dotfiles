@@ -5,14 +5,12 @@ if not ok then
 	return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
-
 ls.config.set_config({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,
 })
-print("snippets here")
+
 ls.snippets = {
 	all = {
 		ls.parser.parse_snippet("expand", "-- this is what is expanded"),
@@ -24,3 +22,5 @@ ls.snippets = {
 		ls.parser.parse_snippet("clg", "fmt.Println(${1})"),
 	},
 }
+
+require("luasnip.loaders.from_vscode").lazy_load()

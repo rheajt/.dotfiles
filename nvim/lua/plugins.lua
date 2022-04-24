@@ -68,23 +68,23 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Snippets
-	use({
-		"L3MON4D3/LuaSnip",
-		requires = {
-			"rafamadriz/friendly-snippets",
-		},
-		config = function()
-			require("snippets")
-		end,
-	})
-
 	-- Nvim Comment
 	use({
 		"terrortylor/nvim-comment",
 		config = function()
 			require("config.nvim-comment")
 		end,
+	})
+
+	-- Snippets
+	use({
+		"L3MON4D3/LuaSnip",
+		requires = {
+			"rafamadriz/friendly-snippets",
+		},
+		-- config = function()
+		-- 	require("snippets")
+		-- end,
 	})
 
 	-- Cmp
@@ -98,8 +98,8 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
+
 	use({ "saadparwaiz1/cmp_luasnip" })
-	use({ "onsails/lspkind-nvim" })
 
 	-- Null-ls
 	use({
