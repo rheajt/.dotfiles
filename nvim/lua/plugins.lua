@@ -47,12 +47,12 @@ return require("packer").startup(function(use)
 	})
 
 	--Autopairs
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
+	-- use({
+	-- 	"windwp/nvim-autopairs",
+	-- 	config = function()
+	-- 		require("nvim-autopairs").setup({})
+	-- 	end,
+	-- })
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
