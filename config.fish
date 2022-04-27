@@ -18,7 +18,7 @@ set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_color_scheme gruvbox
 
-set -g EDITOR 'nvim'
+set -g EDITOR '/usr/bin/nvim'
 
 if [ "$LC_TERMINAL" != "iTerm2" ]
     alias fd=fdfind
