@@ -1,5 +1,7 @@
 function new_tmux
-    set --local DIR_STEM (basename "$PWD")
+    echo (basename "$PWD")
+    set --local DIR_STEM (string upper (string escape --style=var (basename "$PWD")))
+
     tmux new-session -s $DIR_STEM -n DEV_CONSOLE -d
     tmux new-window -t $DIR_STEM -d -n CODE
 
