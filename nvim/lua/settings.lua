@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.clipboard = "win32yank.exe"
 vim.cmd("colorscheme kanagawa")
 
 --settings file
