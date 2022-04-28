@@ -98,9 +98,9 @@ return require("packer").startup(function(use)
 	-- Cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require("config.nvim-cmp")
-		end,
+		-- config = function()
+		-- 	require("config.nvim-cmp")
+		-- end,
 	})
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
