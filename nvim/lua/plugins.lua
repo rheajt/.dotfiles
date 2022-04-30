@@ -84,24 +84,12 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Snippets
-	use({
-		"L3MON4D3/LuaSnip",
-		requires = {
-			"rafamadriz/friendly-snippets",
-		},
-		-- config = function()
-		-- 	require("snippets")
-		-- end,
-	})
+	-- SNIPPETS
+	use({ "L3MON4D3/LuaSnip" })
+	use({ "rafamadriz/friendly-snippets" })
 
 	-- Cmp
-	use({
-		"hrsh7th/nvim-cmp",
-		-- config = function()
-		-- 	require("config.nvim-cmp")
-		-- end,
-	})
+	use({ "hrsh7th/nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
