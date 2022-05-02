@@ -126,24 +126,25 @@ set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", {})
 set_keymap("n", "gn", ":lua vim.diagnostic.goto_next()<CR>", {})
 set_keymap("n", "gp", ":lua vim.diagnostic.goto_prev()<CR>", {})
 set_keymap("n", "gl", ":lua vim.diagnostic.open_float()<CR>", {})
+set_keymap("n", "gR", ":lua vim.lsp.buf.rename()<CR>", {})
 
 set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 set_keymap("v", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 
-set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.formatting_sync()<CR>", {})
-set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.formatting_sync()<CR>", {})
+set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
+set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
 
 -- set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", {})
 set_keymap(
 	"n",
 	"<leader>la",
-	":lua require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_cursor({}))<CR>",
+	":lua vim.lsp.buf.code_action()<CR>",
 	{}
 )
 set_keymap(
 	"v",
 	"<leader>la",
-	":lua require'telescope.builtin'.lsp_range_code_actions(require'telescope.themes'.get_dropdown({}))<CR>",
+	":lua vim.lsp.buf.range_code_action()<CR>",
 	{}
 )
 
