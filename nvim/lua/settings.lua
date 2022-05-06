@@ -16,8 +16,10 @@ let g:clipboard = {
   \ }
 ]])
 
+vim.opt.background = "dark" -- or "light" for light mode
+-- colorscheme kanagawa
 vim.cmd([[
-    colorscheme kanagawa
+    colorscheme gruvbox
     highlight Normal ctermbg=none
     highlight NonText ctermbg=none
 

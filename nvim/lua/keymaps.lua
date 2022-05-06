@@ -123,6 +123,8 @@ set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", {})
 set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", {})
 set_keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", {})
 set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", {})
+set_keymap("n", "gh", ":lua vim.lsp.buf.signature_help()<CR>", {})
+
 set_keymap("n", "gn", ":lua vim.diagnostic.goto_next()<CR>", {})
 set_keymap("n", "gp", ":lua vim.diagnostic.goto_prev()<CR>", {})
 set_keymap("n", "gl", ":lua vim.diagnostic.open_float()<CR>", {})
@@ -133,8 +135,6 @@ set_keymap("v", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 
 set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
 set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
-
--- set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", {})
 set_keymap(
 	"n",
 	"<leader>la",
