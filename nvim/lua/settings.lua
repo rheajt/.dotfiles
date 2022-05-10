@@ -1,24 +1,21 @@
 vim.g.mapleader = " "
 
 vim.cmd([[
-set clipboard+=unnamedplus
-let g:clipboard = {
-  \   'name': 'win32yank-wsl',
-  \   'copy': {
-  \      '+': 'win32yank.exe -i --crlf',
-  \      '*': 'win32yank.exe -i --crlf',
-  \    },
-  \   'paste': {
-  \      '+': 'win32yank.exe -o --lf',
-  \      '*': 'win32yank.exe -o --lf',
-  \   },
-  \   'cache_enabled': 0,
-  \ }
-]])
+    set clipboard+=unnamedplus
+    let g:clipboard = {
+      \   'name': 'win32yank-wsl',
+      \   'copy': {
+      \      '+': 'win32yank.exe -i --crlf',
+      \      '*': 'win32yank.exe -i --crlf',
+      \    },
+      \   'paste': {
+      \      '+': 'win32yank.exe -o --lf',
+      \      '*': 'win32yank.exe -o --lf',
+      \   },
+      \   'cache_enabled': 0,
+      \ }
 
-vim.opt.background = "dark" -- or "light" for light mode
--- colorscheme kanagawa
-vim.cmd([[
+    autocmd BufWritePre * lua vim.lsp.buf.format()
     set cursorline
     colorscheme gruvbox
     highlight Normal ctermbg=none
@@ -27,6 +24,8 @@ vim.cmd([[
     highlight Normal guibg=none
     highlight NonText guibg=none
 ]])
+
+vim.opt.background = "dark" -- or "light" for light mode
 
 --settings file
 vim.opt.colorcolumn = "100"
