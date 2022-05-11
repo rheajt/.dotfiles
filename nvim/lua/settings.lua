@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.background = "dark" -- or "light" for light mode
+
 vim.cmd([[
     set clipboard+=unnamedplus
     let g:clipboard = {
@@ -16,16 +18,17 @@ vim.cmd([[
       \ }
 
     autocmd BufWritePre * lua vim.lsp.buf.format()
+
     set cursorline
+
     colorscheme gruvbox
+
     highlight Normal ctermbg=none
     highlight NonText ctermbg=none
 
     highlight Normal guibg=none
     highlight NonText guibg=none
 ]])
-
-vim.opt.background = "dark" -- or "light" for light mode
 
 --settings file
 vim.opt.colorcolumn = "100"
