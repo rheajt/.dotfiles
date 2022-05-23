@@ -12,14 +12,14 @@ ls.config.set_config({
 })
 
 ls.snippets = {
-	all = {
-		ls.parser.parse_snippet("expand", "-- this is what is expanded"),
-	},
 	lua = {
 		ls.parser.parse_snippet("lf", "local $1 = function($2)\n  $0\nend"),
 	},
 	go = {
 		ls.parser.parse_snippet("clg", "fmt.Println(${1})"),
+	},
+	typescriptreact = {
+		ls.parser.parse_snippet("rfrag", "return (<>${0}</>)"),
 	},
 }
 
