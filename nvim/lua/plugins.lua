@@ -28,6 +28,13 @@ return require("packer").startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
 
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
+
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
