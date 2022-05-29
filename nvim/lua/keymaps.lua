@@ -20,7 +20,7 @@ set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 set_keymap("n", "<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>", { noremap = true })
 
 -- TODO remove: close buffer
--- set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
+set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
 
 -- center on scroll
 set_keymap("n", "<C-d>", "<C-D>zz", { noremap = true })
@@ -135,18 +135,8 @@ set_keymap("v", "K", ":lua vim.lsp.buf.hover()<CR>", {})
 
 set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
 set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
-set_keymap(
-	"n",
-	"<leader>la",
-	":lua vim.lsp.buf.code_action()<CR>",
-	{}
-)
-set_keymap(
-	"v",
-	"<leader>la",
-	":lua vim.lsp.buf.range_code_action()<CR>",
-	{}
-)
+set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", {})
+set_keymap("v", "<leader>la", ":lua vim.lsp.buf.range_code_action()<CR>", {})
 
 -- NVIM COMMENT
 set_keymap("n", "<leader>/", "gcc", sOpts)

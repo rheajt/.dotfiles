@@ -1,7 +1,8 @@
 return require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "kanagawa",
+		-- theme = "kanagawa",
+		theme = "gruvbox",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "NvimTree" },
@@ -23,6 +24,13 @@ return require("lualine").setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {},
+	tabline = {
+		lualine_a = { "branch" },
+		lualine_b = { "buffers" },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = { "tabs" },
+	},
 	extensions = {},
 })

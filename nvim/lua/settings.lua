@@ -55,6 +55,6 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.shell = "/bin/bash"
 
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
