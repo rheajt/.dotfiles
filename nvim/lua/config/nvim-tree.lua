@@ -1,28 +1,31 @@
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "✗",
-		staged = "✓",
-		unmerged = "",
-		renamed = "➜",
-		untracked = "★",
-		deleted = "",
-		ignored = "◌",
-	},
-	folder = {
-		arrow_open = "",
-		arrow_closed = "",
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-		symlink_open = "",
-	},
-}
-
 return require("nvim-tree").setup({
+	renderer = {
+		icons = {
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
+				},
+				folder = {
+					arrow_open = "",
+					arrow_closed = "",
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+					symlink_open = "",
+				},
+			},
+		},
+	},
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
@@ -30,10 +33,6 @@ return require("nvim-tree").setup({
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = false,
-	-- update_to_buf_dir = {
-	-- 	enable = true,
-	-- 	auto_open = true,
-	-- },
 	diagnostics = {
 		enable = true,
 		icons = {
