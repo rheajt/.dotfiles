@@ -55,7 +55,12 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "nvim-treesitter/playground" })
-	use({ "romgrk/nvim-treesitter-context" })
+	use({
+		"romgrk/nvim-treesitter-context",
+		config = function()
+			require("config.treesitter-context")
+		end,
+	})
 
 	--Autopairs
 	use({
