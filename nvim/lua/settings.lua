@@ -4,6 +4,7 @@ vim.opt.background = "dark" -- or "light" for light mode
 
 vim.cmd([[
     set clipboard+=unnamedplus
+
     let g:clipboard = {
       \   'name': 'win32yank-wsl',
       \   'copy': {
@@ -22,14 +23,19 @@ vim.cmd([[
     set cursorline
 
     colorscheme gruvbox
-
 ]])
 
--- highlight Normal ctermbg=none
--- highlight NonText ctermbg=none
+vim.api.nvim_set_hl(0, "Normal", {
+	bg = "none",
+})
 
--- highlight Normal guibg=none
--- highlight NonText guibg=none
+vim.api.nvim_set_hl(0, "NonText", {
+	bg = "none",
+})
+
+vim.api.nvim_set_hl(0, "SignColumn", {
+	bg = "none",
+})
 
 --settings file
 vim.opt.colorcolumn = "100"
