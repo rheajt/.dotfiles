@@ -1,3 +1,8 @@
+local nnoremap = require("config.keymap_binds").nnoremap
+
+-- TREE
+nnoremap("<leader>e", ":NvimTreeToggle<CR>", { silent = true })
+
 return require("nvim-tree").setup({
 	renderer = {
 		icons = {

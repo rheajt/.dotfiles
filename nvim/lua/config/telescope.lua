@@ -1,8 +1,37 @@
--- local status_ok, actions = pcall(require, "telescope.actions")
--- if not status_ok then
---   return
--- end
 local actions = require("telescope.actions")
+local nnoremap = require("config.keymap_binds").nnoremap
+
+nnoremap("<leader>ff", function()
+	require("telescope.builtin").find_files()
+end)
+
+nnoremap("<leader>fg", function()
+	require("telescope.builtin").live_grep()
+end)
+
+nnoremap("<leader>fb", function()
+	require("telescope.builtin").buffers()
+end)
+
+nnoremap("<leader>fh", function()
+	require("telescope.builtin").help_tags()
+end)
+
+nnoremap("<leader>ft", function()
+	require("telescope.builtin").treesitter()
+end)
+
+nnoremap("<leader>fd", function()
+	require("telescope.builtin").diagnostics(require("telescope.themes").get_dropdown({}))
+end)
+
+nnoremap("<leader>fs", function()
+	require("telescope").extensions.npm.scripts(require("telescope.themes").get_dropdown({}))
+end)
+
+nnoremap("<leader>fp", function()
+	require("telescope").extensions.npm.packages(require("telescope.themes").get_dropdown({}))
+end)
 
 require("telescope").setup({
 	pickers = {

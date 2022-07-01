@@ -137,6 +137,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Neogit
+	use({
+		"TimUntersberger/neogit",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("config.neogit")
+		end,
+	})
+
 	-- Colorscheme
 	use("rafamadriz/themes.nvim")
 	use("rebelot/kanagawa.nvim")

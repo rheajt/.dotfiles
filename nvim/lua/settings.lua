@@ -33,10 +33,6 @@ vim.api.nvim_set_hl(0, "NonText", {
 	bg = "none",
 })
 
-vim.api.nvim_set_hl(0, "SignColumn", {
-	bg = "none",
-})
-
 --settings file
 vim.opt.colorcolumn = "100"
 vim.opt.fileencoding = "utf-8"

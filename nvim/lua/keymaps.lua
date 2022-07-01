@@ -1,151 +1,87 @@
-local set_keymap = vim.api.nvim_set_keymap
+local nnoremap = require("config.keymap_binds").nnoremap
+local vnoremap = require("config.keymap_binds").vnoremap
+local tnoremap = require("config.keymap_binds").tnoremap
+local inoremap = require("config.keymap_binds").inoremap
+local xnoremap = require("config.keymap_binds").xnoremap
 
-local sOpts = { silent = true }
-
-set_keymap("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true, noremap = true })
+-- vertical split same file
+nnoremap("<leader>sv", ":vs<CR><C-w>l", { silent = true })
 
 -- theprimeagen power maps
-set_keymap("n", "Y", "y$", { noremap = true })
-set_keymap("n", "n", "nzzzv", { noremap = true })
-set_keymap("n", "N", "Nzzzv", { noremap = true })
-set_keymap("n", "J", "mzJ`z", { noremap = true })
-set_keymap("i", ",", ",<C-g>u", { noremap = true })
-set_keymap("i", ".", ".<C-g>u", { noremap = true })
-set_keymap("i", "!", "!<C-g>u", { noremap = true })
-set_keymap("i", "?", "?<C-g>u", { noremap = true })
+nnoremap("Y", "y$")
+nnoremap("n", "nzzzv")
+nnoremap("N", "Nzzzv")
+nnoremap("J", "mzJ`z")
+nnoremap(",", ",<C-g>u")
+nnoremap(".", ".<C-g>u")
+nnoremap("!", "!<C-g>u")
+nnoremap("?", "?<C-g>u")
 
 -- dont lose your paste in visual mode
-set_keymap("v", "<leader>p", '"_dP', { noremap = true })
+vnoremap("<leader>p", '"_dP')
 
-set_keymap("n", "<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>", { noremap = true })
+-- resource files
+nnoremap("<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>")
 
--- TODO remove: close buffer
-set_keymap("n", "<leader>c", ":bd<CR>", { silent = true })
+-- close buffer
+nnoremap("<leader>c", ":bd<CR>")
 
 -- center on scroll
-set_keymap("n", "<C-d>", "<C-D>zz", { noremap = true })
-set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+nnoremap("<C-d>", "<C-D>zz")
+nnoremap("<C-u>", "<C-u>zz")
 
 -- better window movement
-set_keymap("n", "<C-h>", "<C-w>h", sOpts)
-set_keymap("n", "<C-j>", "<C-w>j", sOpts)
-set_keymap("n", "<C-k>", "<C-w>k", { silent = true })
-set_keymap("n", "<C-l>", "<C-w>l", { silent = true })
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-j>", "<C-w>j")
+nnoremap("<C-k>", "<C-w>k")
+nnoremap("<C-l>", "<C-w>l")
 
 -- Terminal window navigation
-set_keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, noremap = true })
-set_keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, noremap = true })
-set_keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, noremap = true })
-set_keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, noremap = true })
-set_keymap("i", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, noremap = true })
-set_keymap("i", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, noremap = true })
-set_keymap("i", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, noremap = true })
-set_keymap("i", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, noremap = true })
-set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true, noremap = true })
+nnoremap("<leader>t", ":vs<CR>:terminal<CR>", { silent = true })
+tnoremap("<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
+tnoremap("<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
+tnoremap("<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
+tnoremap("<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
+tnoremap("<Esc>", "<C-\\><C-n>", { silent = true })
+inoremap("<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
+inoremap("<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
+inoremap("<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
+inoremap("<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
 
 -- better indenting
-set_keymap("v", "<", "<gv", { noremap = true, silent = true })
-set_keymap("v", ">", ">gv", { noremap = true, silent = true })
+vnoremap("<", "<gv", { silent = true })
+vnoremap(">", ">gv", { silent = true })
 
 -- I hate escape
-set_keymap("i", "jk", "<ESC>", { noremap = true, silent = true })
-set_keymap("i", "kj", "<ESC>", { noremap = true, silent = true })
-set_keymap("i", "jj", "<ESC>", { noremap = true, silent = true })
+inoremap("jk", "<ESC>", { noremap = true })
+inoremap("kj", "<ESC>", { noremap = true })
+inoremap("jj", "<ESC>", { noremap = true })
 
 -- Move current line / block with Alt-j/k ala vscode.
-set_keymap("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
-set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
-set_keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
-set_keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
-set_keymap("x", "<A-j>", ":m '>+1<CR>gv-gv", { noremap = true, silent = true })
-set_keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", { noremap = true, silent = true })
+nnoremap("<A-j>", ":m .+1<CR>==", { silent = true })
+nnoremap("<A-k>", ":m .-2<CR>==", { silent = true })
+inoremap("<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
+inoremap("<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
+xnoremap("<A-j>", ":m '>+1<CR>gv-gv", { silent = true })
+xnoremap("<A-k>", ":m '<-2<CR>gv-gv", { silent = true })
 
 -- QuickFix
-set_keymap("n", "<leader>dn", ":cnext<CR>", { noremap = true, silent = true })
-set_keymap("n", "<leader>dp", ":cprev<CR>", { noremap = true, silent = true })
-set_keymap("n", "<leader>dc", ":ccl<CR>", { noremap = true, silent = true })
+nnoremap("<leader>dn", ":cnext<CR>", { silent = true })
+nnoremap("<leader>dp", ":cprev<CR>", { silent = true })
+nnoremap("<leader>dc", ":ccl<CR>", { silent = true })
 
 --Buffers
-set_keymap("n", "<S-h>", ":bprev<CR>", { noremap = true, silent = true })
-set_keymap("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
-
--- TREE
-set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+nnoremap("<S-h>", ":bprev<CR>", { silent = true })
+nnoremap("<S-l>", ":bnext<CR>", { silent = true })
 
 -- Better nav for omnicomplete
-set_keymap("i", "<C-j>", "\\<C-n>", { noremap = true, silent = true })
-set_keymap("i", "<C-k>", "\\<C-p>", { noremap = true, silent = true })
+inoremap("<C-j>", "\\<C-n>", { silent = true })
+inoremap("<C-k>", "\\<C-p>", { silent = true })
 
-set_keymap("v", "p", "0p", { noremap = true })
-set_keymap("v", "p", "0P", { noremap = true })
-
--- TELESCOPE
-set_keymap("n", "<leader>ff", ":lua require'telescope.builtin'.find_files()<cr>", {})
-set_keymap("n", "<leader>fg", ":lua require'telescope.builtin'.live_grep()<CR>", {})
-set_keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", {})
-set_keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", {})
-set_keymap("n", "<leader>ft", ":lua require'telescope.builtin'.treesitter()<CR>", {})
-set_keymap(
-	"n",
-	"<leader>fd",
-	":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown({}))<CR>",
-	{}
-)
-
-set_keymap(
-	"n",
-	"<leader>fs",
-	":lua require'telescope'.extensions.npm.scripts(require('telescope.themes').get_dropdown({}))<CR>",
-	{}
-)
-set_keymap(
-	"n",
-	"<leader>fp",
-	":lua require'telescope'.extensions.npm.packages(require('telescope.themes').get_dropdown({}))<CR>",
-	{}
-)
-
-set_keymap("n", "<leader>t", ":vs<CR>:terminal<CR>", { silent = true })
-
--- Trouble
-vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>Trouble<cr>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>td", "<cmd>Trouble document_diagnostics<cr>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>tc", "<cmd>TroubleClose<CR>")
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
-
--- LSP
-set_keymap("n", "rn", ":lua vim.lsp.buf.rename()<CR>", {})
-
-set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", {})
-set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", {})
-set_keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", {})
-set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", {})
-set_keymap("n", "gh", ":lua vim.lsp.buf.signature_help()<CR>", {})
-
-set_keymap("n", "gn", ":lua vim.diagnostic.goto_next()<CR>", {})
-set_keymap("n", "gp", ":lua vim.diagnostic.goto_prev()<CR>", {})
-set_keymap("n", "gl", ":lua vim.diagnostic.open_float()<CR>", {})
-set_keymap("n", "gR", ":lua vim.lsp.buf.rename()<CR>", {})
-
-set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", {})
-set_keymap("v", "K", ":lua vim.lsp.buf.hover()<CR>", {})
-
-set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
-set_keymap("v", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {})
-set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", {})
-set_keymap("v", "<leader>la", ":lua vim.lsp.buf.range_code_action()<CR>", {})
-
--- NVIM COMMENT
-set_keymap("n", "<leader>/", "gcc", sOpts)
-set_keymap("v", "<leader>/", "gc", sOpts)
-
--- Toggle the QuickFix window
-set_keymap("", "<C-q>", ":call QuickFixToggle()<CR>", { noremap = true, silent = true })
+vnoremap("p", "0p", { silent = true })
+vnoremap("p", "0P", { silent = true })
 
 -- TSLsp keymaps
-set_keymap("n", "ts", ":TSLspOrganize<CR>", sOpts)
-set_keymap("n", "tr", ":TSLspRenameFile<CR>", sOpts)
-set_keymap("n", "ti", ":TSLspImportAll<CR>", sOpts)
+nnoremap("ts", ":TSLspOrganize<CR>")
+nnoremap("tr", ":TSLspRenameFile<CR>")
+nnoremap("ti", ":TSLspImportAll<CR>")

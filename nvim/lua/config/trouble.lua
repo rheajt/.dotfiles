@@ -1,3 +1,5 @@
+local nnoremap = require("config.keymap_binds").nnoremap
+
 require("trouble").setup({
 	position = "bottom", -- position of the list can be: bottom, top, left, right
 	height = 10, -- height of the trouble list when position is top or bottom
@@ -45,3 +47,12 @@ require("trouble").setup({
 	},
 	use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 })
+
+-- Trouble
+nnoremap("<leader>tt", "<cmd>Trouble<cr>", { silent = true })
+nnoremap("<leader>tw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true })
+nnoremap("<leader>td", "<cmd>Trouble document_diagnostics<cr>", { silent = true })
+nnoremap("<leader>tl", "<cmd>Trouble loclist<cr>", { silent = true })
+nnoremap("<leader>tq", "<cmd>Trouble quickfix<cr>", { silent = true })
+nnoremap("<leader>tc", "<cmd>TroubleClose<CR>", { silent = true })
+nnoremap("gR", "<cmd>Trouble lsp_references<cr>", { silent = true })
