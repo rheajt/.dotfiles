@@ -42,7 +42,9 @@ return require("packer").startup(function(use)
 			require("config.telescope")
 		end,
 	})
+
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
 	use("elianiva/telescope-npm.nvim")
 
 	-- Treesitter
