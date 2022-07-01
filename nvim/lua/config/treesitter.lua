@@ -1,4 +1,8 @@
 local configs = require("nvim-treesitter.configs")
+local nnoremap = require("config.keymap_binds").nnoremap
+
+nnoremap("<leader>tsp", ":TSPlaygroundToggle<CR>")
+
 configs.setup({
 	ensure_installed = "all", -- Only use parsers that are maintained
 	highlight = { -- enable highlighting
