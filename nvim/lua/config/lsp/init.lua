@@ -8,15 +8,19 @@ end)
 nnoremap("gd", function()
 	vim.lsp.buf.definition()
 end)
+
 nnoremap("gD", function()
 	vim.lsp.buf.declaration()
 end)
+
 nnoremap("gr", function()
 	vim.lsp.buf.references()
 end)
+
 nnoremap("gi", function()
 	vim.lsp.buf.implementation()
 end)
+
 nnoremap("gh", function()
 	vim.lsp.buf.signature_help()
 end)
@@ -24,14 +28,13 @@ end)
 nnoremap("gn", function()
 	vim.diagnostic.goto_next()
 end)
+
 nnoremap("gp", function()
 	vim.diagnostic.goto_prev()
 end)
+
 nnoremap("gl", function()
 	vim.diagnostic.open_float()
-end)
-nnoremap("gR", function()
-	vim.lsp.buf.rename()
 end)
 
 nnoremap("K", function()

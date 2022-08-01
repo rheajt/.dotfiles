@@ -53,9 +53,9 @@ vnoremap("<", "<gv", { silent = true })
 vnoremap(">", ">gv", { silent = true })
 
 -- I hate escape
-inoremap("jk", "<ESC>", { noremap = true })
-inoremap("kj", "<ESC>", { noremap = true })
-inoremap("jj", "<ESC>", { noremap = true })
+inoremap("jk", "<ESC>")
+inoremap("kj", "<ESC>")
+inoremap("jj", "<ESC>")
 
 -- Move current line / block with Alt-j/k ala vscode.
 nnoremap("<A-j>", ":m .+1<CR>==", { silent = true })
