@@ -156,5 +156,6 @@ return require("packer").startup(function(use)
 	-- Colorscheme
 	use("rafamadriz/themes.nvim")
 	use("rebelot/kanagawa.nvim")
-	use("ellisonleao/gruvbox.nvim")
+	-- use("ellisonleao/gruvbox.nvim")
+	use("luisiacc/gruvbox-baby")
 end)

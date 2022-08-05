@@ -22,7 +22,7 @@ vim.cmd([[
 
     set cursorline
 
-    colorscheme gruvbox
+    colorscheme gruvbox-baby
 ]])
 
 -- vim.api.nvim_set_hl(0, "Normal", {
