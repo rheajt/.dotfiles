@@ -25,6 +25,10 @@ vim.cmd([[
     colorscheme gruvbox-baby
 ]])
 
+-- -- Enable telescope theme
+vim.g.gruvbox_baby_telescope_theme = 1
+vim.g.gruvbox_baby_background_color = "dark"
+
 -- vim.api.nvim_set_hl(0, "Normal", {
 -- 	bg = "none",
 -- })
