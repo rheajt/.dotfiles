@@ -17,6 +17,10 @@ nnoremap("gr", function()
 	vim.lsp.buf.references()
 end)
 
+nnoremap("gR", function()
+	vim.lsp.buf.references()
+end)
+
 nnoremap("gi", function()
 	vim.lsp.buf.implementation()
 end)
