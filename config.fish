@@ -1,11 +1,10 @@
 # Fish config
 # https://fishshell.com/docs/current/tutorial.html#tutorial
-fzf_key_bindings
 
 # dangerous specific
 set dangerous_colors 000000 333333 666666 ffffff ffff00 ff6600 ff0000 ff0033 3300ff 0000ff 00ffff 00ff00
 
-set -g DISPLAY 0
+# set -g DISPLAY 0
 set -g theme_display_vi yes
 set -g theme_display_date no
 set -g theme_display_cmd_duration yes
@@ -20,13 +19,11 @@ set -g theme_color_scheme gruvbox
 
 set -g EDITOR '/usr/bin/nvim'
 
-if [ "$LC_TERMINAL" != "iTerm2" ]
-    alias fd=fdfind
-    alias bat=batcat
-    alias open=explorer.exe
-end
-
+# alias fd=fdfind
+alias open=explorer.exe
 alias python=python3
+
+fzf_configure_bindings --directory=\cf
 
 # abbreviations
 if status --is-interactive
@@ -80,3 +77,4 @@ function fish_user_key_bindings
 end
 
 #eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) 
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
