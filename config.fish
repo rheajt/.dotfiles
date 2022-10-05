@@ -44,6 +44,7 @@ if status --is-interactive
 
   ### folders
   abbr --add --global pj '~/projects'
+  abbr --add --global winpj '/mnt/c/Users/jordan\ rhea/Projects'
   abbr --add --global dfs '~/projects/dotfiles'
   abbr --add --global apps '~/projects/apps'
   abbr --add --global blog '~/projects/apps/rheajt.github.io'

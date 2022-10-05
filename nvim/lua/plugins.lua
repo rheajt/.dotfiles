@@ -129,12 +129,12 @@ return require("packer").startup(function(use)
 	})
 
 	-- Trouble
-	use({
-		"folke/trouble.nvim",
-		config = function()
-			require("config.trouble")
-		end,
-	})
+	-- use({
+	-- 	"folke/trouble.nvim",
+	-- 	config = function()
+	-- 		require("config.trouble")
+	-- 	end,
+	-- })
 
 	-- git signs
 	use({
@@ -145,13 +145,13 @@ return require("packer").startup(function(use)
 	})
 
 	-- Neogit
-	use({
-		"TimUntersberger/neogit",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("config.neogit")
-		end,
-	})
+	-- use({
+	-- 	"TimUntersberger/neogit",
+	-- 	requires = "nvim-lua/plenary.nvim",
+	-- 	config = function()
+	-- 		require("config.neogit")
+	-- 	end,
+	-- })
 
 	-- Colorscheme
 	use("rafamadriz/themes.nvim")
