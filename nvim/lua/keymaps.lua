@@ -24,7 +24,8 @@ vnoremap("<leader>p", '"_dP')
 nnoremap("<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>")
 
 -- close buffer
-nnoremap("<leader>c", ":bd<CR>")
+nnoremap("<leader>cc", ":bd<CR>")
+nnoremap("<leader>ca", ":%bd|e#<cr>")
 
 -- center on scroll
 nnoremap("<C-d>", "<C-D>zz")
