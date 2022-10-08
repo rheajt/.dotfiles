@@ -87,4 +87,4 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/snippets.lua<CR>")
 
-print("snippets loaded")
+-- print("snippets loaded")
