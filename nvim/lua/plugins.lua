@@ -108,8 +108,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- SNIPPETS
-	use({ "L3MON4D3/LuaSnip" })
-	use({ "rafamadriz/friendly-snippets" })
+	-- use({ "L3MON4D3/LuaSnip" })
+	-- use({ "rafamadriz/friendly-snippets" })
 
 	-- Cmp
 	use({ "hrsh7th/nvim-cmp" })
@@ -118,7 +118,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 
-	use({ "saadparwaiz1/cmp_luasnip" })
+	-- use({ "saadparwaiz1/cmp_luasnip" })
 
 	-- Null-ls
 	use({

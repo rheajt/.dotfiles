@@ -1,5 +1,5 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 
 -- local has_words_before = function()
 -- 	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
@@ -57,7 +57,7 @@ cmp.setup({
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[Lua]",
-				luasnip = "[LuaSnip]",
+				-- luasnip = "[LuaSnip]",
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
@@ -102,7 +102,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", max_item_count = 10 },
 		{ name = "nvim_lua" },
-		{ name = "luasnip", max_item_count = 10 }, -- For luasnip users.
+		-- { name = "luasnip", max_item_count = 10 }, -- For luasnip users.
 		{ name = "path" },
 		{ name = "buffer", keyword_length = 5, max_item_count = 3 },
 	}),
