@@ -13,3 +13,10 @@ autocmd("TextYankPost", {
 		})
 	end,
 })
+-- autocmd BufWritePre * lua vim.lsp.buf.format()
+autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})

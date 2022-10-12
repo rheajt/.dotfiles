@@ -2,9 +2,7 @@ return require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		-- theme = "kanagawa",
-		theme = "gruvbox",
-		-- component_separators = { left = "", right = "" },
-		-- section_separators = { left = "", right = "" },
+		theme = "gruvbox-material",
 		disabled_filetypes = { "NvimTree" },
 		always_divide_middle = true,
 	},
@@ -24,13 +22,13 @@ return require("lualine").setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_a = { "branch" },
-		lualine_b = { "buffers" },
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { "tabs" },
-	},
+	-- tabline = {
+	-- 	lualine_a = { "branch" },
+	-- 	lualine_b = { "buffers" },
+	-- 	lualine_c = {},
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = { "tabs" },
+	-- },
 	extensions = {},
 })

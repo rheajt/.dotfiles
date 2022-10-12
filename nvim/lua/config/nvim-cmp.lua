@@ -70,34 +70,34 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		["<C-c"] = function()
-			print("snippet time")
-			if luasnip.expandable() then
-				luasnip.expand()
-			end
-		end,
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+		-- ["<C-c"] = function()
+		-- 	print("snippet time")
+		-- 	if luasnip.expandable() then
+		-- 		luasnip.expand()
+		-- 	end
+		-- end,
+		-- ["<Tab>"] = cmp.mapping(function(fallback)
+		-- 	if cmp.visible() then
+		-- 		cmp.select_next_item()
+		-- 	elseif luasnip.expandable() then
+		-- 		luasnip.expand()
+		-- 	elseif luasnip.expand_or_jumpable() then
+		-- 		luasnip.expand_or_jump()
+		-- 	elseif check_backspace() then
+		-- 		fallback()
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, { "i", "s" }),
+		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+		-- 	if cmp.visible() then
+		-- 		cmp.select_prev_item()
+		-- 	elseif luasnip.jumpable(-1) then
+		-- 		luasnip.jump(-1)
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", max_item_count = 10 },

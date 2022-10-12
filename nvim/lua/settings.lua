@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 
-vim.opt.background = "dark" -- or "light" for light mode
-
 vim.cmd([[
     set clipboard+=unnamedplus
 
@@ -17,15 +15,11 @@ vim.cmd([[
       \   },
       \   'cache_enabled': 0,
       \ }
-
-    autocmd BufWritePre * lua vim.lsp.buf.format()
-
-    set cursorline
-
-    colorscheme gruvbox-baby
 ]])
 
--- -- Enable telescope theme
+vim.o.cursorline = true
+vim.opt.background = "dark" -- or "light" for light mode
+vim.cmd([[ colorscheme gruvbox-baby ]])
 vim.g.gruvbox_baby_telescope_theme = 1
 vim.g.gruvbox_baby_background_color = "dark"
 
