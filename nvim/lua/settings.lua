@@ -1,35 +1,18 @@
 vim.g.mapleader = " "
 
-vim.cmd([[
-    set clipboard+=unnamedplus
-
-    let g:clipboard = {
-      \   'name': 'win32yank-wsl',
-      \   'copy': {
-      \      '+': 'win32yank.exe -i --crlf',
-      \      '*': 'win32yank.exe -i --crlf',
-      \    },
-      \   'paste': {
-      \      '+': 'win32yank.exe -o --lf',
-      \      '*': 'win32yank.exe -o --lf',
-      \   },
-      \   'cache_enabled': 0,
-      \ }
-]])
-
 vim.o.cursorline = true
 vim.opt.background = "dark" -- or "light" for light mode
-vim.cmd([[ colorscheme gruvbox-baby ]])
+vim.cmd([[ colorscheme kanagawa ]])
 vim.g.gruvbox_baby_telescope_theme = 1
 vim.g.gruvbox_baby_background_color = "dark"
 
--- vim.api.nvim_set_hl(0, "Normal", {
--- 	bg = "none",
--- })
+vim.api.nvim_set_hl(0, "Normal", {
+    bg = "none",
+})
 
--- vim.api.nvim_set_hl(0, "NonText", {
--- 	bg = "none",
--- })
+vim.api.nvim_set_hl(0, "NonText", {
+    bg = "none",
+})
 
 --settings file
 vim.opt.colorcolumn = "100"
