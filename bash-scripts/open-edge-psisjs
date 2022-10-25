@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+microsoft-edge --profile-directory="Profile 1"

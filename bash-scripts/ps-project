@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+folder="${1:-DEFAULT}"
+npx degit --mode=git rheajt/powerschool-bundler $folder

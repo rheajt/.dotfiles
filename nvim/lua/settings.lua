@@ -1,10 +1,9 @@
 vim.g.mapleader = " "
 
 vim.o.cursorline = true
-vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[ colorscheme kanagawa ]])
-vim.g.gruvbox_baby_telescope_theme = 1
-vim.g.gruvbox_baby_background_color = "dark"
+vim.opt.background = "dark" -- or "light" for light mode
+vim.opt.clipboard = "unnamedplus"
 
 vim.api.nvim_set_hl(0, "Normal", {
     bg = "none",
