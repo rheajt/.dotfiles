@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+test=(ls ~/projects | fzf )
+
+echo $test
+

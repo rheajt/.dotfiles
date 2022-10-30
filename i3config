@@ -57,8 +57,6 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start picom
-exec --no-startup-id picom
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -250,6 +248,9 @@ for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Acc
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
 
 # should always run
-exec --no-startup-id spotify
+# exec --no-startup-id spotify
 exec_always random-bg
 exec_always xrandr --output DisplayPort-1 --auto --left-of HDMI-A-0 --output eDP --auto --below DisplayPort-1
+
+# start picom
+exec --no-startup-id picom

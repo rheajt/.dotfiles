@@ -2,12 +2,7 @@
 
 result=${PWD##*/}          # to assign to a variable
 result=${result:-/}        # to correct for the case where PWD=/
+DIR_STEM="$(echo $result | tr [a-z] [A-Z])"
 
-tmux new -s "$(echo $result | tr [a-z] [A-Z])"
-# set --local DIR_STEM (string upper (string escape --style=var (basename "$PWD")))
+tmux new -s $DIR_STEM -n code
 
-# tmux new-session -s $DIR_STEM -n DEV_CONSOLE -d
-# tmux new-window -t $DIR_STEM -d -n CODE
-
-# tmux select-window -t $DIR_STEM:DEV_CONSOLE
-# tmux -u attach -t $DIR_STEM
