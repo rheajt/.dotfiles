@@ -1,4 +1,24 @@
 #!/usr/bin/env bash
 
 folder="${1:-DEFAULT}"
-npx degit --mode=git rheajt/powerschool-bundler $folder
+
+branch=$2
+
+if [ -z "$2" ]
+  then
+    echo "No argument supplied, branching from #main"
+    branch="main"
+fi
+
+echo "Cloning into project folder $folder, project branch $branch"
+repo="rheajt/powerschool-bundler#$branch"
+# npx degit --mode=git $repo $folder
+git clone -b $branch --single-branch --depth 1 git@github.com:rheajt/powerschool-bundler $folder
+
+cd $folder
+
+rm -rf .git/
+
+git init
+
+echo $(pwd)
