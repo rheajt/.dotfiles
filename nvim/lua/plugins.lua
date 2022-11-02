@@ -77,7 +77,6 @@ return require("packer").startup(function(use)
                         config = {
                             workspaces = {
                                 work = "~/notes/work",
-                                home = "~/notes/home",
                                 gtd = "~/notes/gtd",
                             },
                         },
@@ -87,6 +86,7 @@ return require("packer").startup(function(use)
                             workspace = "gtd",
                         },
                     },
+                    ["core.gtd.ui"] = {},
                     ["core.integrations.telescope"] = {},
                 },
             })
