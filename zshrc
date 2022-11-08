@@ -123,7 +123,6 @@ alias tas="tmux attach-session -t"
 alias tds="tmux detach"
 
 alias blog="cd ~/projects/apps/rheajt.github.io"
-alias notes="ls ~/notes | fzf"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
