@@ -73,6 +73,8 @@ bindsym $mod+d exec "rofi -show combi -combi-modes 'window,run,ssh' -modes combi
 # cycle workspaces
 bindsym $mod+( workspace next
 bindsym $mod+{ workspace prev
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
 
 # change focus
 bindsym $mod+h focus left
@@ -257,4 +259,4 @@ exec_always random-bg
 exec_always xrandr --output DisplayPort-1 --auto --left-of HDMI-A-0 --output eDP --auto --below DisplayPort-1
 
 # start picom
-# exec --no-startup-id picom
+exec --no-startup-id picom -b
