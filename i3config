@@ -71,10 +71,10 @@ bindsym $mod+d exec "rofi -show combi -combi-modes 'window,run,ssh' -modes combi
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # cycle workspaces
-bindsym $mod+( workspace next
-bindsym $mod+{ workspace prev
 bindsym $mod+Ctrl+h move workspace to output left
 bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+j move workspace to output down
+bindsym $mod+Ctrl+k move workspace to output up
 
 # change focus
 bindsym $mod+h focus left
