@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+#
+notify-send --category="transfer.complete" "$1" "push complete!"
+mpg123 -q ~/Music/sfa3/thats-it-buddy.mp3
+
+
