@@ -76,6 +76,10 @@ bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+j move workspace to output down
 bindsym $mod+Ctrl+k move workspace to output up
 
+# toggle workspaces
+bindsym $mod+Home workspace next_on_output
+bindsym $mod+End workspace prev_on_output
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
