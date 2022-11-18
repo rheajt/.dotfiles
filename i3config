@@ -263,4 +263,3 @@ exec_always random-bg
 exec_always xrandr --output DisplayPort-1 --auto --left-of HDMI-A-0 --output eDP --auto --below DisplayPort-1
 
 # start picom
-exec --no-startup-id picom -b
