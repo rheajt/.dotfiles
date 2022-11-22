@@ -212,43 +212,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-
-# class                 border|backgr|text|indicator|child_border
-client.focused          $green $green $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-        status_command i3status
-        position top
-        separator_symbol ⟨
-        tray_output primary
-
-        colors {
-            # bar background color
-            background $bg
-            # text color used for blocks that do not have a color specified.
-            statusline $yellow
-            # workspaces section            
-            #                    border  backgr. text
-            focused_workspace    $aqua $aqua $darkgray
-            inactive_workspace   $darkgray $darkgray $yellow
-            active_workspace     $darkgray $darkgray $yellow
-            urgent_workspace     $red $red $bg
-        }
+    i3bar_command i3bar --transparency
+    status_command i3status
+    position top
+    separator_symbol ⟨
+    tray_output primary
+    colors {
+        background #00000000
+    }
 }
 
 # Astrill floats

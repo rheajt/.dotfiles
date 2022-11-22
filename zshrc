@@ -133,3 +133,4 @@ eval "`fnm env`"
 # vim bind
 # bindkey -v
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+eval "$(starship init zsh)"
