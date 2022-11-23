@@ -223,6 +223,8 @@ bar {
     }
 }
 
+for_window [class="^.*"] border pixel 3
+
 # Astrill floats
 for_window [class="Astrill" instance="astrill"] floating enable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
