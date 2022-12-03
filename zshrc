@@ -77,14 +77,17 @@ plugins=(git zsh-syntax-highlighting zsh-vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-EDITOR="nvim"
 export PATH=$PATH:/usr/local/go/bin
 
-ZVM_VI_ESCAPE_BINDKEY="jk"
-# ZVM_VI_EDITOR="nvim"
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+export EDITOR="nvim"
+export ZVM_VI_EDITOR="nvim"
+
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.cache/zsh/history
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -134,3 +137,13 @@ eval "`fnm env`"
 # bindkey -v
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 eval "$(starship init zsh)"
+
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
+
+export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"

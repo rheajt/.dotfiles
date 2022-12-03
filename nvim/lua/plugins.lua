@@ -63,36 +63,19 @@ return require("packer").startup(function(use)
     -- })
 
     --Neorg
-    use({
-        "nvim-neorg/neorg",
-        -- tag = "*",
-        -- ft = "norg",
-        after = "nvim-treesitter", -- You may want to specify Telescope here as well
-        run = ":Neorg sync-parsers",
-        config = function()
-            require("neorg").setup({
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.norg.dirman"] = {
-                        config = {
-                            workspaces = {
-                                work = "~/notes/work",
-                                gtd = "~/notes/gtd",
-                            },
-                        },
-                    },
-                    ["core.gtd.base"] = {
-                        config = {
-                            workspace = "gtd",
-                        },
-                    },
-                    ["core.gtd.ui"] = {},
-                    ["core.integrations.telescope"] = {},
-                },
-            })
-        end,
-        requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
-    })
+    -- use({
+    --     "nvim-neorg/neorg",
+    --     after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    --     run = ":Neorg sync-parsers",
+    --     config = function()
+    --         require("neorg").setup({
+    --             load = {
+    --                 ["core.defaults"] = {},
+    --             },
+    --         })
+    --     end,
+    --     requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
+    -- })
 
     --Autopairs
     use({
