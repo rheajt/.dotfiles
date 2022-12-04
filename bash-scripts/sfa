@@ -1,0 +1,3 @@
+#/usr/bin/env bash
+
+fd . ~/Music/sfa3 | fzf --reverse | xargs mpg123 -q
