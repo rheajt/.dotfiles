@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 vim.o.cursorline = true
-vim.cmd([[ colorscheme kanagawa ]])
+vim.cmd([[ colorscheme gruvbox-baby ]])
 -- vim.cmd([[colorscheme everforest]])
 vim.opt.background = "dark" -- or "light" for light mode
 vim.opt.clipboard = "unnamedplus"

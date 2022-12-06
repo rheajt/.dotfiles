@@ -5,7 +5,7 @@ local sources = {
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.diagnostics.tsc,
-    null_ls.builtins.completion.luasnip,
+    -- null_ls.builtins.completion.luasnip,
 }
 
 null_ls.setup({

@@ -35,6 +35,12 @@ return require("packer").startup(function(use)
         end,
     })
 
+    use({
+        "simrat39/symbols-outline.nvim",
+        config = function()
+            require("symbols-outline").setup()
+        end,
+    })
     -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
@@ -52,6 +58,16 @@ return require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require("config.treesitter")
+        end,
+    })
+    use("nvim-treesitter/nvim-treesitter-context")
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
         end,
     })
     -- use({ "nvim-treesitter/playground" })
@@ -152,5 +168,6 @@ return require("packer").startup(function(use)
     })
 
     use("luisiacc/gruvbox-baby")
+    use({ "catppuccin/nvim", as = "catppuccin" })
     use("rebelot/kanagawa.nvim")
 end)
