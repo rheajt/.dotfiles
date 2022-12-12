@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wallpapers=~/Pictures/backgrounds/
+wallpapers=~/Pictures/backgrounds/fantasy/
 
 #feh --bg-scale ~/Pictures/backgrounds/$(ls $wallpapers | shuf -n 1)
 feh --bg-scale $wallpapers$(ls $wallpapers | shuf -n 1)
