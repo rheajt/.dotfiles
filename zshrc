@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-vi-mode)
+plugins=(git zsh-syntax-highlighting zsh-vi-mode fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -147,3 +147,6 @@ export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
 
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+
+####### KEYS ########
+xmodmap -e "keycode 66 = BackSpace"
