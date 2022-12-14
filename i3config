@@ -70,6 +70,7 @@ bindsym $mod+Home workspace next_on_output
 bindsym $mod+Right workspace next_on_output
 bindsym $mod+End workspace prev_on_output
 bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Tab workspace back_and_forth
 
 # change focus
 bindsym $mod+h focus left
