@@ -145,6 +145,17 @@ return require("packer").startup(function(use)
         end,
     })
 
+    use({
+        "nvim-neorg/neorg",
+        config = function()
+            require("neorg").setup({
+                load = {
+                    ["core.defaults"] = {},
+                },
+            })
+        end,
+    })
+
     use("luisiacc/gruvbox-baby")
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("rebelot/kanagawa.nvim")

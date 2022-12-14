@@ -88,10 +88,10 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.cache/zsh/history
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -99,18 +99,8 @@ export HISTFILE=~/.cache/zsh/history
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="nvim"
 alias bat="batcat"
 alias gs="git status"
@@ -127,7 +117,7 @@ alias tds="tmux detach"
 
 alias blog="cd ~/projects/apps/rheajt.github.io"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fnm
 export PATH=/home/rheajt/.fnm:$PATH
@@ -150,3 +140,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 ####### KEYS ########
 xmodmap -e "keycode 66 = BackSpace"
+
+# The plugin will auto execute this zvm_after_init function
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
