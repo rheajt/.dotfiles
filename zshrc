@@ -139,6 +139,7 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 ####### KEYS ########
+setxkbmap -option caps:none
 xmodmap -e "keycode 66 = BackSpace"
 
 # The plugin will auto execute this zvm_after_init function
