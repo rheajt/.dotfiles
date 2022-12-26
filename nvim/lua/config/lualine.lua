@@ -1,7 +1,7 @@
 return require("lualine").setup({
     options = {
         icons_enabled = true,
-        theme = "kanagawa",
+        theme = "gruvbox",
         disabled_filetypes = { "NvimTree" },
         always_divide_middle = true,
     },

@@ -7,21 +7,78 @@ local xnoremap = require("config.keymap_binds").xnoremap
 -- vertical split same file
 nnoremap("<leader>sv", ":vs<CR><C-w>l", { silent = true })
 
+-- nnoremap("<leader>e", ":NvimTreeToggle<CR>")
+nnoremap("rn", function()
+    vim.lsp.buf.rename()
+end)
+
+-- nnoremap("gd", function()
+--     vim.lsp.buf.definition()
+-- end)
+
+-- nnoremap("gD", function()
+--     vim.lsp.buf.declaration()
+-- end)
+
+-- nnoremap("gr", function()
+--     vim.lsp.buf.references()
+-- end)
+
+-- nnoremap("gR", function()
+--     vim.lsp.buf.references()
+-- end)
+
+-- nnoremap("gi", function()
+--     vim.lsp.buf.implementation()
+-- end)
+
+-- nnoremap("gh", function()
+--     vim.lsp.buf.signature_help()
+-- end)
+
+nnoremap("gn", function()
+    vim.diagnostic.goto_next()
+end)
+
+nnoremap("gp", function()
+    vim.diagnostic.goto_prev()
+end)
+
+nnoremap("gl", function()
+    vim.diagnostic.open_float()
+end)
+
+nnoremap("K", function()
+    vim.lsp.buf.hover()
+end)
+vnoremap("K", function()
+    vim.lsp.buf.hover()
+end)
+
+nnoremap("<leader>lf", function()
+    vim.lsp.buf.format()
+end)
+vnoremap("<leader>lf", function()
+    vim.lsp.buf.format()
+end)
+nnoremap("<leader>la", function()
+    vim.lsp.buf.code_action()
+end)
+vnoremap("<leader>la", function()
+    vim.lsp.buf.range_code_action()
+end)
+
 -- theprimeagen power maps
 nnoremap("Y", "y$")
 nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
 nnoremap("J", "mzJ`z")
--- nnoremap(",", ",<C-g>u")
--- nnoremap(".", ".<C-g>u")
--- nnoremap("!", "!<C-g>u")
--- nnoremap("?", "?<C-g>u")
 
 -- dont lose your paste in visual mode
 vnoremap("<leader>p", '"_dP')
 
 -- resource files
-nnoremap("<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>:source %<CR>")
+nnoremap("<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>")
 
 -- close buffer
 nnoremap("<leader>cc", ":bd<CR>")
