@@ -159,4 +159,13 @@ return require("packer").startup(function(use)
     use("luisiacc/gruvbox-baby")
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("rebelot/kanagawa.nvim")
+    use({
+        "jesseleite/nvim-noirbuddy",
+        requires = { "tjdevries/colorbuddy.nvim", branch = "dev" },
+        conjig = function()
+            require("noirbuddy").setup({
+                preset = "miami-nights",
+            })
+        end,
+    })
 end)
