@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -78,29 +78,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$PATH:/usr/local/go/bin
-
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-
 export EDITOR="nvim"
 export ZVM_VI_EDITOR="nvim"
-
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.cache/zsh/history
-
 export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-#
-# Example aliases
 alias v="nvim"
 alias bat="batcat"
 alias gs="git status"
@@ -108,25 +94,19 @@ alias gc="git add -A && git commit -am "
 alias gp="git push"
 alias dfs="cd ~/projects/dotfiles"
 alias sc="source ~/.zshrc"
-
 alias tns="new-tmux-session"
 alias tks="tmux kill-session"
 alias tl="tmux ls"
 alias tas="tmux attach-session -t"
 alias tds="tmux detach"
-
 alias blog="cd ~/projects/apps/rheajt.github.io"
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# fnm
-export PATH=/home/rheajt/.fnm:$PATH
-eval "`fnm env`"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim bind
 # bindkey -v
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
@@ -146,3 +126,7 @@ xmodmap -e "keycode 66 = BackSpace"
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
+
+# fnm
+export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
+eval "`fnm env`"
