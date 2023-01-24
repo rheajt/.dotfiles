@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-vi-mode fzf)
+plugins=(git zsh-syntax-highlighting fzf zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,7 +101,7 @@ alias tas="tmux attach-session -t"
 alias tds="tmux detach"
 alias blog="cd ~/projects/apps/rheajt.github.io"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim bind
 # bindkey -v
@@ -126,7 +126,9 @@ xmodmap -e "keycode 66 = BackSpace"
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
+zvm_after_init_commands+=(zvm_after_init)
 
 # fnm
 export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
 eval "`fnm env`"
+

@@ -198,6 +198,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #fcba03 #fcba03 #ffffff #fcba03   #fcba03
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# replaced with polybar
 # bar {
 #     i3bar_command i3bar --transparency
 #     status_command i3status
@@ -220,7 +230,7 @@ for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floa
 # should always run
 # exec --no-startup-id spotify
 exec_always random-bg
-exec_always xrandr --output DisplayPort-1 --auto --left-of HDMI-A-0 --output eDP --auto --below DisplayPort-1
+exec_always xrandr --output DP-1 --auto --left-of HDMI-1 --output eDP-1 --auto --below DP-1
 
 # start picom
 #
