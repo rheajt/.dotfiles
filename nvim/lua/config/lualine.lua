@@ -1,7 +1,11 @@
 return require("lualine").setup({
     options = {
         icons_enabled = true,
-        theme = "gruvbox",
+        theme = "gruvbox_dark",
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        -- component_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
         disabled_filetypes = { "NvimTree" },
         always_divide_middle = true,
     },

@@ -1,4 +1,4 @@
-local execute = vim.api.nvim_command
+-- local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -143,8 +143,12 @@ return require("packer").startup(function(use)
                             }
                         }
                     },
+                    ["core.norg.completion"] = {
+                        config = {
+                            engine = "nvim-cmp"
+                        }
+                    },
                     ["core.norg.concealer"] = {},
-                    ["core.norg.completion"] = {},
                     ["core.presenter"] = {
                         config = {
                             zen_mode = "zen-mode"
