@@ -99,7 +99,7 @@ alias tks="tmux kill-session"
 alias tl="tmux ls"
 alias tas="tmux attach-session -t"
 alias tds="tmux detach"
-alias blog="cd ~/projects/apps/rheajt.github.io"
+alias blog="cd ~/projects/blog"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
