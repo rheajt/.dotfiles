@@ -1,40 +1,14 @@
 local nnoremap = require("config.keymap_binds").nnoremap
 local vnoremap = require("config.keymap_binds").vnoremap
-local tnoremap = require("config.keymap_binds").tnoremap
 local inoremap = require("config.keymap_binds").inoremap
 local xnoremap = require("config.keymap_binds").xnoremap
 
 -- vertical split same file
 nnoremap("<leader>sv", ":vs<CR><C-w>l", { silent = true })
 
--- nnoremap("<leader>e", ":NvimTreeToggle<CR>")
 nnoremap("rn", function()
     vim.lsp.buf.rename()
 end)
-
--- nnoremap("gd", function()
---     vim.lsp.buf.definition()
--- end)
-
--- nnoremap("gD", function()
---     vim.lsp.buf.declaration()
--- end)
-
--- nnoremap("gr", function()
---     vim.lsp.buf.references()
--- end)
-
--- nnoremap("gR", function()
---     vim.lsp.buf.references()
--- end)
-
--- nnoremap("gi", function()
---     vim.lsp.buf.implementation()
--- end)
-
--- nnoremap("gh", function()
---     vim.lsp.buf.signature_help()
--- end)
 
 nnoremap("gn", function()
     vim.diagnostic.goto_next()
@@ -51,6 +25,7 @@ end)
 nnoremap("K", function()
     vim.lsp.buf.hover()
 end)
+
 vnoremap("K", function()
     vim.lsp.buf.hover()
 end)
