@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.o.cursorline = true
 
 vim.cmd([[ colorscheme gruvbox-baby ]])

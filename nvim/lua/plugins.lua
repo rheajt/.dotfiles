@@ -140,7 +140,8 @@ return require("packer").startup(function(use)
                             workspaces = {
                                 work = "~/notes/work",
                                 home = "~/notes/home",
-                            }
+                            },
+                            default_workspace = "work"
                         }
                     },
                     ["core.norg.completion"] = {

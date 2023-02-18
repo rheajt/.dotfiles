@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+# ps-project "NAME OF PROJECT" branch (defaults to solid)
 folder="${1:-DEFAULT}"
 
 branch=$2
 
 if [ -z "$2" ]
   then
-    echo "No argument supplied, branching from #main"
-    branch="main"
+    echo "No argument supplied, branching from #solid"
+    branch="solid"
 fi
 
 echo "Cloning into project folder $folder, project branch $branch"
