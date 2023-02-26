@@ -8,35 +8,35 @@ lsp.preset({
     configure_diagnostics = true,
     cmp_capabilities = true,
     manage_nvim_cmp = true,
-    call_servers = 'local',
+    call_servers = "local",
     sign_icons = {
-        error = '✘',
-        warn = '▲',
-        hint = '⚑',
-        info = ''
-    }
+        error = "✘",
+        warn = "▲",
+        hint = "⚑",
+        info = "",
+    },
 })
 
 lsp.ensure_installed({
-    'tsserver',
-    'lua_ls',
+    "tsserver",
+    "lua_ls",
 })
 
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-local lsp_format_on_save = function(bufnr)
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-            vim.lsp.buf.format()
-        end,
-    })
-end
+-- local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+-- local lsp_format_on_save = function(bufnr)
+--     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+--     vim.api.nvim_create_autocmd('BufWritePre', {
+--         group = augroup,
+--         buffer = bufnr,
+--         callback = function()
+--             vim.lsp.buf.format()
+--         end,
+--     })
+-- end
 
-lsp.on_attach(function(client, bufnr)
-    lsp_format_on_save(bufnr);
-end)
+-- lsp.on_attach(function(client, bufnr)
+--     lsp_format_on_save(bufnr);
+-- end)
 -- lsp.setup_nvim_cmp({
 --     sources = {
 --         { name = "neorg" }
