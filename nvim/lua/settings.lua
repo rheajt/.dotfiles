@@ -1,5 +1,4 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.termguicolors = true
 vim.o.cursorline = true
 
 vim.cmd([[ colorscheme gruvbox-baby ]])
@@ -17,7 +16,6 @@ vim.api.nvim_set_hl(0, "NonText", {
 --settings file
 vim.opt.colorcolumn = "100"
 vim.opt.fileencoding = "utf-8"
-vim.opt.termguicolors = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
