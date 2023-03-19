@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting fzf zsh-vi-mode)
+plugins=(git zsh-syntax-highlighting fzf zsh-vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,7 +83,7 @@ export EDITOR="nvim"
 export ZVM_VI_EDITOR="nvim"
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE=~/.cache/zsh/history
+export HISTFILE=~/.local/zsh_history
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 

@@ -2,66 +2,53 @@ local nnoremap = require("config.keymap_binds").nnoremap
 local vnoremap = require("config.keymap_binds").vnoremap
 local inoremap = require("config.keymap_binds").inoremap
 local xnoremap = require("config.keymap_binds").xnoremap
+local keymap = vim.keymap.set
 
 -- vertical split same file
-nnoremap("<leader>sv", ":vs<CR><C-w>l", { silent = true })
+keymap("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true })
 
-nnoremap("rn", function()
+keymap("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+keymap("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+keymap("n", "gc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+
+keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+keymap({ "n", "v" }, "K", "<cmd>Lspsaga hover_doc<CR>")
+keymap({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>")
+keymap({ "n", "t" }, "<leader>tt", "<cmd>Lspsaga term_toggle<CR>")
+
+keymap("n", "<leader>lf", function()
+    vim.lsp.buf.format()
+end)
+keymap("v", "<leader>lf", function()
+    vim.lsp.buf.format()
+end)
+
+keymap("n", "rn", function()
     vim.lsp.buf.rename()
 end)
 
-nnoremap("gn", function()
-    vim.diagnostic.goto_next()
-end)
-
-nnoremap("gp", function()
-    vim.diagnostic.goto_prev()
-end)
-
-nnoremap("gl", function()
-    vim.diagnostic.open_float()
-end)
-
-nnoremap("K", function()
-    vim.lsp.buf.hover()
-end)
-
-vnoremap("K", function()
-    vim.lsp.buf.hover()
-end)
-
-nnoremap("<leader>lf", function()
-    vim.lsp.buf.format()
-end)
-vnoremap("<leader>lf", function()
-    vim.lsp.buf.format()
-end)
-nnoremap("<leader>la", function()
-    vim.lsp.buf.code_action()
-end)
-vnoremap("<leader>la", function()
-    vim.lsp.buf.range_code_action()
-end)
-
 -- theprimeagen power maps
-nnoremap("Y", "y$")
-nnoremap("n", "nzzzv")
-nnoremap("N", "Nzzzv")
-nnoremap("J", "mzJ`z")
+keymap("n", "Y", "y$")
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
+keymap("n", "J", "mzJ`z")
 
 -- dont lose your paste in visual mode
-vnoremap("<leader>p", '"_dP')
+keymap("v", "<leader>p", '"_dP')
 
 -- resource files
-nnoremap("<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>")
+keymap("n", "<leader><Enter>", ":source ~/.config/nvim/init.lua<CR>")
 
 -- close buffer
-nnoremap("<leader>cc", ":bd<CR>")
-nnoremap("<leader>ca", ":%bd|e#<cr>")
+keymap("n", "<leader>cc", ":bd<CR>")
+keymap("n", "<leader>ca", ":%bd|e#<cr>")
 
 -- center on scroll
-nnoremap("<C-d>", "<C-D>zz")
-nnoremap("<C-u>", "<C-u>zz")
+keymap("n", "<C-d>", "<C-D>zz")
+keymap("n", "<C-u>", "<C-u>zz")
 
 -- better window movement
 nnoremap("<C-h>", "<C-w>h")
@@ -86,9 +73,9 @@ vnoremap("<", "<gv", { silent = true })
 vnoremap(">", ">gv", { silent = true })
 
 -- I hate escape
-inoremap("jk", "<ESC>")
-inoremap("kj", "<ESC>")
-inoremap("jj", "<ESC>")
+keymap("i", "jk", "<ESC>")
+keymap("i", "kj", "<ESC>")
+keymap("i", "jj", "<ESC>")
 
 -- Move current line / block with Alt-j/k ala vscode.
 nnoremap("<A-j>", ":m .+1<CR>==", { silent = true })
@@ -115,6 +102,6 @@ vnoremap("p", "0p", { silent = true })
 vnoremap("p", "0P", { silent = true })
 
 -- TSLsp keymaps
-nnoremap("ts", ":TSLspOrganize<CR>")
-nnoremap("tr", ":TSLspRenameFile<CR>")
-nnoremap("ti", ":TSLspImportAll<CR>")
+-- nnoremap("ts", ":TSLspOrganize<CR>")
+-- nnoremap("tr", ":TSLspRenameFile<CR>")
+-- nnoremap("ti", ":TSLspImportAll<CR>")

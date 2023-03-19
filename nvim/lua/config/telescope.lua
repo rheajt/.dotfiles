@@ -21,6 +21,10 @@ nnoremap("<leader>fh", function()
     require("telescope.builtin").help_tags()
 end)
 
+nnoremap("<leader>fk", function()
+    require("telescope.builtin").keymaps()
+end)
+
 nnoremap("<leader>ft", function()
     require("telescope.builtin").treesitter()
 end)

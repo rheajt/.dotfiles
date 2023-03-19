@@ -1,5 +1,4 @@
-vim.g.termguicolors = true
-vim.o.cursorline = true
+vim.opt.cursorline = true
 
 vim.cmd([[ colorscheme gruvbox-baby ]])
 vim.opt.background = "dark" -- or "light" for light mode

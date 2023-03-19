@@ -19,42 +19,17 @@ lsp.preset({
 
 lsp.ensure_installed({
     "tsserver",
-    "lua_ls",
+    "jsonls",
 })
 
--- local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
--- local lsp_format_on_save = function(bufnr)
---     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
---     vim.api.nvim_create_autocmd('BufWritePre', {
---         group = augroup,
---         buffer = bufnr,
---         callback = function()
---             vim.lsp.buf.format()
---         end,
---     })
--- end
+local tsserver_settings = require("config.lsp.settings.tsserver")
+lsp.configure("tsserver", tsserver_settings)
 
--- lsp.on_attach(function(client, bufnr)
---     lsp_format_on_save(bufnr);
--- end)
--- lsp.setup_nvim_cmp({
---     sources = {
---         { name = "neorg" }
---     }
--- })
+local json_settings = require("config.lsp.settings.jsonls")
+lsp.configure("jsonls", json_settings)
 
--- lsp.configure('tsserver', {
---     on_attach = function(client, bufnr)
---         print('hello tsserver')
---         client.server_capabilities.document_formatting = true
---         client.server_capabilities.document_range_formatting = true
---     end,
---     settings = {
---         completions = {
---             completeFunctionCalls = true
---         }
---     }
--- })
+local lua_settings = require("config.lsp.settings.sumneko_lua")
+lsp.configure("lua-language-server", lua_settings)
 
 lsp.nvim_workspace()
 lsp.setup()

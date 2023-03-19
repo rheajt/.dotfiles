@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
@@ -57,6 +58,7 @@ require("lazy").setup({
     },
 
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
     "elianiva/telescope-npm.nvim",
 
     -- Treesitter
@@ -67,7 +69,6 @@ require("lazy").setup({
         end,
     },
 
-    "nvim-treesitter/nvim-treesitter-context",
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -208,6 +209,21 @@ require("lazy").setup({
                 },
             })
         end,
+    },
+
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+
+    {
+        "glepnir/lspsaga.nvim",
+        event = "BufRead",
+        config = function()
+            require("lspsaga").setup({})
+        end,
+        dependencies = {
+            -- { "nvim-tree/nvim-web-devicons" },
+            --Please make sure you install markdown and markdown_inline parser
+            { "nvim-treesitter/nvim-treesitter" },
+        },
     },
 
     "luisiacc/gruvbox-baby",
