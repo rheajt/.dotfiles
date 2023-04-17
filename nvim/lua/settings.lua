@@ -1,7 +1,8 @@
 vim.opt.cursorline = true
 
-vim.cmd([[ colorscheme gruvbox-baby ]])
-vim.opt.background = "dark" -- or "light" for light mode
+-- vim.cmd([[ colorscheme gruvbox-baby ]])
+-- vim.opt.background = "dark" -- or "light" for light mode
+vim.cmd("colorscheme kanagawa-dragon")
 vim.opt.clipboard = "unnamedplus"
 
 vim.api.nvim_set_hl(0, "Normal", {
@@ -11,6 +12,8 @@ vim.api.nvim_set_hl(0, "Normal", {
 vim.api.nvim_set_hl(0, "NonText", {
     bg = "none",
 })
+
+vim.g.copilot_no_tab_map = true
 
 --settings file
 vim.opt.colorcolumn = "100"

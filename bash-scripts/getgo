@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+# getgo helps you install any version of go, or simply upgrade
+# to the latest.
+#
+# Go versions will be installed under "/usr/local/go/{VERSION}",
+# and "/usr/local/go/latest" will always point to the latest
+# version installed.
+#
+# Upgrade to the latest:
+#   getgo
+#
+# Download a specific version:
+#   getgo VERSION [CHECKSUM] [GOOS] [GOARCH]
+#
+# Requirements:
+#   curl, jq
+#
+# (c) Mohamed Attahri – https://github.com/mohamedattahri
+
+set -e
+
+NUMBER=$1
+CHECKSUM=$2
+
+# Create destination dir
+GODIR=/usr/local/go
+if [ ! -d "$GODIR" ]
+then
+    sudo -v
+    sudo mkdir -p ${GODIR}
+    sudo chown `whoami` ${GODIR}
+fi    
+
+GOOS=$3
+GOARCH=$4
+
+if type "go" > /dev/null 2>&1
+then
+    GOOS=`go env GOOS`
+    GOARCH=`go env GOARCH`
+else
+    if [ -z "${GOOS}" ]
+    then
+        read -p "GOOS:" GOOS
+    fi
+    if [ -z "${GOARCH}" ]
+    then
+        read -p "GOARCH:" GOARCH
+    fi
+fi    
+
+# Retrieve the latest version number and checksum
+if [ -z "$1" ]
+then
+    printf "Fetching latest version..."
+    RAW=`curl -LsS "https://go.dev/dl/?mode=json"`
+    NUMBER=`echo ${RAW} | jq '.[0].version' | tr -d \" | tr -d 'go'`
+    CHECKSUM=`echo ${RAW} | jq ".[0].files[] | select(.filename | test(\"go${NUMBER}.${GOOS}-${GOARCH}.tar.gz\")).sha256" | tr -d \"`
+    printf "(${NUMBER})\n"
+fi
+VERSION=${NUMBER}.${GOOS}-${GOARCH}
+TMP=/tmp/go${VERSION}.tar.gz
+
+# Check if already installed.
+if type "go" > /dev/null 2>&1
+then
+    if echo "go version go${NUMBER} ${GOOS}/${GOARCH}" | grep -q "$(go version)"
+    then
+        echo "Go ${NUMBER} (${GOOS}/${GOARCH}) is already installed."
+        exit 0
+    fi
+fi    
+
+# Download if necessary
+if [ ! -f ${TMP} ]
+then
+    printf "Downloading ${VERSION}.tar.gz..."
+    curl -LsS "https://go.dev/dl/go${VERSION}.tar.gz" > ${TMP}
+    printf "(`ls -lh ${TMP} | awk '{print $5}'`)\n"
+fi
+
+# Verify checksum
+if [ ! -z "$CHECKSUM" ]
+then
+    printf "Verifying checksum..."
+    echo "${CHECKSUM} *${TMP}" | shasum -a256 -c -s
+    printf "(${CHECKSUM})\n"
+fi
+
+# Unpack
+DEST=${GODIR}/${NUMBER}
+printf "Unpacking..."
+mkdir -p ${DEST}
+tar -xf ${TMP} -C ${DEST} --strip-components=1
+rm -f ${TMP}
+printf "(${DEST})\n"
+printf "Go ${NUMBER} (${GOOS}/${GOARCH}) installed.\n"
+
+# Latest
+LATEST=`find ${GODIR} -type d -maxdepth 1 | sort -V | tail -n1`
+ln -snf `realpath ${LATEST}` ${GODIR}/latest
+
+# Check Path
+GOROOT=${GODIR}/latest/bin
+if [[ :$PATH: != *:"${GOROOT}":* ]]
+then
+    echo "Add \"${GOROOT}" to \$PATH"
+fi
+exit 0

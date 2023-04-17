@@ -49,6 +49,14 @@ require("lazy").setup({
         end,
     },
 
+    -- undotree
+    {
+        "mbbill/undotree",
+        config = function()
+            vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, silent = true })
+        end,
+    },
+
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
@@ -138,6 +146,31 @@ require("lazy").setup({
         end,
     },
 
+    -- copilot
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    debounce = 75,
+                    keymap = {
+                        accept = "<M-l>",
+                        accept_word = false,
+                        accept_line = false,
+                        next = "<M-]>",
+                        prev = "<M-[>",
+                        dismiss = "<C-]>",
+                    },
+                },
+            })
+        end,
+    },
+
+    -- neorg
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers", -- This is the important bit!
