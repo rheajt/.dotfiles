@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+test=$(tmux ls | fzf --reverse --height=~40% | awk '{print $1}')
+
+if [ -z "$test" ]; then
+    exit 0
+fi
+
+stripped=$(echo $test | sed 's/://g')
+tmux attach-session -t $stripped

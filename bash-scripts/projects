@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-test=(ls ~/projects | fzf )
+# dir=$(ls ~/projects | fzf --reverse --height=~40%)
 
-echo $test
+# project="~/projects/${dir}"
 
+# ls $project
+dir=~/projects
+pj=$(ls $dir | fzf)
+
+cd $dir
