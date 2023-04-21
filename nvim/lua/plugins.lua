@@ -178,7 +178,7 @@ require("lazy").setup({
             require("neorg").setup({
                 load = {
                     ["core.defaults"] = {},
-                    ["core.norg.dirman"] = {
+                    ["core.dirman"] = {
                         config = {
                             workspaces = {
                                 work = "~/notes/work",
@@ -187,12 +187,12 @@ require("lazy").setup({
                             default_workspace = "work",
                         },
                     },
-                    ["core.norg.completion"] = {
+                    ["core.completion"] = {
                         config = {
                             engine = "nvim-cmp",
                         },
                     },
-                    ["core.norg.concealer"] = {
+                    ["core.concealer"] = {
                         config = {
                             folds = false,
                         },
@@ -274,5 +274,26 @@ require("lazy").setup({
     },
 
     "luisiacc/gruvbox-baby",
-    "rebelot/kanagawa.nvim",
+
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require("kanagawa").setup({
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none",
+                                float = {
+                                    bg = "none",
+                                    fg_border = "none",
+                                    bg_border = "none",
+                                },
+                            },
+                        },
+                    },
+                },
+            })
+        end,
+    },
 })
