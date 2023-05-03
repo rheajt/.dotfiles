@@ -90,7 +90,8 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-bindsym $mod+n exec "i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'"
+bindsym $mod+n exec "i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim -c Neorg'"
+bindsym $mod+g exec "i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
