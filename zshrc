@@ -97,7 +97,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#4b84db,hl:#4b84db,hl+:#4b84db'
+export FZF_DEFAULT_OPTS='--height 60% --reverse --border --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#4b84db,hl:#4b84db,hl+:#4b84db'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
