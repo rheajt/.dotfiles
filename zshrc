@@ -93,7 +93,6 @@ alias s="sessions"
 # vim bind
 # bindkey -v
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-# eval "$(starship init zsh)"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'

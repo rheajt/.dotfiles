@@ -147,3 +147,5 @@ configuration {
   }
 }
 @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+//@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"

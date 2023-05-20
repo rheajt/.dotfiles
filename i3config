@@ -1,11 +1,6 @@
 set $mod Mod4
 font pango: Hack Nerd Font 12
 exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -156,7 +151,7 @@ mode "RESIZE" {
 bindsym $mod+r mode "RESIZE"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #fcba03 #fcba03 #ffffff #fc9003   #fcba03
+client.focused          #d8a657 #d8a657 #d8a657 #d8a657  #d8a657 
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900001
