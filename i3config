@@ -27,6 +27,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -show window"
 bindsym $mod+shift+d exec "rofi -show combi -combi-modes 'drun,window,run' -modes combi"
+bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left
