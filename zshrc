@@ -116,5 +116,5 @@ zvm_after_init_commands+=(zvm_after_init)
 
 # fnm
 export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
-eval "`fnm env`"
+eval "`fnm env --use-on-cd`"
 

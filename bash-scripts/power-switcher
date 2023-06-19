@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+selected=$(echo "Battery,Balanced,Performance" | rofi -dmenu -sep ',' -p "Select power settings:")
+
+
+# echo $selected
+case "$selected" in
+    "Battery") system76-power profile battery
+    ;;
+
+    "Balanced") system76-power profile balanced
+    ;;
+
+    "Performance") system76-power profile performance
+    ;;
+
+    *) system76-power --help
+    ;;
+esac
