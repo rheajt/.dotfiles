@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
+polybar-msg cmd quit
+
 # xrandr --output HDMI-1 --off
-# xrandr --output HDMI-1 --same-as eDP-1
 i3-msg '[class=".*"]' move workspace to output primary
+
+xrandr --output HDMI-1 --same-as eDP-1
+
+polybar --config=~/projects/dotfiles/polybar-config.ini main 2>&1 | tee -a /tmp/polybar1.log & disown
 

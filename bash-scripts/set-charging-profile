@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+
+PROFILE=$(printf "Full\nBalanced\nMax" | fzf --reverse)
+
+case "$PROFILE" in
+    "Full") sudo system76-power charge-thresholds --profile full_charge;;
+    "Balanced") sudo system76-power charge-thresholds --profile balanced;;
+    "Max") sudo system76-power charge-thresholds --profile max_lifespan;;
+    *) ;;
+esac
+# system76-power charge-thresholds --profile full_charge
+# system76-power charge-thresholds --profile balanced
+# system76-power charge-thresholds --profile max_lifespan
