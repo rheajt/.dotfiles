@@ -1,3 +1,3 @@
 #/usr/bin/env bash
 
-fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q
+fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -sort -matching fuzzy | xargs mpg123 -q

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-xrandr --output eDP-1 --auto --below HDMI-1
-
-~/.config/polybar/launch.sh

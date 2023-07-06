@@ -31,5 +31,10 @@ lsp.configure("jsonls", json_settings)
 local lua_settings = require("config.lsp.settings.sumneko_lua")
 lsp.configure("lua-language-server", lua_settings)
 
+lsp.on_attach(function(client, bufnr)
+    -- print("lsp lua attached")
+    client.server_capabilities.semanticTokensProvider = nil
+end)
+
 lsp.nvim_workspace()
 lsp.setup()

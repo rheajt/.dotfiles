@@ -21,12 +21,12 @@ require("lazy").setup({
     "nvim-lua/popup.nvim",
     "kyazdani42/nvim-web-devicons",
 
-    {
-        "glacambre/firenvim",
-        build = function()
-            vim.fn["firenvim#install"](0)
-        end,
-    },
+    -- {
+    --     "glacambre/firenvim",
+    --     build = function()
+    --         vim.fn["firenvim#install"](0)
+    --     end,
+    -- },
 
     {
         "ggandor/leap.nvim",
@@ -42,20 +42,20 @@ require("lazy").setup({
         end,
     },
 
-    {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-            require("symbols-outline").setup()
-        end,
-    },
+    -- {
+    --     "simrat39/symbols-outline.nvim",
+    --     config = function()
+    --         require("symbols-outline").setup()
+    --     end,
+    -- },
 
     -- undotree
-    {
-        "mbbill/undotree",
-        config = function()
-            vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, silent = true })
-        end,
-    },
+    -- {
+    --     "mbbill/undotree",
+    --     config = function()
+    --         vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, silent = true })
+    --     end,
+    -- },
 
     -- Telescope
     {
@@ -88,12 +88,12 @@ require("lazy").setup({
     },
 
     --Autopairs
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
-    },
+    -- {
+    --     "windwp/nvim-autopairs",
+    --     config = function()
+    --         require("nvim-autopairs").setup({})
+    --     end,
+    -- },
 
     {
         "windwp/nvim-ts-autotag",
@@ -265,26 +265,5 @@ require("lazy").setup({
     },
 
     "luisiacc/gruvbox-baby",
-
-    {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            require("kanagawa").setup({
-                colors = {
-                    theme = {
-                        all = {
-                            ui = {
-                                bg_gutter = "none",
-                                float = {
-                                    bg = "none",
-                                    fg_border = "none",
-                                    bg_border = "none",
-                                },
-                            },
-                        },
-                    },
-                },
-            })
-        end,
-    },
+    "sekke276/dark_flat.nvim",
 })

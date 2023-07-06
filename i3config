@@ -25,9 +25,10 @@ floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -show window"
-bindsym $mod+shift+d exec "rofi -show combi -combi-modes 'drun,window,run' -modes combi"
-bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q"
+bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
+bindsym $mod+shift+d exec "rofi -show combi -combi-modes -sorting-method fzf -sort -matching fuzzy 'drun,window,run' -modes combi"
+#bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q"
+bindsym $mod+shift+s exec "sound-menu"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left
@@ -38,8 +39,11 @@ bindsym $mod+Ctrl+k move workspace to output up
 # toggle workspaces
 bindsym $mod+Home workspace next_on_output
 bindsym $mod+Right workspace next_on_output
+bindsym $mod+o workspace next_on_output
+
 bindsym $mod+End workspace prev_on_output
 bindsym $mod+Left workspace prev_on_output
+bindsym $mod+y workspace prev_on_output
 bindsym $mod+Tab workspace back_and_forth
 
 # change focus

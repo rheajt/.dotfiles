@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+selected=$(echo "Single,Mirror,Multiple" | rofi -dmenu -sep ',' -p "SCREEN OPTIONS" -sorting-method fzf -sort -matching fuzzy)
+
+
+# echo $selected
+case "$selected" in
+    "Single") 
+        echo "single monitor"
+
+        i3-msg '[class=".*"]' move workspace to output primary
+        xrandr --output eDP-1 --auto --output HDMI-1 --off
+        ~/.config/polybar/launch.sh
+    ;;
+
+    "Mirror") 
+        polybar-msg cmd quit
+        # xrandr --output HDMI-1 --off
+        i3-msg '[class=".*"]' move workspace to output primary
+        xrandr --output HDMI-1 --same-as eDP-1
+        polybar --config=~/projects/dotfiles/polybar-config.ini main 2>&1 | tee -a /tmp/polybar1.log & disown
+    ;;
+
+    "Multiple") 
+        xrandr --output eDP-1 --auto --below HDMI-1
+        ~/.config/polybar/launch.sh
+    ;;
+
+    *) echo "Invalid option"
+    ;;
+esac
+

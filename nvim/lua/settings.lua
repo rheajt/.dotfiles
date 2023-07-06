@@ -2,11 +2,15 @@ vim.opt.cursorline = true
 
 -- vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"
-vim.g.gruvbox_baby_highlights = { Normal = { fg = "#123123", bg = "NONE", style = "underline" } }
+-- vim.g.gruvbox_baby_highlights = { Normal = { fg = "#123123", bg = "NONE", style = "underline" } }
 vim.g.gruvbox_baby_telescope_theme = 1
 vim.g.gruvbox_baby_transparent_mode = 1
-vim.cmd("colorscheme gruvbox-baby")
 vim.opt.background = "dark" -- or "light" for light mode
+
+vim.cmd.colorscheme("gruvbox-baby")
+
+-- vim.cmd.colorscheme("dark_flat")
+
 vim.api.nvim_set_hl(0, "Normal", {
     bg = "none",
 })
@@ -31,11 +35,12 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.smartindent = true
 
 vim.opt.cmdheight = 2
 
-vim.opt.showmode = false
-vim.opt.hlsearch = false
+vim.opt.showmode = true
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
