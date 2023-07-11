@@ -1,5 +1,5 @@
 configuration {
-	modi: "drun,window,run,combi";
+	modi: "drun,window,run,combi,filebrowser";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -10,8 +10,8 @@ configuration {
 	terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
-/*	run-command: "{cmd}";*/
-/*	run-list-command: "";*/
+    run-command: "{cmd}";
+    run-list-command: "";
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/
@@ -147,5 +147,3 @@ configuration {
   }
 }
 @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-//@theme "/usr/share/rofi/themes/sidebar.rasi"
-//@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"

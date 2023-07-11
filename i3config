@@ -26,7 +26,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
-bindsym $mod+shift+d exec "rofi -show combi -combi-modes -sorting-method fzf -sort -matching fuzzy 'drun,window,run' -modes combi"
+bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
 #bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q"
 bindsym $mod+shift+s exec "sound-menu"
 
