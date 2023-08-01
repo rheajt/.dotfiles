@@ -27,8 +27,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
 bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
-#bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu | xargs mpg123 -q"
-bindsym $mod+shift+s exec "sound-menu"
+bindsym $mod+shift+p exec "~/projects/dotfiles/bash-scripts/lock"
+bindsym $mod+shift+s exec "~/projects/dotfiles/bash-scripts/sound-menu"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left
