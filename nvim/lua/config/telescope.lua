@@ -2,15 +2,15 @@ local actions = require("telescope.actions")
 local nnoremap = require("config.keymap_binds").nnoremap
 
 nnoremap("<leader>ff", function()
-    require("telescope.builtin").find_files()
+    require("telescope.builtin").find_files({ hidden_files = true })
 end)
 
 nnoremap("<leader>fg", function()
-    require("telescope.builtin").live_grep()
+    require("telescope.builtin").live_grep({ hidden_files = true })
 end)
 
 nnoremap("<leader>fr", function()
-    require("telescope.builtin").grep_string()
+    require("telescope.builtin").grep_string({ hidden_files = true })
 end)
 
 nnoremap("<leader>fb", function()

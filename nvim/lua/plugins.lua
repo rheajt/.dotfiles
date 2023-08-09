@@ -192,10 +192,8 @@ require("lazy").setup({
                         folds = false,
                     },
                 },
-                ["core.integrations.telescope"] = {},
             },
         },
-        dependencies = { { "nvim-neorg/neorg-telescope" } },
     },
 
     {
