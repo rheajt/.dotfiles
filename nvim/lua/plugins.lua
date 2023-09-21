@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 
 vim.opt.rtp:prepend(lazypath)
@@ -17,280 +17,273 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({
-    "nvim-lua/plenary.nvim",
-    "nvim-lua/popup.nvim",
-    "kyazdani42/nvim-web-devicons",
+	"nvim-lua/plenary.nvim",
+	"nvim-lua/popup.nvim",
+	"kyazdani42/nvim-web-devicons",
 
-    -- {
-    --     "glacambre/firenvim",
-    --     build = function()
-    --         vim.fn["firenvim#install"](0)
-    --     end,
-    -- },
+	-- {
+	--     "glacambre/firenvim",
+	--     build = function()
+	--         vim.fn["firenvim#install"](0)
+	--     end,
+	-- },
 
-    {
-        "ggandor/leap.nvim",
-        config = function()
-            require("leap").add_default_mappings()
-        end,
-    },
+	{
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
 
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-    },
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 
-    -- {
-    --     "simrat39/symbols-outline.nvim",
-    --     config = function()
-    --         require("symbols-outline").setup()
-    --     end,
-    -- },
+	-- {
+	--     "simrat39/symbols-outline.nvim",
+	--     config = function()
+	--         require("symbols-outline").setup()
+	--     end,
+	-- },
 
-    -- undotree
-    -- {
-    --     "mbbill/undotree",
-    --     config = function()
-    --         vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, silent = true })
-    --     end,
-    -- },
+	-- undotree
+	-- {
+	--     "mbbill/undotree",
+	--     config = function()
+	--         vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, silent = true })
+	--     end,
+	-- },
 
-    -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        config = function()
-            require("config.telescope")
-        end,
-    },
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("config.telescope")
+		end,
+	},
 
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-    "elianiva/telescope-npm.nvim",
+	"elianiva/telescope-npm.nvim",
 
-    -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require("config.treesitter")
-        end,
-    },
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("config.treesitter")
+		end,
+	},
 
-    {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end,
-    },
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
 
-    --Autopairs
-    -- {
-    --     "windwp/nvim-autopairs",
-    --     config = function()
-    --         require("nvim-autopairs").setup({})
-    --     end,
-    -- },
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 
-    {
-        "windwp/nvim-ts-autotag",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end,
-    },
+	-- Tree
+	{
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("config.nvim-tree")
+		end,
+	},
 
-    -- Tree
-    {
-        "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("config.nvim-tree")
-        end,
-    },
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
+			-- You don't need to set any of these options.
+			-- IMPORTANT!: this is only a showcase of how you can set default options!
+			require("telescope").setup({
+				extensions = {
+					file_browser = {
+						theme = "ivy",
+						-- disables netrw and use telescope-file-browser in its place
+						hijack_netrw = true,
+						mappings = {
+							["i"] = {
+								-- your custom insert mode mappings
+							},
+							["n"] = {
+								-- your custom normal mode mappings
+							},
+						},
+					},
+				},
+			})
+			-- To get telescope-file-browser loaded and working with telescope,
+			-- you need to call load_extension, somewhere after setup function:
+			require("telescope").load_extension("file_browser")
+		end,
+	},
 
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        config = function()
-            -- You don't need to set any of these options.
-            -- IMPORTANT!: this is only a showcase of how you can set default options!
-            require("telescope").setup({
-                extensions = {
-                    file_browser = {
-                        theme = "ivy",
-                        -- disables netrw and use telescope-file-browser in its place
-                        hijack_netrw = true,
-                        mappings = {
-                            ["i"] = {
-                                -- your custom insert mode mappings
-                            },
-                            ["n"] = {
-                                -- your custom normal mode mappings
-                            },
-                        },
-                    },
-                },
-            })
-            -- To get telescope-file-browser loaded and working with telescope,
-            -- you need to call load_extension, somewhere after setup function:
-            require("telescope").load_extension("file_browser")
-        end,
-    },
+	-- Status Line
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("config.lualine")
+		end,
+	},
 
-    -- Status Line
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("config.lualine")
-        end,
-    },
+	-- Nvim Comment
+	{
+		"terrortylor/nvim-comment",
+		config = function()
+			require("config.nvim-comment")
+		end,
+	},
 
-    -- Nvim Comment
-    {
-        "terrortylor/nvim-comment",
-        config = function()
-            require("config.nvim-comment")
-        end,
-    },
+	-- git signs
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
 
-    -- git signs
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
-    },
+	-- Lua
+	{
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	},
 
-    -- Lua
-    {
-        "folke/zen-mode.nvim",
-        config = function()
-            require("zen-mode").setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            })
-        end,
-    },
+	-- copilot
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					debounce = 75,
+					keymap = {
+						accept = "<M-l>",
+						accept_word = false,
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
+			})
+		end,
+	},
 
-    -- copilot
-    {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({
-                suggestion = {
-                    enabled = true,
-                    auto_trigger = true,
-                    debounce = 75,
-                    keymap = {
-                        accept = "<M-l>",
-                        accept_word = false,
-                        accept_line = false,
-                        next = "<M-]>",
-                        prev = "<M-[>",
-                        dismiss = "<C-]>",
-                    },
-                },
-            })
-        end,
-    },
+	-- neorg
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers", -- This is the important bit!
+		version = "4.0.1",
+		opts = {
+			load = {
+				["core.defaults"] = {},
+				["core.dirman"] = {
+					config = {
+						workspaces = {
+							work = "~/notes/work",
+							home = "~/notes/home",
+						},
+						default_workspace = "work",
+					},
+				},
+				["core.concealer"] = {
+					config = {
+						folds = false,
+					},
+				},
+			},
+		},
+	},
 
-    -- neorg
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers", -- This is the important bit!
-        version = "4.0.1",
-        opts = {
-            load = {
-                ["core.defaults"] = {},
-                ["core.dirman"] = {
-                    config = {
-                        workspaces = {
-                            work = "~/notes/work",
-                            home = "~/notes/home",
-                        },
-                        default_workspace = "work",
-                    },
-                },
-                ["core.concealer"] = {
-                    config = {
-                        folds = false,
-                    },
-                },
-            },
-        },
-    },
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		dependencies = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
 
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        dependencies = {
-            -- LSP Support
-            { "neovim/nvim-lspconfig" },
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
 
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-path" },
-            { "saadparwaiz1/cmp_luasnip" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-nvim-lua" },
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	},
 
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },
-            { "rafamadriz/friendly-snippets" },
-        },
-    },
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			local null_ls = require("null-ls")
 
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.diagnostics.tsc,
+				},
+			})
+		end,
+	},
 
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.formatting.prettierd,
-                    null_ls.builtins.diagnostics.tsc,
-                },
-            })
-        end,
-    },
+	"jose-elias-alvarez/nvim-lsp-ts-utils",
 
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
+	{
+		"glepnir/lspsaga.nvim",
+		event = "BufRead",
+		config = function()
+			require("lspsaga").setup({
+				diagnostic = {
+					on_insert = false,
+				},
+				lightbulb = {
+					enable = false,
+				},
+				code_action = {
+					num_shortcut = true,
+					keys = {
+						quit = "q",
+						exec = "<CR>",
+					},
+				},
+			})
+		end,
+		dependencies = {
+			-- { "nvim-tree/nvim-web-devicons" },
+			--Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	},
 
-    {
-        "glepnir/lspsaga.nvim",
-        event = "BufRead",
-        config = function()
-            require("lspsaga").setup({
-                diagnostic = {
-                    on_insert = false,
-                },
-                lightbulb = {
-                    enable = false,
-                },
-                code_action = {
-                    num_shortcut = true,
-                    keys = {
-                        quit = "q",
-                        exec = "<CR>",
-                    },
-                },
-            })
-        end,
-        dependencies = {
-            -- { "nvim-tree/nvim-web-devicons" },
-            --Please make sure you install markdown and markdown_inline parser
-            { "nvim-treesitter/nvim-treesitter" },
-        },
-    },
-
-    "luisiacc/gruvbox-baby",
-    "sekke276/dark_flat.nvim",
+	"luisiacc/gruvbox-baby",
+	"sekke276/dark_flat.nvim",
+	"rebelot/kanagawa.nvim",
 })
