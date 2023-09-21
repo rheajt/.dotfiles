@@ -118,3 +118,10 @@ zvm_after_init_commands+=(zvm_after_init)
 export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
 eval "`fnm env --use-on-cd`"
 
+
+# bun completions
+[ -s "/home/jordanrhea/.bun/_bun" ] && source "/home/jordanrhea/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

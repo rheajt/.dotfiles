@@ -17,6 +17,10 @@ nnoremap("<leader>fb", function()
     require("telescope.builtin").buffers()
 end)
 
+nnoremap("<leader>fe", function()
+    require("telescope").extensions.file_browser.file_browser()
+end)
+
 nnoremap("<leader>fh", function()
     require("telescope.builtin").help_tags()
 end)
