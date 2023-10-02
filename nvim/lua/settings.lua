@@ -1,4 +1,4 @@
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 
 vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"

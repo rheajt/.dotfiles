@@ -5,7 +5,8 @@ nnoremap("<leader>tsp", ":TSPlaygroundToggle<CR>")
 
 configs.setup({
 	ensure_installed = "all", -- Only use parsers that are maintained
-	highlight = { -- enable highlighting
+	ignore_install = { "comment" },
+	highlight = {          -- enable highlighting
 		enable = true,
 	},
 	indent = {
