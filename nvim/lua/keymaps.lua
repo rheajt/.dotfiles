@@ -5,29 +5,29 @@ local xnoremap = require("config.keymap_binds").xnoremap
 local keymap = vim.keymap.set
 
 -- vertical split same file
-keymap("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true })
+vim.keymap.set("n", "<leader>sv", ":vs<CR><C-w>l", { silent = true })
 
-keymap("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-keymap("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-keymap("n", "gc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+-- vim.keymap.set("n", "gp", "")
+-- vim.keymap.set("n", "gn", "")
+-- vim.keymap.set("n", "gl", "")
+-- vim.keymap.set("n", "gc", "")
 
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
-keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
-keymap({ "n", "v" }, "K", "<cmd>Lspsaga hover_doc<CR>")
-keymap({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>")
-keymap({ "n", "t" }, "<leader>tt", "<cmd>Lspsaga term_toggle<CR>")
+-- vim.keymap.set("n", "gh", "")
+-- vim.keymap.set("n", "gd", "")
+-- vim.keymap.set("n", "gt", "")
+-- vim.keymap.set({ "n", "v" }, "K", "vim.lsp.buf.hover()<CR>")
+-- vim.keymap.set({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>")
+-- vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Lspsaga term_toggle<CR>")
 
-keymap("n", "<leader>lf", function()
-    vim.lsp.buf.format()
+vim.keymap.set("n", "<leader>lf", function()
+	vim.lsp.buf.format()
 end)
 keymap("v", "<leader>lf", function()
-    vim.lsp.buf.format()
+	vim.lsp.buf.format()
 end)
 
 keymap("n", "rn", function()
-    vim.lsp.buf.rename()
+	vim.lsp.buf.rename()
 end)
 
 -- theprimeagen power maps

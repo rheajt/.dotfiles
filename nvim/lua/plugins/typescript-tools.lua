@@ -1,11 +1,12 @@
 return {
+	enabled = false,
 	"pmizio/typescript-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	opts = {},
 	config = function()
 		require("typescript-tools").setup({
 			on_attach = function(client)
-				print("on_attach::typescript-tools")
+				-- print("on_attach::typescript-tools")
 				client.server_capabilities.document_formatting = false
 				client.server_capabilities.document_range_formatting = false
 			end,

@@ -21,8 +21,8 @@ lsp.ensure_installed({
 	"jsonls",
 })
 
--- local tsserver_settings = require("config.lsp.settings.tsserver")
--- lsp.configure("tsserver", tsserver_settings)
+local tsserver_settings = require("config.lsp.settings.tsserver")
+lsp.configure("tsserver", tsserver_settings)
 
 local json_settings = require("config.lsp.settings.jsonls")
 lsp.configure("jsonls", json_settings)
