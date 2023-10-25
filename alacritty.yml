@@ -83,8 +83,7 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: GohuFont uni14 Nerd Font Mono
-    # family: Hack Nerd Font Mono
+    family: ShureTechMono Nerd Font
     style: Regular
 
   # Bold font face

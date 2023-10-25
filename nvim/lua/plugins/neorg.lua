@@ -2,7 +2,6 @@
 return {
 	"nvim-neorg/neorg",
 	build = ":Neorg sync-parsers", -- This is the important bit!
-	version = "4.0.1",
 	opts = {
 		load = {
 			["core.defaults"] = {},
