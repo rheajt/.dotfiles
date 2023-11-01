@@ -19,6 +19,7 @@ return {
 					folds = false,
 				},
 			},
+			["core.ui.calendar"] = {},
 		},
 	},
 }
