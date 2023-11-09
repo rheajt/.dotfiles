@@ -2,8 +2,34 @@ return {
 	"nvim-telescope/telescope.nvim",
 	opts = {},
 	config = function()
+		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		require("telescope").setup({
+		local lga_actions = require("telescope-live-grep-args.actions")
+
+		telescope.setup({
+			extensions = {
+				fzf = {
+					fuzzy = true,    -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+					-- the default case_mode is "smart_case"
+				},
+				live_grep_args = {
+					auto_quoting = true, -- enable/disable auto-quoting
+					-- define mappings, e.g.
+					mappings = { -- extend mappings
+						i = {
+							["<C-k>"] = lga_actions.quote_prompt(),
+							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+						},
+					},
+					-- ... also accepts theme settings, for example:
+					-- theme = "dropdown", -- use dropdown theme
+					-- theme = { }, -- use own theme spec
+					-- layout_config = { mirror=true }, -- mirror preview pane
+				},
+			},
 			defaults = {
 				mappings = {
 					i = {
@@ -50,11 +76,10 @@ return {
 				winblend = 0,
 				border = {},
 				borderchars = {
-					prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+					prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 					results = { " " },
 					preview = { " " },
 				},
-				-- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 				color_devicons = true,
 				use_less = true,
 				path_display = {},
@@ -64,13 +89,20 @@ return {
 				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 			},
 		})
+
+		telescope.load_extension("fzf")
+		telescope.load_extension("live_grep_args")
+
 		vim.keymap.set("n", "<leader>ff", function()
 			require("telescope.builtin").find_files({ hidden_files = true })
 		end)
 
-		vim.keymap.set("n", "<leader>fg", function()
-			require("telescope.builtin").live_grep({ hidden_files = true })
-		end)
+		-- vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+		vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args)
+
+		local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+		vim.keymap.set("n", "<leader>gc", live_grep_args_shortcuts.grep_word_under_cursor)
+		vim.keymap.set("v", "<leader>gv", live_grep_args_shortcuts.grep_visual_selection)
 
 		vim.keymap.set("n", "<leader>fr", function()
 			require("telescope.builtin").grep_string({ hidden_files = true })
@@ -107,11 +139,15 @@ return {
 		vim.keymap.set("n", "<leader>fp", function()
 			require("telescope").extensions.npm.packages(require("telescope.themes").get_dropdown({}))
 		end)
-
-		require("telescope").load_extension("fzf")
 	end,
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"elianiva/telescope-npm.nvim",
+		{
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			-- This will not install any breaking changes.
+			-- For major updates, this must be adjusted manually.
+			version = "^1.0.0",
+		},
 	},
 }

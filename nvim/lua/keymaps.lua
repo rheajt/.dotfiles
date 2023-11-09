@@ -1,4 +1,4 @@
-local nnoremap = require("config.keymap_binds").nnoremap
+-- local nnoremap = require("config.keymap_binds").nnoremap
 local vnoremap = require("config.keymap_binds").vnoremap
 local inoremap = require("config.keymap_binds").inoremap
 local xnoremap = require("config.keymap_binds").xnoremap
@@ -51,10 +51,10 @@ keymap("n", "<C-d>", "<C-D>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 
 -- better window movement
-nnoremap("<C-h>", "<C-w>h")
-nnoremap("<C-j>", "<C-w>j")
-nnoremap("<C-k>", "<C-w>k")
-nnoremap("<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Terminal window navigation
 -- nnoremap("<leader>t", ":vs<CR>:terminal<CR>", { silent = true })
@@ -78,21 +78,35 @@ keymap("i", "kj", "<ESC>")
 keymap("i", "jj", "<ESC>")
 
 -- Move current line / block with Alt-j/k ala vscode.
-nnoremap("<A-j>", ":m .+1<CR>==", { silent = true })
-nnoremap("<A-k>", ":m .-2<CR>==", { silent = true })
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
 inoremap("<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
 inoremap("<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
 xnoremap("<A-j>", ":m '>+1<CR>gv-gv", { silent = true })
 xnoremap("<A-k>", ":m '<-2<CR>gv-gv", { silent = true })
 
 -- QuickFix
-nnoremap("<leader>dn", ":cnext<CR>", { silent = true })
-nnoremap("<leader>dp", ":cprev<CR>", { silent = true })
-nnoremap("<leader>dc", ":ccl<CR>", { silent = true })
+local function deleteCurrentLine()
+	-- Save the current value of 'modifiable'
+	local previousModifiable = vim.o.modifiable
+
+	-- Set 'modifiable' to 'on'
+	vim.o.modifiable = true
+
+	-- Delete the current line
+	vim.cmd("normal! dd")
+
+	-- Set 'modifiable' back to its previous value
+	vim.o.modifiable = previousModifiable
+end
+vim.keymap.set("n", "<leader>dd", deleteCurrentLine)
+vim.keymap.set("n", "<leader>dn", ":cnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>dp", ":cprev<CR>", { silent = true })
+vim.keymap.set("n", "<leader>dc", ":ccl<CR>", { silent = true })
 
 --Buffers
-nnoremap("<S-h>", ":bprev<CR>", { silent = true })
-nnoremap("<S-l>", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<S-h>", ":bprev<CR>", { silent = true })
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", { silent = true })
 
 -- Better nav for omnicomplete
 inoremap("<C-j>", "\\<C-n>", { silent = true })

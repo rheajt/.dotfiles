@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+cd $(ls -l | fzf | awk '{print $9}')
+# ls -ld */ | fzf | awk '{print $9}'
