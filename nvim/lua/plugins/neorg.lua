@@ -21,6 +21,7 @@ return {
 			},
 			["core.export"] = {},
 			["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
+			["core.clipboard.code-blocks"] = {},
 			["core.qol.toc"] = {},
 			["core.qol.todo_items"] = {},
 			["core.looking-glass"] = {},

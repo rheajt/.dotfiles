@@ -1,9 +1,11 @@
 -- vim.opt.cursorline = true
+-- set foldlevel=99
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
 
-vim.opt.foldmethod = "syntax"
 vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"
-
 vim.g.gruvbox_baby_telescope_theme = 1
 vim.g.gruvbox_baby_background_color = "dark"
 -- Enable transparent mode
