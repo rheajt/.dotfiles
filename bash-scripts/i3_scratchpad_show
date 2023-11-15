@@ -9,8 +9,22 @@ fi
 I3_MARK=${1}
 LAUNCH_CMD=${2}
 
+# calculate the width and height of the screen
+# SCREEN_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+# print $SCREEN_WIDTH
+
 scratchpad_show() {
-    i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set 1000 800, move position center
+	# screen width of monitor that is currently focsed with only one return value minus 200 
+	# make string into integer
+	SCREEN_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1 | head -n 1) 
+	SCREEN_WIDTH=$((SCREEN_WIDTH - 200))
+
+	# screen height of monitor that is currently focsed with only one return value minus 200 
+	# make string into integer
+	SCREEN_HEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2 | head -n 1)
+	SCREEN_HEIGHT=$((SCREEN_HEIGHT - 100))
+
+    i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SCREEN_WIDTH $SCREEN_HEIGHT, move position center
 }
 
 # try showing the scratchpad window

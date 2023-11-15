@@ -16,7 +16,7 @@ return {
 			["core.keybinds"] = {
 				config = {
 					default_keybinds = true,
-					neorg_leader = "<leader><leader>",
+					neorg_leader = "<leader>",
 				},
 			},
 			["core.export"] = {},
