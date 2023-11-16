@@ -1,5 +1,4 @@
--- vim.opt.cursorline = true
--- set foldlevel=99
+vim.opt.cursorline = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
@@ -13,13 +12,13 @@ vim.g.gruvbox_baby_background_color = "dark"
 -- vim.o.background = ""
 vim.cmd("colorscheme gruvbox-baby")
 
--- vim.api.nvim_set_hl(0, "Normal", {
--- 	bg = "none",
--- })
+vim.api.nvim_set_hl(0, "Normal", {
+	bg = "none",
+})
 
--- vim.api.nvim_set_hl(0, "NonText", {
--- 	bg = "none",
--- })
+vim.api.nvim_set_hl(0, "NonText", {
+	bg = "none",
+})
 
 vim.opt.clipboard = "unnamedplus"
 vim.g.copilot_no_tab_map = true

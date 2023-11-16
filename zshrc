@@ -87,6 +87,7 @@ alias tas="tmux attach-session -t"
 alias tds="tmux detach"
 alias blog="cd ~/projects/blog"
 alias s="sessions"
+# alias pjs="cd $HOME/projects/$(ls ~/projects/ | fzf)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
