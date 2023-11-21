@@ -3,6 +3,10 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 
+vim.opt.showtabline = 0
+
+-- vim.cmd("set showtabline=0")
+
 vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"
 vim.g.gruvbox_baby_telescope_theme = 1
@@ -48,6 +52,6 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 -- vim.opt.shell = "/bin/bash"
 
-vim.opt.showtabline = 2
+-- vim.opt.showtabline = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
