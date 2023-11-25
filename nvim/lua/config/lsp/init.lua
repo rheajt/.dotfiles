@@ -30,8 +30,14 @@ lsp.configure("jsonls", json_settings)
 local lua_settings = require("config.lsp.settings.sumneko_lua")
 lsp.configure("lua-language-server", lua_settings)
 
+lsp.configure("sqlls", {
+	on_attach = function(client, bufnr)
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_range_formatting = false
+	end,
+})
+
 lsp.on_attach(function(client, bufnr)
-	-- print("lsp lua attached")
 	client.server_capabilities.semanticTokensProvider = nil
 end)
 

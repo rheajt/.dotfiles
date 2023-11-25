@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-i3lock -i ~/Pictures/Wallpapers/lockscreen.png -t
+wallpapers=~/Pictures/backgrounds
+img=$(ls $wallpapers/**/*.png | shuf -n 1)
+
+echo $img 
+
+set -e 
+i3lock --nofork --show-failed-attempts --ignore-empty-password --tiling --image=$img
+xset dpms
+

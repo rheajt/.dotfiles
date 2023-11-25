@@ -1,7 +1,20 @@
 set $mod Mod4
-font pango: Hack Nerd Font 12
+# font pango: Hack Nerd Font 12
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock -l ~/.local/sh/lock
+
+# Setup xss-lock daemon
+exec_always --no-startup-id xset +dpms dpms 0 100 100 
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/projects/dotfiles/bash-scripts/lock
+
+bindsym $mod+x mode "LOCK"
+
+mode "LOCK" {
+    bindsym l exec i3lock --ignore-empty-password --tiling --image='~/Pictures/Wallpapers/lockscreen.png' 2>/dev/null, mode "default"
+    # just force suspend. i3lock will be called automatically via lock.sh 
+    bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
+}
+
+# exec --no-startup-id xss-lock -l ~/.local/sh/lock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -156,10 +169,23 @@ mode "RESIZE" {
         bindsym $mod+r mode "default"
 }
 
+# create a mode to open comm software
+# TODO make this the scratch pad options
+mode "COMM" {
+	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
+	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
+	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+t mode "default"
+}
+
+bindsym $mod+t mode "COMM"
 bindsym $mod+r mode "RESIZE"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #d8a657 #d8a657 #d8a657 #d8a657  #d8a657 
+client.focused          #d8a657 #d8a657 #d8a657 #d8a657   #d8a657 
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900001
@@ -178,7 +204,7 @@ for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Acc
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
 
 # should always run
-exec_always ~/.local/sh/random-bg
+exec_always ~/.local/sh/random-bg rva
 exec_always picom -b
 #exec_always xrandr --output eDP-1 --auto --right-of DP-1
 exec_always xrandr --output eDP-1 --auto --right-of HDMI-1

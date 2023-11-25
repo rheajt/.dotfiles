@@ -1,6 +1,7 @@
 -- Tree
 return {
 	"nvim-tree/nvim-tree.lua",
+	enabled = false,
 	config = function()
 		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
 		require("nvim-tree").setup({

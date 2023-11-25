@@ -1,3 +1,5 @@
+-- local flash = require("flash")
+
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
@@ -26,5 +28,14 @@ return {
 			desc =
 			"Toggle Flash Search"
 		},
+		{
+			"<leader>lh",
+			mode = { "n", "v" },
+			function()
+				require('flash').jump({
+					pattern = vim.fn.expand("<cword>"),
+				})
+			end,
+		}
 	},
 }

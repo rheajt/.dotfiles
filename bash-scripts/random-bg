@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
-    BG_DIR="fantasy"
+    BG_DIR="maps"
 else
     BG_DIR=$1
 fi
