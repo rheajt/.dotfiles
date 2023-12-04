@@ -3,7 +3,7 @@ set $mod Mod4
 exec --no-startup-id dex --autostart --environment i3
 
 # Setup xss-lock daemon
-exec_always --no-startup-id xset +dpms dpms 0 100 100 
+exec_always --no-startup-id xset +dpms dpms 0 300 300 
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/projects/dotfiles/bash-scripts/lock
 
 bindsym $mod+x mode "LOCK"
@@ -42,7 +42,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
 bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
-bindsym $mod+shift+p exec "~/projects/dotfiles/bash-scripts/lock"
 bindsym $mod+shift+s exec "~/projects/dotfiles/bash-scripts/sound-menu"
 
 # cycle workspaces
@@ -175,6 +174,8 @@ mode "COMM" {
 	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
+	bindsym n exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'" mode "default"
+	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -208,5 +209,6 @@ exec_always ~/.local/sh/random-bg rva
 exec_always picom -b
 #exec_always xrandr --output eDP-1 --auto --right-of DP-1
 exec_always xrandr --output eDP-1 --auto --right-of HDMI-1
+# exec_always xrandr --output eDP-1 --auto --below HDMI-1
 
 exec --no-startup-id $HOME/.config/polybar/launch.sh
