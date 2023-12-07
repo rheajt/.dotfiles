@@ -9,5 +9,5 @@ fi
 wallpapers=~/Pictures/backgrounds/$BG_DIR/
 
 #feh --bg-scale ~/Pictures/backgrounds/$(ls $wallpapers | shuf -n 1)
-feh --bg-scale $wallpapers$(ls $wallpapers | shuf -n 1)
+feh --bg-fill $wallpapers$(ls $wallpapers | shuf -n 1)
  
