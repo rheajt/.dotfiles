@@ -30,6 +30,8 @@ return {
 						-- layout_config = { mirror=true }, -- mirror preview pane
 					},
 					file_browser = {
+						theme = "ivy",
+						grouped = true,
 						path = vim.fn.expand("%:p"),
 						select_buffer = true,
 					},
@@ -116,7 +118,7 @@ return {
 				require("telescope.builtin").buffers()
 			end)
 
-			vim.keymap.set("n", "<leader>fe", function()
+			vim.keymap.set("n", "<leader>e", function()
 				-- path=%:p:h select_buffer=true<CR>
 				require("telescope").extensions.file_browser.file_browser({
 					path = vim.fn.expand("%:p:h"),
