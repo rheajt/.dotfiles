@@ -53,11 +53,11 @@ bindsym $mod+Ctrl+k move workspace to output up
 # toggle workspaces
 bindsym $mod+Home workspace next_on_output
 bindsym $mod+Right workspace next_on_output
-bindsym $mod+o workspace next_on_output
+bindsym $mod+n workspace next_on_output
 
 bindsym $mod+End workspace prev_on_output
 bindsym $mod+Left workspace prev_on_output
-bindsym $mod+y workspace prev_on_output
+bindsym $mod+p workspace prev_on_output
 bindsym $mod+Tab workspace back_and_forth
 
 # change focus
@@ -104,7 +104,7 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-bindsym $mod+n exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'"
+bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'"
 bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
 bindsym $mod+m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'"
 
