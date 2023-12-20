@@ -104,7 +104,7 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'"
+bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim /home/jordanrhea/Insync/rheajt@gmail.com/Google\ Drive/notes'"
 bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
 bindsym $mod+m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'"
 bindsym $mod+o exec "~/.local/sh/i3_scratchpad_show 'scratch-insync' 'insync show'"

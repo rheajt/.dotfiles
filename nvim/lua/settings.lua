@@ -3,6 +3,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.opt.showtabline = 0
+vim.g.netrw_banner = 0
 
 -- vim.cmd("set showtabline=0")
 
