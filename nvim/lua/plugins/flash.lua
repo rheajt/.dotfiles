@@ -18,7 +18,8 @@ return {
 				local gs = vim.go.smartcase
 				vim.go.ignorecase = true
 				vim.go.smartcase = false
-				require('flash').jump()
+				require('flash').jump({
+					forward = true })
 				vim.go.ignorecase = gi
 				vim.go.smartcase = gs
 			end,

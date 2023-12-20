@@ -107,6 +107,7 @@ bindsym $mod+c focus child
 bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'"
 bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
 bindsym $mod+m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'"
+bindsym $mod+o exec "~/.local/sh/i3_scratchpad_show 'scratch-insync' 'insync show'"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
