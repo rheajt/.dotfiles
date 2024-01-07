@@ -104,9 +104,8 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim /home/jordanrhea/Insync/rheajt@gmail.com/Google\ Drive/notes'"
-bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
-bindsym $mod+m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'"
+# bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim /home/jordanrhea/Insync/rheajt@gmail.com/Google\ Drive/notes'"
+# bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -170,19 +169,22 @@ mode "RESIZE" {
 
 # create a mode to open comm software
 # TODO make this the scratch pad options
-mode "COMM" {
+mode "SCRATCHPADS" {
+	# scratchpads
 	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim ~/notes'" mode "default"
+	bindsym n exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim /home/jordanrhea/Insync/rheajt@gmail.com/Google\ Drive/notes'" mode "default"
 	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
+	bindsym c exec "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
+	bindsym m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 	bindsym $mod+t mode "default"
 }
 
-bindsym $mod+t mode "COMM"
+bindsym $mod+t mode "SCRATCHPADS"
 bindsym $mod+r mode "RESIZE"
 
 # class                 border  backgr. text    indicator child_border
