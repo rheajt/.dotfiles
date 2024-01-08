@@ -178,6 +178,7 @@ mode "SCRATCHPADS" {
 	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
 	bindsym m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"
+	bindsym i exec "~/.local/sh/i3_scratchpad_show 'scratch-insync' 'insync show'" mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
