@@ -35,8 +35,8 @@ return {
 			["core.dirman"] = {
 				config = {
 					workspaces = {
-						work = "~/notes/work",
-						home = "~/notes/home",
+						work = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes/work",
+						home = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes/home",
 					},
 					default_workspace = "work",
 				},
