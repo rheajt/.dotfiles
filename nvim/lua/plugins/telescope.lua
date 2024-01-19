@@ -107,8 +107,8 @@ return {
 			vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args)
 
 			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-			vim.keymap.set("n", "<leader>gc", live_grep_args_shortcuts.grep_word_under_cursor)
-			vim.keymap.set("x", "<leader>gv", live_grep_args_shortcuts.grep_visual_selection)
+			vim.keymap.set("n", "<leader>fc", live_grep_args_shortcuts.grep_word_under_cursor)
+			vim.keymap.set("x", "<leader>fv", live_grep_args_shortcuts.grep_visual_selection)
 
 			vim.keymap.set("n", "<leader>fr", function()
 				require("telescope.builtin").grep_string({ hidden_files = true })

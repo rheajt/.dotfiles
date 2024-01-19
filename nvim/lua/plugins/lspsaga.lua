@@ -2,6 +2,7 @@ return {
 	-- enabled = false,
 	"glepnir/lspsaga.nvim",
 	event = "BufRead",
+	enabled = true,
 	config = function()
 		require("lspsaga").setup({
 			diagnostic = {

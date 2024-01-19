@@ -148,7 +148,7 @@ local defaults = {
 	predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
 }
 
-function openRightPane()
+function OpenRightPane()
 	-- Save the current window number
 	local currentWindow = vim.api.nvim_get_current_win()
 	-- Open a new vertical split to the right
