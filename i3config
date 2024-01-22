@@ -36,7 +36,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+t exec alacritty
 bindsym $mod+Shift+q kill
 #bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
 bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -185,7 +185,7 @@ mode "SCRATCHPADS" {
 	bindsym $mod+t mode "default"
 }
 
-bindsym $mod+t mode "SCRATCHPADS"
+bindsym $mod+y mode "SCRATCHPADS"
 bindsym $mod+r mode "RESIZE"
 
 # class                 border  backgr. text    indicator child_border
