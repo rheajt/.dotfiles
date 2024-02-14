@@ -199,13 +199,12 @@ client.background       #ffffff
 # borders
 for_window [class="^.*"] border pixel 3
 
-# astrill floats
+# floats
 for_window [class="Astrill" instance="astrill"] floating enable
-
-# zoom floats
 for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
+for_window [class="Org.gnome.Nautilus"] floating enable
 
 # should always run
 exec_always ~/.local/sh/random-bg rva
