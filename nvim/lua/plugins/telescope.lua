@@ -32,8 +32,9 @@ return {
 					file_browser = {
 						-- theme = "cursor",
 						grouped = true,
-						path = vim.fn.expand("%:p"),
+						path = vim.fn.expand("%:p:h"),
 						select_buffer = true,
+						hijack_netrw = true,
 					},
 				},
 				defaults = {
@@ -121,8 +122,8 @@ return {
 			vim.keymap.set("n", "<leader>e", function()
 				-- path=%:p:h select_buffer=true<CR>
 				require("telescope").extensions.file_browser.file_browser({
-					path = vim.fn.expand("%:p:h"),
-					select_buffer = true,
+					-- path = vim.fn.expand("%:p:h"),
+					-- select_buffer = true,
 				})
 			end)
 
