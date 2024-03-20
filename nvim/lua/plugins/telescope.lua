@@ -30,7 +30,7 @@ return {
 						-- layout_config = { mirror=true }, -- mirror preview pane
 					},
 					file_browser = {
-						theme = "ivy",
+						-- theme = "cursor",
 						grouped = true,
 						path = vim.fn.expand("%:p"),
 						select_buffer = true,
