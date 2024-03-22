@@ -40,10 +40,10 @@ return {
 				defaults = {
 					mappings = {
 						i = {
-							["<C-x>"] = actions.select_vertical,
+							["<C-=>"] = actions.select_vertical,
 						},
 						n = {
-							["<C-x>"] = actions.select_vertical,
+							["<C-=>"] = actions.select_vertical,
 						},
 					},
 					-- pickers = {
@@ -99,7 +99,7 @@ return {
 
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
-			telescope.load_extension("harpoon")
+			-- telescope.load_extension("harpoon")
 
 			vim.keymap.set("n", "<leader>ff", function()
 				require("telescope.builtin").find_files({ hidden_files = true })

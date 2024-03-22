@@ -1,7 +1,10 @@
 -- Status Line
 return {
 	"nvim-lualine/lualine.nvim",
+	dependencies = { "abeldekat/harpoonline", version = "*" },
 	config = function()
+		local Harpoonline = require("harpoonline").setup() -- using default config
+		-- local lualine_c = { Harpoonline.format, "filename" }
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -31,6 +34,7 @@ return {
 						file_status = true,
 						path = 1,
 					},
+					Harpoonline.format,
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress", "location" },
