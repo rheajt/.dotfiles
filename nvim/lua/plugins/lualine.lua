@@ -3,17 +3,18 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "abeldekat/harpoonline", version = "*" },
 	config = function()
-		local Harpoonline = require("harpoonline").setup() -- using default config
+		local Harpoonline = require("harpoonline")
+		Harpoonline.setup() -- using default config
 		-- local lualine_c = { Harpoonline.format, "filename" }
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
 				-- theme = "monokai-pro",
 				theme = "gruvbox_dark",
-				-- component_separators = { left = "", right = "" },
-				-- section_separators = { left = "", right = "" },
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
+				-- component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
 				disabled_filetypes = { "NvimTree" },
 				always_divide_middle = true,
 				color = {},
