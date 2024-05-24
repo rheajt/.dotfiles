@@ -40,10 +40,10 @@ return {
 				defaults = {
 					mappings = {
 						i = {
-							["<C-=>"] = actions.select_vertical,
+							["<M-=>"] = actions.select_vertical,
 						},
 						n = {
-							["<C-=>"] = actions.select_vertical,
+							["<M-=>"] = actions.select_vertical,
 						},
 					},
 					-- pickers = {

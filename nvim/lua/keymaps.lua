@@ -37,10 +37,10 @@ keymap("n", "<C-d>", "<C-D>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 
 -- better window movement
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
+-- keymap("n", "<C-h>", "<C-w>h")
+-- keymap("n", "<C-j>", "<C-w>j")
+-- keymap("n", "<C-k>", "<C-w>k")
+-- keymap("n", "<C-l>", "<C-w>l")
 
 -- better indenting
 keymap("v", "<", "<gv", { silent = true })

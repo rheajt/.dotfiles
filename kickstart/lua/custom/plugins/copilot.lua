@@ -10,7 +10,7 @@ return {
 				auto_trigger = true,
 				debounce = 75,
 				keymap = {
-					accept = "<C-l>",
+					accept = "<Right>",
 					accept_word = false,
 					accept_line = false,
 					next = "<C-n>",
@@ -19,8 +19,5 @@ return {
 				},
 			},
 		})
-	end,
-	init = function()
-		vim.g.copilot_no_tab_map = true
 	end,
 }
