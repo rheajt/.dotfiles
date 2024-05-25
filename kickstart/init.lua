@@ -168,9 +168,9 @@ vim.keymap.set("i", "jj", "<ESC>")
 
 -- theprimeagen power maps
 vim.keymap.set("n", "Y", "y$", { desc = "[Y]ank to the end of the link" })
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "n", "nzzzv", { desc = "Center [n]ext search result" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Center [N]ext search result" })
+vim.keymap.set("n", "J", "mzJ`z", { desc = "[J]oin lines and keep cursor position" })
 
 -- dont lose your paste in visual mode
 vim.keymap.set("v", "<leader>p", '"_dP')
@@ -858,42 +858,12 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			local colors = {
-				reset = "\27[0m",
-				black = "\27[30m",
-				red = "\27[31m",
-				green = "\27[32m",
-				yellow = "\27[33m",
-				blue = "\27[34m",
-				magenta = "\27[35m",
-				cyan = "\27[36m",
-				white = "\27[37m",
-				brightBlack = "\27[90m",
-				brightRed = "\27[91m",
-				brightGreen = "\27[92m",
-				brightYellow = "\27[93m",
-				brightBlue = "\27[94m",
-				brightMagenta = "\27[95m",
-				brightCyan = "\27[96m",
-				brightWhite = "\27[97m",
-			}
-
-			-- Function to color a string
-			local function colorString(str, color)
-				return colors[color] .. str .. colors.reset
-			end
-
 			---@diagnostic disable-next-line: duplicate-set-field
 			statusline.section_filename = function()
 				return vim.bo.modified and string.upper("[ + ]" .. vim.fn.expand("%:t") .. "[ + ]")
-					or vim.fn.expand("%:t")
+					or vim.fn.expand("%:p")
 			end
 
-			-- local colors = {
-			-- 	gui = "bold",
-			-- 	fg = vim.bo.modified and "#1a1a1a" or "",
-			-- 	bg = vim.bo.modified and "#fcba03" or "transparent",
-			-- }
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,

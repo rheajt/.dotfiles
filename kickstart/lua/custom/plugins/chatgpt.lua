@@ -21,7 +21,7 @@ local defaults = {
 		max_line_length = 120,
 		sessions_window = {
 			border = {
-				style = "rounded",
+				-- style = "rounded",
 				text = {
 					top = " Sessions ",
 				},
@@ -126,7 +126,7 @@ local defaults = {
 		},
 	},
 	openai_params = {
-		model = "gpt-3.5-turbo",
+		model = "gpt-4o",
 		frequency_penalty = 0,
 		presence_penalty = 0,
 		max_tokens = 300,
@@ -135,7 +135,7 @@ local defaults = {
 		n = 1,
 	},
 	openai_edit_params = {
-		model = "gpt-3.5-turbo",
+		model = "gpt-4o",
 		frequency_penalty = 0,
 		presence_penalty = 0,
 		temperature = 0,
@@ -167,27 +167,72 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("chatgpt").setup(defaults)
-		vim.keymap.set("n", "<leader>tc", ":ChatGPT<cr>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>tc", ":ChatGPT<cr>", { noremap = true, silent = true, desc = "Open ChatGPT" })
 		vim.keymap.set(
 			{ "n", "v" },
 			"<leader>te",
 			"<cmd>ChatGPTEditWithInstruction<CR>",
-			{ noremap = true, silent = true }
+			{ noremap = true, silent = true, desc = "Edit with ChatGPT" }
 		)
-		vim.keymap.set("v", "<leader>tg", "<cmd>ChatGPTRun grammar_correction<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>tt", "<cmd>ChatGPTRun translate<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>tk", "<cmd>ChatGPTRun keywords<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>td", "<cmd>ChatGPTRun docstring<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>ta", "<cmd>ChatGPTRun add_tests<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>to", "<cmd>ChatGPTRun optimize_code<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>ts", "<cmd>ChatGPTRun summarize<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>tf", "<cmd>ChatGPTRun fix_bugs<CR>", { noremap = true, silent = true })
-		vim.keymap.set("v", "<leader>tx", "<cmd>ChatGPTRun explain_code<CR>", { noremap = true, silent = true })
+		vim.keymap.set(
+			"v",
+			"<leader>tg",
+			"<cmd>ChatGPTRun grammar_correction<CR>",
+			{ noremap = true, silent = true, desc = "Run grammar correction" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>tt",
+			"<cmd>ChatGPTRun translate<CR>",
+			{ noremap = true, silent = true, desc = "Translate text" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>tk",
+			"<cmd>ChatGPTRun keywords<CR>",
+			{ noremap = true, silent = true, desc = "Generate keywords" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>td",
+			"<cmd>ChatGPTRun docstring<CR>",
+			{ noremap = true, silent = true, desc = "Generate docstring" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>ta",
+			"<cmd>ChatGPTRun add_tests<CR>",
+			{ noremap = true, silent = true, desc = "Add tests" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>to",
+			"<cmd>ChatGPTRun optimize_code<CR>",
+			{ noremap = true, silent = true, desc = "Optimize code" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>ts",
+			"<cmd>ChatGPTRun summarize<CR>",
+			{ noremap = true, silent = true, desc = "Summarize text" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>tf",
+			"<cmd>ChatGPTRun fix_bugs<CR>",
+			{ noremap = true, silent = true, desc = "Fix bugs" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>tx",
+			"<cmd>ChatGPTRun explain_code<CR>",
+			{ noremap = true, silent = true, desc = "Explain code" }
+		)
 		vim.keymap.set(
 			{ "n", "v" },
 			"<leader>tr",
 			"<cmd>ChatGPTRun code_readability_analysis<CR>",
-			{ noremap = true, silent = true }
+			{ noremap = true, silent = true, desc = "Run code readability analysis" }
 		)
 	end,
 	dependencies = {
