@@ -4,9 +4,6 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	-- keys = {
-	-- 	{ mode = { "n" }, key = "<leader>ha", command = ":lua require('harpoon.mark').add_file()<CR>" },
-	-- },
 	config = function()
 		local harpoon = require("harpoon")
 

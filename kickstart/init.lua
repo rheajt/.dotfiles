@@ -162,6 +162,18 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- close buffer
+vim.keymap.set("n", "<leader>cc", ":bd<CR>")
+vim.keymap.set("n", "<leader>ca", ":%bd|e#<cr>")
+
+-- Move current line / block with Alt-j/k ala vscode.
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
+vim.keymap.set("x", "<A-j>", ":m '>+1<CR>gv-gv", { silent = true })
+vim.keymap.set("x", "<A-k>", ":m '<-2<CR>gv-gv", { silent = true })
+
 -- I hate escape
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("i", "kj", "<ESC>")
@@ -208,6 +220,38 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- QuickFix
+local function DeleteCurrentLine()
+	-- Save the current value of 'modifiable'
+	local previousModifiable = vim.o.modifiable
+
+	-- Set 'modifiable' to 'on'
+	vim.o.modifiable = true
+
+	-- Delete the current line
+	vim.cmd("normal! dd")
+
+	-- Set 'modifiable' back to its previous value
+	vim.o.modifiable = previousModifiable
+end
+
+-- function that toggles the quickfix window open and closed
+function ToggleQuickFix()
+	local qf_win = vim.fn.getqflist({ winid = true }).winid
+	if qf_win ~= 0 then
+		vim.cmd("cclose")
+	else
+		vim.cmd("copen")
+	end
+end
+
+vim.keymap.set("n", "<leader>dd", DeleteCurrentLine, { silent = true })
+vim.keymap.set("n", "<leader>df", ":cfirst<CR>zz", { silent = true })
+vim.keymap.set("n", "<leader>dl", ":clast<CR>zz", { silent = true })
+vim.keymap.set("n", "<leader>dn", ":cnext<CR>zz", { silent = true })
+vim.keymap.set("n", "<leader>dp", ":cprev<CR>zz", { silent = true })
+vim.keymap.set("n", "<leader>do", ToggleQuickFix, { silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -806,9 +850,9 @@ require("lazy").setup({
 					-- <c-h> is similar, except moving you backwards.
 					-- INFO: this may be required
 					-- ["<C-l>"] = cmp.mapping(function()
-					-- 	if luasnip.expand_or_locally_jumpable() then
-					-- 		luasnip.expand_or_jump()
-					-- 	end
+					--  if luasnip.expand_or_locally_jumpable() then
+					--      luasnip.expand_or_jump()
+					--  end
 					-- end, { "i", "s" }),
 					["<C-h>"] = cmp.mapping(function()
 						if luasnip.locally_jumpable(-1) then
