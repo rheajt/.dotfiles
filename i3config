@@ -43,6 +43,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -m
 
 bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
 bindsym $mod+shift+s exec "~/projects/dotfiles/bash-scripts/sound-menu"
+bindsym $mod+shift+f exec "flameshot gui"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left

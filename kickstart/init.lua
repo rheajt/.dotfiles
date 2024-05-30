@@ -237,7 +237,7 @@ local function DeleteCurrentLine()
 end
 
 -- function that toggles the quickfix window open and closed
-function ToggleQuickFix()
+local function ToggleQuickFix()
 	local qf_win = vim.fn.getqflist({ winid = true }).winid
 	if qf_win ~= 0 then
 		vim.cmd("cclose")
