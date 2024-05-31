@@ -221,19 +221,22 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- QuickFix
 local function DeleteCurrentLine()
-	-- Save the current value of 'modifiable'
-	local previousModifiable = vim.o.modifiable
+	-- list the items on the quickfix list
+	local qflist = vim.fn.getqflist()
 
-	-- Set 'modifiable' to 'on'
-	vim.o.modifiable = true
+	-- get the current line number in the quickfix list
+	local current_idx = vim.fn.getqflist({ idx = 0 }).idx
 
-	-- Delete the current line
-	vim.cmd("normal! dd")
+	-- filter out the current item
+	local newlist = vim.tbl_filter(function(idx)
+		return idx ~= current_idx
+	end, qflist)
 
-	-- Set 'modifiable' back to its previous value
-	vim.o.modifiable = previousModifiable
+	print("current_idx:" .. current_idx)
+
+	-- remove item from the quickfix list
+	vim.fn.setqflist(newlist, "r")
 end
 
 -- function that toggles the quickfix window open and closed
@@ -915,7 +918,7 @@ require("lazy").setup({
 
 			---@diagnostic disable-next-line: duplicate-set-field
 			statusline.section_filename = function()
-				return vim.bo.modified and string.upper("[ + ]" .. vim.fn.expand("%:t") .. "[ + ]")
+				return vim.bo.modified and string.upper("[ + ]" .. vim.fn.expand("%:p%:t") .. "[ + ]")
 					or vim.fn.expand("%:p")
 			end
 

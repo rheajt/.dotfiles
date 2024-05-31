@@ -3,6 +3,7 @@ return {
 	branch = "harpoon2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		{ "abeldekat/harpoonline", version = "*" },
 	},
 	config = function()
 		local harpoon = require("harpoon")
@@ -13,10 +14,6 @@ return {
 				save_on_change = true,
 			},
 		})
-
-		-- local function Next_Harpoon()
-		-- 	print(harpoon:list():length())
-		-- end
 
 		harpoon:extend({
 			UI_CREATE = function(cx)
@@ -47,7 +44,8 @@ return {
 		end)
 
 		-- vim.keymap.set("n", "<leader>hh", function()
-		-- 	require("harpoon.tmux").sendCommand(1, "ls<CR>")
+		--  require("harpoon.tmux").sendCommand(1, "ls<CR>")
 		-- end)
+		--
 	end,
 }
