@@ -222,4 +222,4 @@ exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
 # start the warp daemon
 exec --no-startup-id warpd
 
-exec --no-startup-id i3-battery-popup -n -D -L 20 -l 10
+# exec --no-startup-id i3-battery-popup -n -D -L 20 -l 10
