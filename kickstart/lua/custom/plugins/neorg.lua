@@ -8,7 +8,7 @@ return {
 	{
 		"nvim-neorg/neorg",
 		dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
-		lazy = true,
+		lazy = false,
 		-- put any other flags you wanted to pass to lazy here!
 		config = function()
 			require("neorg").setup({
