@@ -5,6 +5,9 @@ return {
 	config = function()
 		print("copilot loaded")
 		require("copilot").setup({
+			filetypes = {
+				neorg = false,
+			},
 			suggestion = {
 				enabled = true,
 				auto_trigger = true,
