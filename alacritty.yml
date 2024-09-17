@@ -69,6 +69,7 @@ window:
   # Commonly supported values are `dark` and `light`. Set this to `None` to use
   # the default theme variant.
   #decorations_theme_variant: None
+  decorations: None
 
 # scrolling:
 # Maximum number of lines in the scrollback buffer.
@@ -83,7 +84,7 @@ font:
   # Normal (roman) font face
   normal:
     family: 0xProto Nerd Font Mono
-    style: Regular
+    style: mono
 
   # Bold font face
   #bold:

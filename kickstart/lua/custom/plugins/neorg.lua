@@ -55,6 +55,7 @@ return {
 							default_workspace = "work",
 						},
 					},
+					["core.summary"] = {},
 				},
 			})
 		end,

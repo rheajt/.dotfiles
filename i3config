@@ -1,5 +1,4 @@
 set $mod Mod4
-# font pango: Hack Nerd Font 12
 exec --no-startup-id dex --autostart --environment i3
 
 # Setup xss-lock daemon
@@ -7,6 +6,11 @@ exec_always --no-startup-id xset +dpms dpms 0 300 300
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/projects/dotfiles/bash-scripts/lock
 
 bindsym $mod+x mode "LOCK"
+
+font pango: 0xProto Nerd Font Mono
+gaps inner 4px
+gaps outer 2px
+popup_during_fullscreen smart
 
 mode "LOCK" {
     bindsym l exec i3lock --ignore-empty-password --tiling --image='~/Pictures/Wallpapers/lockscreen.png' 2>/dev/null, mode "default"
@@ -205,21 +209,20 @@ for_window [class="Astrill" instance="astrill"] floating enable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
-for_window [class="Org.gnome.Nautilus"] floating enable
 
 # should always run
-exec_always ~/.local/sh/random-bg rva
-exec_always picom -b
-#exec_always xrandr --output eDP-1 --auto --right-of DP-1
-exec_always xrandr --output eDP-1 --auto --left-of HDMI-1
-# exec_always xrandr --output eDP-1 --auto --below HDMI-1
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id $HOME/.config/polybar/launch.sh
-
+# exec once
+exec ~/.local/sh/random-bg fantasy
+exec picom -b
+exec xrandr --output eDP-1 --auto --left-of HDMI-1
 # make sure the touchpad is enabled
 exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
-
 # start the warp daemon
 exec --no-startup-id warpd
-
 # exec --no-startup-id i3-battery-popup -n -D -L 20 -l 10
+
+
+
+
