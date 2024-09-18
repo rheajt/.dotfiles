@@ -88,7 +88,7 @@ alias tds="tmux detach"
 alias blog="cd ~/projects/blog"
 alias s="sessions"
 alias wttr='curl "wttr.in/$(echo "Sanur\nDenpasar\nBeijing\nRichmond" | fzf)?m&lang=en" | head -n -1'
-# alias pjs="cd $HOME/projects/$(ls ~/projects/ | fzf)"
+alias pjs=". projects"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

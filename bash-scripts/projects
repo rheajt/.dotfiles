@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-# dir=$(ls ~/projects | fzf --reverse --height=~40%)
+local MAIN_DIR=~/projects
+local PROJECT_TYPE=$(ls $MAIN_DIR | fzf)
+local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf)
+local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
-# project="~/projects/${dir}"
-
-# ls $project
-dir=~/projects
-pj=$(ls $dir | fzf)
-
-cd $dir
+cd $FULL_PATH
