@@ -1,3 +1,4 @@
 #/usr/bin/env bash
 
-fd . ~/Music/sfa3 | fzf --reverse | xargs mpg123 -q
+SFA=~/Music/sfa3/$(ls ~/Music/sfa3 | fzf --reverse --preview '')
+mpg123 -q $SFA
