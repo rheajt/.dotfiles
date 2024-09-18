@@ -43,6 +43,13 @@ return {
 			vim.g.gruvbox_baby_transparent_mode = 1
 
 			vim.cmd.colorscheme("gruvbox-baby")
+			vim.api.nvim_set_hl(0, "Normal", {
+				bg = "none",
+			})
+
+			vim.api.nvim_set_hl(0, "NonText", {
+				bg = "none",
+			})
 		end,
 	},
 	"sekke276/dark_flat.nvim",
