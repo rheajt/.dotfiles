@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# ps-project "NAME OF PROJECT" branch (defaults to solid)
+folder="${1:-DEFAULT}"
+
+branch=$2
+
+if [ -z "$2" ]
+  then
+    echo "No argument supplied, branching from #solid"
+    branch="solid"
+fi
+
+echo "Cloning into project folder $folder, project branch $branch"
+repo="rheajt/powerschool-bundler#$branch"
+# npx degit --mode=git $repo $folder
+git clone -b $branch --single-branch --depth 1 git@github.com:rheajt/powerschool-bundler $folder
+
+cd $folder
+
+rm -rf .git/
+
+git init
+
+echo $(pwd)

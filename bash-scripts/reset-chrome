@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+#
+rm Login\ Data
+rm Login\ Data-journal
+

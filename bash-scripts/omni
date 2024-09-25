@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cvlc --fullscreen --no-video-title-show ~/Videos/Warhammer\ 40,000\ -\ Mechanicus\ _\ Teaser\ Trailer-9gIMZ0WyY88.mkv vlc://quit
+

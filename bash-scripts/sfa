@@ -1,0 +1,4 @@
+#/usr/bin/env bash
+
+SFA=~/Music/sfa3/$(ls ~/Music/sfa3 | fzf --reverse --preview '')
+mpg123 -q $SFA

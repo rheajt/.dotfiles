@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+    BG_DIR="maps"
+else
+    BG_DIR=$1
+fi
+
+wallpapers=~/Pictures/backgrounds/$BG_DIR/
+
+#feh --bg-scale ~/Pictures/backgrounds/$(ls $wallpapers | shuf -n 1)
+feh --bg-fill $wallpapers$(ls $wallpapers | shuf -n 1)
+ 
