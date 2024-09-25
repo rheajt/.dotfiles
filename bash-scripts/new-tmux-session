@@ -1,8 +1,43 @@
 #!/usr/bin/bash
 
+# To create a new tmux session with two windows and set the names of the windows, you can use the following command:
+#
+# ```sh
+# tmux new-session -d -s my_session \; \
+#   rename-window 'first_window' \; \
+#   new-window -n 'second_window'
+# ```
+#
+# Here's a breakdown of the command:
+#
+# - `tmux new-session -d -s my_session`: Creates a new tmux session named `my_session` in detached mode (`-d`).
+# - `\;`: This is used to separate tmux commands in a single line.
+# - `rename-window 'first_window'`: Renames the first window (which is created by default when the session is created) to `first_window`.
+# - `new-window -n 'second_window'`: Creates a new window in the session and names it `second_window`.
+#
+# If you want to attach to the session after creating it, you can add `attach` at the end:
+#
+# ```sh
+# tmux new-session -d -s my_session \; \
+#   rename-window 'first_window' \; \
+#   new-window -n 'second_window' \; \
+#   attach
+# ```
+#
+# This will create the session, rename the windows, and then attach to the session so you can start working in it immediately.
+
 result=${PWD##*/}          # to assign to a variable
 result=${result:-/}        # to correct for the case where PWD=/
+
 DIR_STEM="$(echo $result | tr [a-z] [A-Z])"
 
-tmux new -s $DIR_STEM -n code
+echo $DIR_STEM
 
+tmux new-session -d -s $DIR_STEM
+tmux rename-window -t $DIR_STEM:1 'code'
+tmux new-window -t $DIR_STEM:2 -n 'git'
+
+tmux send-keys -t $DIR_STEM:1 'v' C-m
+tmux send-keys -t $DIR_STEM:2 'lazygit' C-m
+
+tmux attach -t $DIR_STEM
