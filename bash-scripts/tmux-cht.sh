@@ -10,10 +10,12 @@ if [[ -z $selected ]]; then
 fi
 
 read -p "Enter Query: " query
+query=`echo $query | tr ' ' '+'`
 
 if grep -qs "$selected" $LANGUAGES; then
-    query=`echo $query | tr ' ' '+'`
-    tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
+    # tmux splitw -h bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | batcat --style=plain & while [ : ]; do sleep 1; done"
+    bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | batcat --style=plain & while [ : ]; do sleep 1; done"
 else
-    tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
+    # tmux splitw -h bash -c "echo \"curl cht.sh/$selected~$query/\" & curl cht.sh/$selected-$query | batcat --style=plain & while [ : ]; do sleep 1; done"
+    bash -c "echo \"curl cht.sh/$selected~$query/\" & curl cht.sh/$selected-$query | batcat --style=plain & while [ : ]; do sleep 1; done"
 fi
