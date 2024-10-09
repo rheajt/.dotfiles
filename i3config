@@ -5,13 +5,12 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id xset +dpms dpms 0 300 300 
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/projects/dotfiles/bash-scripts/lock
 
-bindsym $mod+x mode "LOCK"
-
 font pango: 0xProto Nerd Font Mono
 gaps inner 4px
 gaps outer 2px
 popup_during_fullscreen smart
 
+bindsym $mod+x mode "LOCK"
 mode "LOCK" {
     bindsym l exec i3lock --ignore-empty-password --tiling --image='~/Pictures/Wallpapers/lockscreen.png' 2>/dev/null, mode "default"
     # just force suspend. i3lock will be called automatically via lock.sh 
@@ -217,11 +216,12 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec ~/.local/sh/random-bg fantasy
 exec picom -b
 exec xrandr --output eDP-1 --auto --left-of HDMI-1
+
 # make sure the touchpad is enabled
 exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
+
 # start the warp daemon
 exec --no-startup-id warpd
-# exec --no-startup-id i3-battery-popup -n -D -L 20 -l 10
 
 
 
