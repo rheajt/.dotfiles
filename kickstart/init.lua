@@ -286,6 +286,7 @@ require("lazy").setup({
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
 			{ "folke/neodev.nvim", opts = {} },
+			"b0o/schemastore.nvim",
 		},
 		-- version = "1.7",
 		-- commit = "cf3dd4a",
@@ -365,6 +366,14 @@ require("lazy").setup({
 			local servers = {
 				ts_ls = {},
 				prettierd = {},
+				jsonls = {
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
+						},
+					},
+				},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -425,7 +434,7 @@ require("lazy").setup({
 					},
 				},
 			},
-			notify_on_error = false,
+			notify_on_error = true,
 			format_on_save = function(bufnr)
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
@@ -438,8 +447,14 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { "prettierd" },
-				typescript = { "prettierd" },
+				typescript = { { "prettierd", "prettier" } },
+				javascript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				json = { { "prettierd", "prettier" } },
+				html = { { "prettierd", "prettier" } },
+				css = { { "prettierd", "prettier" } },
+				sh = { "beautysh" },
 			},
 		},
 	},

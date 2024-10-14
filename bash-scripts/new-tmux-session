@@ -4,8 +4,8 @@
 #
 # ```sh
 # tmux new-session -d -s my_session \; \
-#   rename-window 'first_window' \; \
-#   new-window -n 'second_window'
+    #   rename-window 'first_window' \; \
+    #   new-window -n 'second_window'
 # ```
 #
 # Here's a breakdown of the command:
@@ -19,12 +19,21 @@
 #
 # ```sh
 # tmux new-session -d -s my_session \; \
-#   rename-window 'first_window' \; \
-#   new-window -n 'second_window' \; \
-#   attach
+    #   rename-window 'first_window' \; \
+    #   new-window -n 'second_window' \; \
+    #   attach
 # ```
 #
 # This will create the session, rename the windows, and then attach to the session so you can start working in it immediately.
+
+# if there is a 'package.json' file in the current directory, use the name of the package as the session name
+if [ -f package.json ]; then
+    session_name=$(jq -r '.name' package.json)
+else
+    session_name=$(basename "$PWD")
+fi
+
+echo "Session name: $session_name"
 
 result=${PWD##*/}          # to assign to a variable
 result=${result:-/}        # to correct for the case where PWD=/

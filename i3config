@@ -10,12 +10,6 @@ gaps inner 4px
 gaps outer 2px
 popup_during_fullscreen smart
 
-bindsym $mod+x mode "LOCK"
-mode "LOCK" {
-    bindsym l exec i3lock --ignore-empty-password --tiling --image='~/Pictures/Wallpapers/lockscreen.png' 2>/dev/null, mode "default"
-    # just force suspend. i3lock will be called automatically via lock.sh 
-    bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
-}
 
 # exec --no-startup-id xss-lock -l ~/.local/sh/lock
 
@@ -170,6 +164,7 @@ mode "RESIZE" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+bindsym $mod+r mode "RESIZE"
 
 # create a mode to open comm software
 # TODO make this the scratch pad options
@@ -186,11 +181,27 @@ mode "SCRATCHPADS" {
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
-	bindsym $mod+t mode "default"
+	bindsym $mod+y mode "default"
 }
-
 bindsym $mod+y mode "SCRATCHPADS"
-bindsym $mod+r mode "RESIZE"
+
+mode "LOCK" {
+    bindsym l exec i3lock --ignore-empty-password --tiling --image='~/Pictures/Wallpapers/lockscreen.png' 2>/dev/null, mode "default"
+    # just force suspend. i3lock will be called automatically via lock.sh 
+    bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+x mode "default"
+}
+bindsym $mod+x mode "LOCK"
+
+mode "QUICK_TOGGLE" {
+    # i3-msg wrkspace back_and_forth
+    bindsym m workspace back_and_forth, mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+m workspace back_and_forth; mode "QUICK_TOGGLE"
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #228f2b #228f2b #228f2b #228f2b   #228f2b 
