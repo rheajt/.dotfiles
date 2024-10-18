@@ -217,6 +217,7 @@ require("lazy").setup({
 			pcall(require("telescope").load_extension, "ui-select")
 			pcall(require("telescope").load_extension, "file_browser")
 			pcall(require("telescope").load_extension, "npm")
+
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>se", function()
