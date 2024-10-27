@@ -29,6 +29,7 @@ return {
 						},
 					},
 					["core.export"] = {},
+					["core.export.markdown"] = { config = { extensions = "all" } },
 					["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
 					["core.clipboard.code-blocks"] = {},
 					["core.qol.toc"] = {},
