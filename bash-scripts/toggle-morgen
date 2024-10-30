@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+~/projects/dotfiles/bash-scripts/i3_scratchpad_show 'scratch-morgen' 'morgen'
