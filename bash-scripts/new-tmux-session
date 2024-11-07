@@ -43,7 +43,7 @@ DIR_STEM="$(echo $result | tr [a-z] [A-Z])"
 echo $DIR_STEM
 
 tmux new-session -d -s $DIR_STEM
-tmux rename-window -t $DIR_STEM:1 'code'; tmux new-window -t $DIR_STEM:2 'dev'; tmux new-window -t $DIR_STEM:3 -n 'git'
+tmux rename-window -t $DIR_STEM:1 'code'; tmux new-window -t $DIR_STEM:2 -n 'dev'; tmux new-window -t $DIR_STEM:3 -n 'git'
 
 tmux send-keys -t $DIR_STEM:3 'lazygit' C-m; tmux send-keys -t $DIR_STEM:1 'v' C-m
 tmux attach -t $DIR_STEM:1
