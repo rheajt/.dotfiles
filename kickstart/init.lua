@@ -367,6 +367,7 @@ require("lazy").setup({
 			local servers = {
 				ts_ls = {},
 				prettierd = {},
+				graphql = {},
 				jsonls = {
 					settings = {
 						json = {
