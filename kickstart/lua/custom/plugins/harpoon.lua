@@ -43,9 +43,8 @@ return {
 			harpoon:list():prev({ ui_nav_wrap = true })
 		end)
 
-		-- vim.keymap.set("n", "<leader>hh", function()
-		--  require("harpoon.tmux").sendCommand(1, "ls<CR>")
-		-- end)
-		--
+		vim.keymap.set("n", "<leader>hh", function()
+			require("harpoon.tmux").sendCommand(1, "ls<CR>")
+		end)
 	end,
 }
