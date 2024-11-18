@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 local MAIN_DIR=~/projects
-local PROJECT_TYPE=$(ls $MAIN_DIR | fzf)
-local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf)
+local PROJECT_TYPE=$(ls $MAIN_DIR | fzf --preview="tree $MAIN_DIR/{} -L 1 -d" --reverse)
+local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf --preview="tree $MAIN_DIR/$PROJECT_TYPE/{} -L 1" --reverse)
 local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
 cd $FULL_PATH
