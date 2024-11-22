@@ -27,6 +27,7 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.textwidth = 100
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -457,6 +458,7 @@ require("lazy").setup({
 				html = { { "prettierd", "prettier" } },
 				css = { { "prettierd", "prettier" } },
 				sh = { "beautysh" },
+				markdown = { "prettierd", "prettier" },
 			},
 		},
 	},
