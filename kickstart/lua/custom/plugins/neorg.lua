@@ -50,10 +50,9 @@ return {
 					["core.dirman"] = {
 						config = {
 							workspaces = {
-								work = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes/work",
-								home = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes/home",
+								notes = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes",
 							},
-							default_workspace = "work",
+							default_workspace = "notes",
 						},
 					},
 					["core.summary"] = {},
