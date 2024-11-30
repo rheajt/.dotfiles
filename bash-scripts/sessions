@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-test=$(tmux ls | fzf --reverse --height=~40% | awk '{print $1}')
+# test=$(tmux ls 2>/dev/null | fzf --reverse --height=~40% --preview 'tmux list-windows -t {} -F "#{pane_title}"' --preview-window=up:wrap | awk '{print $1}')
+
+test=$(tmux ls 2>/dev/null | fzf --reverse --height=40% --preview 'tmux list-windows -t {1} -F "#{window_index}: #{window_name} (#{window_panes} panes)"' | awk '{print $1}')
 
 if [ -z "$test" ]; then
     exit 0
@@ -9,8 +11,8 @@ stripped=$(echo $test | sed 's/://g')
 
 # determine if already in a tmux session
 if [ -n "$TMUX" ]; then
-	tmux switch-client -t $test
-	exit 0
+    tmux switch-client -t $test
+    exit 0
 fi
 
 tmux attach-session -t $stripped
