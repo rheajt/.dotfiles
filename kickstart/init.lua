@@ -459,6 +459,7 @@ require("lazy").setup({
 				css = { { "prettierd", "prettier" } },
 				sh = { "beautysh" },
 				markdown = { "prettierd", "prettier" },
+				sql = { "sqlfmt" },
 			},
 		},
 	},
