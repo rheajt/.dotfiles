@@ -1,0 +1,4 @@
+#!/bin/env bash
+
+# Open notes in vim
+nvim ~/Insync/rheajt@gmail.com/Google\ Drive/notes

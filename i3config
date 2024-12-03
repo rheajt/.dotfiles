@@ -179,7 +179,7 @@ mode "SCRATCHPADS" {
 	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec "alacritty -e nvim ~/Insync/rheajt@gmail.com/Google\ Drive/notes/index.norg" mode "default"
+	bindsym n exec "alacritty -e nvim ~/Insync/rheajt@gmail.com/Google\ Drive/notes" mode "default"
 	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
 	bindsym m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"
