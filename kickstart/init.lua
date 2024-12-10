@@ -212,6 +212,9 @@ require("lazy").setup({
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
 					},
+					file_browser = {
+						grouped = true,
+					},
 				},
 			})
 			pcall(require("telescope").load_extension, "fzf")
