@@ -112,6 +112,22 @@ local function ToggleQuickFix()
 	end
 end
 
+function DeleteOpenFileBuffer()
+	-- confirm delete
+	local confirm = vim.fn.input("Delete buffer? (y/n): ")
+	if confirm ~= "y" then
+		return
+	end
+
+	local current_file = vim.api.nvim_buf_get_name(0)
+	if current_file ~= "" then
+		vim.cmd("bdelete!")
+		os.remove(current_file)
+	else
+		print("No file is currently open.")
+	end
+end
+
 vim.keymap.set("n", "<leader>dd", DeleteCurrentLine, { silent = true, desc = "QuickFix: [D]elete current line" })
 vim.keymap.set("n", "<leader>df", ":cfirst<CR>zz", { silent = true, desc = "QuickFix: Go to [F]irst" })
 vim.keymap.set("n", "<leader>dl", ":clast<CR>zz", { silent = true, desc = "QuickFix: Go to [L]ast" })

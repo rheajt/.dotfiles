@@ -43,15 +43,14 @@ return {
 					["core.presenter"] = { config = { zen_mode = "zen-mode" } },
 					["core.journal"] = {
 						config = {
-							journal_folder = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes/journal",
+							journal_folder = "journal",
 							strategy = "flat",
-							workspace = "notes",
 						},
 					},
 					["core.dirman"] = {
 						config = {
 							workspaces = {
-								notes = "~/Insync/rheajt@gmail.com/Google\\ Drive/notes",
+								notes = "~/Insync/rheajt@gmail.com/drive/notes",
 							},
 							default_workspace = "notes",
 						},
@@ -61,5 +60,15 @@ return {
 			})
 			vim.api.nvim_set_keymap("n", "<leader>tt", [[^i- ( ) <Esc>]], { noremap = true, silent = true })
 		end,
+		keys = {
+			{
+				"n",
+				"<leader>jb",
+				function()
+					print("journal index")
+				end,
+				{ noremap = true },
+			},
+		},
 	},
 }
