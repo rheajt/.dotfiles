@@ -102,9 +102,6 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-# bindsym $mod+y exec "~/.local/sh/i3_scratchpad_show 'scratch-notes' 'alacritty -e nvim /home/jordanrhea/Insync/rheajt@gmail.com/Google\ Drive/notes'"
-# bindsym $mod+g exec "~/.local/sh/i3_scratchpad_show 'scratch-calc' 'gnome-calculator'"
-
 # Define monitors
 set $monitor_left "eDP-1"
 set $monitor_right "HDMI-1"
@@ -179,7 +176,7 @@ mode "SCRATCHPADS" {
 	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec "alacritty --working-directory ~/Insync/rheajt@gmail.com/drive/notes -e nvim" mode "default"
+	bindsym n exec "alacritty --working-directory ~/Insync/rheajt@gmail.com/drive/notes" mode "default"
 	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
 	bindsym m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"

@@ -3,9 +3,9 @@
 wallpapers=~/Pictures/backgrounds
 img=$(ls $wallpapers/**/*.png | shuf -n 1)
 
-echo $img 
+echo $img
 
-set -e 
+set -e
 i3lock --nofork --show-failed-attempts --ignore-empty-password --tiling --image=$img
 xset dpms
 
