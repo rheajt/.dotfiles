@@ -1,3 +1,18 @@
-#!/bin/env bash
+#!/bin/bash
 
-sp current | awk 'NR==1 { first=$0 } { line[NR]=$0 } END { print first; print line[NR] }' | awk '{$1=""; sub(/^ +/, ""); sub(/ +$/, ""); print}' | paste -sd '-' -
+output=$(sp metadata)
+artist=$(echo "$output" | grep "artist|" | cut -c 8-)
+album=$(echo "$output" | grep "album|" | cut -c 7-)
+track=$(echo "$output" | grep "title|" | cut -c 7-)
+
+# if artist is empty but album is not then it is a poddast
+if [ -z "$artist" ] && [ ! -z "$album" ]; then
+    artist="Podcast: $album"
+fi
+
+if [ -z "$artist" ]; then
+    echo "No track is currently playing."
+    exit 1
+fi
+
+echo "$artist - $track"
