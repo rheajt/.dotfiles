@@ -16,5 +16,5 @@ if [ -z "$artist" ]; then
     exit 1
 fi
 
-notify-send -i $image -c email "$track" "$artist"
+notify-send -i notification-audio-play "$track" "$artist"
 

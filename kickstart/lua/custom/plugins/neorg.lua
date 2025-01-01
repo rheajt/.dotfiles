@@ -14,8 +14,6 @@ return {
 			require("neorg").setup({
 				load = {
 					["core.defaults"] = {},
-					["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
-					["core.integrations.nvim-cmp"] = {},
 					["core.concealer"] = {
 						config = {
 							folds = false,
@@ -60,15 +58,5 @@ return {
 			})
 			vim.api.nvim_set_keymap("n", "<leader>tt", [[^i- ( ) <Esc>]], { noremap = true, silent = true })
 		end,
-		keys = {
-			{
-				"n",
-				"<leader>jb",
-				function()
-					print("journal index")
-				end,
-				{ noremap = true },
-			},
-		},
 	},
 }

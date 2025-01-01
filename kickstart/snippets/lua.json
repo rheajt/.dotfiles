@@ -1,0 +1,7 @@
+{
+  "foo": {
+    "prefix": "foo",
+    "body": ["function foo()", "    $1", "end"],
+    "description": "Create a new function"
+  }
+}
