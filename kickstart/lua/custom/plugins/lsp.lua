@@ -35,7 +35,6 @@ return {
 			-- passing config.capabilities to blink.cmp merges with the capabilities in your
 			-- `opts[server].capabilities, if you've defined it
 			config.capabilities = require("blink.cmp").get_lsp_capabilities()
-			print("config", vim.inspect(config))
 			lspconfig[server].setup(config)
 		end
 

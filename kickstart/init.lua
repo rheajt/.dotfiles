@@ -1,8 +1,8 @@
 ---@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 0
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 0
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true

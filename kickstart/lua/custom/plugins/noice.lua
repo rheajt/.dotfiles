@@ -1,17 +1,14 @@
 return {
 	{
-		enabled = false,
+		enabled = true,
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			{
 				"rcarriga/nvim-notify",
 				config = function()
+					---@diagnostic disable-next-line: missing-fields
 					require("notify").setup({
 						background_colour = "#000000",
 					})
@@ -49,8 +46,9 @@ return {
 				},
 				routes = {
 					{
+						view = "notify",
 						filter = {
-							event = "msg_show",
+							event = "msg_showmode",
 							kind = "",
 							find = "written",
 						},
