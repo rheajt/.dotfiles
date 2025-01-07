@@ -173,14 +173,14 @@ bindsym $mod+r mode "RESIZE"
 # TODO make this the scratch pad options
 mode "SCRATCHPADS" {
 	# scratchpads
-	bindsym s exec "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
-	bindsym k exec "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
-	bindsym z exec "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec "alacritty --working-directory ~/Insync/rheajt@gmail.com/drive/notes" mode "default"
-	bindsym g exec "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
-	bindsym c exec "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
-	bindsym m exec "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"
-	bindsym i exec "~/.local/sh/i3_scratchpad_show 'scratch-insync' 'insync show'" mode "default"
+	bindsym s exec --no-startup-id "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
+	bindsym k exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
+	bindsym z exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
+	bindsym n exec --no-startup-id "alacritty --working-directory ~/Insync/rheajt@gmail.com/drive/notes" mode "default"
+	bindsym g exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
+	bindsym c exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
+	bindsym m exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"
+	bindsym i exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-insync' 'insync show'" mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"

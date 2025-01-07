@@ -20,7 +20,14 @@ return {
 				color = {},
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					{
+						require("noice").api.statusline.mode.get,
+						cond = require("noice").api.statusline.mode.has,
+						color = { fg = "#ff9e64", bg = "#1a1a1a", gui = "bold" },
+					},
+					"mode",
+				},
 				lualine_b = { "branch", "diff", { "diagnostics", sources = { "nvim_diagnostic" } } },
 				lualine_c = {
 					{
@@ -41,11 +48,6 @@ return {
 				lualine_y = { "progress", "location" },
 				lualine_z = {
 					"tabs",
-					{
-						require("noice").api.statusline.mode.get,
-						cond = require("noice").api.statusline.mode.has,
-						color = { fg = "#ff9e64" },
-					},
 				},
 			},
 			inactive_sections = {

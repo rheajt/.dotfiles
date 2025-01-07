@@ -28,7 +28,7 @@ return {
 					},
 					["core.export"] = {},
 					["core.export.markdown"] = { config = { extensions = "all" } },
-					["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
+					["core.esupports.metagen"] = { config = { type = "empty", update_date = true } },
 					["core.clipboard.code-blocks"] = {},
 					["core.qol.toc"] = {},
 					["core.qol.todo_items"] = {
@@ -37,7 +37,6 @@ return {
 							create_todo_parents = true,
 						},
 					},
-					["core.looking-glass"] = {},
 					["core.presenter"] = { config = { zen_mode = "zen-mode" } },
 					["core.journal"] = {
 						config = {
