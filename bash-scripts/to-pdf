@@ -1,0 +1,6 @@
+#!/bin/bash
+
+$MARKDOWN=$1
+$PDF=$2
+
+pandoc $MARKDOWN --pdf-engine=xelatex -o $PDF
