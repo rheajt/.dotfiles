@@ -27,6 +27,7 @@ return {
 			},
 			ts_ls = {},
 			emmet_language_server = {},
+			html = {},
 		},
 	},
 	config = function(_, opts)
