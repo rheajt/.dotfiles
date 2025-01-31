@@ -323,6 +323,13 @@ require("lazy").setup({
 						indent_type = "Spaces",
 					},
 				},
+				injected = {
+					options = {
+						ft_parsers = {
+							handlebars = "angular",
+						},
+					},
+				},
 			},
 			notify_on_error = true,
 			format_on_save = function(bufnr)
@@ -344,6 +351,8 @@ require("lazy").setup({
 				sh = { "beautysh" },
 				markdown = { "prettierd", "prettier" },
 				sql = { "sqlfmt" },
+				handlebars = { "prettier" },
+				xml = { "xmlformatter" },
 			},
 		},
 	},
