@@ -90,6 +90,7 @@ alias blog="cd ~/projects/blog"
 alias s="sessions"
 alias wttr='curl "wttr.in/$(echo "Sanur\nDenpasar\nBeijing\nRichmond" | fzf)?m&lang=en" | head -n -1'
 alias pjs=". projects"
+alias :q="exit"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

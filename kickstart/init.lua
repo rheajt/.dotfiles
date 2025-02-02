@@ -351,7 +351,7 @@ require("lazy").setup({
 				sh = { "beautysh" },
 				markdown = { "prettierd", "prettier" },
 				sql = { "sqlfmt" },
-				handlebars = { "prettier" },
+				handlebars = { "prettierd", "prettier" },
 				xml = { "xmlformatter" },
 			},
 		},
