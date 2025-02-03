@@ -5,17 +5,9 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				config = function()
-					---@diagnostic disable-next-line: missing-fields
-					require("notify").setup({
-						background_colour = "#000000",
-					})
-				end,
-			},
 		},
 		config = function()
+			---@diagnostic disable-next-line: missing-fields
 			require("noice").setup({
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**

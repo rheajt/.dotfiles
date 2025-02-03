@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -e
+
+# Ensure package.json exists
+if [ ! -f package.json ]; then
+    echo "Error: package.json not found!"
+    exit 1
+fi
+
+# Check that jq and fzf are installed
+command -v jq >/dev/null 2>&1 || { echo "Error: jq is required but not installed." >&2; exit 1; }
+command -v fzf >/dev/null 2>&1 || { echo "Error: fzf is required but not installed." >&2; exit 1; }
+
+# Extract the script names from package.json using jq.
+# This assumes that your package.json has a "scripts" field.
+scripts=$(jq -r '.scripts | keys[]' package.json)
+
+if [ -z "$scripts" ]; then
+    echo "No scripts found in package.json."
+    exit 1
+fi
+
+# Use fzf to let the user select one of the scripts.
+selected=$(echo "$scripts" | fzf --prompt="Select npm script: " --preview='')
+
+if [ -z "$selected" ]; then
+    echo "No script selected. Exiting."
+    exit 0
+fi
+
+echo "Running: npm run $selected"
+npm run "$selected"
+

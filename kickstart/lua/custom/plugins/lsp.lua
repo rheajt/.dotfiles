@@ -21,13 +21,13 @@ return {
 							globals = { "vim", "Snacks", "snacks" },
 							disable = { "missing-fields" },
 						},
-					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true),
-						checkThirdParty = false,
-					},
-					telemetry = {
-						enable = false,
-					},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
 					},
 				},
 			},
@@ -48,7 +48,7 @@ return {
 
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[n]ame" })
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Do[K]umentation" })
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Do[K]umentation" })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 	end,
 }

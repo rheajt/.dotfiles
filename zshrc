@@ -105,6 +105,9 @@ export FZF_DEFAULT_OPTS="--height 60% --reverse --border --color=bg+:#343d46,gut
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
 
+export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_R_OPTS="--height 60% --reverse --border --preview ''"
+
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
