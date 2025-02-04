@@ -3,7 +3,7 @@
 
 -- close buffer
 vim.keymap.set("n", "<leader>cc", ":bd<CR>", { desc = "[C]lose [C]urrent Buffer" })
-vim.keymap.set("n", "<leader>ca", ":%bd|e#<cr>", { desc = "[C]lose [A]ll Buffers" })
+-- vim.keymap.set("n", "<leader>ca", ":%bd|e#<cr>", { desc = "[C]lose [A]ll Buffers" })
 
 -- Move current line / block with Alt-j/k ala vscode.
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
@@ -38,7 +38,13 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("n", "<leader>qt", function()
+	Snacks.terminal()
+end, { desc = "Open [T]erminal" })
+
+vim.keymap.set("t", "<Esc><Esc>", function()
+	Snacks.terminal()
+end, { desc = "Exit terminal mode" })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
