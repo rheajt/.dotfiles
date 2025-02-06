@@ -34,8 +34,8 @@ function RunNpmInSidebar()
 			local items = {}
 			for key, value in pairs(scripts) do
 				table.insert(items, {
-					key = key,
-					text = value,
+					key = value,
+					text = key,
 				})
 			end
 			-- sort the items table by the key
@@ -71,7 +71,7 @@ function RunNpmInSidebar()
 			picker:close()
 			print("Command: " .. item.text)
 			os.execute("tmux split-window -h")
-			os.execute("tmux send-keys -t right 'npm run " .. item.key .. "' C-m")
+			os.execute("tmux send-keys -t right 'npm run " .. item.text .. "' C-m")
 		end,
 	})
 end
