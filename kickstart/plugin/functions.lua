@@ -69,9 +69,7 @@ function RunNpmInSidebar()
 		end,
 		confirm = function(picker, item)
 			picker:close()
-			print("Command: " .. item.text)
-			os.execute("tmux split-window -h")
-			os.execute("tmux send-keys -t right 'npm run " .. item.text .. "' C-m")
+			os.execute("tmux-split-right 'npm run " .. item.text .. "'")
 		end,
 	})
 end
