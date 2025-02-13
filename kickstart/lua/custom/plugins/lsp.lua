@@ -1,5 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
+	lazy = true,
+    event = { 'BufReadPost', 'BufNewFile' },
 	dependencies = {
 		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 		"williamboman/mason-lspconfig.nvim",

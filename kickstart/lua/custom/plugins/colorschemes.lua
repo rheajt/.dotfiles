@@ -1,49 +1,5 @@
 return {
 	{
-		"gambhirsharma/vesper.nvim",
-		lazy = false,
-		priority = 1000,
-		name = "vesper",
-		config = function()
-			-- vim.cmd.colorscheme("vesper")
-		end,
-	},
-	{ -- You can easily change to a different colorscheme.
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		opts = {
-			transparent = true,
-			styles = {
-				floats = "transparent",
-				sidebars = "transparent",
-			},
-		},
-		-- init = function()
-		-- 	-- Load the colorscheme here.
-		-- 	-- Like many other themes, this one has different styles, and you could load
-		-- 	-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-		-- 	vim.cmd.colorscheme("tokyonight-moon")
-		-- 	-- You can configure highlights by doing something like:
-		-- 	vim.cmd.hi("Comment gui=none")
-		-- end,
-	},
-	{
-		"samharju/synthweave.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000,
-		-- config = function()
-		-- 	local synthweave = require("synthweave")
-		-- 	synthweave.setup({
-		-- 		transparent = true,
-		-- 		palette = {
-		-- 			-- override palette colors, take a peek at synthweave/palette.lua
-		-- 			bg0 = "#040404",
-		-- 		},
-		-- 	})
-		-- 	synthweave.load()
-		-- end,
-	},
-	{
 		"luisiacc/gruvbox-baby",
 		priority = 1000,
 		init = function()
@@ -63,14 +19,5 @@ return {
 			-- })
 		end,
 	},
-	"sekke276/dark_flat.nvim",
-	"rebelot/kanagawa.nvim",
-	{
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup({
-				filter = "classic",
-			})
-		end,
-	},
+	{ "rebelot/kanagawa.nvim", lazy = true },
 }

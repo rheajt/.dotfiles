@@ -21,9 +21,10 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require("lazy").setup(
 	{
-		{ "numToStr/Comment.nvim", opts = {} },
+		{ "numToStr/Comment.nvim", lazy = true, opts = {} },
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 			"lewis6991/gitsigns.nvim",
+			lazy = true,
 			opts = {
 				signs = {
 					add = { text = "+" },
@@ -51,7 +52,6 @@ require("lazy").setup(
 
 		{ -- Autoformat
 			"stevearc/conform.nvim",
-			lazy = false,
 			keys = {
 				{
 					"<leader>f",
@@ -107,6 +107,7 @@ require("lazy").setup(
 		-- Highlight todo, notes, etc in comments
 		{
 			"folke/todo-comments.nvim",
+			lazy = true,
 			event = "VimEnter",
 			dependencies = { "nvim-lua/plenary.nvim" },
 			opts = { signs = true },
