@@ -67,6 +67,7 @@ require("lazy").setup(
 					stylua = {
 						opts = {
 							indent_type = "Spaces",
+							indent_width = 4,
 						},
 					},
 					injected = {
