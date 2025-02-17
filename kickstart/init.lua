@@ -24,7 +24,7 @@ require("lazy").setup(
 		{ "numToStr/Comment.nvim", lazy = true, opts = {} },
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 			"lewis6991/gitsigns.nvim",
-			lazy = true,
+            lazy = true,
 			opts = {
 				signs = {
 					add = { text = "+" },
@@ -52,6 +52,7 @@ require("lazy").setup(
 
 		{ -- Autoformat
 			"stevearc/conform.nvim",
+            event = "VeryLazy",
 			keys = {
 				{
 					"<leader>f",
@@ -107,7 +108,7 @@ require("lazy").setup(
 		-- Highlight todo, notes, etc in comments
 		{
 			"folke/todo-comments.nvim",
-			lazy = true,
+            lazy = true,
 			event = "VimEnter",
 			dependencies = { "nvim-lua/plenary.nvim" },
 			opts = { signs = true },

@@ -1,3 +1,4 @@
+--@module Snacks
 -- Open tmux sidebar and run the npm scripts
 local function get_npm_scripts()
 	local file = io.open("package.json", "r")
