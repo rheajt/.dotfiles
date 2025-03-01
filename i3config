@@ -33,7 +33,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+t exec alacritty
+bindsym $mod+t exec ghostty
 bindsym $mod+Shift+q kill
 #bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
 bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -207,23 +207,12 @@ mode "QUICK_TOGGLE" {
 }
 bindsym $mod+m workspace back_and_forth; mode "QUICK_TOGGLE"
 
-# background = #1a1b26
-# background-transparent = #CC1a1b26
-# background-alt = #28344a
-# foreground = #a9b1d6
-# primary = #7aa2f7
-# secondary = #7dcfff
-# success = #73daca
-# alert = #f7768e
-# warn = #e0af68
-# disabled = #545c7e
-
 # class                 border  backgr. text    indicator child_border
-client.focused          #7aa2f7 #7aa2f7 #7aa2f7 #7aa2f7   #7aa2f7 
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #f7768e #ffffff #f7768e   #f7768e 
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #d79921 #bdae93 #282828 #b16286 #d79921
+client.focused_inactive #1d2021 #1d2021 #bdae93 #b16286 #1d2021
+client.unfocused        #1d2021 #1d2021 #bdae93 #b16286 #1d2021
+client.urgent           #cc241d #cc241d #ffffff #cc241d #cc241d
+client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background       #ffffff
 
 # borders
@@ -240,8 +229,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # exec once
 exec ~/.local/sh/random-bg fantasy
-exec picom -b
-exec xrandr --output eDP-1 --auto --left-of HDMI-1
+exec --no-startup-id picom -b
+exec --no-startup-id xrandr --output eDP-1 --auto --left-of HDMI-1
 
 # make sure the touchpad is enabled
 exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1

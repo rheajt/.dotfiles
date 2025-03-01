@@ -7,6 +7,7 @@ return {
 		dashboard = { enabled = true },
 		dim = { enabled = true },
 		explorer = { enabled = true, replace_netrw = true },
+		image = require("custom.plugins.snacks.image"),
 		indent = { enabled = true },
 		input = { enabled = true },
 		lazygit = require("custom.plugins.snacks.lazygit"),
