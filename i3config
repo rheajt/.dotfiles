@@ -39,7 +39,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
 bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
-bindsym $mod+shift+s exec "~/projects/dotfiles/bash-scripts/sound-menu"
+bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -sort -matching fuzzy | xargs mpg123 -q"
 bindsym $mod+shift+f exec "flameshot gui"
 
 # cycle workspaces
@@ -176,7 +176,7 @@ mode "SCRATCHPADS" {
 	bindsym s exec --no-startup-id "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec --no-startup-id "alacritty --working-directory ~/Insync/rheajt@gmail.com/drive/notes" mode "default"
+	bindsym n exec --no-startup-id "alacritty --command 'nvim ~/Insync/rheajt@gmail.com/drive/notes/index.norg'" mode "default"
 	bindsym g exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
 	bindsym m exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"

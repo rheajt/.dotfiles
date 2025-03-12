@@ -19,6 +19,7 @@ export LANG=en_US.UTF-8
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
 
+alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
 alias v="nvim"
 alias bat="batcat"
 alias gs="git status"
