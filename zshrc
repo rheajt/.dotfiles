@@ -4,6 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git zsh-syntax-highlighting fzf zsh-vi-mode zsh-autosuggestions)
 
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -19,6 +20,10 @@ export MANPATH="/usr/local/man:$MANPATH"
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
 
+# set up the chatgpt secret
+export OPENAI_API_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
+
+# a bunch of aliases
 alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
 alias v="nvim"
 alias bat="batcat"

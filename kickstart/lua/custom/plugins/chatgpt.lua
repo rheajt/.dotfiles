@@ -1,6 +1,5 @@
-local home = vim.fn.expand("$HOME")
+-- local home = vim.fn.expand("$HOME")
 local defaults = {
-	api_key_cmd = "gpg -d " .. home .. "/.config/chatgpt/chatgpt-secret.txt.gpg",
 	yank_register = "+",
 	edit_with_instructions = {
 		diff = false,
