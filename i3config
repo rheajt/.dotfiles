@@ -10,7 +10,6 @@ gaps inner 4px
 gaps outer 2px
 popup_during_fullscreen smart
 
-
 # exec --no-startup-id xss-lock -l ~/.local/sh/lock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -35,11 +34,11 @@ floating_modifier $mod
 
 bindsym $mod+t exec alacritty
 bindsym $mod+Shift+q kill
-#bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
-bindsym $mod+d exec --no-startup-id rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
+# bindsym $mod+d exec rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
-bindsym $mod+shift+d exec "rofi -show run -sorting-method fzf -sort -matching fuzzy"
-bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -sort -matching fuzzy | xargs mpg123 -q"
+bindsym $mod+shift+d exec "rofi -show run"
+bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -matching fuzzy | xargs mpg123 -q"
 bindsym $mod+shift+f exec "flameshot gui"
 
 # cycle workspaces
@@ -173,10 +172,8 @@ bindsym $mod+r mode "RESIZE"
 # TODO make this the scratch pad options
 mode "SCRATCHPADS" {
 	# scratchpads
-	bindsym s exec --no-startup-id "~/projects/dotfiles/bash-scripts/sound-menu" mode "default"
 	bindsym k exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
 	bindsym z exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
-	bindsym n exec --no-startup-id "alacritty --command 'nvim ~/Insync/rheajt@gmail.com/drive/notes/index.norg'" mode "default"
 	bindsym g exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
 	bindsym m exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-spotify' 'spotify'" mode "default"

@@ -13,22 +13,22 @@ LAUNCH_CMD=${2}
 # SCREEN_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 # print $SCREEN_WIDTH
 
-scratchpad_show() {
+sidebar_show() {
     # screen width of monitor that is currently focsed with only one return value minus 200
     # make string into integer
     SCREEN_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1 | head -n 1)
-    SCREEN_WIDTH=$((SCREEN_WIDTH - 200))
+    SCREEN_WIDTH=$((SCREEN_WIDTH / 3))
 
     # screen height of monitor that is currently focsed with only one return value minus 200
     # make string into integer
     SCREEN_HEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2 | head -n 1)
-    SCREEN_HEIGHT=$((SCREEN_HEIGHT - 100))
+    # SCREEN_HEIGHT=$((SCREEN_HEIGHT - 100))
 
-    i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SCREEN_WIDTH $SCREEN_HEIGHT, move position center
+    i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SCREEN_WIDTH $SCREEN_HEIGHT, move position pointer
 }
 
 # try showing the scratchpad window
-if ! scratchpad_show; then
+if ! sidebar_show; then
     # if there is no such window...
 
     # launch the application.
@@ -44,5 +44,5 @@ if ! scratchpad_show; then
     i3-msg move scratchpad
 
     # show the scratchpad window
-    scratchpad_show
+    sidebar_show
 fi

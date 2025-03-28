@@ -7,7 +7,7 @@ plugins=(git zsh-syntax-highlighting fzf zsh-vi-mode zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/usr/local/go/bin
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 export EDITOR="nvim"
 export ZVM_VI_EDITOR="nvim"
@@ -15,7 +15,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.local/zsh_history
 export MANPATH="/usr/local/man:$MANPATH"
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
 
