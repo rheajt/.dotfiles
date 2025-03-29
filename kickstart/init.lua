@@ -17,6 +17,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
+vim.o.winborder = "single"
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup(

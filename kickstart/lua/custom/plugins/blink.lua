@@ -1,8 +1,7 @@
 return {
 	"saghen/blink.cmp",
-	lazy = true,
 	dependencies = "rafamadriz/friendly-snippets",
-	version = "*",
+	version = "1.*",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
@@ -20,8 +19,15 @@ return {
 				enabled = false,
 			},
 		},
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer" },
+		},
 		signature = {
 			enabled = true,
 		},
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
+		},
 	},
+	opts_extend = { "sources.default" },
 }
