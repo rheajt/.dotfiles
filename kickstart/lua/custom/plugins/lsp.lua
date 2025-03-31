@@ -38,19 +38,6 @@ return {
 	},
 	-- example using `opts` for defining servers
 	opts = {
-		-- settings = {
-		-- 	json = {
-		-- 		schemas = require("schemastore").json.schemas(),
-		-- 		validate = true,
-		-- 	},
-		-- 	yaml = {
-		-- 		schemaStore = {
-		-- 			enable = false,
-		-- 			url = "",
-		-- 		},
-		-- 		schemas = require("schemastore").yaml.schemas(),
-		-- 	},
-		-- },
 		servers = {
 			sqls = {},
 			lua_ls = {
@@ -61,7 +48,7 @@ return {
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						diagnostics = {
-							globals = { "vim", "Snacks", "snacks" },
+							globals = { "vim", "vim.uv", "Snacks", "snacks" },
 							disable = { "missing-fields" },
 						},
 						workspace = {
@@ -85,7 +72,7 @@ return {
 		for server, config in pairs(opts.servers) do
 			-- passing config.capabilities to blink.cmp merges with the capabilities in your
 			-- `opts[server].capabilities, if you've defined it
-			-- config.capabilities = require("blink.cmp").get_lsp_capabilities()
+			config.capabilities = require("blink.cmp").get_lsp_capabilities()
 			lspconfig[server].setup(config)
 		end
 
@@ -94,5 +81,6 @@ return {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Do[K]umentation" })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
+		vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "[G]oto [S]ignature" })
 	end,
 }
