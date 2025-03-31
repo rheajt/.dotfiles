@@ -30,14 +30,14 @@ return {
 			function()
 				Snacks.picker.files()
 			end,
-			{ desc = "Search for [F]iles" },
+			{ desc = "[S]earch for [F]iles" },
 		},
 		{
 			"<leader>sb",
 			function()
 				Snacks.picker.buffers()
 			end,
-			{ desc = "Search for [B]uffers" },
+			{ desc = "[S]earch for [B]uffers" },
 		},
 		{
 			"<leader>sh",
