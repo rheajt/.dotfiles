@@ -47,6 +47,7 @@ bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+j move workspace to output down
 bindsym $mod+Ctrl+k move workspace to output up
 
+
 # toggle workspaces
 bindsym $mod+Home workspace next_on_output
 bindsym $mod+Right workspace next_on_output
