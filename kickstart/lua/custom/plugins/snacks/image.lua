@@ -37,7 +37,7 @@ return {
 		inline = false,
 		-- render the image in a floating window
 		-- only used if `opts.inline` is disabled
-		float = true,
+		float = false,
 		max_width = 80,
 		max_height = 40,
 		-- Set to `true`, to conceal the image text when rendering inline.

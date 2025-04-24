@@ -165,7 +165,7 @@ return {
 	"jackMort/ChatGPT.nvim",
 	event = "VeryLazy",
 	config = function()
-		require("chatgpt").setup(defaults)
+		require("kickstart.deprecated.chatgpt").setup(defaults)
 		vim.keymap.set("n", "<leader>tc", ":ChatGPT<cr>", { noremap = true, silent = true, desc = "Open ChatGPT" })
 		vim.keymap.set(
 			{ "n", "v" },
