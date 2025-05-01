@@ -6,6 +6,10 @@ return {
 		-- add any opts here
 		-- for example
 		provider = "openai",
+		auto_suggestions_provider = "copilot",
+		copilot = {
+			-- Copilot settings
+		},
 		openai = {
 			endpoint = "https://api.openai.com/v1",
 			model = "gpt-4.1-2025-04-14", -- your desired model (or use gpt-4o, etc.)

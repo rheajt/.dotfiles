@@ -30,6 +30,7 @@ function RunNpmInSidebar()
 		return
 	end
 
+	---@class snacks.picker.Config
 	return Snacks.picker({
 		finder = function()
 			local items = {}
@@ -37,6 +38,7 @@ function RunNpmInSidebar()
 				table.insert(items, {
 					key = value,
 					text = key,
+					preview = key,
 				})
 			end
 			-- sort the items table by the key
@@ -62,12 +64,16 @@ function RunNpmInSidebar()
 		format = function(item, _)
 			local ret = {}
 			local a = Snacks.picker.util.align
-			ret[#ret + 1] = { a(item.key, 20) }
-			ret[#ret + 1] = { " " }
-			ret[#ret + 1] = { a(item.text, 20) }
+			ret[#ret + 1] = { "npm run " .. a(item.text, 15) }
+			ret[#ret + 1] = { " : " }
+			ret[#ret + 1] = { item.key }
 
 			return ret
 		end,
+		-- format = function(item, _)
+		-- 	-- Only show the script key (name) in the picker list
+		-- 	return { { item.key .. " : " .. item.text } }
+		-- end,
 		confirm = function(picker, item)
 			picker:close()
 			os.execute("tmux-split-right 'npm run " .. item.text .. "'")

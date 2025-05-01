@@ -153,6 +153,7 @@ require("lazy").setup(
 					json = { "prettierd", "prettier" },
 					html = { "prettierd", "prettier" },
 					css = { "prettierd", "prettier" },
+					scss = { "prettierd", "prettier" },
 					sh = { "beautysh" },
 					markdown = { "prettierd", "prettier" },
 					sql = { "sqlfmt" },

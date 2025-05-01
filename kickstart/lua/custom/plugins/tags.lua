@@ -1,3 +1,4 @@
 return {
-    {dir = "~/projects/nvim/ps-tags" }
+	{ dir = "~/projects/nvim/ps-tags", opts = {}
+ },
 }

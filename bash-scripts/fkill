@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-ps aux | fzf --preview='' | awk '{print $2}' | xargs kill -9
+ps aux | fzf --preview="echo {} | awk '{for(i=11;i<=NF;++i)printf \$i\" \"; print \"\"}'" | awk '{print $2}' | xargs kill -9

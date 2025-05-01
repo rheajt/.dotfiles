@@ -56,7 +56,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>tt",
+				"<leader>nt",
 				"[[^i- ( ) <Esc>]]",
 				{ desc = "make a task" },
 			},
