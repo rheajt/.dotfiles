@@ -40,6 +40,7 @@ bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -
 bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -matching fuzzy | xargs mpg123 -q"
 bindsym $mod+shift+f exec "flameshot gui"
+bindsym $mod+shift+b exec "~/projects/dotfiles/bash-scripts/browser-select"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left
@@ -235,7 +236,3 @@ exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
 
 # start the warp daemon
 exec --no-startup-id warpd
-
-
-
-
