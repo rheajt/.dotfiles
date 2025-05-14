@@ -40,7 +40,7 @@ return {
 				["core.journal"] = {
 					config = {
 						journal_folder = "journal",
-						strategy = "flat",
+						strategy = "nested",
 					},
 				},
 				["core.dirman"] = {
