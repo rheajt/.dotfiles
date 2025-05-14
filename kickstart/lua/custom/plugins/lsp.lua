@@ -4,6 +4,8 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} }, -- NOTE: Must be loaded before dependants
 			"williamboman/mason-lspconfig.nvim",
@@ -11,7 +13,6 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			print("LSP config")
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -132,11 +133,13 @@ return {
 
 			-- Diagnostic Config
 			-- See :help vim.diagnostic.Opts
+			-- Set highlight for unused variables (gray)
+			vim.api.nvim_set_hl(0, "DiagnosticUnused", { fg = "#888888" })
+
 			vim.diagnostic.config({
 				severity_sort = true,
 				float = { border = "rounded", source = "if_many" },
-				underline = { severity = vim.diagnostic.severity.ERROR },
-				-- signs = vim.g.have_nerd_font and {
+				underline = true,
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = "󰅚 ",
@@ -149,6 +152,14 @@ return {
 					source = "if_many",
 					spacing = 2,
 					format = function(diagnostic)
+						-- Show unused variables in gray
+						if
+							diagnostic.code == "unused-local"
+							or diagnostic.code == "unused-variable"
+							or diagnostic.code == "unused"
+						then
+							return diagnostic.message
+						end
 						local diagnostic_message = {
 							[vim.diagnostic.severity.ERROR] = diagnostic.message,
 							[vim.diagnostic.severity.WARN] = diagnostic.message,

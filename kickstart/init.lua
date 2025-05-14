@@ -186,6 +186,7 @@ require("lazy").setup(
 
 		{ -- Collection of various small independent plugins/modules
 			"echasnovski/mini.nvim",
+            event = "VeryLazy",
 			config = function()
 				-- Better Around/Inside textobjects
 				--
@@ -205,6 +206,7 @@ require("lazy").setup(
 		},
 		{ -- Highlight, edit, and navigate code
 			"nvim-treesitter/nvim-treesitter",
+			event = "VeryLazy",
 			build = ":TSUpdate",
 			opts = {
 				ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },

@@ -1,6 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = { "fang2hou/blink-copilot", "rafamadriz/friendly-snippets" },
+	event = "VeryLazy",
 	version = "1.*",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
