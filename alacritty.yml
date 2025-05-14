@@ -83,8 +83,10 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: 0xProto Nerd Font Mono
-    style: mono
+    family: mononoki Nerd Font Mono
+    style: bold
+    size: 10.0
+
 
   # Bold font face
   #bold:

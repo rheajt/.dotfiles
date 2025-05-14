@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+fd . ~/Insync/rheajt@gmail.com/drive/notes/ | rofi -dmenu -i -sorting-method fzf -sort -matching fuzzy | xargs nvim

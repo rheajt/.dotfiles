@@ -3,13 +3,11 @@
     "prefix": "solid",
     "body": [
       "import { render } from 'solid-js/web';",
-      "",
-      "function $1($2) {",
-      "    return (",
-      "        <div>$1 Component</div>",
-      "    )",
-      "}",
-      "render(() => <$1 />, document.getElementById('root')!);"
+      "render(() => (",
+      "    <div>",
+      "        $1",
+      "    </div>",
+      "    ), document.getElementById('root')!);"
     ],
     "description": "Create a new Solid component"
   }

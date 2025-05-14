@@ -7,17 +7,14 @@ return {
 		-- for example
 		provider = "copilot",
 		auto_suggestions_provider = "copilot",
-		copilot = {
-			-- Copilot settings
+		openai = {
+			endpoint = "https://api.openai.com/v1",
+			model = "gpt-4.1-2025-04-14", -- your desired model (or use gpt-4o, etc.)
+			timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+			temperature = 0,
+			max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+			reasoning_effort = "high", -- low|medium|high, only used for reasoning models
 		},
-		-- openai = {
-		-- 	endpoint = "https://api.openai.com/v1",
-		-- 	model = "gpt-4.1-2025-04-14", -- your desired model (or use gpt-4o, etc.)
-		-- 	timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-		-- 	temperature = 0,
-		-- 	max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-		-- 	--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-		-- },
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",

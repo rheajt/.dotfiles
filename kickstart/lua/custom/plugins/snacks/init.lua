@@ -40,6 +40,13 @@ return {
 			{ desc = "[S]earch for [B]uffers" },
 		},
 		{
+			"<leader>sd",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			{ desc = "[S]earch for [D]iagnostics" },
+		},
+		{
 			"<leader>sh",
 			function()
 				Snacks.picker.help()

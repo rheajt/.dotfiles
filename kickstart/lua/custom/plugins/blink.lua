@@ -27,7 +27,7 @@ return {
 			},
 		},
 		sources = {
-			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",
@@ -35,7 +35,15 @@ return {
 					score_offset = 100,
 					async = true,
 				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 1,
+				},
 			},
+		},
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
 		},
 	},
 	opts_extend = { "sources.default" },

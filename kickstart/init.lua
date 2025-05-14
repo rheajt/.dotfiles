@@ -36,14 +36,12 @@ require("lazy").setup(
 			},
 		},
 		{
-			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
 			"folke/lazydev.nvim",
 			ft = "lua",
 			opts = {
 				library = {
-					-- Load luvit types when the `vim.uv` word is found
 					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					{ path = "snacks.nvim", words = { "Snacks", "snacks" } },
 				},
 			},
 		},
@@ -134,6 +132,11 @@ require("lazy").setup(
 					xmlformatter = {
 						cmd = "xmlformatter",
 						args = { "--indent-size", "2", "--indent-with-tabs", "false" },
+					},
+					prettierd = {
+						settings = {
+							tabWidth = 4,
+						},
 					},
 				},
 				notify_on_error = true,
