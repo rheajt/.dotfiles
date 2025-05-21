@@ -7,8 +7,15 @@
         "path": "./lua.json"
       },
       {
-        "language": "typescriptreact",
+        "language": [
+          "typescriptreact",
+          "javascipript"
+        ],
         "path": "./typescriptreact.json"
+      },
+      {
+        "language": "handlebars",
+        "path": "./handlebars.json"
       }
     ]
   }

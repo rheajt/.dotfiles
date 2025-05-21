@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require("lazy").setup(
 	{
-		{ "numToStr/Comment.nvim", lazy = true, opts = {} },
+		-- { "numToStr/Comment.nvim", lazy = true, opts = {} },
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 			"lewis6991/gitsigns.nvim",
 			lazy = true,
@@ -133,7 +133,7 @@ require("lazy").setup(
 						cmd = "xmlformatter",
 						args = { "--indent-size", "2", "--indent-with-tabs", "false" },
 					},
-					prettierd = {
+					prettier = {
 						settings = {
 							tabWidth = 4,
 						},
@@ -184,26 +184,6 @@ require("lazy").setup(
 			},
 		},
 
-		{ -- Collection of various small independent plugins/modules
-			"echasnovski/mini.nvim",
-            event = "VeryLazy",
-			config = function()
-				-- Better Around/Inside textobjects
-				--
-				-- Examples:
-				--  - va)  - [V]isually select [A]round [)]paren
-				--  - yinq - [Y]ank [I]nside [N]ext [']quote
-				--  - ci'  - [C]hange [I]nside [']quote
-				require("mini.ai").setup({ n_lines = 500 })
-
-				-- Add/delete/replace surroundings (brackets, quotes, etc.)
-				--
-				-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-				-- - sd'   - [S]urround [D]elete [']quotes
-				-- - sr)'  - [S]urround [R]eplace [)] [']
-				require("mini.surround").setup()
-			end,
-		},
 		{ -- Highlight, edit, and navigate code
 			"nvim-treesitter/nvim-treesitter",
 			event = "VeryLazy",

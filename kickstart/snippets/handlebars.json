@@ -1,0 +1,57 @@
+{
+  "powerschool admin page": {
+    "prefix": ["psaadmin", "psadminpage"],
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "    <head>",
+      "        <meta charset='utf-8' />",
+      "        <title>",
+      "            {{title}}",
+      "        </title>",
+      "        {{#if prod}}",
+      "            <link",
+      "                href='/images/css/screen.css'",
+      "                rel='stylesheet'",
+      "                media='screen'",
+      "            />",
+      "            <link href='/images/css/print.css' rel='stylesheet' media='print' />",
+      "            ~[wc:commonscripts]",
+      "            <script>",
+      "            <!-- window.locals = {} -->",
+      "            </script>",
+      "        {{else}}",
+      "            <script>",
+      "                window.locals ={}",
+      "            </script>",
+      "        {{/if}}",
+      "        <style>",
+      "            @media print { #breadcrumbs { display: none!important; } #pds-header",
+      "            { display: none!important; } }",
+      "        </style>",
+      "    </head>",
+
+      "    <body>",
+      "        {{#if prod}}",
+      "            ~[wc:admin_header_css]",
+
+      "            <!-- breadcrumb start -->",
+      "            <a href='/admin/home.html' target='_top'>Start Page</a> > {{title}}",
+      "            <!-- breadcrumb end -->",
+
+      "            ~[wc:admin_navigation_css]",
+      "            ~[wc:changes_saved_or_deleted_header]",
+      "        {{/if}}",
+      "",
+      "        $0",
+      "",
+      "        {{#if prod}}",
+      "            ~[wc:admin_footer_css]",
+      "        {{/if}}",
+      "    </body>",
+      "</html>"
+    ],
+    "description": "This is a page template for a handlebars admin page for a powerschool project",
+    "isFileTemplate": true
+  }
+}

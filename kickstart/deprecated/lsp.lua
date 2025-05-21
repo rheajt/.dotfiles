@@ -35,16 +35,23 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"saghen/blink.cmp",
+		{
+			"pmizio/typescript-tools.nvim",
+			dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+			opts = {},
+		},
 	},
 	-- example using `opts` for defining servers
 	opts = {
 		servers = {
 			sqlls = {},
 			lua_ls = {},
-			vtsls = {},
+			-- vtsls = {},
+			["typescript-tools"] = {},
 			emmet_language_server = {},
 			html = {},
 			cssls = {},
+			eslint = {},
 			cssmodules_ls = {
 				init_options = {
 					camelCase = "dashes",
@@ -56,6 +63,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		for server, config in pairs(opts.servers) do
+			print(server .. " connected")
 			-- passing config.capabilities to blink.cmp merges with the capabilities in your
 			-- `opts[server].capabilities, if you've defined it
 			config.capabilities = require("blink.cmp").get_lsp_capabilities()
