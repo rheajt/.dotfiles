@@ -40,7 +40,7 @@ bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -
 bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -i -sorting-method fzf -matching fuzzy | xargs mpg123 -q"
 bindsym $mod+shift+f exec "flameshot gui"
-bindsym $mod+shift+b exec "~/projects/testbed/browser-select/browser-select"
+bindsym $mod+shift+g exec "browser-select"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left

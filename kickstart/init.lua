@@ -204,7 +204,7 @@ require("lazy").setup(
 				require("nvim-treesitter.configs").setup(opts)
 			end,
 		},
-		{ import = "custom.plugins" },
+		{ import = "plugins" },
 	},
 	---@diagnostic disable-next-line: missing-fields
 	{

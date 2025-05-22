@@ -1,3 +1,0 @@
-#!/bin/bash
-
-bun ~/projects/testbed/browser-select/bin/index.js
