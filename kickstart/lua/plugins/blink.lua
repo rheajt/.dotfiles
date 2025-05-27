@@ -14,9 +14,6 @@ return {
 				["Snip"] = "",
 				["Snippet"] = "",
 			},
-			window = {
-				winhighlight = "Normal:BlinkCompletionNormal,FloatBorder:FloatBorder",
-			},
 		},
 		completion = {
 			menu = {
