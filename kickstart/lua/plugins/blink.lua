@@ -14,8 +14,17 @@ return {
 				["Snip"] = "",
 				["Snippet"] = "",
 			},
+			window = {
+				winhighlight = "Normal:BlinkCompletionNormal,FloatBorder:FloatBorder",
+			},
 		},
 		completion = {
+			menu = {
+				border = "single",
+				draw = {
+					padding = { 2, 2 },
+				},
+			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,

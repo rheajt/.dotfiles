@@ -15,7 +15,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.splitright = true
@@ -29,5 +29,8 @@ vim.opt.textwidth = 100
 vim.o.winborder = "none"
 -- `vim.ui.select` is not set to `Snacks.picker.select`
 vim.ui.select = Snacks.picker.select
+
+-- Set transparent background for Blink completion menu only
+vim.api.nvim_set_hl(0, "BlinkCompletionNormal", { bg = "NONE" })
 
 print("settings loaded")

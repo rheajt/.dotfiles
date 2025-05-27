@@ -15,7 +15,7 @@ return {
 		picker = require("plugins.snacks.picker"),
 		quickfile = { enabled = true },
 		scroll = { enabled = true },
-		statuscolumn = { enabled = true },
+		statuscolumn = { enabled = false },
 		words = { enabled = true },
 	},
 	keys = {

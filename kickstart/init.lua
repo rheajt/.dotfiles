@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local hello = true
-
-print(hello)
-
 -- [[ Install `lazy.nvim` plugin manager ]] See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -25,10 +21,12 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require("lazy").setup(
 	{
-		-- { "numToStr/Comment.nvim", lazy = true, opts = {} },
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 			"lewis6991/gitsigns.nvim",
-			lazy = true,
+			event = "VeryLazy",
+			opts = {
+				signcolumn = true,
+			},
 		},
 		{
 			"folke/lazydev.nvim",
@@ -174,7 +172,7 @@ require("lazy").setup(
 					function()
 						Snacks.picker.todo_comments()
 					end,
-					desc = "Todo",
+					desc = "[S]how [T]odo Comments",
 				},
 			},
 		},
@@ -215,7 +213,7 @@ require("lazy").setup(
 	{
 		ui = {
 			icons = vim.g.have_nerd_font and {} or {
-				cmd = "⌘",
+				cmd = "⌘ ",
 				config = "🛠",
 				event = "📅",
 				ft = "📂",
