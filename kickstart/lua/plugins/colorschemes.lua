@@ -39,4 +39,10 @@ return {
 			vim.cmd("colorscheme gruvbox")
 		end,
 	},
+	{
+		"mtendekuyokwa19/stoics.nvim",
+		config = function()
+			-- vim.cmd("colorscheme stoics")
+		end,
+	},
 }
