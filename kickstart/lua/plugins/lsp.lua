@@ -65,6 +65,19 @@ return {
 					-- open hover window
 					map("gh", vim.lsp.buf.hover, "[G]o to [H]over")
 
+					map("gof", function()
+						vim.diagnostic.open_float(nil, {
+							scope = "line",
+							close_events = {
+								"CursorMoved",
+								"CursorMovedI",
+								"BufHidden",
+								"InsertCharPre",
+								"WinLeave",
+							},
+						})
+					end, "[G]o to the [O]pen [F]loat")
+
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
@@ -117,16 +130,6 @@ return {
 							group = highlight_augroup,
 							callback = function()
 								vim.lsp.buf.document_highlight()
-								vim.diagnostic.open_float(nil, {
-									scope = "line",
-									close_events = {
-										"CursorMoved",
-										"CursorMovedI",
-										"BufHidden",
-										"InsertCharPre",
-										"WinLeave",
-									},
-								})
 							end,
 						})
 
@@ -198,29 +201,28 @@ return {
 						[vim.diagnostic.severity.HINT] = "󰌶 ",
 					},
 				} or {},
-				virtual_text = false,
-				-- virtual_text = {
-				-- 	source = "if_many",
-				-- 	spacing = 2,
-				-- 	max_width = 50,
-				-- 	format = function(diagnostic)
-				-- 		-- Show unused variables in gray
-				-- 		if
-				-- 			diagnostic.code == "unused-local"
-				-- 			or diagnostic.code == "unused-variable"
-				-- 			or diagnostic.code == "unused"
-				-- 		then
-				-- 			return diagnostic.message
-				-- 		end
-				-- 		local diagnostic_message = {
-				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
-				-- 		}
-				-- 		return diagnostic_message[diagnostic.severity]
-				-- 	end,
-				-- },
+				virtual_text = {
+					source = "if_many",
+					spacing = 2,
+					max_width = 50,
+					format = function(diagnostic)
+						-- Show unused variables in gray
+						if
+							diagnostic.code == "unused-local"
+							or diagnostic.code == "unused-variable"
+							or diagnostic.code == "unused"
+						then
+							return diagnostic.message
+						end
+						local diagnostic_message = {
+							[vim.diagnostic.severity.ERROR] = diagnostic.message,
+							[vim.diagnostic.severity.WARN] = diagnostic.message,
+							[vim.diagnostic.severity.INFO] = diagnostic.message,
+							[vim.diagnostic.severity.HINT] = diagnostic.message,
+						}
+						return diagnostic_message[diagnostic.severity]
+					end,
+				},
 				code_lens = {
 					enable = true,
 				},
