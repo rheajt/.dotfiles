@@ -25,11 +25,6 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
-					-- NOTE: Remember that Lua is a real programming language, and as such it is possible
-					-- to define small helper and utility functions so you don't have to repeat yourself.
-					--
-					-- In this case, we create a function that lets us more easily define mappings specific
-					-- for LSP related items. It sets the mode, buffer and description for us each time.
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -67,6 +62,9 @@ return {
 					--  Similar to document symbols, except searches over your entire project.
 					map("gw", Snacks.picker.lsp_workspace_symbols, "Open [W]orkspace Symbols")
 
+					-- open hover window
+					map("gh", vim.lsp.buf.hover, "[G]o to [H]over")
+
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
@@ -78,6 +76,11 @@ return {
 					-- Diagnostic keymaps
 					map("<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
 					map("<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
+
+					map("gK", function()
+						local new_config = not vim.diagnostic.config().virtual_lines
+						vim.diagnostic.config({ virtual_lines = new_config })
+					end, "Toggle diagnostic virtual_lines")
 
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
@@ -112,7 +115,19 @@ return {
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
-							callback = vim.lsp.buf.document_highlight,
+							callback = function()
+								vim.lsp.buf.document_highlight()
+								vim.diagnostic.open_float(nil, {
+									scope = "line",
+									close_events = {
+										"CursorMoved",
+										"CursorMovedI",
+										"BufHidden",
+										"InsertCharPre",
+										"WinLeave",
+									},
+								})
+							end,
 						})
 
 						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
@@ -152,21 +167,11 @@ return {
 
 			vim.diagnostic.config({
 				severity_sort = true,
-				float = { border = "rounded", source = "if_many" },
-				underline = true,
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = "󰅚 ",
-						[vim.diagnostic.severity.WARN] = "󰀪 ",
-						[vim.diagnostic.severity.INFO] = "󰋽 ",
-						[vim.diagnostic.severity.HINT] = "󰌶 ",
-					},
-				} or {},
-				virtual_text = {
+				float = {
+					max_width = 80,
+					border = "rounded",
 					source = "if_many",
-					spacing = 2,
 					format = function(diagnostic)
-						-- Show unused variables in gray
 						if
 							diagnostic.code == "unused-local"
 							or diagnostic.code == "unused-variable"
@@ -182,6 +187,42 @@ return {
 						}
 						return diagnostic_message[diagnostic.severity]
 					end,
+				},
+				underline = true,
+				wrap = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "󰅚 ",
+						[vim.diagnostic.severity.WARN] = "󰀪 ",
+						[vim.diagnostic.severity.INFO] = "󰋽 ",
+						[vim.diagnostic.severity.HINT] = "󰌶 ",
+					},
+				} or {},
+				virtual_text = false,
+				-- virtual_text = {
+				-- 	source = "if_many",
+				-- 	spacing = 2,
+				-- 	max_width = 50,
+				-- 	format = function(diagnostic)
+				-- 		-- Show unused variables in gray
+				-- 		if
+				-- 			diagnostic.code == "unused-local"
+				-- 			or diagnostic.code == "unused-variable"
+				-- 			or diagnostic.code == "unused"
+				-- 		then
+				-- 			return diagnostic.message
+				-- 		end
+				-- 		local diagnostic_message = {
+				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
+				-- 		}
+				-- 		return diagnostic_message[diagnostic.severity]
+				-- 	end,
+				-- },
+				code_lens = {
+					enable = true,
 				},
 			})
 
