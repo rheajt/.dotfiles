@@ -201,7 +201,7 @@ return {
 						[vim.diagnostic.severity.HINT] = "󰌶 ",
 					},
 				} or {},
-				virtual_text = {
+				virtual_lines = {
 					source = "if_many",
 					spacing = 2,
 					max_width = 50,
@@ -223,6 +223,28 @@ return {
 						return diagnostic_message[diagnostic.severity]
 					end,
 				},
+				-- virtual_text = {
+				-- 	source = "if_many",
+				-- 	spacing = 2,
+				-- 	max_width = 50,
+				-- 	format = function(diagnostic)
+				-- 		-- Show unused variables in gray
+				-- 		if
+				-- 			diagnostic.code == "unused-local"
+				-- 			or diagnostic.code == "unused-variable"
+				-- 			or diagnostic.code == "unused"
+				-- 		then
+				-- 			return diagnostic.message
+				-- 		end
+				-- 		local diagnostic_message = {
+				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
+				-- 		}
+				-- 		return diagnostic_message[diagnostic.severity]
+				-- 	end,
+				-- },
 				code_lens = {
 					enable = true,
 				},
