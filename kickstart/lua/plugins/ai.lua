@@ -35,19 +35,17 @@ return {
 			providers = {
 				openai = {
 					endpoint = "https://api.openai.com/v1",
-					model = "gpt-4o-mini", -- your desired model (or use gpt-4o, etc.)
+					model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
 					timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-					extra_request = {
-						temperature = 0,
+					extra_request_body = {
+						timeout = 30000,
+						temperature = 0.75,
 						max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-						reasoning_effort = "high", -- low|medium|high, only used for reasoning models
 					},
 				},
 			},
 		},
-		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
-		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"stevearc/dressing.nvim",
@@ -55,8 +53,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			--- The below dependencies are optional,
 			"echasnovski/mini.pick", -- for file_selector provider mini.pick
-			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-			"zbirenbaum/copilot.lua",
+			"echasnovski/mini.icons", -- or echasnovski/mini.icons
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",
