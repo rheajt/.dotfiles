@@ -26,6 +26,7 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.textwidth = 100
+vim.opt.laststatus = 3
 vim.o.winborder = "none"
 -- `vim.ui.select` is not set to `Snacks.picker.select`
 vim.ui.select = Snacks.picker.select

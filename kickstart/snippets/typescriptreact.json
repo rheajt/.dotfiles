@@ -10,5 +10,23 @@
       "    ), document.getElementById('root')!);"
     ],
     "description": "Create a new Solid component"
+  },
+  "react": {
+    "prefix": "~rnc",
+    "body": [
+      "type $1Props = {}",
+      "",
+      "export function $1(props: $1Props) {",
+      "    return (",
+      "        <div>",
+      "            $1 content",
+      "        </div>",
+      "    );",
+      "};"
+    ]
+  },
+  "clg": {
+    "prefix": "clg",
+    "body": ["console.log({$1});"]
   }
 }
