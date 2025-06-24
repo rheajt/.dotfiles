@@ -99,7 +99,7 @@ esac
 # pnpm end
 
 # system76-power charge thresholds
-system76-power charge-thresholds --profile max_lifespan
+system76-power charge-thresholds --profile max_lifespan > /dev/null 2>&1
 
 if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"
