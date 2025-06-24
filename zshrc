@@ -1,14 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/projects/dotfiles/bash-scripts:$HOME/.local/bin:$HOME/.local/sh:/usr/local/bin:$PATH
 
-if [[ -d "$HOME/bin" ]]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
 
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -105,3 +97,15 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# system76-power charge thresholds
+system76-power charge-thresholds --profile max_lifespan
+
+if [[ -d "$HOME/bin" ]]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
