@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+vared -p "Prompt: " -c PROMPT
+
+response=$(echo "$PROMPT" | chatgpt --model gpt-4.1)
+
+echo "Response: $response"
+# save the prompt to a file in the ~/.config/chatgpt-shell-cli directory in a file named prompts.txt
+# just append the prompt to the file
+# append the response
+
+mkdir -p ~/.config/cgpt
+
+# add a line with ---
+# todays date in the format YYYY-MM-DD hh:mm
+today=$(date +"%Y-%m-%d %H:%M")
+echo "### -------- START PROMPT $today --------" >> ~/.config/cgpt/prompts.md
+echo "*PROMPT:* $PROMPT" >> ~/.config/cgpt/prompts.md
+echo "*RESPONSE:*\n$response" >> ~/.config/cgpt/prompts.md
+echo "### -------- END PROMPT --------" >> ~/.config/cgpt/prompts.md
+echo "\n" >> ~/.config/cgpt/prompts.md
+
+

@@ -30,6 +30,8 @@ export XDG_DESKTOP_PORTAL_DIR=Gnome
 # set up the chatgpt secret
 export OPENAI_API_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
 
+export OPENAI_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
+
 # a bunch of aliases
 alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
 alias v="nvim"
@@ -109,3 +111,4 @@ fi
 if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
+export PATH=$PATH:/usr/local/bin
