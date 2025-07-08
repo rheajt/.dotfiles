@@ -41,6 +41,7 @@ bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -i -sorting-method fzf -matching fuzzy | xargs mpg123 -q"
 bindsym $mod+shift+f exec "flameshot gui"
 bindsym $mod+shift+g exec "browser-select"
+bindsym $mod+shift+n exec "~/projects/dotfiles/bash-scripts/norg-rofi-menu"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left

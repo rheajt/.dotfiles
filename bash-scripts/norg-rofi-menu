@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Directory containing the notes
+NOTES_DIR="~/notes"
+
+newNote() {
+    # use rofi to get the note name
+    NOTE_NAME=$(rofi -dmenu -p "Enter new note name (without .norg)")
+
+    # Check if the user entered a name
+    if [ -z "$NOTE_NAME" ]; then
+        echo "No note name entered."
+        exit 1
+    fi
+
+    openInTerminal "$NOTES_DIR/$NOTE_NAME.norg"
+}
+
+openInTerminal() {
+    local filename="$1"
+    # Open the file in a terminal using nvim
+    alacritty -e nvim "$filename"
+}
+
+listNotes() {
+    FILES=$(fd . ~/notes --extension norg --type f --hidden --exclude .git --exclude node_modules)
+    # FILES=$(ls -t1 ~/notes/**/*.norg)
+    # Check if files are found
+    if [ -z "$FILES" ]; then
+        echo "No .norg files found in $NOTES_DIR"
+        exit 1
+    fi
+
+    SELECTED=$(echo "New\n$FILES" | rofi -dmenu -sorting-method fzf -sort -matching fuzzy -p "Notes")
+
+    # Check if rofi returned a selection
+    if [ -z "$SELECTED" ]; then
+        echo "No selection made."
+        exit 0
+    fi
+
+    # echo $SELECTED
+
+    case "$SELECTED" in
+        New) newNote ;;
+        *) openInTerminal $SELECTED ;;
+    esac
+}
+
+listNotes
+
