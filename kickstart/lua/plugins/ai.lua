@@ -190,7 +190,8 @@ return {
 		config = function()
 			require("copilot").setup({
 				filetypes = {
-					neorg = false,
+					norg = false,
+					["snacks.picker"] = false,
 				},
 				suggestion = { enabled = true, auto_trigger = true },
 				-- panel = { enabled = false },

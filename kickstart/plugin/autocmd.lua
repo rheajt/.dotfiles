@@ -8,6 +8,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		-- local name = vim.api.nvim_buf_get_name(0)
+		-- print("Buffer Entered: " .. name)
+
+		-- disable copilot if the name is empty
+		-- if name == "" then
+		-- 	vim.b.copilot_enabled = false
+		-- end
+		-- if name:match("snacks%") then
+		-- 	vim.b.copilot_enabled = false
+		-- end
+	end,
+})
+
 -- vim.api.nvim_create_autocmd("LspAttach", {
 -- 	callback = function(ev)
 -- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)

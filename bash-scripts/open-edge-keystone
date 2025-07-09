@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-microsoft-edge --profile-directory="Default"

@@ -19,7 +19,8 @@ newNote() {
 openInTerminal() {
     local filename="$1"
     # Open the file in a terminal using nvim
-    alacritty -e nvim "$filename"
+    # alacritty -e bash -c "cd '$dir' && nvim '$note'"
+    alacritty --working-directory ~/notes -e zsh -l -c "nvim '$filename'"
 }
 
 listNotes() {

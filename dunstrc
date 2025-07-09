@@ -1,12 +1,40 @@
 [global]
-# Remove border from notifications
-frame_width = 0
-# Other common dunst config options (leave as needed)
-font = Monospace 10
-transparency = 0
-corner_radius = 0
-padding = 8
-horizontal_padding = 8
-separator_height = 2
-line_height = 0
+    follow = mouse
+    # frame_width = 0
+    font = Monospace 10
+    padding = 8
+    horizontal_padding = 8
+    separator_height = 2
+    line_height = 0
+    origin = center
+    geometry = 500x150+700+50
+    # width = 300
+    # height = (0,300)
+    # offset = (10, 50)
 
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 10
+    # Icon for notifications with low urgency
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#193bf3"
+    foreground = "#ffffff"
+    timeout = 10
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = dialog-warning

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+grammar_correction="Correct the file to standard English, but keep any code blocks inside intact."
+keywords="Extract the main keywords from the file"
+code_readability_analysis=$(
+    cat <<EOF
+  You must identify any readability issues in the code snippet.
+  Some readability issues to consider:
+  - Unclear naming
+  - Unclear purpose
+  - Redundant or obvious comments
+  - Lack of comments
+  - Long or complex one liners
+  - Too much nesting
+  - Long variable names
+  - Inconsistent naming and code style.
+  - Code repetition
+  You may identify additional problems. The user submits a small section of code from a larger file.
+  Only list lines with readability issues, in the format <line_num>|<issue and proposed solution>
+  If there's no issues with code respond with only: <OK>
+EOF
+)
+optimize_code="Optimize the code in this file"
+summarize="Summarize the file in a few sentences"
+translate="Translate this into Chinese, but keep any code blocks inside intact"
+explain_code="Explain the code in this file"
+complete_code="Complete the following codes written in ${filetype}"
+add_docstring="Add docstrings to the file"
+fix_bugs="Fix the bugs inside the file, if any. If there are no bugs, respond with <OK>."
+add_tests="Implement tests for the file"
+
+rofiPrompt() {
+    # give a prompt to rofi and return the selected option
+
+    options="Grammar Correction,Extract Keywords,Code Readability Analysis,Optimize Code,Summarize File,Translate to Chinese,Explain Code,Complete Code,Add Docstrings,Fix Bugs,Add Tests"
+
+    selected=$(echo $options | rofi -dmenu -sep ',' -i -match fuzzy -p "Select an action")
+    if [ -z "$selected" ]; then
+        echo "No option selected."
+        exit 1
+    fi
+
+    standardized=$(printf "%s" "$selected" | tr ' ' '_' | tr '[:upper:]' '[:lower:]' | sed 's/%$//')
+
+    # Evaluate $standardized as a variable
+    eval "value=\$$standardized"
+    echo $value
+
+    #additional user input from rofi
+    input=$(rofi -dmenu)
+}
+
+rofiPrompt
