@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Directory containing the notes
 NOTES_DIR="~/notes"
@@ -18,9 +18,12 @@ newNote() {
 
 openInTerminal() {
     local filename="$1"
+    notify-send "$filename"
     # Open the file in a terminal using nvim
     # alacritty -e bash -c "cd '$dir' && nvim '$note'"
-    alacritty --working-directory ~/notes -e zsh -l -c "nvim '$filename'"
+    # Ensure the file exists or create it
+    # Open the file in a terminal using nvim
+    alacritty --working-directory ~/notes -e zsh -c "nvim $filename"
 }
 
 listNotes() {
