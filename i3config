@@ -238,3 +238,6 @@ exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
 # start the warp daemon
 exec --no-startup-id warpd
 exec_always --no-startup-id dunst
+
+# system76-power charge thresholds
+exec --no-startup-id system76-power charge-thresholds --profile max_lifespan > /dev/null 2>&1

@@ -1,16 +1,18 @@
 [global]
-    follow = mouse
-    # frame_width = 0
-    font = Monospace 10
-    padding = 8
-    horizontal_padding = 8
-    separator_height = 2
-    line_height = 0
-    origin = center
-    geometry = 500x150+700+50
-    # width = 300
-    # height = (0,300)
-    # offset = (10, 50)
+    follow              = mouse
+    # frame_width       = 0
+    font                = Monospace 10
+    padding             = 8
+    horizontal_padding  = 8
+    separator_height    = 2
+    line_height         = 0
+    origin              = center
+    geometry            = 500x150+700+50
+    # width             = 300
+    # height            = (0,300)
+    # offset            = (10, 50)
+    markup              = full
+    format              = "<b>%s</b>\n%b"
 
 
 [urgency_low]
