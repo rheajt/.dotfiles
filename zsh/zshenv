@@ -88,6 +88,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
 # opencode
 export PATH=/home/jordanrhea/.opencode/bin:$PATH
+
+echo "Zsh environment loaded from ~/.zshenv"

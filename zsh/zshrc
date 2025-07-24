@@ -20,6 +20,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # a bunch of aliases
+alias pscli=~/projects/powerschool/pscli/bin/dev.js
 alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
 alias v="nvim"
 alias bat="batcat"
@@ -27,7 +28,7 @@ alias gs="git status"
 alias gc="git add -A && git commit -am "
 alias gp="git push"
 alias dfs="cd ~/projects/dotfiles"
-alias sc="source ~/.zshrc"
+alias sc="source ~/.config/zsh/.zshrc"
 alias tns="new-tmux-session"
 alias tks="tmux kill-session"
 alias tl="tmux ls"
