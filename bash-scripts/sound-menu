@@ -1,3 +1,21 @@
-#/usr/bin/env zsh
+#!/bin/zsh
 
-fd . ~/Music/sfa3 | rofi -dmenu -sorting-method fzf -sort -matching fuzzy | xargs mpg123 -q
+SOUNDS_DIRECTORY=~/Music/sfa3
+#
+# notify-send "Listing sounds in $SOUNDS_DIRECTORY"
+#
+# listSounds() {
+#     SOUNDS=$(fd . $SOUNDS_DIRECTORY -type f -name "*.mp3" -printf "%f\n")
+#     if [[ -z "$SOUNDS" ]]; then
+#         echo "No sounds found in $SOUNDS_DIRECTORY"
+#         exit 1
+#     fi
+#
+#     SELECTED=$(echo "$SOUNDS" | rofi -dmenu -sorting-method fzf -sort -matching fuzzy -p "Select a sound")
+#
+#     printf "Selected sound: %s\n" "$SELECTED"
+# }
+#
+# listSounds
+notify-send "Listing sounds in $SOUNDS_DIRECTORY"
+fd . $SOUNDS_DIRECTORY | rofi -dmenu -sorting-method fzf -sort -matching fuzzy | xargs mpg123 -q

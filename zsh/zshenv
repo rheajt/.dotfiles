@@ -25,7 +25,7 @@ path=(
 
 . "$HOME/.cargo/env"
 
-export PATH=$HOME/projects/dotfiles/bash-scripts:$HOME/.local/bin:$HOME/.local/sh:/usr/local/bin:$PATH
+export PATH=$HOME/projects/dotfiles/bash-scripts:$HOME/.local/sh:/usr/local/bin:$PATH
 
 if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"

@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+runToTheRight() {
+    # take the command and run it in a tmux pane to the right
+    # if there is no pane open to the right, create one
+    local command="$1"
+    local pane=$(tmux list-panes -F '#{pane_active} #{pane_id}' | grep '0' | awk '{print $2}')
+
+    if [ -z "$pane" ]; then
+        notify-send "No active pane found. Creating a new one."
+        tmux split-window -h
+        pane=$(tmux list-panes -F '#{pane_active} #{pane_id}' | grep '0' | awk '{print $2}')
+    fi
+
+    if [ -z "$command" ]; then
+        notify-send "No command provided. Please provide a command to run."
+        exit 1
+    fi
+
+    # Send the command to the pane
+    tmux send-keys -t "$pane" "$command" C-m
+    notify-send "Running command in pane: $command"
+    # Optionally, switch to the pane
+    tmux select-pane -t "$pane"
+}
+
+runToTheRight "$@"

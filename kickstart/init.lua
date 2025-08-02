@@ -124,7 +124,7 @@ require("lazy").setup(
 					},
 					xmlformatter = {
 						cmd = "xmlformatter",
-						args = { "--indent-size", "2", "--indent-with-tabs", "false" },
+						args = { "--indent", "4" },
 					},
 					prettier = {
 						settings = {

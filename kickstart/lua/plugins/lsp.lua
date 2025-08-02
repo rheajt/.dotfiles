@@ -61,7 +61,6 @@ return {
 		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"saghen/blink.cmp",
 		},
@@ -275,16 +274,19 @@ return {
 
 			local servers = {
 				sqlls = {},
-				lua_ls = {},
-				-- vtsls = {},
-				emmet_language_server = {},
-				html = {},
-				cssls = {},
-				cssmodules_ls = {
-					init_options = {
-						camelCase = "dashes",
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = {
+								disable = { "missing-fields" },
+								globals = { "vim" },
+							},
+						},
 					},
 				},
+				-- emmet_language_server = {},
+				html = {},
+				cssls = {},
 				jsonls = {
 					settings = {
 						json = {
@@ -307,29 +309,22 @@ return {
 						},
 					},
 				},
+				stylua = {},
+				lemminx = {},
+				xmlformatter = {},
+				beautysh = {},
 			}
 
+			-- local ensure_installed = vim.tbl_keys(servers or {})
+			-- require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
-			})
-
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-			require("mason-lspconfig").setup({
-				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-				automatic_installation = false,
-				automatic_enable = true,
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+			for server, cfg in pairs(servers) do
+				print("Configuring LSP server: " .. server)
+				cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
+				vim.lsp.config(server, cfg)
+				vim.lsp.enable(server)
+			end
 		end,
 	},
 	{
