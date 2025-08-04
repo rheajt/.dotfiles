@@ -33,16 +33,22 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 bindsym $mod+t exec alacritty
-bindsym $mod+Shift+q kill
+bindsym $mod+shift+q kill
 bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
 # bindsym $mod+d exec rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
-bindsym $mod+shift+d exec "rofi -show run -no-config"
-# bindsym $mod+shift+s exec "fd . ~/Music/sfa3 | rofi -dmenu -i -sorting-method fzf -matching fuzzy | xargs mpg123 -q"
+bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "~/.local/sh/sound-menu"
+
+# screenshot
 bindsym $mod+shift+f exec "flameshot gui"
+
+# note taking
 bindsym $mod+shift+n exec "~/projects/dotfiles/bash-scripts/norg-rofi-menu"
-bindsym $mod+shift+t exec "dolphin"
+
+# file managers
+bindsym $mod+shift+g exec "nautilus"
+bindsym $mod+g exec "alacritty -e ranger"
 
 # cycle workspaces
 bindsym $mod+Ctrl+h move workspace to output left
