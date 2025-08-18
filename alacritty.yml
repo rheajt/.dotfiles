@@ -85,7 +85,7 @@ font:
   normal:
     family: mononoki Nerd Font Mono
     style: bold
-    size: 10.0
+    size: 8.0
 
 
   # Bold font face

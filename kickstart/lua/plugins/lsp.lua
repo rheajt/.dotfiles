@@ -273,6 +273,7 @@ return {
 			})
 
 			local servers = {
+				graphql = {},
 				sqlls = {},
 				lua_ls = {
 					settings = {
