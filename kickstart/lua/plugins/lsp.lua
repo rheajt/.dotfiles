@@ -314,6 +314,19 @@ return {
 				lemminx = {},
 				xmlformatter = {},
 				beautysh = {},
+				cssmodules_ls = {
+					cmd = { "cssmodules-language-server" },
+					filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+					root_dir = require("lspconfig.util").root_pattern("package.json", "node_modules", ".git"),
+					on_attach = function(client)
+						client.server_capabilities.definitionProvider = false
+					end,
+					settings = {
+						cssmodules = {
+							camelCase = true,
+						},
+					},
+				},
 			}
 
 			-- local ensure_installed = vim.tbl_keys(servers or {})
