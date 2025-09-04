@@ -40,6 +40,7 @@ fi
 # User configuration
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 export EDITOR="nvim"
+export VISUAL="nvim"
 export ZVM_VI_EDITOR="nvim"
 export HISTSIZE=10000
 export SAVEHIST=10000
