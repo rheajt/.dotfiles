@@ -6,3 +6,4 @@ local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf --preview="tree $MAIN_DIR/$PROJ
 local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
 cd $FULL_PATH
+tns

@@ -1,14 +1,5 @@
 return {
 	{
-		"luisiacc/gruvbox-baby",
-		priority = 1000,
-		init = function()
-			vim.g.gruvbox_baby_keyword_style = "italic"
-			vim.g.gruvbox_baby_transparent_mode = 1
-			-- vim.cmd.colorscheme("gruvbox-baby")
-		end,
-	},
-	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		config = function()
@@ -36,13 +27,7 @@ return {
 				dim_inactive = false,
 				transparent_mode = true,
 			})
-			vim.cmd("colorscheme gruvbox")
-		end,
-	},
-	{
-		"mtendekuyokwa19/stoics.nvim",
-		config = function()
-			-- vim.cmd("colorscheme stoics")
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 }
