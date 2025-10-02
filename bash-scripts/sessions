@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# test=$(tmux ls 2>/dev/null | fzf --reverse --height=~40% --preview 'tmux list-windows -t {} -F "#{pane_title}"' --preview-window=up:wrap | awk '{print $1}')
-
+# if there are no sessions, echo message and exit
+if [ -z "$(tmux ls 2>/dev/null)" ]; then
+    echo "No tmux sessions found."
+    exit 0
+fi
 test=$(tmux ls 2>/dev/null | fzf --reverse --height=40% --preview 'tmux list-windows -t {1} -F "#{window_index}: #{window_name} (#{window_panes} panes)"' | awk '{print $1}')
 
 if [ -z "$test" ]; then
