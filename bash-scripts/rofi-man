@@ -1,6 +1,29 @@
 #!/bin/zsh
 
-# show all of the available man pages in a rofi menu
-SELECTION=$(man -k . | cut -d ' ' -f 1 | rofi -dmenu -)
+# show all of the available man pages in a rofi menu and then open the selected one
+selection=$(man -k . | cut -d ' ' -f 1 | rofi -dmenu -sorting-method fzf -sort -matching fuzzy)
+[ -z "$selection" ] && exit 0
 
-man $SELECTION
+# Try $TERMINAL first, then common terminals. Open man page in a new terminal.
+for term in "${TERMINAL:-}" alacritty kitty st urxvt gnome-terminal xfce4-terminal konsole xterm; do
+  [ -z "$term" ] && continue
+  if command -v "$term" >/dev/null 2>&1; then
+    case "$term" in
+      gnome-terminal|xfce4-terminal)
+        "$term" -- bash -c "man '$selection' ; read -n1 -s -p 'Press any key to close...'" &
+        ;;
+      konsole)
+        "$term" -e bash -lc "man '$selection'; read -n1 -s -p 'Press any key to close...'" &
+        ;;
+      *)
+        "$term" -e man "$selection" &
+        ;;
+    esac
+    exit 0
+  fi
+done
+
+# If we get here, no terminal was found
+printf "%s\n" "No terminal emulator found to display man page." >&2
+
+
