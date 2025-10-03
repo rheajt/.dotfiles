@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# show all of the available man pages in a rofi menu
+SELECTION=$(man -k . | cut -d ' ' -f 1 | rofi -dmenu -)
+
+man $SELECTION

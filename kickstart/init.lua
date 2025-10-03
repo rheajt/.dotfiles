@@ -4,23 +4,23 @@ vim.g.maplocalleader = " "
 -- Highlight the border of the currently active split window
 -- Sets distinct colors for active/inactive split separators and updates per-window
 do
-  -- define highlight groups (adjust hex colors if you prefer theme-matching values)
-  pcall(vim.api.nvim_set_hl, 0, "ActiveWinSeparator", { fg = "#fabd2f" })
-  pcall(vim.api.nvim_set_hl, 0, "InactiveWinSeparator", { fg = "#4b5263" })
+	-- define highlight groups (adjust hex colors if you prefer theme-matching values)
+	pcall(vim.api.nvim_set_hl, 0, "ActiveWinSeparator", { fg = "#fabd2f" })
+	pcall(vim.api.nvim_set_hl, 0, "InactiveWinSeparator", { fg = "#4b5263" })
 
-  local aug = vim.api.nvim_create_augroup("ActiveWinSeparator", { clear = true })
-  vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "WinNew" }, {
-    group = aug,
-    callback = function()
-      vim.opt_local.winhighlight = "WinSeparator:ActiveWinSeparator"
-    end,
-  })
-  vim.api.nvim_create_autocmd("WinLeave", {
-    group = aug,
-    callback = function()
-      vim.opt_local.winhighlight = "WinSeparator:InactiveWinSeparator"
-    end,
-  })
+	local aug = vim.api.nvim_create_augroup("ActiveWinSeparator", { clear = true })
+	vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "WinNew" }, {
+		group = aug,
+		callback = function()
+			vim.opt_local.winhighlight = "WinSeparator:ActiveWinSeparator"
+		end,
+	})
+	vim.api.nvim_create_autocmd("WinLeave", {
+		group = aug,
+		callback = function()
+			vim.opt_local.winhighlight = "WinSeparator:InactiveWinSeparator"
+		end,
+	})
 end
 
 -- [[ Install `lazy.nvim` plugin manager ]] See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -144,10 +144,13 @@ require("lazy").setup(
 							},
 						},
 					},
-					xmlformatter = {
-						cmd = "xmlformatter",
-						args = { "--indent", "4" },
-					},
+					-- xmlformatter = {
+					-- 	cmd = "xmlformatter",
+					-- 	args = { "--indent", "4" },
+					-- 	settings = {
+					-- 		compress = false,
+					-- 	},
+					-- },
 					prettier = {
 						settings = {
 							tabWidth = 4,
@@ -175,9 +178,9 @@ require("lazy").setup(
 					gql = { "prettierd", "prettier" },
 					sh = { "beautysh" },
 					markdown = { "prettierd", "prettier" },
-					sql = { "sqlfmt" },
+					sql = { "sleek" },
 					handlebars = { "prettierd", "prettier" },
-					xml = { "xmlformatter" },
+					xml = { "lemminx" },
 				},
 			},
 		},
@@ -185,18 +188,9 @@ require("lazy").setup(
 		-- Highlight todo, notes, etc in comments
 		{
 			"folke/todo-comments.nvim",
-			lazy = true,
-			event = "VimEnter",
 			dependencies = { "nvim-lua/plenary.nvim" },
-			opts = { signs = true },
-			keys = {
-				{
-					"<leader>st",
-					function()
-						Snacks.picker.todo_comments()
-					end,
-					desc = "[S]how [T]odo Comments",
-				},
+			opts = {
+				signs = false,
 			},
 		},
 
@@ -215,6 +209,7 @@ require("lazy").setup(
 					"markdown",
 					"vim",
 					"vimdoc",
+					"sql",
 				},
 				-- Autoinstall languages that are not installed
 				auto_install = true,

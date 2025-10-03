@@ -10,7 +10,7 @@ return {
 			options = {
 				icons_enabled = true,
 				-- theme = "monokai-pro",
-				theme = "gruvbox-baby",
+				theme = "gruvbox",
 				-- component_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },

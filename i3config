@@ -39,6 +39,8 @@ bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -
 
 bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "~/.local/sh/sound-menu"
+bindsym $mod+shift+b exec "firefox"
+bindsym $mod+shift+m exec "~/projects/dotfiles/bash-scripts/rofi-man"
 
 # screenshot
 bindsym $mod+shift+f exec "flameshot gui"
