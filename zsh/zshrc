@@ -55,6 +55,7 @@ function zvm_after_init() {
 }
 zvm_after_init_commands+=(zvm_after_init)
 
+echo "Loaded .zshrc"
 
 
 

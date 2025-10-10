@@ -82,6 +82,11 @@ eval "`fnm env --use-on-cd`"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# golang
+path+=(
+  /usr/local/go/bin
+)
+
 
 # pnpm
 export PNPM_HOME="/home/jordanrhea/.local/share/pnpm"
@@ -93,5 +98,6 @@ esac
 
 # opencode
 export PATH=/home/jordanrhea/.opencode/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 
-echo "Zsh environment loaded from ~/.zshenv"
+echo "Loaded .zshenv"
