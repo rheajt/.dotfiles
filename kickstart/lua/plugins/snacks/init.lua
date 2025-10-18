@@ -24,34 +24,35 @@ return {
 			function()
 				Snacks.lazygit()
 			end,
+			desc = "[L]aunch [G]it in Lazygit",
 		},
 		{
 			"<leader>sf",
 			function()
 				Snacks.picker.files()
 			end,
-			{ desc = "[S]earch for [F]iles" },
+			desc = "[S]earch for [F]iles",
 		},
 		{
 			"<leader>sb",
 			function()
 				Snacks.picker.buffers()
 			end,
-			{ desc = "[S]earch for [B]uffers" },
+			desc = "[S]earch for [B]uffers",
 		},
 		{
 			"<leader>sd",
 			function()
 				Snacks.picker.diagnostics()
 			end,
-			{ desc = "[S]earch for [D]iagnostics" },
+			desc = "[S]earch for [D]iagnostics",
 		},
 		{
 			"<leader>sh",
 			function()
 				Snacks.picker.help()
 			end,
-			{ desc = "Search for [H]elp" },
+			desc = "[S]earch for [H]elp",
 		},
 		{
 			"<leader>sg",
@@ -61,14 +62,14 @@ return {
 					hidden = true,
 				})
 			end,
-			{ desc = "Search for [G]it files" },
+			desc = "Search for [G]it files",
 		},
 		{
 			"<leader>sk",
 			function()
 				Snacks.picker.keymaps()
 			end,
-			{ desc = "[S]earch for [K]eys" },
+			desc = "[S]earch for [K]eys",
 		},
 		{
 			"<leader>se",
@@ -78,14 +79,14 @@ return {
 					auto_close = true,
 				})
 			end,
-			{ desc = "[S]earch file [E]xplorer" },
+			desc = "[S]earch file [E]xplorer",
 		},
 		{
 			"<leader>ld",
 			function()
 				Snacks.dim()
 			end,
-			{ desc = "[L]ook at the current scope by [D]imming the rest" },
+			desc = "[L]ook at the current scope by [D]imming the rest",
 		},
 	},
 }

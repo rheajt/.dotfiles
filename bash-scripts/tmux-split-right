@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Replace this with the command you want to send
-cmd="$1"
+cmd="$*"
 
 # Check if a pane exists to the right of the current pane.
 if [ "$(tmux display-message -p '#{pane_at_right}')" -eq 1 ]; then
-    echo "No Pane to the right"
-    # There is a pane on the right: select it and send the command.
-    tmux split-window -h
-    tmux send-keys -t right "$cmd" Enter
+    # There is a pane on the right: create a new split and run there.
+    target_pane="$(tmux split-window -h -P -F '#{pane_id}')"
 else
-    # No pane to the right: split the window horizontally and run the command.
+    # No pane to the right: select the right pane and run there.
     tmux select-pane -R
-    tmux send-keys "$cmd" C-m
+    target_pane="$(tmux display-message -p '#{pane_id}')"
 fi
 
+# Run the command, then wait for a keypress and close the pane
+suffix="; printf '\nPress any key to close...'; read -r -n 1; exit"
+tmux send-keys -t "$target_pane" "$cmd$suffix" C-m
