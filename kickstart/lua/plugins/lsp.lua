@@ -273,6 +273,7 @@ return {
 			})
 
 			local servers = {
+				copilot = {},
 				graphql = {},
 				sqlls = {},
 				lua_ls = {
@@ -285,7 +286,7 @@ return {
 						},
 					},
 				},
-				-- emmet_language_server = {},
+				emmet_language_server = {},
 				html = {},
 				cssls = {},
 				jsonls = {

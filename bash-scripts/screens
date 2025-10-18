@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 selected=$(echo "Single,Mirror,Multiple,Multiple (H),Multiple (V)" | rofi -dmenu -sep ',' -p "SCREEN OPTIONS" -sorting-method fzf -sort -matching fuzzy)
-
 
 # echo $selected
 case "$selected" in
