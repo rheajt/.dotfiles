@@ -10,7 +10,7 @@ font:
   # Normal (roman) font face
   normal:
     family: mononoki Nerd Font Mono
-    size: 7.0
+  size: 8.0
 
 key_bindings:
   - { key: Return, mods: Control|Super, action: SpawnNewInstance }
