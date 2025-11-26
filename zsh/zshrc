@@ -11,13 +11,10 @@ plugins=(
     zsh-autosuggestions
 )
 
-
 # load cargo env
 source "$HOME/.cargo/env"
 # load omz env
 source $ZSH/oh-my-zsh.sh
-
-
 
 # a bunch of aliases
 alias pscli="~/projects/powerschool/pscli/bin/dev.js"
@@ -54,9 +51,7 @@ function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 zvm_after_init_commands+=(zvm_after_init)
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 echo "Loaded .zshrc"
 
-
-
-# source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

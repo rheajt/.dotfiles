@@ -51,8 +51,8 @@ export LANG=en_US.UTF-8
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
 
-export XDG_CURRENT_DESKTOP=Gnome
-export XDG_DESKTOP_PORTAL_DIR=Gnome
+export XDG_CURRENT_DESKTOP=COSMIC
+export XDG_DESKTOP_PORTAL_DIR=COSMIC
 
 # set up the chatgpt secret
 export OPENAI_API_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
