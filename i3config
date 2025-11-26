@@ -34,8 +34,8 @@ floating_modifier $mod
 
 bindsym $mod+t exec alacritty
 bindsym $mod+shift+q kill
-bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
-# bindsym $mod+d exec rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+# bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
+bindsym $mod+d exec rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
 bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "~/.local/sh/sound-menu"
