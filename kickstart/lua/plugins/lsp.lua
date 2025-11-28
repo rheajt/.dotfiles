@@ -272,11 +272,11 @@ return {
 				},
 			})
 
-                        local servers = {
-                                copilot = {},
-                                graphql = {},
-                                sqlls = {},
-                                lua_ls = {
+			local servers = {
+				copilot = {},
+				graphql_ls = {},
+				sqlls = {},
+				lua_ls = {
 					settings = {
 						Lua = {
 							diagnostics = {
@@ -311,26 +311,26 @@ return {
 						},
 					},
 				},
-                                stylua = {},
-                                lemminx = {},
-                                xmlformatter = {},
-                                beautysh = {},
-                                cssmodules_ls = {
-                                        filetypes = {
-                                                "javascript",
-                                                "javascriptreact",
-                                                "typescript",
-                                                "typescriptreact",
-                                        },
-                                        init_options = {
-                                                -- Keep class name completion aligned with CSS dashes
-                                                camelCase = "dashes",
-                                        },
-                                },
-                        }
+				stylua = {},
+				lemminx = {},
+				xmlformatter = {},
+				beautysh = {},
+				cssmodules_ls = {
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+					},
+					init_options = {
+						-- Keep class name completion aligned with CSS dashes
+						camelCase = "dashes",
+					},
+				},
+			}
 
-                        local ensure_installed = vim.tbl_keys(servers or {})
-                        require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+			-- local ensure_installed = vim.tbl_keys(servers or {})
+			-- require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			for server, cfg in pairs(servers) do
