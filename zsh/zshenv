@@ -24,9 +24,7 @@ path=(
   $path
 )
 
-. "$HOME/.cargo/env"
-
-export PATH=$HOME/projects/dotfiles/bash-scripts:$HOME/.local/sh:/usr/local/bin:$PATH
+# export PATH=$HOME/.local/sh:/usr/local/bin:$PATH
 
 if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"
@@ -51,12 +49,8 @@ export LANG=en_US.UTF-8
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
 
-export XDG_CURRENT_DESKTOP=COSMIC
-export XDG_DESKTOP_PORTAL_DIR=COSMIC
-
-# set up the chatgpt secret
-export OPENAI_API_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
-export OPENAI_KEY=$(gpg -d ~/.config/chatgpt/chatgpt-secret.txt.gpg 2>/dev/null)
+# export XDG_CURRENT_DESKTOP=COSMIC
+# export XDG_DESKTOP_PORTAL_DIR=COSMIC
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
@@ -75,18 +69,10 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
 eval "`fnm env --use-on-cd`"
 
-# bun completions
-[ -s "/home/jordanrhea/.bun/_bun" ] && source "/home/jordanrhea/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # golang
 path+=(
   /usr/local/go/bin
 )
-
 
 # pnpm
 export PNPM_HOME="/home/jordanrhea/.local/share/pnpm"
@@ -100,4 +86,3 @@ esac
 export PATH=/home/jordanrhea/.opencode/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 
-echo "Loaded .zshenv"
