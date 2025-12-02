@@ -273,6 +273,7 @@ return {
 			})
 
 			local servers = {
+				eslint_d = {},
 				copilot = {},
 				graphql_ls = {},
 				sqlls = {},
