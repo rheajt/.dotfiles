@@ -1,6 +1,11 @@
 ---INFO: Snacks.picker
 ---@class snacks.picker.Config
 return {
+	actions = {
+		sidekick_send = function()
+			return require("snacks.cli.picker.snacks").send()
+		end,
+	},
 	prompt = " ",
 	sources = {},
 	focus = "input",
@@ -93,6 +98,7 @@ return {
 				["<S-Tab>"] = { "select_and_prev", mode = { "i", "n" } },
 				["<Tab>"] = { "select_and_next", mode = { "i", "n" } },
 				["<Up>"] = { "list_up", mode = { "i", "n" } },
+				["<a-a>"] = { "sidekick_send", mode = { "n", "i" } },
 				["<a-d>"] = { "inspect", mode = { "n", "i" } },
 				["<a-f>"] = { "toggle_follow", mode = { "i", "n" } },
 				["<a-h>"] = { "toggle_hidden", mode = { "i", "n" } },
