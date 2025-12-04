@@ -2,8 +2,8 @@
 ---@class snacks.picker.Config
 return {
 	actions = {
-		sidekick_send = function()
-			return require("snacks.cli.picker.snacks").send()
+		sidekick_send = function(...)
+			return require("sidekick.cli.picker.snacks").send(...)
 		end,
 	},
 	prompt = " ",
@@ -94,7 +94,6 @@ return {
 				["<C-w>"] = { "<c-s-w>", mode = { "i" }, expr = true, desc = "delete word" },
 				["<CR>"] = { "confirm", mode = { "n", "i" } },
 				["<Down>"] = { "list_down", mode = { "i", "n" } },
-				["<S-CR>"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
 				["<S-Tab>"] = { "select_and_prev", mode = { "i", "n" } },
 				["<Tab>"] = { "select_and_next", mode = { "i", "n" } },
 				["<Up>"] = { "list_up", mode = { "i", "n" } },
