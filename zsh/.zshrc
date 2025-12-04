@@ -72,7 +72,3 @@ load_openai_keys() {
     fi
   fi
 }
-
-
-
-export ZSH_TEST_MARKER="loaded"
