@@ -2,6 +2,25 @@
 
 a collection of my dotfiles
 
+## Setup
+
+### Zsh Configuration
+
+To set up zsh configuration:
+
+1. Clone this repository
+2. Run the setup script:
+   ```bash
+   cd zsh
+   ./link-files.sh
+   ```
+
+This will create symbolic links for your zsh configuration:
+- `~/.zshenv` → `~/.config/zsh/zshenv`
+- `~/.config/zsh` → `/path/to/dotfiles/zsh`
+
+The configuration will be automatically loaded when you start zsh.
+
 ## Directory stucture
 ├── alacritty.yml
 ├── bash-scripts
@@ -76,4 +95,4 @@ a collection of my dotfiles
 ├── tmux.conf
 └── zshrc
 
-8 directories, 64 files
+Note: The zsh directory contains .zshrc, .zprofile, zshenv, and link-files.sh
