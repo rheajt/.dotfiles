@@ -72,6 +72,3 @@ load_openai_keys() {
     fi
   fi
 }
-
-
-
