@@ -4,11 +4,8 @@ a collection of my dotfiles
 
 ## Directory stucture
 ├── alacritty.yml
-
 ├── bash-scripts
-
 │   ├── clasp-push-complete
-
 │   ├── finder
 │   ├── fkill
 │   ├── flameshot
