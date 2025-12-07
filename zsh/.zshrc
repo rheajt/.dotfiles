@@ -6,9 +6,9 @@ ZSH_THEME="af-magic" # set by `omz`
 plugins=(
     git 
     fzf 
-    zsh-vi-mode 
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    zsh-vi-mode 
+    fast-syntax-highlighting
 )
 
 # load cargo env

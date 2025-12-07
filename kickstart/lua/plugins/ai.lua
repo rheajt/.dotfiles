@@ -1,65 +1,75 @@
 -- NOTE: most templates are inspired from ChatGPT.nvim -> chatgpt-actions.json
-local prompts = {
+local custom_prompts = {
 	grammar = {
 		description = "Correct grammar",
-		prompt = "Correct the @buffer to standard English, but keep any code blocks inside intact.",
+		prompt = "Correct the {buffer} to standard English, but keep any code blocks inside intact.",
 	},
-	extract_keywords = {
+	extract_keywords_buffer = {
 		description = "Extract keywords",
-		prompt = "Extract the main keywords from the @buffer",
+		prompt = "Extract the main keywords from the {buffer}",
 	},
-	readability = {
+	readability_selection = {
 		description = "Code readability analysis",
 		prompt = [[
-  You must identify any readability issues in the code snippet.
-  Some readability issues to consider:
-  - Unclear naming
-  - Unclear purpose
-  - Redundant or obvious comments
-  - Lack of comments
-  - Long or complex one liners
-  - Too much nesting
-  - Long variable names
-  - Inconsistent naming and code style.
-  - Code repetition
-  You may identify additional problems. The user submits a small section of code from a larger file.
-  Only list lines with readability issues, in the format <line_num>|<issue and proposed solution>
-  If there's no issues with code respond with only: <OK>
-]],
+          You must identify any readability issues in the {selection}
+          Some readability issues to consider:
+          - Unclear naming
+          - Unclear purpose
+          - Redundant or obvious comments
+          - Lack of comments
+          - Long or complex one liners
+          - Too much nesting
+          - Long variable names
+          - Inconsistent naming and code style.
+          - Code repetition
+          You may identify additional problems. The user submits a small section of code from a larger file.
+          Only list lines with readability issues, in the format <line_num>|<issue and proposed solution>
+          If there's no issues with code respond with only: <OK>
+        ]],
 	},
-	optimize = {
+	optimize_buffer = {
 		description = "Optimize code",
-		prompt = "Optimize the code in this @buffer in a few sentences",
+		prompt = "Optimize the code in this {buffer} in a few sentences",
 	},
 	summarize_selection = {
 		description = "Summarize selection",
-		prompt = "Summarize the @selection in a few sentences",
+		prompt = "Summarize the {selection} in a few sentences",
 	},
 	translate = {
 		description = "Translate to Chinese",
-		prompt = "Translate this into Chinese, but keep any code blocks inside intact",
+		prompt = "Translate {selection} into Chinese, but keep any code blocks inside intact",
 	},
 	explain = {
 		description = "Explain code",
-		prompt = "Explain the code in this @buffer",
+		prompt = "Explain the code in this {buffer}",
 	},
 	complete = {
 		description = "Complete code",
-		prompt = "Complete the @selection written in " .. vim.bo.filetype,
+		prompt = "Complete the {selection} written in " .. vim.bo.filetype,
 	},
 	docstring = {
 		description = "Add docstrings",
-		prompt = "Add docstrings to the @buffer",
+		prompt = "Add docstrings to the {buffer}",
 	},
 	fix_bugs = {
 		description = "Fix bugs",
-		prompt = "Fix the bugs inside the @buffer, if any",
+		prompt = "Fix the bugs inside the {buffer}, if any",
 	},
 	tests = {
 		description = "Add tests",
-		prompt = "Implement tests for the current @buffer",
+		prompt = "Implement tests for the current {buffer}",
+	},
+	refactor = {
+		description = "Refactor the buffer",
+		prompt = "Refactor the code in the current {buffer}",
 	},
 }
+
+local prompts = {}
+for key, value in pairs(custom_prompts) do
+	prompts[key] = value.prompt
+end
+
 return {
 	{
 		"folke/sidekick.nvim",
@@ -70,6 +80,7 @@ return {
 					backend = "tmux",
 					enabled = true,
 				},
+				prompts = prompts,
 			},
 		},
 		keys = {
@@ -153,7 +164,7 @@ return {
 				"<leader>ap",
 				function()
 					local opts = {
-						prompts = prompts,
+						prompts = { hello = "world" },
 					}
 					require("sidekick.cli").prompt(opts)
 				end,
