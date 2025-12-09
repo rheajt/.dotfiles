@@ -98,6 +98,7 @@ return {
 					end
 
 					-- any other things (like snippets) you want to do on <tab> go here.
+					vim.snippet.expand_or_jumpable()
 
 					-- fall back to normal tab
 					return "<tab>"

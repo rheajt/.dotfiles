@@ -1,18 +1,74 @@
 {
   "solid": {
-    "prefix": "solid",
+    "prefix": ["solid", "solidrender"],
     "body": [
       "import { render } from 'solid-js/web';",
-      "render(() => (",
-      "    <div>",
-      "        $1",
-      "    </div>",
-      "    ), document.getElementById('root')!);"
+      "render(() => <div>$1</div>, document.getElementById('root')!);"
     ],
     "description": "Create a new Solid component"
   },
+  "fetch_data": {
+    "prefix": "psclifetch",
+    "body": [
+      "interface Payload {",
+      "[key: string]: string;",
+      "}",
+      "",
+      "export async function fetchPowerQuery<T>(",
+      "endpoint: string,",
+      "body: Payload,",
+      "): Promise<T[]> {",
+      "if (process.env.NODE_ENV === \"development\") {",
+      "console.log(\"development\", endpoint, body);",
+
+      "// return something for development",
+      "const resp = await fetch(`http://localhost:4000/api/${endpoint}`, {",
+      "method: \"post\",",
+      "headers: { \"Content-Type\": \"application/json\" },",
+      "body: JSON.stringify(body),",
+      "});",
+      "",
+      "const json = await resp.json();",
+      "if (!json.record) {",
+      "return [];",
+      "}",
+      "return json.record;",
+      "}",
+      "",
+      "try {",
+      "const resp = await fetch(`/ws/schema/query/${endpoint}?pagesize=0`, {",
+      "method: \"post\",",
+      "credentials: \"include\",",
+      "headers: { \"content-type\": \"application/json\" },",
+      "body: JSON.stringify(body),",
+      "});",
+
+      "if (!resp.ok) {",
+      "console.error(\"RESPONSE\", resp.body, await resp.text());",
+
+      "throw new Error(",
+      "`Error fetching data::${resp.status}::${resp.statusText}`",
+      ");",
+      "}",
+
+      "const json = await resp.json();",
+
+      "// console.log(endpoint, json);",
+      "if (!json.record) {",
+      "return [];",
+      "}",
+
+      "return json.record;",
+      "} catch (err) {",
+      "console.error(err);",
+      "throw new Error(`Error fetching data::${err}`);",
+      "}",
+      "}"
+    ]
+  },
   "react": {
-    "prefix": "~rnc",
+    "prefix": ["funcomp", "solidfuncomp", "reactfuncomp"],
+    "description": "Create a new functional component (for react or solid)",
     "body": [
       "type $1Props = {}",
       "",

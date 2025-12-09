@@ -275,7 +275,7 @@ return {
 			local servers = {
 				eslint_d = {},
 				copilot = {},
-				graphql_ls = {},
+				graphql = {},
 				sqlls = {},
 				lua_ls = {
 					settings = {

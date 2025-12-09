@@ -176,6 +176,7 @@ require("lazy").setup(
 					css = { "prettierd", "prettier" },
 					scss = { "prettierd", "prettier" },
 					gql = { "prettierd", "prettier" },
+					graphql = { "prettierd", "prettier" },
 					sh = { "beautysh" },
 					markdown = { "prettierd", "prettier" },
 					sql = { "sleek" },

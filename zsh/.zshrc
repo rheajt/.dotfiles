@@ -72,3 +72,4 @@ load_openai_keys() {
     fi
   fi
 }
+load_openai_keys
