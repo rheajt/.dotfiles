@@ -20,9 +20,14 @@ tmux new-session -d -s $DIR_STEM
 tmux rename-window -t $DIR_STEM:1 'code'
 tmux new-window -t $DIR_STEM:2 -n 'dev'
 
+# Print first 10 lines of readme in dev window if it exists
+if [ -f "readme.md" ]; then
+    tmux send-keys -t $DIR_STEM:2 'head -10 readme.md' C-m
+elif [ -f "README.md" ]; then
+    tmux send-keys -t $DIR_STEM:2 'head -10 README.md' C-m
+fi
+
 tmux send-keys -t $DIR_STEM:1 'v' C-m
 tmux attach -t $DIR_STEM
 tmux select-window -t $DIR_STEM:1
-
-# go to window 1
 

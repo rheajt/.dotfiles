@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 local MAIN_DIR=~/projects
 local PROJECT_TYPE=$(ls $MAIN_DIR | fzf --preview="tree $MAIN_DIR/{} -L 1 -d" --reverse)
@@ -6,4 +6,7 @@ local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf --preview="tree $MAIN_DIR/$PROJ
 local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
 cd $FULL_PATH
-tns
+
+if [[ -d "node_modules" && -f "readme.md" ]]; then
+    tns
+fi
