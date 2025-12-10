@@ -7,6 +7,6 @@ local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
 cd $FULL_PATH
 
-if [[ -d "node_modules" && -f "readme.md" ]]; then
+if [[ -d "node_modules" ]]; then
     tns
 fi
