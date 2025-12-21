@@ -1,6 +1,148 @@
-#!/bin/bash
+#!/usr/bin/env zsh
+set -euo pipefail
 
-$MARKDOWN=$1
-$PDF=$2
+usage() {
+    cat <<'EOF'
+Usage:
+  md-to-pdf.zsh [--no-compress] [--preset <screen|ebook|printer|prepress>] <file.md | directory>
 
-pandoc $MARKDOWN --pdf-engine=xelatex -o $PDF
+Behavior:
+  - If <file.md> is provided: converts that file to PDF next to it.
+  - If <directory> is provided: recursively converts all .md files inside it.
+  - Compression is ON by default (Ghostscript). Disable with --no-compress.
+
+Notes:
+  - Requires: pandoc + xelatex
+  - For compression: ghostscript (gs)
+EOF
+}
+
+# Defaults
+COMPRESS=1
+PRESET="ebook"   # balanced default
+
+# Parse args
+args=()
+while (( $# > 0 )); do
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        --no-compress)
+            COMPRESS=0
+            shift
+            ;;
+        --compress)
+            COMPRESS=1
+            shift
+            ;;
+        --preset)
+            shift
+            if (( $# == 0 )); then
+                echo "❌ Missing value for --preset"
+                usage
+                exit 1
+            fi
+            PRESET="$1"
+            shift
+            ;;
+        --preset=*)
+            PRESET="${1#--preset=}"
+            shift
+            ;;
+        --*)
+            echo "❌ Unknown option: $1"
+            usage
+            exit 1
+            ;;
+        *)
+            args+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if (( ${#args[@]} != 1 )); then
+    usage
+    exit 1
+fi
+
+TARGET="${args[1]}"
+
+# Validate preset
+case "$PRESET" in
+    screen|ebook|printer|prepress) ;;
+    *)
+        echo "❌ Invalid preset: $PRESET"
+        echo "   Allowed: screen, ebook, printer, prepress"
+        exit 1
+        ;;
+esac
+
+# Dependency checks
+command -v pandoc >/dev/null 2>&1 || { echo "❌ pandoc not found in PATH"; exit 1; }
+
+# Only required if compression enabled
+if (( COMPRESS == 1 )); then
+    command -v gs >/dev/null 2>&1 || { echo "❌ Compression enabled but ghostscript (gs) not found in PATH"; exit 1; }
+fi
+
+compress_pdf() {
+    local pdf="$1"
+    local tmp="${pdf}.tmp"
+
+    # Ghostscript compression
+    gs \
+        -sDEVICE=pdfwrite \
+        -dCompatibilityLevel=1.4 \
+        -dPDFSETTINGS="/${PRESET}" \
+        -dNOPAUSE \
+        -dQUIET \
+        -dBATCH \
+        -sOutputFile="$tmp" \
+        "$pdf"
+
+    mv "$tmp" "$pdf"
+}
+
+convert_file() {
+    local file="$1"
+
+    if [[ "${file##*.}" != "md" ]]; then
+        echo "⚠️  Skipping non-Markdown file: $file"
+        return 0
+    fi
+
+    local output="${file%.md}.pdf"
+    echo "→ $file → $output"
+
+    pandoc \
+        -f gfm \
+        -t pdf \
+        --pdf-engine=xelatex \
+        "$file" \
+        -o "$output"
+
+    if (( COMPRESS == 1 )); then
+        echo "  ↳ compress (${PRESET})"
+        compress_pdf "$output"
+    fi
+}
+
+if [[ -f "$TARGET" ]]; then
+    convert_file "$TARGET"
+elif [[ -d "$TARGET" ]]; then
+    echo "📁 Converting Markdown files in directory: $TARGET"
+    echo "   Compression: $([[ $COMPRESS -eq 1 ]] && echo "ON (${PRESET})" || echo "OFF")"
+
+    find "$TARGET" -type f -name "*.md" -print0 | while IFS= read -r -d '' file; do
+        convert_file "$file"
+    done
+else
+    echo "❌ Not a file or directory: $TARGET"
+    exit 1
+fi
+
+echo "✅ Done."
+

@@ -52,4 +52,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Tmux-style split creation
+vim.keymap.set("n", "<C-=>", "<cmd>vsplit<CR>", { desc = "Split right" })
+vim.keymap.set("n", "<C-->", "<cmd>split<CR>", { desc = "Split below" })
+
 print("keymaps loaded")

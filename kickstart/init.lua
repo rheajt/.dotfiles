@@ -1,28 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Highlight the border of the currently active split window
--- Sets distinct colors for active/inactive split separators and updates per-window
-do
-	-- define highlight groups (adjust hex colors if you prefer theme-matching values)
-	pcall(vim.api.nvim_set_hl, 0, "ActiveWinSeparator", { fg = "#fabd2f" })
-	pcall(vim.api.nvim_set_hl, 0, "InactiveWinSeparator", { fg = "#4b5263" })
-
-	local aug = vim.api.nvim_create_augroup("ActiveWinSeparator", { clear = true })
-	vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "WinNew" }, {
-		group = aug,
-		callback = function()
-			vim.opt_local.winhighlight = "WinSeparator:ActiveWinSeparator"
-		end,
-	})
-	vim.api.nvim_create_autocmd("WinLeave", {
-		group = aug,
-		callback = function()
-			vim.opt_local.winhighlight = "WinSeparator:InactiveWinSeparator"
-		end,
-	})
-end
-
 -- [[ Install `lazy.nvim` plugin manager ]] See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

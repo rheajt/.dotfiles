@@ -1,27 +1,3 @@
-# [colors.bright]
-# black = "0x32302f"
-# blue = "0x7daea3"
-# cyan = "0x89b482"
-# green = "0xa9b665"
-# magenta = "0xd3869b"
-# red = "0xea6962"
-# white = "0xd4be98"
-# yellow = "0x8b6b1b"
-#
-# [colors.normal]
-# black = "0x32302f"
-# blue = "0x7daea3"
-# cyan = "0x89b482"
-# green = "0xa9b665"
-# magenta = "0xd3869b"
-# red = "0xea6962"
-# white = "0xd4be98"
-# yellow = "0x8b6b1b"
-#
-# [colors.primary]
-# background = "0x1d2021"
-# foreground = "0xd4be98"
-
 [font.normal]
 family = "mononoki Nerd Font Mono"
 
@@ -32,6 +8,41 @@ size = 9.0
 action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Super"
+
+# Keep terminal font resizing everywhere EXCEPT inside Neovim.
+# Neovim will switch Alacritty into `AppKeypad` mode on startup,
+# and back out on exit, so <C-=> / <C--> can be used for splits.
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+mode = "~AppKeypad"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+mode = "~AppKeypad"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+mode = "~AppKeypad"
+
+# When Neovim enables AppKeypad mode, pass these through to Neovim.
+# This overrides Alacritty's default font-size shortcuts.
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Equals"
+mods = "Control"
+mode = "AppKeypad"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Minus"
+mods = "Control"
+mode = "AppKeypad"
 
 [window]
 decorations = "none"
