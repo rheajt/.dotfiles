@@ -2,7 +2,7 @@
 family = "mononoki Nerd Font Mono"
 
 [font]
-size = 9.0
+size = 7.0
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
