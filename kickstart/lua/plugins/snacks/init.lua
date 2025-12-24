@@ -72,6 +72,14 @@ return {
 			desc = "[S]earch for [K]eys",
 		},
 		{
+			"<leader>sc",
+			function()
+				Snacks.picker.grep_word()
+			end,
+			desc = "[S]earch for current [C]word under cursor",
+			mode = { "n", "v" },
+		},
+		{
 			"<leader>se",
 			function()
 				Snacks.picker.explorer({
