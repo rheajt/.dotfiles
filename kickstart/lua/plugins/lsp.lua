@@ -135,20 +135,20 @@ return {
 
 					local wk = require("which-key")
 					wk.add({
-						{ "grn", desc = "LSP: Rename" },
-						{ "gca", desc = "LSP: Code Action", mode = { "n", "x" } },
-						{ "grr", desc = "LSP: Goto References" },
-						{ "gri", desc = "LSP: Goto Implementation" },
-						{ "gd", desc = "LSP: Goto Definition" },
-						{ "gD", desc = "LSP: Goto Declaration" },
-						{ "gs", desc = "Open Document Symbols" },
-						{ "gw", desc = "Open Workspace Symbols" },
-						{ "gh", desc = "Go to Hover" },
-						{ "gof", desc = "Go to the Open Float" },
-						{ "gtd", desc = "Goto Type Definition" },
-						{ "gtc", desc = "Goto Todo Comments" },
-						{ "<leader>e", desc = "Show diagnostic [E]rror messages" },
-						{ "<leader>q", desc = "Open diagnostic [Q]uickfix list" },
+						{ "grn", desc = "LSP: [R]e[n]ame" },
+						{ "gca", desc = "LSP: [G]oto Code [A]ction", mode = { "n", "x" } },
+						{ "grr", desc = "LSP: [G]oto [R]eferences" },
+						{ "gri", desc = "LSP: [G]oto [I]mplementation" },
+						{ "gd", desc = "LSP: [G]oto [D]efinition" },
+						{ "gD", desc = "LSP: [G]oto [D]eclaration" },
+						{ "gs", desc = "LSP: Open Document [S]ymbols" },
+						{ "gw", desc = "LSP: Open [W]orkspace Symbols" },
+						{ "gh", desc = "LSP: [G]o to [H]over" },
+						{ "gof", desc = "LSP: [G]o to the [O]pen [F]loat" },
+						{ "gtd", desc = "LSP: [G]oto [T]ype [D]efinition" },
+						{ "gtc", desc = "LSP: [G]oto [T]odo [C]omments" },
+						{ "<leader>e", desc = "LSP: Show diagnostic [E]rror messages" },
+						{ "<leader>q", desc = "LSP: Open diagnostic [Q]uickfix list" },
 					}, { buffer = event.buf })
 
 					-- TODO: remove i think this is not needed anymore
@@ -223,7 +223,7 @@ return {
 						end, "[T]oggle Inlay [H]ints")
 
 						wk.add({
-							{ "<leader>th", desc = "[T]oggle Inlay [H]ints" },
+							{ "<leader>th", desc = "LSP: [T]oggle Inlay [H]ints" },
 						}, { buffer = event.buf })
 					end
 				end,
