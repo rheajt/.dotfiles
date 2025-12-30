@@ -133,6 +133,24 @@ return {
 					map("<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
 					map("<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
 
+					local wk = require("which-key")
+					wk.add({
+						{ "grn", desc = "LSP: Rename" },
+						{ "gca", desc = "LSP: Code Action", mode = { "n", "x" } },
+						{ "grr", desc = "LSP: Goto References" },
+						{ "gri", desc = "LSP: Goto Implementation" },
+						{ "gd", desc = "LSP: Goto Definition" },
+						{ "gD", desc = "LSP: Goto Declaration" },
+						{ "gs", desc = "Open Document Symbols" },
+						{ "gw", desc = "Open Workspace Symbols" },
+						{ "gh", desc = "Go to Hover" },
+						{ "gof", desc = "Go to the Open Float" },
+						{ "gtd", desc = "Goto Type Definition" },
+						{ "gtc", desc = "Goto Todo Comments" },
+						{ "<leader>e", desc = "Show diagnostic [E]rror messages" },
+						{ "<leader>q", desc = "Open diagnostic [Q]uickfix list" },
+					}, { buffer = event.buf })
+
 					-- TODO: remove i think this is not needed anymore
 					-- map("gK", function()
 					-- 	local new_config = not vim.diagnostic.config().virtual_lines
@@ -203,6 +221,10 @@ return {
 						map("<leader>th", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
+
+						wk.add({
+							{ "<leader>th", desc = "[T]oggle Inlay [H]ints" },
+						}, { buffer = event.buf })
 					end
 				end,
 			}) -- end of the autocommand
