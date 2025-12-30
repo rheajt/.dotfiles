@@ -48,6 +48,8 @@ return {
 			vim.api.nvim_create_autocmd("Filetype", {
 				pattern = "norg",
 				callback = function()
+					local wk = require("which-key")
+					local bufnr = vim.api.nvim_get_current_buf()
 					vim.keymap.set(
 						"n",
 						"<leader>ps",
@@ -67,6 +69,11 @@ return {
 						"<Plug>(neorg.presenter.previous-page)",
 						{ desc = "Presentation Previous Page", buffer = true }
 					)
+
+					wk.add({
+						{ "<leader>ps", desc = "[P]resentation [S]tart" },
+						{ "<leader>nt", desc = "[N]ew [T]ask" },
+					}, { buffer = bufnr })
 				end,
 			})
 			vim.wo.foldlevel = 99

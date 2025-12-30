@@ -81,18 +81,67 @@ require("lazy").setup(
 						F12 = "<F12>",
 					},
 				},
-
-				-- Document existing key chains
-				spec = {
-					{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-					{ "<leader>d", group = "[D]ocument" },
-					{ "<leader>r", group = "[R]ename" },
-					{ "<leader>s", group = "[S]earch" },
-					{ "<leader>w", group = "[W]orkspace" },
-					{ "<leader>t", group = "[T]oggle" },
-					{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-				},
 			},
+			config = function(_, opts)
+				local wk = require("which-key")
+				wk.setup(opts)
+
+				wk.add({
+					{ "<leader>a", group = "[A]I / Sidekick" },
+					{ "<leader>c", group = "[C]lose / Buffers" },
+					{ "<leader>d", group = "[D]iagnostics / Quickfix" },
+					{ "<leader>h", group = "[H]arpoon" },
+					{ "<leader>l", group = "[L]azy / Extras" },
+					{ "<leader>q", group = "[Q]uick actions / Terminal" },
+					{ "<leader>s", group = "[S]earch / Snacks" },
+
+					{ "<leader>f", desc = "[F]ormat buffer" },
+					{ "<leader>cc", desc = "[C]lose [C]urrent Buffer" },
+					{ "<leader>qt", desc = "Open [T]erminal" },
+					{ "<leader>sns", desc = "[S]plit [N]ew [S]idebar" },
+
+					{ "<leader>dd", desc = "QuickFix: [D]elete current line" },
+					{ "<leader>df", desc = "QuickFix: Go to [F]irst" },
+					{ "<leader>dl", desc = "QuickFix: Go to [L]ast" },
+					{ "<leader>dn", desc = "QuickFix: Go to [N]ext" },
+					{ "<leader>dp", desc = "QuickFix: Go to [P]revious" },
+					{ "<leader>do", desc = "QuickFix: [O]pen/Close" },
+
+					{ "<leader>sf", desc = "[S]earch for [F]iles" },
+					{ "<leader>sb", desc = "[S]earch for [B]uffers" },
+					{ "<leader>sd", desc = "[S]earch for [D]iagnostics" },
+					{ "<leader>sh", desc = "[S]earch for [H]elp" },
+					{ "<leader>sg", desc = "Search for [G]it files" },
+					{ "<leader>sk", desc = "[S]earch for [K]eys" },
+					{ "<leader>sc", desc = "[S]earch for current [C]word under cursor", mode = { "n", "v" } },
+					{ "<leader>se", desc = "[S]earch file [E]xplorer" },
+
+					{ "<leader>lg", desc = "[L]aunch [G]it in Lazygit" },
+					{ "<leader>ld", desc = "[L]ook at the current scope by [D]imming the rest" },
+
+					{ "<leader>ha", desc = "Harpoon add file" },
+					{ "<leader>hm", desc = "Harpoon menu" },
+					{ "<leader>hn", desc = "Harpoon next" },
+					{ "<leader>hp", desc = "Harpoon previous" },
+					{ "<leader>1", desc = "Harpoon file 1" },
+					{ "<leader>2", desc = "Harpoon file 2" },
+					{ "<leader>3", desc = "Harpoon file 3" },
+					{ "<leader>4;", desc = "Harpoon file 4" },
+
+					{ "<leader>aa", desc = "Sidekick Toggle CLI" },
+					{ "<leader>as", desc = "Sidekick Select CLI" },
+					{ "<leader>ad", desc = "Detach a CLI Session" },
+					{ "<leader>at", desc = "Send This", mode = { "n", "x" } },
+					{ "<leader>af", desc = "Send File" },
+					{ "<leader>av", desc = "Send Visual Selection", mode = { "x" } },
+					{ "<leader>ap", desc = "Sidekick Select Prompt", mode = { "n", "x" } },
+					{ "<leader>ac", desc = "Sidekick Toggle Opencode" },
+				})
+
+				wk.add({
+					{ "<leader>p", desc = "[P]aste without yanking" },
+				}, { mode = "v" })
+			end,
 		},
 		{ -- Autoformat
 			"stevearc/conform.nvim",
