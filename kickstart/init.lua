@@ -126,7 +126,7 @@ require("lazy").setup(
 					{ "<leader>1", desc = "Harpoon file 1" },
 					{ "<leader>2", desc = "Harpoon file 2" },
 					{ "<leader>3", desc = "Harpoon file 3" },
-					{ "<leader>4;", desc = "Harpoon file 4" },
+					{ "<leader>4", desc = "Harpoon file 4" },
 
 					{ "<leader>aa", desc = "Sidekick Toggle CLI" },
 					{ "<leader>as", desc = "Sidekick Select CLI" },
