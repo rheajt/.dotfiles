@@ -50,6 +50,7 @@ export MANPAGER="nvim +Man!"
 export LANG=en_US.UTF-8
 export GTK_USE_PORTAL=1
 export SNACKS_GHOSTTY=true
+export TERMINAL="ghostty"
 
 # export XDG_CURRENT_DESKTOP=COSMIC
 # export XDG_DESKTOP_PORTAL_DIR=COSMIC
