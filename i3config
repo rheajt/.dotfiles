@@ -19,6 +19,7 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -230,9 +231,26 @@ for_window [class="^.*"] border pixel 3
 
 # floats
 for_window [class="Astrill" instance="astrill"] floating enable
+# for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
+# for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
+# for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
+
+# Specific fixes for Zoom, which sucks on notifications taking the area of an entire window...
 for_window [class="(.*join\?action\=join.*|.*zoom.*)"] floating enable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Licensed Account"] floating disable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom - Free Account"] floating disable
 for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"] floating disable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Meeting"] floating disable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Webinar"] floating disable
+for_window [class="(.*join\?action\=join.*|.*zoom.*)" title="Webinar"] floating disable
+# Prevent Zoom from grabbing  mouse+keyboard attention 
+# on the second monitor when a chat pops-in during meetings
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)"]
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Workplace - Licensed Account"]
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Workplace - Free Account"]
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Meeting"]
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)" title="Meeting"]
+no_focus [class="(.*join\?action\=join.*|.*zoom.*)" title="Zoom Webinar"]
 
 # should always run
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -251,7 +269,7 @@ exec --no-startup-id warpd
 exec_always --no-startup-id dunst
 
 # system76-power charge thresholds
-exec --no-startup-id system76-power charge-thresholds --profile max_lifespan > /dev/null 2>&1
+exec --no-startup-id system76-power charge-thresholds --profile balanced > /dev/null 2>&1
 
 # start fcitx5 input method daemon
 exec --no-startup-id fcitx5

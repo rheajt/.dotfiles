@@ -299,6 +299,7 @@ return {
 				copilot = {},
 				graphql = {},
 				sqlls = {},
+				gopls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -338,6 +339,7 @@ return {
 				lemminx = {},
 				xmlformatter = {},
 				beautysh = {},
+				bashls = { filetypes = { "bash", "zsh" } },
 				cssmodules_ls = {
 					filetypes = {
 						"javascript",
