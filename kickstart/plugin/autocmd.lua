@@ -34,22 +34,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- 	end,
 -- })
 
--- Make focused split borders more apparent + dim unfocused windows
---
--- NOTE: Neovim draws split separators from the window "owning" the edge
--- (typically the window on the left or above). To make the *focused* window
--- look framed on all sides, we set per-window `winhighlight` so:
--- - the current window uses an active separator color for its right/bottom
--- - the immediate neighbor windows (left/top) also paint their shared edge active
-local function set_window_ui_highlights()
-	-- Gruvbox-ish colors; tweak to taste
-	vim.api.nvim_set_hl(0, "WinSeparatorActive", { fg = "#fabd2f", bold = true })
-	vim.api.nvim_set_hl(0, "WinSeparatorInactive", { fg = "#3c3836" })
-
-	-- Dim non-current windows (works well with transparent backgrounds)
-	vim.api.nvim_set_hl(0, "NormalNC", { fg = "#928374" })
-end
-
 local function ranges_overlap(a1, a2, b1, b2)
 	return a1 <= b2 and b1 <= a2
 end
