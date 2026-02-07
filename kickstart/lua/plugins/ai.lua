@@ -96,15 +96,6 @@ return {
 						end
 					end
 
-					-- if you are using Neovim's native inline completions
-					if
-						vim.fn.has("nvim-0.10") == 1
-						and vim.lsp.inline_completion
-						and vim.lsp.inline_completion.get()
-					then
-						return
-					end
-
 					-- any other things (like snippets) you want to do on <tab> go here.
 					-- TODO: fix this for luasnip completions
 					-- vim.snippet.expand_or_jumpable()
@@ -115,6 +106,22 @@ return {
 				mode = { "n" },
 				expr = true,
 				desc = "Goto/Apply Next Edit Suggestion",
+			},
+			{
+				"<c-c>",
+				function()
+					local ok, nes = pcall(require, "sidekick.nes")
+					if ok and nes.have and nes.have() then
+						nes.clear()
+						nes.update()
+						return ""
+					end
+
+					return "<c-c>"
+				end,
+				mode = { "n" },
+				expr = true,
+				desc = "Skip Next Edit Suggestion",
 			},
 			{
 				"<c-.>",

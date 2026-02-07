@@ -32,7 +32,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # a bunch of aliases
-alias pscli="~/projects/powerschool/pscli/bin/dev.js"
 alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
 alias v="nvim"
 alias bat="batcat"
