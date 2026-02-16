@@ -98,12 +98,12 @@ return {
 
 					-- any other things (like snippets) you want to do on <tab> go here.
 					-- TODO: fix this for luasnip completions
-					-- vim.snippet.expand_or_jumpable()
+					vim.snippet.expand_or_jumpable()
 
 					-- fall back to normal tab
 					return "<tab>"
 				end,
-				mode = { "n" },
+				mode = { "n", "i" },
 				expr = true,
 				desc = "Goto/Apply Next Edit Suggestion",
 			},
@@ -119,9 +119,9 @@ return {
 
 					return "<c-c>"
 				end,
-				mode = { "n" },
+				mode = { "n", "i" },
 				expr = true,
-				desc = "Skip Next Edit Suggestion",
+				desc = "Close Next Edit Suggestion",
 			},
 			{
 				"<c-.>",

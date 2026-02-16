@@ -1,3 +1,4 @@
+-- THIS IS NOT A WORKING PLUGIN
 return {
 	{ dir = "~/projects/nvim/ps-tags", opts = {}
  },
