@@ -14,8 +14,18 @@ return {
 		notifier = { enabled = true },
 		picker = require("plugins.snacks.picker"),
 		quickfile = { enabled = true },
+		scope = {
+			enabled = true,
+			exclude = {
+				"notify",
+				"noice",
+				"lazy",
+				"mason",
+				"Trouble",
+			},
+		},
 		scroll = { enabled = true },
-		statuscolumn = { enabled = false },
+		statuscolumn = { enabled = true },
 		words = { enabled = true },
 	},
 	keys = {

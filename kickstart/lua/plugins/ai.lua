@@ -87,41 +87,13 @@ return {
 			{
 				"<tab>",
 				function()
-					-- sidekick can consult external backends (e.g. tmux CLI) and may block;
-					-- guard calls so normal <tab> stays snappy.
-					local ok, sidekick = pcall(require, "sidekick")
-					if ok and sidekick.has_edit and sidekick.has_edit() then
-						if sidekick.nes_jump_or_apply() then
-							return -- jumped or applied
-						end
+					-- if there is a next edit, jump to it, otherwise apply it if any
+					if not require("sidekick").nes_jump_or_apply() then
+						return "<Tab>" -- fallback to normal tab
 					end
-
-					-- any other things (like snippets) you want to do on <tab> go here.
-					-- TODO: fix this for luasnip completions
-					vim.snippet.expand_or_jumpable()
-
-					-- fall back to normal tab
-					return "<tab>"
 				end,
-				mode = { "n", "i" },
 				expr = true,
 				desc = "Goto/Apply Next Edit Suggestion",
-			},
-			{
-				"<c-c>",
-				function()
-					local ok, nes = pcall(require, "sidekick.nes")
-					if ok and nes.have and nes.have() then
-						nes.clear()
-						nes.update()
-						return ""
-					end
-
-					return "<c-c>"
-				end,
-				mode = { "n", "i" },
-				expr = true,
-				desc = "Close Next Edit Suggestion",
 			},
 			{
 				"<c-.>",
