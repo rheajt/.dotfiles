@@ -1,20 +1,7 @@
 #!/bin/zsh
 
 # Directory containing the notes
-NOTES_DIR="~/notes"
-
-newNote() {
-    # use rofi to get the note name
-    NOTE_NAME=$(rofi -dmenu -p "Enter new note name (without .norg)")
-
-    # Check if the user entered a name
-    if [ -z "$NOTE_NAME" ]; then
-        echo "No note name entered."
-        exit 1
-    fi
-
-    openInTerminal "$NOTES_DIR/$NOTE_NAME.norg"
-}
+NOTES_DIR=~/Insync/rheajt@gmail.com/drive/Obsidian/
 
 openInTerminal() {
     local filename="$1"
@@ -23,15 +10,19 @@ openInTerminal() {
     # alacritty -e bash -c "cd '$dir' && nvim '$note'"
     # Ensure the file exists or create it
     # Open the file in a terminal using nvim
-    alacritty --working-directory ~/notes -e zsh -c "nvim $filename"
+    ghostty -e zsh -lc "cd $NOTES_DIR && nvim '$filename'"
+}
+
+newNote() {
+    openInTerminal "$NOTES_DIR/00_inbox/inbox.md"
 }
 
 listNotes() {
-    FILES=$(fd . ~/notes --extension norg --type f --hidden --exclude .git --exclude node_modules)
+    FILES=$(fd . $NOTES_DIR --extension md --type f --hidden --exclude .git --exclude node_modules)
     # FILES=$(ls -t1 ~/notes/**/*.norg)
     # Check if files are found
     if [ -z "$FILES" ]; then
-        echo "No .norg files found in $NOTES_DIR"
+        echo "No markdown files found in $NOTES_DIR"
         exit 1
     fi
 

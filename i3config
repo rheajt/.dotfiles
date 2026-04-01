@@ -48,7 +48,7 @@ bindsym $mod+shift+m exec "~/projects/dotfiles/bash-scripts/rofi-man"
 bindsym $mod+shift+f exec "flameshot gui"
 
 # note taking
-bindsym $mod+shift+n exec "~/projects/dotfiles/bash-scripts/norg-rofi-menu"
+bindsym $mod+shift+n exec "~/projects/dotfiles/bash-scripts/notes-menu"
 
 # file managers
 bindsym $mod+shift+g exec "nautilus"

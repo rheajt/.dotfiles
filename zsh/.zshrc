@@ -32,7 +32,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # a bunch of aliases
-alias notes="cd ~/Insync/rheajt@gmail.com/drive/notes/ && nvim"
+alias notes="cd ~/google_drive/Obsidian && nvim"
 alias v="nvim"
 alias bat="batcat"
 alias gs="git status"
@@ -67,18 +67,19 @@ function zvm_after_init() {
 zvm_after_init_commands+=(zvm_after_init)
 # source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-load_openai_keys() {
-  # Only decrypt if not already set
-  if [[ -z "$OPENAI_API_KEY" ]]; then
-    OPENAI_API_KEY="$(gpg --quiet --decrypt ~/.config/chatgpt/chatgpt-secret.txt.gpg)"
-    # if gpg fails, don't clobber with empty
-    if [[ -n "$OPENAI_API_KEY" ]]; then
-      export OPENAI_API_KEY
-      export OPENAI_KEY="$OPENAI_API_KEY"
-    fi
-  fi
-}
-load_openai_keys
+# TODO replace this someday
+# load_openai_keys() {
+#   # Only decrypt if not already set
+#   if [[ -z "$OPENAI_API_KEY" ]]; then
+#     OPENAI_API_KEY="$(gpg --quiet --decrypt ~/.config/chatgpt/chatgpt-secret.txt.gpg)"
+#     # if gpg fails, don't clobber with empty
+#     if [[ -n "$OPENAI_API_KEY" ]]; then
+#       export OPENAI_API_KEY
+#       export OPENAI_KEY="$OPENAI_API_KEY"
+#     fi
+#   fi
+# }
+# load_openai_keys
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

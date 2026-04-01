@@ -35,8 +35,8 @@ vim.opt.scrolloff = 10
 vim.opt.textwidth = 100
 vim.opt.laststatus = 3
 vim.o.winborder = "none"
--- `vim.ui.select` is not set to `Snacks.picker.select`
--- vim.ui.select = Snacks.picker.select
+
+vim.opt_local.conceallevel = 2
 
 -- Set transparent background for Blink completion menu only
 vim.g.have_nerd_font = true
