@@ -63,6 +63,7 @@ local function ensure_blink()
 
 	vim.pack.add({
 		{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("*") },
+		"https://github.com/rafamadriz/friendly-snippets",
 	})
 
 	require("blink.cmp").setup({
@@ -129,7 +130,7 @@ local function ensure_lsp()
 		"https://github.com/b0o/schemastore.nvim",
 	})
 
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	ensure_blink()
 
 	local servers = {
 		-- AI
@@ -222,24 +223,13 @@ local function ensure_lsp()
 
 		-- Shell
 		bashls = { filetypes = { "bash", "zsh" } },
-
-		-- Obsidian
-		obsidian_oxide = {
-			capabilities = vim.tbl_deep_extend("force", capabilities, {
-				experimental = {
-					snippetTextEdit = true,
-				},
-				workspace = {
-					didChangeWatchedFiles = {
-						dynamicRegistration = true,
-					},
-				},
-			}),
-		},
 	}
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 	for server, cfg in pairs(servers) do
-		cfg.capabilities = vim.tbl_deep_extend("force", capabilities, cfg.capabilities or {})
+		local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
+		cfg.capabilities = vim.tbl_deep_extend("force", capabilities, blink_capabilities, cfg.capabilities or {})
 
 		vim.lsp.config(server, cfg)
 		vim.lsp.enable(server)
@@ -271,13 +261,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("twelve-lsp-attach", { clear = true }),
 	callback = function(ev)
-		-- Inject blink.cmp capabilities on first attach
-		ensure_blink()
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		if client then
-			local blink_caps = require("blink.cmp").get_lsp_capabilities()
-			client.capabilities = vim.tbl_deep_extend("force", client.capabilities or {}, blink_caps)
-		end
 
 		local map = function(keys, func, desc, mode)
 			mode = mode or "n"

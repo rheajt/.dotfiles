@@ -6,36 +6,51 @@
 -- Keymaps are defined eagerly but use Snacks.* which becomes available after
 -- UIEnter fires (all keymaps are user-initiated so there is no race).
 
-defer_plugin({
-	name = "snacks",
-	packs = { "https://github.com/folke/snacks.nvim" },
-	event = "UIEnter",
-	setup = function()
-		require("snacks").setup({
-			bigfile = { enabled = true },
-			dim = { enabled = false },
-			explorer = { enabled = true, replace_netrw = true },
-			indent = { enabled = true },
-			input = { enabled = true },
-			lazygit = { enabled = true },
-			notifier = { enabled = true },
-			picker = { enabled = true },
-			quickfile = { enabled = true },
-			scope = {
-				enabled = true,
-				exclude = {
-					"notify",
-					"noice",
-					"lazy",
-					"mason",
-					"Trouble",
-				},
-			},
-			scroll = { enabled = true },
-			statuscolumn = { enabled = true },
-			words = { enabled = true },
-		})
-	end,
+vim.pack.add({
+	"https://github.com/folke/snacks.nvim",
+})
+require("snacks").setup({
+	bigfile = { enabled = true },
+	dim = { enabled = false },
+	explorer = { enabled = true, replace_netrw = true },
+	image = {
+		enabled = true,
+		doc = {
+			-- enable image viewer for documents
+			-- a treesitter parser must be available for the enabled languages.
+			enabled = true,
+			-- render the image inline in the buffer
+			-- if your env doesn't support unicode placeholders, this will be disabled
+			-- takes precedence over `opts.float` on supported terminals
+			inline = false,
+			-- render the image in a floating window
+			-- only used if `opts.inline` is disabled
+			float = true,
+			max_width = 80,
+			max_height = 40,
+			-- Set to `true`, to conceal the image text when rendering inline.
+			conceal = false, -- (experimental)
+		},
+	},
+	indent = { enabled = true },
+	input = { enabled = true },
+	lazygit = { enabled = true },
+	notifier = { enabled = true },
+	picker = { enabled = true },
+	quickfile = { enabled = true },
+	scope = {
+		enabled = true,
+		exclude = {
+			"notify",
+			"noice",
+			"lazy",
+			"mason",
+			"Trouble",
+		},
+	},
+	scroll = { enabled = true },
+	statuscolumn = { enabled = true },
+	words = { enabled = true },
 })
 vim.opt_local.conceallevel = 2
 
