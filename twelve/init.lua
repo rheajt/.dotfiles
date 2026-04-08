@@ -15,22 +15,22 @@ _G._twelve_loaded = {}
 ---   - pattern?: string|string[] -- optional autocmd pattern
 ---   - setup: function -- called once after pack.add; receives the autocmd event args
 function _G.defer_plugin(opts)
-    local loaded = false
-    vim.api.nvim_create_autocmd(opts.event, {
-        group = vim.api.nvim_create_augroup("twelve-defer-" .. (opts.name or "anon"), { clear = true }),
-        pattern = opts.pattern,
-        once = true,
-        callback = function(ev)
-            if loaded then
-                return
-            end
-            loaded = true
-            vim.pack.add(opts.packs)
-            if opts.setup then
-                opts.setup(ev)
-            end
-        end,
-    })
+	local loaded = false
+	vim.api.nvim_create_autocmd(opts.event, {
+		group = vim.api.nvim_create_augroup("twelve-defer-" .. (opts.name or "anon"), { clear = true }),
+		pattern = opts.pattern,
+		once = true,
+		callback = function(ev)
+			if loaded then
+				return
+			end
+			loaded = true
+			vim.pack.add(opts.packs)
+			if opts.setup then
+				opts.setup(ev)
+			end
+		end,
+	})
 end
 
 -- ============================================================================
