@@ -4713,3 +4713,501 @@ times in msec
 073.840  000.687: first screen update
 073.843  000.003: --- NVIM STARTED ---
 
+--- Startup times for process: Primary (or UI client) ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.010  000.010: --- NVIM STARTING ---
+000.200  000.191: event init
+000.304  000.104: early init
+000.529  000.225: locale set
+000.583  000.054: init first window
+001.015  000.431: inits 1
+001.027  000.013: window checked
+001.030  000.003: parsing arguments
+001.578  000.049  000.049: require('vim._core.shared')
+001.657  000.005  000.005: require('string.buffer')
+001.689  000.055  000.050: require('vim.inspect')
+001.741  000.043  000.043: require('vim._core.options')
+001.743  000.161  000.063: require('vim._core.editor')
+001.783  000.040  000.040: require('vim._core.system')
+001.785  000.281  000.031: require('vim._init_packages')
+001.787  000.476: init lua interpreter
+002.963  001.175: nvim_ui_attach
+003.414  000.451: nvim_set_client_info
+003.418  000.004: --- NVIM STARTED ---
+
+--- Startup times for process: Embedded ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+000.153  000.149: event init
+000.258  000.105: early init
+000.490  000.233: locale set
+000.540  000.050: init first window
+000.943  000.403: inits 1
+000.964  000.020: window checked
+000.967  000.003: parsing arguments
+002.369  000.149  000.149: require('vim._core.shared')
+002.658  000.010  000.010: require('string.buffer')
+002.704  000.087  000.077: require('vim.inspect')
+002.782  000.061  000.061: require('vim._core.options')
+002.785  000.386  000.238: require('vim._core.editor')
+002.840  000.054  000.054: require('vim._core.system')
+002.842  000.738  000.150: require('vim._init_packages')
+002.845  001.140: init lua interpreter
+003.091  000.245: expanding arguments
+003.155  000.064: inits 2
+003.756  000.601: init highlight
+003.765  000.009: waiting for UI
+004.024  000.259: done waiting for UI
+004.037  000.014: clear screen
+004.216  000.023  000.023: require('vim.keymap')
+004.833  000.082  000.082: sourcing nvim_exec2()
+004.861  000.004  000.004: require('vim._core.log')
+007.755  003.712  003.602: require('vim._core.defaults')
+007.772  000.023: init default mappings & autocommands
+009.128  000.270  000.270: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/ftplugin.vim
+009.379  000.115  000.115: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/indent.vim
+010.409  000.520  000.520: require('config.settings')
+010.718  000.303  000.303: require('config.keymaps')
+010.724  001.200  000.377: sourcing /home/jordanrhea/.config/nvim/init.lua
+010.735  001.378: sourcing vimrc file(s)
+011.497  000.086  000.086: sourcing /usr/share/nvim/site/ftdetect/ghostty.vim
+011.555  000.606  000.519: sourcing nvim_exec2() called at /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/filetype.lua:0
+011.574  000.781  000.175: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/filetype.lua
+011.967  000.190  000.190: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/syntax/synload.vim
+012.208  000.560  000.370: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/syntax/syntax.vim
+014.254  000.112  000.112: require('vim._async')
+014.285  001.303  001.191: require('vim.pack')
+014.339  000.037  000.037: require('vim.fs')
+014.449  000.009  000.009: require('vim.F')
+014.817  000.285  000.285: require('vim.version')
+016.363  000.532  000.532: require('gruvbox-baby.hsluv')
+016.900  000.531  000.531: require('gruvbox-baby.theme')
+016.904  001.250  000.188: require('gruvbox-baby.util')
+016.905  001.298  000.048: require('gruvbox-baby')
+016.962  000.055  000.055: require('gruvbox-baby.config')
+017.051  000.087  000.087: require('gruvbox-baby.colors')
+019.271  003.705  002.265: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/gruvbox-baby/colors/gruvbox-baby.vim
+019.312  006.391  001.051: sourcing /home/jordanrhea/.config/nvim/plugin/00-gruvbox.lua
+019.662  000.269  000.269: sourcing /home/jordanrhea/.config/nvim/plugin/conform.lua
+019.723  000.038  000.038: sourcing /home/jordanrhea/.config/nvim/plugin/gitsigns.lua
+021.474  001.451  001.451: require('vim.diagnostic')
+021.541  001.798  000.347: sourcing /home/jordanrhea/.config/nvim/plugin/lspconfig.lua
+022.073  000.037  000.037: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/plenary.nvim/plugin/plenary.vim
+022.461  000.037  000.037: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/nvim-web-devicons/plugin/nvim-web-devicons.vim
+023.350  000.108  000.108: require('lualine_require')
+023.656  000.871  000.764: require('lualine')
+024.204  000.035  000.035: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+024.684  000.115  000.115: require('lualine.themes.gruvbox_dark')
+025.205  000.022  000.022: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.229  000.006  000.006: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.248  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.265  000.007  000.007: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.547  000.272  000.272: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.575  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.600  000.006  000.006: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.613  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.626  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.639  000.005  000.005: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.651  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.666  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.677  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.691  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.701  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.712  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.726  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.736  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.748  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+025.772  000.021  000.021: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+026.794  000.025  000.025: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.000  000.009  000.009: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.023  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.518  000.035  000.035: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.575  000.023  000.023: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.608  000.009  000.009: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.634  000.005  000.005: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.673  000.008  000.008: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.710  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+027.737  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+028.584  000.011  000.011: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+028.619  000.011  000.011: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+028.985  000.018  000.018: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.009  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.030  000.011  000.011: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.204  000.006  000.006: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.218  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.368  000.005  000.005: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.406  000.006  000.006: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.535  000.005  000.005: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.555  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.568  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.579  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.592  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.605  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.628  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.644  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.663  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.674  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.688  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.702  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.714  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.732  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.927  000.014  000.014: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.938  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.946  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+029.958  000.009  000.009: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.544  000.009  000.009: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.563  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.600  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.612  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.631  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.639  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.651  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.661  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.681  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.690  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.698  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.707  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.714  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.723  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.737  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.743  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.753  000.003  000.003: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.759  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.765  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.773  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.779  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.790  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.818  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.825  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.835  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.842  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.857  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+030.866  000.002  000.002: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.318  000.016  000.016: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.352  000.006  000.006: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.371  000.016  000.016: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.380  000.005  000.005: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.387  000.004  000.004: sourcing nvim_exec2() called at /home/jordanrhea/projects/dotfiles/twelve/plugin/lualine.lua:0
+031.401  009.834  007.948: sourcing /home/jordanrhea/.config/nvim/plugin/lualine.lua
+033.975  002.067  002.067: require('mini.surround')
+039.765  001.625  001.625: require('mini.ai')
+040.473  000.507  000.507: require('mini.comment')
+040.613  009.181  004.981: sourcing /home/jordanrhea/.config/nvim/plugin/mini.lua
+041.912  000.117  000.117: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/obsidian.nvim/plugin/obsidian.lua
+042.435  000.160  000.160: require('obsidian.log')
+044.536  000.051  000.051: require('obsidian.compat')
+045.792  000.094  000.094: require('vim.treesitter.language')
+045.828  000.033  000.033: require('vim.func')
+045.932  000.102  000.102: require('vim.treesitter._range')
+045.999  000.061  000.061: require('vim.func._memoize')
+046.084  000.809  000.518: require('vim.treesitter.query')
+046.098  001.318  000.509: require('vim.treesitter.languagetree')
+046.104  001.563  000.245: require('vim.treesitter')
+046.216  000.111  000.111: require('obsidian.util.fs')
+046.310  000.088  000.088: require('obsidian.parse.tags')
+046.339  000.011  000.011: require('ffi')
+046.356  002.906  001.082: require('obsidian.util')
+046.734  000.377  000.377: require('vim.iter')
+046.902  000.166  000.166: require('obsidian.path')
+047.464  000.125  000.125: require('obsidian.async')
+047.508  000.042  000.042: require('obsidian.search.opts')
+047.605  000.095  000.095: require('obsidian.search.ripgrep')
+047.610  000.706  000.444: require('obsidian.search')
+047.996  000.084  000.084: require('obsidian.builtin')
+048.642  000.434  000.434: require('vim.ui')
+048.651  000.860  000.342: require('obsidian.config.default')
+048.654  001.013  000.153: require('obsidian.config')
+048.740  000.084  000.084: require('obsidian.attachment')
+049.057  000.270  000.270: require('obsidian.lib.glob')
+049.058  000.317  000.046: require('obsidian.fs')
+049.064  006.625  001.057: require('obsidian.api')
+050.367  000.047  000.047: require('obsidian.yaml.util')
+050.369  000.072  000.025: require('obsidian.yaml.line')
+050.373  000.349  000.277: require('obsidian.yaml.parser')
+050.375  000.453  000.104: require('obsidian.yaml')
+050.447  000.030  000.030: require('obsidian.frontmatter.validator')
+050.448  000.072  000.042: require('obsidian.frontmatter')
+050.454  001.055  000.530: require('obsidian.note')
+050.460  001.394  000.339: require('obsidian.actions')
+050.479  000.018  000.018: require('obsidian.client')
+050.671  000.084  000.084: require('obsidian.commands.init-legacy')
+050.679  000.199  000.115: require('obsidian.commands')
+050.720  000.029  000.029: require('obsidian.completion.refs')
+050.752  000.031  000.031: require('obsidian.completion.tags')
+050.753  000.073  000.012: require('obsidian.completion')
+050.828  000.074  000.074: require('obsidian.img_paste')
+050.942  000.033  000.033: require('obsidian.picker.mappings')
+050.944  000.115  000.081: require('obsidian.picker')
+051.023  000.078  000.078: require('obsidian.templates')
+051.419  000.395  000.395: require('obsidian.ui')
+051.471  000.047  000.047: require('obsidian.version')
+051.751  000.276  000.276: require('obsidian.workspace')
+051.766  009.699  000.244: require('obsidian')
+059.545  000.142  000.142: require('obsidian.picker.util')
+059.555  000.546  000.404: require('obsidian.picker._default')
+059.795  000.231  000.231: require('obsidian.autocmds')
+059.802  019.118  008.526: sourcing /home/jordanrhea/.config/nvim/plugin/obsidian.lua
+059.959  000.124  000.124: sourcing /home/jordanrhea/.config/nvim/plugin/run-scripts.lua
+060.391  000.413  000.413: sourcing /home/jordanrhea/.config/nvim/plugin/sidekick.lua
+061.367  000.408  000.408: require('snacks')
+061.376  000.432  000.024: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/snacks.nvim/plugin/snacks.lua
+061.959  001.533  001.100: sourcing /home/jordanrhea/.config/nvim/plugin/snacks.lua
+062.081  000.088  000.088: sourcing /home/jordanrhea/.config/nvim/plugin/tmux.lua
+063.501  000.764  000.764: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/nvim-treesitter/plugin/filetypes.lua
+063.721  000.177  000.177: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/nvim-treesitter/plugin/nvim-treesitter.lua
+063.842  000.096  000.096: sourcing /home/jordanrhea/.local/share/nvim/site/pack/core/opt/nvim-treesitter/plugin/query_predicates.lua
+064.350  000.290  000.290: require('nvim-treesitter.config')
+064.364  002.258  000.931: sourcing /home/jordanrhea/.config/nvim/plugin/treesitter.lua
+064.651  000.212  000.212: require('vim._core.ui2')
+065.181  000.423  000.423: require('vim._core.ui2.cmdline')
+066.215  001.030  001.030: require('vim._core.ui2.messages')
+066.400  001.999  000.334: sourcing /home/jordanrhea/.config/nvim/plugin/ui2.lua
+067.264  000.157  000.157: require('colorful-winsep.config')
+069.559  000.137  000.137: require('colorful-winsep.utils')
+069.573  002.062  001.925: require('colorful-winsep.separator')
+070.144  002.875  000.813: require('colorful-winsep.view')
+070.150  003.220  000.188: require('colorful-winsep')
+070.337  003.897  000.678: sourcing /home/jordanrhea/.config/nvim/plugin/winsep.lua
+070.951  000.248  000.248: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/gzip.vim
+072.012  000.241  000.241: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+072.076  001.105  000.864: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/matchit.vim
+072.233  000.134  000.134: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/matchparen.vim
+072.749  000.164  000.164: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+072.788  000.539  000.374: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/netrwPlugin.vim
+072.912  000.106  000.106: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/rplugin.vim
+072.976  000.049  000.049: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/tarPlugin.vim
+073.002  000.010  000.010: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/tutor.vim
+073.083  000.067  000.067: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/zipPlugin.vim
+073.187  000.080  000.080: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/editorconfig.lua
+073.287  000.078  000.078: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/man.lua
+073.442  000.141  000.141: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/net.lua
+073.559  000.103  000.103: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/osc52.lua
+073.859  000.288  000.288: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/shada.lua
+073.937  000.050  000.050: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/plugin/spellfile.lua
+073.955  001.938: loading rtp plugins
+074.077  000.123: loading packages
+074.091  000.014: loading after plugins
+074.108  000.017: inits 3
+079.147  005.039: reading ShaDa
+079.849  000.702: opening buffers
+080.710  000.572  000.572: require('snacks.explorer')
+080.763  000.342: BufEnter autocommands
+080.768  000.005: editing files in windows
+081.214  000.023  000.023: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.445  000.014  000.014: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.469  000.007  000.007: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.477  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.488  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.493  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.498  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.503  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.525  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.530  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.534  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.538  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.543  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.560  000.006  000.006: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.564  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.568  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.573  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.576  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.580  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.593  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.598  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.602  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.644  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.650  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.664  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.668  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.671  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.675  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.679  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.683  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.697  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.701  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.704  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.708  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.711  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.724  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.731  000.005  000.005: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.734  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.738  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.741  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.745  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.757  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.761  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.764  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.768  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.772  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.784  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.787  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.791  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.795  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.798  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.803  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.814  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.818  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.822  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.866  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.886  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.905  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.909  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.912  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.924  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.927  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.930  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.934  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.937  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.940  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.950  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.953  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.957  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.961  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.964  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.983  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.987  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.990  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.994  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+081.997  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.001  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.011  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.014  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.018  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.051  000.007  000.007: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.073  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.090  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.117  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.133  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.147  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.181  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.197  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.213  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.246  000.011  000.011: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.265  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.283  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.317  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.431  000.005  000.005: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.459  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.475  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.489  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.536  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.560  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.605  000.022  000.022: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.737  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.776  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.857  000.005  000.005: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.898  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+082.958  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.091  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.178  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.393  000.008  000.008: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.433  000.005  000.005: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.614  000.013  000.013: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.635  000.011  000.011: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.858  000.010  000.010: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.881  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.898  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.925  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.956  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.971  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+083.990  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.010  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.026  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.051  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.066  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.079  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.100  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.114  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.133  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.143  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.166  000.011  000.011: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.189  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.199  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.325  000.018  000.018: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.342  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.363  000.015  000.015: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.372  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.376  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.385  000.006  000.006: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.498  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.505  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.513  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.518  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.524  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.529  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.535  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.545  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.566  000.006  000.006: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.573  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.577  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.582  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.587  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.592  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.618  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.624  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.632  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.638  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.645  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.690  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.697  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.746  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.755  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.762  000.003  000.003: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.769  000.001  000.001: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.776  000.002  000.002: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.810  000.005  000.005: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+084.820  000.004  000.004: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.027  000.088  000.088: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.101  000.017  000.017: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.152  000.038  000.038: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.190  000.016  000.016: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.216  000.008  000.008: sourcing nvim_exec2() called at OptionSet Autocommands for "background":0
+085.289  003.826: VimEnter autocommands
+086.351  000.492  000.492: require('snacks.util')
+086.384  001.018  000.526: require('snacks.scroll')
+086.514  000.109  000.109: require('snacks.animate')
+087.015  000.385  000.385: require('snacks.input')
+087.566  000.547  000.547: require('snacks.scope')
+087.730  000.079  000.079: require('snacks.picker')
+087.941  000.208  000.208: require('snacks.picker.config')
+088.142  000.199  000.199: require('snacks.picker.config.highlights')
+088.402  000.258  000.258: require('snacks.picker.config.defaults')
+088.897  000.494  000.494: require('snacks.picker.config.sources')
+089.016  000.116  000.116: require('snacks.picker.config.layouts')
+091.880  000.017  000.017: require('tmux.configuration.logging')
+091.913  000.025  000.025: require('tmux.log.severity')
+091.914  000.084  000.041: require('tmux.log.channels')
+091.916  000.129  000.046: require('tmux.log')
+091.954  000.037  000.037: require('tmux.configuration.options')
+092.004  000.025  000.025: require('tmux.version')
+092.005  000.050  000.025: require('tmux.configuration.validate')
+092.153  000.147  000.147: require('tmux.wrapper.tmux')
+092.155  000.423  000.059: require('tmux.configuration')
+092.382  000.030  000.030: require('tmux.keymaps')
+092.387  000.231  000.201: require('tmux.copy')
+092.620  000.042  000.042: require('tmux.layout.parse')
+092.666  000.045  000.045: require('tmux.wrapper.nvim')
+092.668  000.173  000.086: require('tmux.layout')
+092.672  000.231  000.058: require('tmux.navigation.navigate')
+092.674  000.285  000.054: require('tmux.navigation')
+092.757  000.048  000.048: require('tmux.resize')
+092.799  000.042  000.042: require('tmux.swap')
+092.804  001.184  000.155: require('tmux')
+092.855  000.048  000.048: require('tmux.log.convert')
+098.116  000.103  000.103: require('tmux.version.parse')
+098.241  000.101  000.101: sourcing nvim_exec2() called at UIEnter Autocommands for "*":0
+098.417  008.278: UIEnter autocommands
+098.843  000.318  000.318: sourcing /home/jordanrhea/.local/bin/nvim-linux-x86_64/share/nvim/runtime/autoload/provider/clipboard.vim
+098.852  000.117: before starting main loop
+099.568  000.527  000.527: require('snacks.statuscolumn')
+100.008  000.630: first screen update
+100.011  000.003: --- NVIM STARTED ---
+
