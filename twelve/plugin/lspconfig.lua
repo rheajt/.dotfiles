@@ -273,6 +273,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 		map("gh", vim.lsp.buf.hover, "[G]o to [H]over")
+		map("]d", vim.diagnostic.goto_next, "Go to next [D]iagnostic")
+		map("[d", vim.diagnostic.goto_prev, "Go to previous [D]iagnostic")
 
 		map("<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
 		map("<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
