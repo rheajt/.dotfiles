@@ -21,7 +21,7 @@ local function get_npm_scripts()
 end
 
 -- Open custom picker
-function RunNpmInSidebar()
+local function run_npm_script()
 	local scripts = get_npm_scripts()
 	-- if scripts is a string then print it and exit
 	if type(scripts) == "string" then
@@ -81,5 +81,5 @@ function RunNpmInSidebar()
 end
 
 vim.keymap.set("n", "<leader>sns", function()
-	RunNpmInSidebar()
+	run_npm_script()
 end, { silent = true, desc = "[S]plit [N]ew [S]idebar" })

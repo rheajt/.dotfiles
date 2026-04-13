@@ -36,7 +36,7 @@ vim.opt.textwidth = 100
 vim.opt.laststatus = 3
 vim.o.winborder = "none"
 
-vim.opt_local.conceallevel = 2
+vim.opt.conceallevel = 2
 
 -- Set transparent background for Blink completion menu only
 vim.g.have_nerd_font = true
