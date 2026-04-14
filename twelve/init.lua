@@ -40,6 +40,7 @@ end
 -- ============================================================================
 require("config.settings")
 require("config.keymaps")
+vim.lsp.codelens.enable(true)
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

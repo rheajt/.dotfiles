@@ -5,7 +5,7 @@ defer_plugin({
 			version = vim.version.range("*"), -- use latest release, remove to use latest commit
 		},
 	},
-	event = "BufEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	pattern = "*.md",
 	setup = function()
 		require("obsidian").setup({
