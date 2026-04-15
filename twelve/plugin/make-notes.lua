@@ -58,14 +58,22 @@ local function make_notes()
 end
 local function open_today()
 	local timestamp = os.date("%Y-%m-%d")
-	local today_notes = vim.fn.expand("~/notes/" .. timestamp .. ".md")
+	local notes_daily_dir = "~/notes/01_journal/"
+	local today_notes = vim.fn.expand(notes_daily_dir .. timestamp .. ".md")
 
 	if vim.fn.filereadable(today_notes) == 1 then
 		-- open the today_notes in a vertical sidebar of 30% width
-		vim.cmd("vsplit " .. today_notes)
-		vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.3))
+		-- only do the vsplit if no buffer opened yet, otherwise just open the file in the current buffer
+		if vim.fn.bufnr() == -1 then
+			vim.cmd("vsplit " .. today_notes)
+			vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.3))
+		else
+			vim.cmd("edit " .. today_notes)
+		end
 	else
-		print("No notes for today.")
+		-- make the file if it doesn't exist and open it
+		-- ensure obsidian is loaded then run
+		vim.cmd("Obsidian today")
 	end
 end
 
@@ -82,6 +90,12 @@ local function open_project()
 	end
 end
 
+-- vim.keymap.set("n", "<leader>mt", function()
+--     print("make today")
+-- end, { silent = true, desc = "[M]ake [T]oday's notes" })
 vim.keymap.set("n", "<leader>mn", make_notes, { silent = true, desc = "[M]ake [N]otes" })
 vim.keymap.set("n", "<leader>mo", open_today, { silent = true, desc = "[M]ake [O]pen today's notes" })
-vim.keymap.set("n", "<leader>mp", open_project, { silent = true, desc = "[M]ake [P]roject notes" })
+vim.keymap.set("n", "<leader>ms", open_project, { silent = true, desc = "[M]ake [P]roject notes" })
+vim.keymap.set("n", "<leader>md", function()
+	print("day over")
+end, { silent = true, desc = "[M]ake [D]ay over" })

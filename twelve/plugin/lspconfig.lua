@@ -55,7 +55,7 @@ end, {})
 
 local blink_loaded = false
 
-local function ensure_blink()
+function _G.ensure_blink()
 	if blink_loaded then
 		return
 	end
@@ -110,7 +110,7 @@ end
 vim.api.nvim_create_autocmd("InsertEnter", {
 	group = vim.api.nvim_create_augroup("twelve-blink-defer", { clear = true }),
 	once = true,
-	callback = ensure_blink,
+	callback = _G.ensure_blink,
 })
 
 -- ============================================================================
@@ -130,7 +130,7 @@ local function ensure_lsp()
 		"https://github.com/b0o/schemastore.nvim",
 	})
 
-	ensure_blink()
+	_G.ensure_blink()
 
 	local servers = {
 		-- AI
