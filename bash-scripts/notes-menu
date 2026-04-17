@@ -14,7 +14,7 @@ openInTerminal() {
 }
 
 newNote() {
-    openInTerminal "$NOTES_DIR/00_inbox/inbox.md"
+    openInTerminal "$NOTES_DIR/temp.md"
 }
 
 listNotes() {

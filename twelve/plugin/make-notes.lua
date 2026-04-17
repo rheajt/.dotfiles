@@ -86,7 +86,11 @@ local function open_project()
 		vim.cmd("vsplit " .. project_notes)
 		vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.3))
 	else
-		print("No notes for this project.")
+		-- create the file if it doesn't exist and open it
+		local header = "#" .. project_name
+		vim.fn.writefile({ header }, project_notes)
+		vim.cmd("vsplit " .. project_notes)
+		vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.3))
 	end
 end
 

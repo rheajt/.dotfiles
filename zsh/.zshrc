@@ -83,3 +83,7 @@ zvm_after_init_commands+=(zvm_after_init)
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# fnm
+export PATH="/home/jordanrhea/.local/share/fnm:$PATH"
+eval "$(fnm env --use-on-cd --shell zsh)"
