@@ -29,6 +29,10 @@
       "rev": "bd52e62d8134647090108189e69c8b3cd18bdbbf",
       "src": "https://github.com/luisiacc/gruvbox-baby"
     },
+    "kintsugi-nvim": {
+      "rev": "6c8b881e6aea8ee1e3361a00858b5b1a3488d885",
+      "src": "https://github.com/metalelf0/kintsugi-nvim"
+    },
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
