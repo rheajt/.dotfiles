@@ -6,14 +6,12 @@ vim.pack.add({
 
 vim.schedule(function()
 	-- Add/delete/replace surroundings (brackets, quotes, etc.)
-	--
 	-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 	-- - sd'   - [S]urround [D]elete [']quotes
 	-- - sr)'  - [S]urround [R]eplace [)] [']
 	require("mini.surround").setup()
 
 	-- Better Around/Inside textobjects
-	--
 	-- Examples:
 	--  - va)  - [V]isually select [A]round [)]paren
 	--  - yinq - [Y]ank [I]nside [N]ext [']quote
@@ -21,7 +19,13 @@ vim.schedule(function()
 	require("mini.ai").setup({ n_lines = 500 })
 
 	require("mini.comment").setup()
+
+	-- required for statusline
+	require("mini.git").setup()
+	require("mini.diff").setup()
+
 	require("mini.statusline").setup({
+		theme = "gruvbox",
 		content = {
 			active = function()
 				local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
