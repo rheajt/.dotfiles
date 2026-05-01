@@ -208,7 +208,7 @@ vim.keymap.set("n", "<leader>co", function()
 	local issues = vim.fn.glob("issues/*.md", false, true)
 	local commits = vim.fn.systemlist('git log -n 5 --format="%H%n%ad%n%B---" --date=short 2>/dev/null')
 
-	local prompt = vim.fn.readfile(vim.fn.expand("~/projects/bash/ralph/prompt.md"))
+	local prompt = vim.fn.readfile(vim.fn.expand("~/projects/bash/opencode-afk/prompt.md"))
 
 	local full_prompt = "Previous commits:\n"
 		.. table.concat(commits, "\n")
@@ -219,35 +219,5 @@ vim.keymap.set("n", "<leader>co", function()
 
 	local sc = require("sidekick.cli")
 	sc.toggle({ name = "opencode", focus = true })
-	sc.send({ msg = full_prompt })
+	sc.send({ msg = full_prompt, submit = true })
 end, { desc = "Open[C]ode [O]ne issue" })
-
--- vim.keymap.set("n", "<leader>cm", function()
--- 	ensure_sidekick()
--- 	local issues = vim.fn.glob("issues/*.md", false, true)
---
--- 	for _, issue in ipairs(issues) do
--- 		local commits = vim.fn.systemlist('git log -n 5 --format="%H%n%ad%n%B---" --date=short 2>/dev/null')
---
--- 		local prompt = vim.fn.readfile(vim.fn.expand("~/projects/bash/ralph/prompt.md"))
---
--- 		local full_prompt = "Previous commits:\n"
--- 			.. table.concat(commits, "\n")
--- 			.. "\n\nIssue:\n"
--- 			.. issue
--- 			.. "\n\n"
--- 			.. table.concat(prompt, "\n")
---
--- 		-- i need to send the full_prompt to sidekick.cli opencode and then wait for the result. of
--- 		-- this. then, when all of the issues are done it will print: `<promise>NO MORE
--- 		-- TASKS</promose>` then i want to message: `All issues have been processed. Please check
--- 		-- the opencode CLI for results.:
--- 		local sc = require("sidekick.cli")
--- 		sc.toggle({ name = "opencode", focus = true })
--- 		-- sc.send({ msg = full_prompt })
--- 		print(issue .. " has been sent to the opencode CLI for processing.")
---
--- 		vim.wait(2000)
--- 		-- vim.cmd("silent! !clear")
--- 	end
--- end, { desc = "[O]pencode issue solver" })
