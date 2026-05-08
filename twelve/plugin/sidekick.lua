@@ -133,7 +133,7 @@ end
 -- Keymaps (always defined -- functions require() on demand)
 -- ============================================================================
 
-vim.keymap.set("n", "<tab>", function()
+vim.keymap.set("n", "<C-y>", function()
 	ensure_sidekick()
 	if not require("sidekick").nes_jump_or_apply() then
 		return "<Tab>"
