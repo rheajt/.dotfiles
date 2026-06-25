@@ -38,54 +38,36 @@ local function run_npm_script()
 
   table.sort(entries, function(a, b) return a.name < b.name end)
 
-  local pickers = require 'telescope.pickers'
-  local finders = require 'telescope.finders'
-  local conf = require('telescope.config').values
-  local actions = require 'telescope.actions'
-  local action_state = require 'telescope.actions.state'
-  local entry_display = require 'telescope.pickers.entry_display'
+  local items = vim.tbl_map(function(entry)
+    local command = runner .. ' run ' .. entry.name
 
-  local displayer = entry_display.create {
-    separator = ' : ',
-    items = {
-      { width = 23 },
-      { remaining = true },
-    },
+    return {
+      text = command .. ' ' .. entry.command,
+      name = entry.name,
+      command = entry.command,
+      run_command = command,
+    }
+  end, entries)
+
+  Snacks.picker {
+    title = 'Package Scripts',
+    items = items,
+    format = function(item)
+      return {
+        { Snacks.picker.util.align(item.run_command, 23, { truncate = true }), 'SnacksPickerCmd' },
+        { ' : ', 'SnacksPickerDelim' },
+        { item.command, 'SnacksPickerDesc' },
+      }
+    end,
+    preview = 'none',
+    confirm = function(picker, item)
+      picker:close()
+
+      if not item then return end
+
+      os.execute('tmux-split-right ' .. vim.fn.shellescape(item.run_command))
+    end,
   }
-
-  pickers
-    .new({}, {
-      prompt_title = 'Package Scripts',
-      finder = finders.new_table {
-        results = entries,
-        entry_maker = function(entry)
-          return {
-            value = entry.name,
-            ordinal = entry.name .. ' ' .. entry.command,
-            display = function()
-              return displayer {
-                runner .. ' run ' .. entry.name,
-                entry.command,
-              }
-            end,
-          }
-        end,
-      },
-      sorter = conf.generic_sorter {},
-      attach_mappings = function(prompt_bufnr)
-        actions.select_default:replace(function()
-          local selection = action_state.get_selected_entry()
-          actions.close(prompt_bufnr)
-
-          if not selection then return end
-
-          os.execute('tmux-split-right ' .. vim.fn.shellescape(runner .. ' run ' .. selection.value))
-        end)
-
-        return true
-      end,
-    })
-    :find()
 end
 
 vim.keymap.set('n', '<leader>sns', function() run_npm_script() end, { silent = true, desc = '[S]plit [N]ew [S]idebar' })
