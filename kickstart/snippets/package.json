@@ -1,0 +1,27 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./json.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": [
+          "typescriptreact",
+          "tsx",
+          "jsx"
+        ],
+        "path": "./typescriptreact.json"
+      },
+      {
+        "language": "hbs",
+        "path": "./handlebars.json"
+      }
+    ]
+  }
+}

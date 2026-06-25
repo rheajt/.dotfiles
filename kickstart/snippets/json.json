@@ -1,0 +1,15 @@
+{
+  "pspageentry": {
+    "prefix": "pspageentry",
+    "description": "Create a new powerschool.json page entry",
+    "body": [
+      "{",
+      "\"entry\": \"$1\",",
+      "\"template\": \"$5\"",
+      "\"destination\": \"$2\",",
+      "\"filename\": \"$3\",",
+      "\"title\": \"$4\",",
+      "}"
+    ]
+  }
+}
