@@ -1,8 +1,16 @@
 #!/bin/sh
 
+SIDEBAR=false
+
+if [ "$1" = "--sidebar" ]; then
+    SIDEBAR=true
+    shift
+fi
+
 if [ $# -ne 2 ]; then
-    echo "Usage: "${0}" <i3_mark> <launch_cmd>"
+    echo "Usage: ${0} [--sidebar] <i3_mark> <launch_cmd>"
     echo "Example: ${0} 'scratch-emacs' 'emacsclient -c -a emacs'"
+    echo "Example: ${0} --sidebar 'scratch-emacs' 'emacsclient -c -a emacs'"
     exit 1
 fi
 
@@ -17,14 +25,24 @@ scratchpad_show() {
     # screen width of monitor that is currently focsed with only one return value minus 200
     # make string into integer
     SCREEN_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1 | head -n 1)
-    SCREEN_WIDTH=$((SCREEN_WIDTH - 200))
 
     # screen height of monitor that is currently focsed with only one return value minus 200
     # make string into integer
     SCREEN_HEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2 | head -n 1)
-    SCREEN_HEIGHT=$((SCREEN_HEIGHT - 100))
 
-    i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SCREEN_WIDTH $SCREEN_HEIGHT, move position center
+    if [ "${SIDEBAR}" = true ]; then
+        SIDEBAR_Y=24
+        SIDEBAR_WIDTH=$((SCREEN_WIDTH * 11 / 30))
+        SIDEBAR_X=$((SCREEN_WIDTH - SIDEBAR_WIDTH))
+        SIDEBAR_HEIGHT=$((SCREEN_HEIGHT - SIDEBAR_Y))
+
+        i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SIDEBAR_WIDTH $SIDEBAR_HEIGHT, move position $SIDEBAR_X $SIDEBAR_Y
+    else
+        SCREEN_WIDTH=$((SCREEN_WIDTH - 200))
+        SCREEN_HEIGHT=$((SCREEN_HEIGHT - 100))
+
+        i3-msg "[con_mark=${I3_MARK}]" scratchpad show, resize set $SCREEN_WIDTH $SCREEN_HEIGHT, move position center
+    fi
 }
 
 # try showing the scratchpad window

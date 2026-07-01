@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+path=(
+    "$HOME/.fzf/bin"(N)
+    $path
+)
+
+if ! command -v fzf >/dev/null 2>&1; then
+    print -u2 "Error: fzf is required but was not found in PATH."
+    exec zsh
+fi
+
+dir=$(fd --type d --hidden --exclude .git . "$HOME/projects" | fzf)
+
+if [[ -n "$dir" ]]; then
+    cd "$dir" || exit 1
+    opencode
+fi
+
+exec zsh

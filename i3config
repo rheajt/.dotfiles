@@ -186,7 +186,7 @@ bindsym $mod+r mode "RESIZE"
 # TODO make this the scratch pad options
 mode "SCRATCHPADS" {
 	# scratchpads
-	bindsym k exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-skype' 'skypeforlinux'" mode "default"
+        bindsym o exec --no-startup-id "~/.local/sh/i3_scratchpad_show --sidebar 'scratch-opencode' 'ghostty -e zsh -lc ~/.local/sh/opencode_project_picker'" mode "default"
 	bindsym z exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-zoom' 'zoom'" mode "default"
 	bindsym g exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-keyboard' '~/Desktop/keymapp-latest/keymapp'" mode "default"
 	bindsym c exec --no-startup-id "~/.local/sh/i3_scratchpad_show 'scratch-morgen' 'morgen'" mode "default"
