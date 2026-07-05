@@ -280,6 +280,10 @@ do
   }
 
   -- [[ Colorscheme ]]
+  -- vim.pack.add { gh 'kbraggins/duskhaven.nvim' }
+  -- vim.cmd.colorscheme 'duskhaven'
+
+  -- INFO: Gruvbox
   vim.pack.add { gh 'luisiacc/gruvbox-baby' }
   vim.g.gruvbox_baby_transparent_mode = true
   vim.g.gruvbox_baby_background_color = 'dark'
@@ -431,6 +435,11 @@ do
       --  For example, in C this would take you to the header.
       map('grD', vim.lsp.buf.declaration, '[G]oto [R]esearch [D]eclaration')
       map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+      map('gv', function()
+        vim.cmd.vsplit()
+        vim.lsp.buf.definition()
+      end, '[G]oto Definition in [V]split', { 'n', 'x' })
+
       map('gh', function() vim.lsp.buf.hover() end, '[G]oto [H]over')
       map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
@@ -738,11 +747,7 @@ do
   vim.api.nvim_create_autocmd('FileType', {
     callback = function(args)
       local buf, filetype = args.buf, args.match
-
       local language = vim.treesitter.language.get_lang(filetype)
-      if not language then return end
-      -- require('nvim-treesitter.config').setup { highlight = { enable = true } }
-
       local installed_parsers = require('nvim-treesitter').get_installed 'parsers'
 
       if vim.tbl_contains(installed_parsers, language) then
