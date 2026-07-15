@@ -1,0 +1,29 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "mcp": {
+    "Sentry": {
+      "type": "remote",
+      "url": "https://mcp.sentry.dev/mcp"
+    },
+    "Sanity": {
+      "type": "remote",
+      "url": "https://mcp.sanity.io",
+      "headers": {
+        "Authorization": "Bearer sk3P2U3v87oj5pkmxduAy3ocqJiHfx2Wwu3orTOH3O57AcyYJZMAz82kn5aUsqGMSCFRZqXSqKxDBDrju"
+      }
+    }
+  },
+  "plugin": [
+    "oh-my-opencode-slim"
+  ],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true
+}

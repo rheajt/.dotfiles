@@ -1,0 +1,68 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "openai",
+  "presets": {
+    "openai": {
+      "orchestrator": {
+        "model": "openai/gpt-5.6-luna-fast",
+        "skills": ["*", "!make-interfaces-feel-better"],
+        "mcps": ["*", "!context7", "!gh_app", "!websearch"]
+      },
+      "oracle": {
+        "model": "openai/gpt-5.6-sol",
+        "variant": "high",
+        "skills": ["ce-brainstorm", "workers-best-practices", "web-perf"],
+        "mcps": ["codegraph", "searxng", "crawl4ai"]
+      },
+      "librarian": {
+        "model": "openai/gpt-5.3-codex-spark",
+        "variant": "low",
+        "skills": ["customer-research"],
+        "mcps": ["websearch", "context7", "gh_grep", "searxng", "crawl4ai"]
+      },
+      "explorer": {
+        "model": "openai/gpt-5.3-codex-spark",
+        "variant": "low",
+        "skills": [],
+        "mcps": ["codegraph"]
+      },
+      "designer": {
+        "model": "github-copilot/gemini-3.1-pro-preview",
+        "variant": "medium",
+        "skills": [
+          "make-interfaces-feel-better",
+          "better-icons",
+          "vue",
+          "nuxt",
+          "motion",
+          "image",
+          "marketing-psychology",
+          "video"
+        ],
+        "mcps": ["codegraph"]
+      },
+      "fixer": {
+        "model": "openai/gpt-5.6-terra",
+        "variant": "medium",
+        "skills": [],
+        "mcps": []
+      },
+      "council": { "model": "openai/gpt-5.6-terra" }
+    }
+  },
+  "council": {
+    "presets": {
+      "default": {
+        "alpha": { "model": "openai/gpt-5.6-luna" },
+        "beta": { "model": "google-copilot/gemini-3.1-pro-preview" },
+        "gamma": { "model": "openai/gpt-5.3-codex-spark" }
+      }
+    }
+  },
+  "todoContinuation": {
+    "maxContinuations": 50,
+    "cooldownMs": 3000,
+    "autoEnable": false,
+    "autoEnableThreshold": 4
+  }
+}

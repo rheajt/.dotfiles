@@ -50,6 +50,7 @@ alias s="sessions"
 alias weather='curl "wttr.in/$(echo "Sanur\nDenpasar\nBeijing\nRichmond\nShunyi" | fzf)?m&lang=en" | head -n -1'
 alias pjs=". projects"
 alias :q="exit"
+alias lg="lazygit"
 
 # vim bind
 # bindkey -v
