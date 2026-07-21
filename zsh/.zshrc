@@ -51,7 +51,7 @@ alias weather='curl "wttr.in/$(echo "Sanur\nDenpasar\nBeijing\nRichmond\nShunyi"
 alias pjs=". projects"
 alias :q="exit"
 alias lg="lazygit"
-alias timezone="sudo timedatectl set-timezone $(timedatectl set-timezone | fzf --preview='')"
+alias timezone='sudo timedatectl set-timezone "$(timedatectl list-timezones | fzf --preview="")"'
 
 # vim bind
 # bindkey -v
