@@ -25,6 +25,7 @@ do
   vim.opt.expandtab = true
   vim.opt.smartindent = true
   vim.opt.conceallevel = 2
+  vim.opt.termguicolors = true
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = true
@@ -282,6 +283,9 @@ do
   -- [[ Colorscheme ]]
   -- vim.pack.add { gh 'kbraggins/duskhaven.nvim' }
   -- vim.cmd.colorscheme 'duskhaven'
+
+  -- vim.pack.add { gh 'g-kirti/hardhat.nvim' }
+  -- vim.cmd.colorscheme 'hardhat-vivid'
 
   -- INFO: Gruvbox
   vim.pack.add { gh 'luisiacc/gruvbox-baby' }

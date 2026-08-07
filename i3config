@@ -39,6 +39,8 @@ bindsym $mod+shift+q kill
 # bindsym $mod+d exec "rofi -show drun -sorting-method fzf -sort -matching fuzzy -show window"
 bindsym $mod+d exec rofi -show drun -sorting-method fzf -sort -matching fuzzy -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
+bindsym $mod+Shift+x exec --no-startup-id sh -c 'xset q | grep -q "DPMS is Enabled" && xset -dpms s off || xset +dpms dpms 0 300 300'
+
 bindsym $mod+shift+d exec "rofi -show run"
 bindsym $mod+shift+s exec "~/.local/sh/sound-menu"
 bindsym $mod+shift+b exec "firefox"
