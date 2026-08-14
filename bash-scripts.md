@@ -28,6 +28,9 @@ This document summarizes the purpose and functionality of each script in the `ba
 - **getgo**  
   Helps install, upgrade, or manage versions of the Go programming language (requires curl and jq). Based on GitHub repo by Mohamed Attahri.
 
+- **herdr-select.sh**
+  Opens a floating fzf picker for Herdr agents and panes, with details and recent output in a right-side preview.
+
 - **i3-battery-popup**  
   Script to show battery warnings/notifications in i3, with support for multiple batteries and customizable percentage thresholds.
 

@@ -130,9 +130,11 @@ height = "80%"
 
 [[keys.command]]
 key = "prefix+t"
-type = "plugin_action"
-command = "herdr-navigator.open"
-description = "jump to anything"
+type = "popup"
+command = "herdr-select.sh"
+width = "92%"
+height = "82%"
+description = "Select a Herdr agent or pane"
 
 [[keys.command]]
 key = "prefix+o"
