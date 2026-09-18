@@ -48,7 +48,7 @@ alias tds="tmux detach"
 alias blog="cd ~/projects/blog"
 alias s="sessions"
 alias weather='curl "wttr.in/$(echo "Sanur\nDenpasar\nBeijing\nRichmond\nShunyi" | fzf)?m&lang=en" | head -n -1'
-alias pjs=". projects"
+alias pjs=". ~/projects/dotfiles/bash-scripts/projects"
 alias :q="exit"
 alias lg="lazygit"
 alias timezone='sudo timedatectl set-timezone "$(timedatectl list-timezones | fzf --preview="")"'

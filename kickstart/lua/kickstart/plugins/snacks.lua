@@ -4,7 +4,7 @@ vim.pack.add {
 require('snacks').setup {
   bigfile = { enabled = true },
   dim = { enabled = false },
-  explorer = { enabled = true, replace_netrw = true },
+  explorer = { enabled = true, replace_netrw = true, opts = { layout = { preview = true } } },
   image = {
     enabled = true,
     doc = {

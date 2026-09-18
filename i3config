@@ -7,6 +7,7 @@ exec_always --no-startup-id xset +dpms dpms 0 300 300
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/projects/dotfiles/bash-scripts/lock
 
 font pango: 0xProto Nerd Font Mono
+title_align center
 gaps inner 4px
 gaps outer 2px
 popup_during_fullscreen smart

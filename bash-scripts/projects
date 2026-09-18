@@ -5,8 +5,6 @@ local PROJECT_TYPE=$(ls $MAIN_DIR | fzf --preview="tree $MAIN_DIR/{} -L 1 -d" --
 local PROJECT=$(ls $MAIN_DIR/$PROJECT_TYPE | fzf --preview="tree $MAIN_DIR/$PROJECT_TYPE/{} -L 1" --reverse)
 local FULL_PATH=$MAIN_DIR/$PROJECT_TYPE/$PROJECT
 
-cd $FULL_PATH
+echo "$FULL_PATH"
+cd "$FULL_PATH"
 
-if [[ -d "node_modules" ]]; then
-    tns
-fi

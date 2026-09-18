@@ -2,4 +2,7 @@
 .z*
 nvim/plugin/**/*
 
+# Environment files
+*.env*
+
 
