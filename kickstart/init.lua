@@ -260,8 +260,8 @@ do
   --
   -- We first install it from https://github.com/NMAC427/guess-indent.nvim
   -- and then call its `setup()` function to start it with default settings.
-  vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
-  require('guess-indent').setup {}
+  -- vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
+  -- require('guess-indent').setup {}
 
   -- Because lua is a real programming language, you can also have some logic to your installation -
   -- like only installing a plugin if a condition is met.
@@ -296,6 +296,13 @@ do
   vim.pack.add { gh 'luisiacc/gruvbox-baby' }
   vim.g.gruvbox_baby_transparent_mode = true
   vim.g.gruvbox_baby_background_color = 'dark'
+  -- Dim listchars (including tabs and nbsp) without changing SpecialKey.
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    group = vim.api.nvim_create_augroup('dim-listchars', { clear = true }),
+    callback = function()
+      vim.api.nvim_set_hl(0, 'Whitespace', { fg = '#3c3836' })
+    end,
+  })
   vim.cmd.colorscheme 'gruvbox-baby'
 
   -- Highlight todo, notes, etc in comments
