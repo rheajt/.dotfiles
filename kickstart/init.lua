@@ -296,12 +296,11 @@ do
   vim.pack.add { gh 'luisiacc/gruvbox-baby' }
   vim.g.gruvbox_baby_transparent_mode = true
   vim.g.gruvbox_baby_background_color = 'dark'
+
   -- Dim listchars (including tabs and nbsp) without changing SpecialKey.
   vim.api.nvim_create_autocmd('ColorScheme', {
     group = vim.api.nvim_create_augroup('dim-listchars', { clear = true }),
-    callback = function()
-      vim.api.nvim_set_hl(0, 'Whitespace', { fg = '#3c3836' })
-    end,
+    callback = function() vim.api.nvim_set_hl(0, 'Whitespace', { fg = '#3c3836' }) end,
   })
   vim.cmd.colorscheme 'gruvbox-baby'
 
